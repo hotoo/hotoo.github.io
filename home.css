@@ -1,0 +1,61 @@
+html,body{margin:0; padding:0; height:100%;}
+
+#horizontal-line{border-top:1px solid #eee; position:absolute; top:38.2%; left:0; width:100%;}
+#vertical-line{border-left:1px solid #eee; position:absolute; top:0; left:50%; height:100%;}
+    #horizontal-line span,#vertical-line span{border:0; background:#eee none; color:#666; text-shadow:1px 1px #fff; padding:0 8px;}
+
+#sign-shadow{position:absolute; left:50%; top:38.2%; margin:-46px 0 0 -146px; width:304px; height:104px; background:#cfcfcf none; -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;}
+
+.hotoo-sign{margin:-50px 0 0 -150px; padding:2px; font-family:'Courier New','SimSun','宋体'; font-size:14px; line-height:14px; width:300px; background:#e6e6e6 none; -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; position:absolute; top:38.2%; left:50%;}
+    .hotoo-sign dl{margin:0; padding:0;}
+    .hotoo-sign dl:after{content:"\0020"; display:block; height:0; clear:both;}
+    .hotoo-sign dl{zoom:1;}
+        .hotoo-sign dl dt{float:left; font-weight:normal; margin:0; padding:0 0 16px 12px; background:#fff none; width:86px; border:0; -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;}
+        .hotoo-sign dl dt pre{margin:0; padding:0;}
+        .hotoo-sign dl dd{margin:0; padding:0 2px; float:right; width:190px; height:100px; position:relative;}
+            .hotoo-sign dl dd h2{margin:5px 0 6px 0; padding:0; line-height:2em; font-size:1em;}
+            .hotoo-sign dl dd cite{font-size:1.8em; font-style:normal; color:#666;}
+            .hotoo-sign dl dd sup{color:#777; font-size:1.8em; font-weight:normal;}
+            .hotoo-sign dl dd ul{list-style-type:none; margin:0; padding:0; bottom:0; right:0; position:absolute;}
+            .hotoo-sign dl dd ul:after{content:"\0020"; display:block; height:0; clear:both;}
+            .hotoo-sign dl dd ul{zoom:1;}
+                .hotoo-sign dl dd ul li{list-style-type:none; margin:0 1px; padding:0; float:left; width:32px; height:32px; overflow:hidden;}
+                .hotoo-sign dl dd ul li a{color:#666; text-decoration:none; margin:0; padding:64px 0 0 0; width:32px; height:32px; overflow:hidden; display:inline-block; background:transparent url(icon.png) no-repeat;}
+.hotoo-sign:hover,.hotoo-sign:focus{background-color:#f60;}
+.hotoo-sign:hover dl dt{background-color:#fff;}
+    .hotoo-sign:hover dl dd cite, .hotoo-sign:focus dl dd cite{color:#fff;}
+    .hotoo-sign:hover dl dd sup, .hotoo-sign:focus dl dd sup{color:#fff;}
+    .hotoo-sign:hover dl dd ul a, .hotoo-sign:focus dl dd ul a{color:#fff;}
+    .hotoo-sign dl dd ul a:hover{text-shadow:2px 2px #666; border-bottom:1px dashed #fff;}
+
+.hotoo-sign .wp{background-position:-32px 0; _background-position:-160px 0;}
+.hotoo-sign:hover .wp,.hotoo-sign:focus .wp{background-position:-32px -32px; _background-position:-128px -32px;}
+.hotoo-sign:hover .wp:hover, .wp:focus{background-position:-32px -64px;}
+.wp:hover{_background-position:-160px -64px;}
+
+.hotoo-sign .wiki{background-position:0 0; _background-position:-128px 0;}
+.hotoo-sign:hover .wiki,.hotoo-sign:focus .wiki{background-position:0 -32px; _background-position:-128px -32px;}
+.hotoo-sign:hover .wiki:hover, .wiki:focus{background-position:0 -64px;}
+.wiki:hover{_background-position:-128px -64px;}
+
+.hotoo-sign .pic{background-position:-64px 0; _background-position:-192px 0;}
+.hotoo-sign:hover .pic,.hotoo-sign:focus .pic{background-position:-64px -32px;}
+.hotoo-sign:hover .pic:hover, .pic:focus{background-position:-64px -64px;}
+.pic:hover{_background-position:-192px -64px;}
+
+.hotoo-sign .tweet{background-position:-96px 0; _background-position:-124px 0;}
+.hotoo-sign:hover .tweet,.hotoo-sign:focus .tweet{background-position:-96px -32px;}
+.hotoo-sign:hover .tweet:hover, .tweet:focus{background-position:-96px -64px;}
+.tweet:hover{_background-position:-124px -64px;}
+
+.hotoo-sign .resume{background-position:-128px 0; _background-position:-256px 0;}
+.hotoo-sign:hover .resume,.hotoo-sign:focus .resume{background-position:-128px -32px;}
+.hotoo-sign:hover .resume:hover, .resume:focus{background-position:-128px -64px;}
+.resume:hover{_background-position:-256px -64px;}
+
+#third-party{padding:3px; position:absolute; right:2px; bottom:2px; border:1px solid #eee; background:#f8f8f8;
+    -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;}
+#third-party:hover a{color:#666;}
+    #third-party ul{margin:0; padding:0; list-style-type:none;}
+        #third-party a{color:#ccc; text-decoration:none; font-family:Tahoma,Arial,sans-serif,'Courier New','SimSun','宋体';}
+        #third-party a:hover{color:#f60; text-decoration:underline;}
