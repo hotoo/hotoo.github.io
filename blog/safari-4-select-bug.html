@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>safari-4-select-bug - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">发现 Safari4的select控件bug</h1>
+<p>
+昨天看了新的<a href="http://www.taobao.com/">淘宝首页</a>，非常赞，有不少模仿/参考Yahoo 的成分。
+</p>
+
+<p>
+当时用的Safari 4 Public Beta (528.16)（后来用同事的Safari 4.0.2 (530.19.1)也一样），偶然点到预订机票的页签，随便点了几下选择框(&lt;select&gt;)，2月，28天，正常；3月，28天？；4 月，28天！…
+</p>
+
+<p>
+<a href="http://www.flickr.com/photos/hotoo/4246970340/"><img src="http://farm3.static.flickr.com/2659/4246970340_ee2cabeefc_o.png" /></a>
+</p>
+
+<p>
+Safari 4 select bug(Windows)
+</p>
+
+<p>
+另外在IE 7, FF3.5, Chrome 4, Opera 10上测试却都是正常的。
+</p>
+
+<p>
+源码很易读，逻辑上没有什么问题，几点建议：
+</p>
+
+<ul>
+<li>
+清空选项框建议使用遍历并 <code>selDay.remove(0);</code>；（一时忘记在什么情况下 <code>selDay.options.length = 0;</code> 会有问题了）
+</li>
+<li>
+在创建好 Option 对象之后再 <code>selMonth.options[month].selected = true;</code> 和 <code>selDay.options[day-startDay].selected = true;</code> 就可以了，无需在循环时一一判断；
+</li>
+<li>
+另外关于转换不存在的日期（如2月31日）时，在这里其实没有什么用处的，转出来的日期基本也不会是用户期望的日期（用户期望是2月某日，却跑到了3月），遇到这种情况，变成2月1日或2月28日就可以了，而无需给出任何（讨厌的alert）提示。
+</li>
+</ul>
+
+<p>
+这都不是造成这个bug的原因，打印各个关键的运行时变量值都是正常的，但在界面是就是没有显示出来。
+</p>
+
+<p>
+今天 5 号，把昨天没有确定（是当时机器，或者当时浏览器）的问题拿出来再看，发现2,3,4…月都只有27天了，这个值与第一次产生的 <code>options.length</code>相等。注释掉 519: <code>//startDay = now.getDate();</code> ，让 &lt;select&gt; 最初长度为31，再转到2月，发现最后多了好几个不能点击的可见选项，此时浏览器也经常性崩溃。
+</p>
+
+<p>
+这应该是渲染引擎的问题，而针对 IE 激活重新渲染的代码也无效：
+</p>
+<pre>
+function reflow(){
+    var b = document.body;
+    //b.style.zoom = b.style.zoom=="1"?"100%":"1";
+    //b.style.zoom = 1.1;
+    //b.style.zoom = '';
+    b.style.display = "none";
+    b.style.display = "";
+}
+</pre>
+
+<p>
+但是淘宝紧邻预订机票左侧页签的“游戏快冲”却没有这个问题，于是怀疑是跟 Option 的个数有关。
+</p>
+
+<p>
+经过更多的实验分析， <strong>结论</strong> 是超出24个 Option 之后的选项，渲染就会出问题，而恰巧? Safari 4 默认最大下拉长度也是24个。
+</p>
+
+
+<p>
+ blog:datetime=2010/03/29 20:14:24:tags=Safari,bugs
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

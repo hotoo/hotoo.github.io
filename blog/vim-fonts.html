@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>vim-fonts - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">vim字体设置</h1>
+<p>
+明城有 “<a href="http://www.gracecode.com/archives/1545/">苹果的 Courier 字体不错</a>” 和“<a href="http://www.gracecode.com/archives/2402/">Windows 下 gVim 的雅黑字体配置</a>” 两篇介绍 Vim 下设置推荐字体的文章，里面提供的设置代码及提高的下载资源都很赞。
+</p>
+
+<p>
+家里的 Windows 7 用了 Courier New 字体后，体验很好。
+</p>
+
+<p>
+但是搬到公司的 Windows XP 上却比原来 Windows 自身的 Courier New 没多大提高。
+</p>
+
+<p>
+今天看了蟠盛写的“<a href="http://blog.htmlor.com/2007/10/14/good_programming_fonts/">几种不错的编程字体</a>”，顺便看了下 <a href="http://support.microsoft.com/kb/306527/zh-cn">使用 ClearType 增强屏幕字体</a>，按步骤 果然好了很多。
+</p>
+
+<p>
+这里记录完整的设置：
+</p>
+
+<ol>
+<li>
+下载 <a href="http://hotoo.googlecode.com/svn/trunk/fonts/Apple_Courier_Gracecode.zip">Apple Courier字体</a> ^<a href="http://www.box.net/shared/zf08nmhc8g">2</a><sup><small> </small></sup><a href="http://lifesinger.googlecode.com/files/apple_courier_font.zip">3</a><sup><small> </small></sup>GFW^，并安装。安装方法：
+</li>
+<ul>
+<li>
+for Windows 7: 右键字体文件，安装即可。
+</li>
+<li>
+for Windows XP:
+</li>
+<ol>
+<li>
+资源管理器中打开系统盘下的fonts目录（如C:\WINDOWS\Fonts，或运行fonts）
+</li>
+<li>
+文件 -&gt; 安装新字体；
+</li>
+<li>
+驱动器和文件夹定位到字体所在位置，字体列表将自动列出找到的字体；
+</li>
+<li>
+选中要安装的字体，点击确定即可。
+</li>
+<li>
+或直接将字体文件拷贝到Fonts文件夹亦可，系统将自动启动安装过程。
+</li>
+</ol>
+</ul>
+<li>
+<a href="ClearType.html">ClearType</a>
+</li>
+<ol>
+<li>
+控制面板 -&gt; 显示（或右键桌面 -&gt; 属性） -&gt; 外观 -&gt; 效果；
+</li>
+<li>
+选中“☑ 使用下列方式使屏幕字体的边缘平滑”；
+</li>
+<li>
+并切换下面的下拉框，选中“清晰(<a href="ClearType.html">ClearType</a>)”；
+</li>
+<li>
+确定即可。
+</li>
+</ol>
+<li>
+Vim设置
+</li>
+<ol>
+<li>
+在 _vimrc 中加入如下代码：
+</li>
+</ol>
+</ol>
+
+<pre>
+set guifont=Courier_New:h11:cANSI
+</pre>
+<ol>
+<li>
+中文的宋体已经非常好了，不过仍然可以单独设置中文字体：
+</li>
+</ol>
+
+<pre>
+set guifontwide=YouYuan:h11:cGB2312
+</pre>
+<ol>
+<li>
+此时，新启动vim即可使用新设置的字体了。
+</li>
+</ol>
+
+<p>
+<a href="http://www.flickr.com/photos/hotoo/3919344550/"><img src="http://farm4.static.flickr.com/3462/3919344550_f5cd6656c8_o.png" /></a>
+</p>
+
+<p>
+ blog:date=2009/9/14:tags=Vim,fonts
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

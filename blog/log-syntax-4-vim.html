@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>log-syntax-4-vim - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">让 Vim 支持 LOG 文件</h1>
+<p>
+日志(.LOG)文件的基本上无章可循，各成风格。所以一般都是在纯文本模式下查看。
+以普通文本的方式显示日志，基本没有清晰度和阅读舒适感。
+</p>
+
+<p>
+不过一般来说，日志中是会有日期时间（格式非常多样），错误产生的地址，行号，
+列号，日志类型（错误(ERROR)，信息(INFO)，调试(DEBUG)，警告(WARN)等）
+</p>
+
+<p>
+据此，我为 .LOG 文件定义了一些语法着色的规则，将 <a href="http://hotoo.googlecode.com/svn/trunk/vim/vimfiles/syntax/log.vim">log.vim</a> 放至 <code>$VIM\vimfiles\syntax</code>(Windows) 目录，并在 <code>$VIM\vim72\filetype.vim</code> 中加入：
+</p>
+<pre>
+au BufNewFile,BufRead *.log         setf log
+</pre>
+
+<p>
+现在就可以在 Vim 中较清晰的查看 .LOG 日志了。
+</p>
+
+<p>
+<img src="http://farm5.static.flickr.com/4051/4623711702_81901313f9_o.jpg" />
+</p>
+
+<p>
+你也可以针对自己的实际情况，来自定义语法。
+</p>
+
+<p>
+ blog:date=2010/5/13:tags=Vim,.LOG
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

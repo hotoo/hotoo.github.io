@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>vim-for-cpp-dev - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">配置 Vim 作为 C++ 开发环境初步</h1>
+<p>
+一般来说，如果你使用 Vim 开发完整的项目，使用 Makefile 并直接 <code>:make</code> 就可以了。
+</p>
+
+<p>
+将下面的代码写入到 vimrc 中， Vim 会捕获编译过程中出现的消息并显示在 Quickfix 窗口。
+</p>
+<pre>
+autocmd FileType cpp,c nmap &lt;F9&gt; :make&lt;CR&gt; :copen&lt;CR&gt; &lt;C-W&gt;10_
+</pre>
+<p>
+但是如果你是 C/C++ 新手，目前较多书写单个的 C/C++ 代码文件，或者只是想快速测试某段代码的话，使用 gcc/g++ 直接编译或许是更简单的方式。你可以直接在 Vim 中执行外部 gcc/g++ 命令，也可以想这样映射快捷键：
+</p>
+<pre>
+autocmd FileType cpp nmap &lt;F10&gt; :w&lt;cr&gt;:exe "!gcc -o ".expand("%:r").".exe ".expand("%")&lt;cr&gt;
+</pre>
+<p>
+不过这样使用外部命令， Vim 并不能捕获编译过程的输出消息，就无法在 Vim 中根据错误消息有效的定位到错误行了。
+</p>
+
+<p>
+有更好的方法：
+</p>
+<pre>
+autocmd FileType cpp nmap &lt;F10&gt; :w&lt;cr&gt;:exe ":set makeprg=g++\\\ -Wall\\\ -o\\\ ".expand("%:r").".exe\\\ ".expand("%")&lt;cr&gt;:make&lt;cr&gt;&lt;cr&gt;:cw&lt;cr&gt;
+autocmd FileType c nmap &lt;F10&gt; :w&lt;cr&gt;:exe ":set makeprg=gcc\\\ -Wall\\\ -o\\\ ".expand("%:r").".exe\\\ ".expand("%")&lt;cr&gt;:make&lt;cr&gt;&lt;cr&gt;:cw&lt;cr&gt;
+autocmd FileType cpp,c nmap &lt;F5&gt; :exe "!".expand("%:r").".exe"&lt;Left&gt;
+autocmd FileType javascript nmap &lt;F9&gt; :call JsonLint()&lt;cr&gt;
+</pre>
+<p>
+再补充映射一些 Quickfix 模式中快速跳转的快捷键：
+</p>
+<pre>
+map &lt;F4&gt; :cclose&lt;CR&gt;
+map &lt;F8&gt; :cn&lt;CR&gt;
+map &lt;F7&gt; :cp&lt;CR&gt;
+</pre>
+<p>
+完整的设置可以参考 <a href="http://hotoo.googlecode.com/svn/trunk/vim/_vimrc">我的 vimrc</a>
+</p>
+
+<p>
+更多讨论 <a href="https://groups.google.com/group/vim-cn/browse_thread/thread/79652cb66297881f">看这里</a>。
+</p>
+
+<h2 id="toc_1.1">参考</h2>
+<ul>
+<li>
+<a href="http://easwy.com/blog/archives/advanced-vim-skills-quickfix-mode/">vim 使用进阶: 剑不离手 – quickfix</a> ^<a href="http://blog.zdnet.com.cn/html/30/422230-2881199.html">2</a>^
+</li>
+</ul>
+
+
+<p>
+ blog:date=2009/10/19:tags=Vim,Cpp
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

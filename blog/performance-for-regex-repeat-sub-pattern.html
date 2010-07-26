@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>performance-for-regex-repeat-sub-pattern - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">正则表达式重复子模式前、后倾的性能比较</h1>
+<p>
+在准备内部的正则表达式 (Regular Expression)分享的过程中，注意到一个细节问题：重复的子模式，是应该前倾还是后倾，这两者在性能上有什么差异？
+</p>
+
+<p>
+前倾和后倾是我胡诌的两个词，我的定义如下：
+</p>
+<blockquote>
+<strong>前倾</strong> 就是前面的子表达式使用贪婪匹配或较大的量词，尽可能多的匹配内容，导致前面匹配的内容较多而使“天平”前倾。例如：<code>/(?:\d{1,3}\.){3}\d{1,3}/</code>。<br />
+<strong>后倾</strong> 则相反，后面的子表达式使用贪婪匹配或较大的量词。如：<code>/\d{1,3}(?:\.\d{1,3}){3}/</code>。
+</blockquote>
+<p>
+前倾和后倾在实际应用中很常见，如时间，主机名等，中间以某特殊字符（串?）分隔，被分隔部分的规则又相同的情况下，一般都是使用这两种实现方式之一。
+</p>
+
+<p>
+上面定义中的两个例子只是简例，可以用来大致匹配 IPv4 地址，完整的 IPv4 地址正则式如下，它要求每段都在 0-255 之间：
+前倾：
+</p>
+<pre>
+/^(?:(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/
+</pre>
+<p>
+后倾：
+</p>
+<pre>
+/^(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(?:\.(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){3}$/
+</pre>
+<p>
+我写了一个测试<a href="http://hotoo.googlecode.com/svn/trunk/test/RegExp.front.end.html">比较这两个正则性能</a> 的页面，在 IE7, FF3.6, Safari 4, Opera 10 下测试均为前倾的性能较高，Chrome 4 下则不相伯仲。
+</p>
+
+<p>
+p.s. 这种重复子模式，要有语法上的简写就好了，像 Perl 正则的递归引用（或类似运行时反向引用），维护起来就方便多了。
+</p>
+
+<p>
+ :ft=blog:date=2010/01/26:tags=<a href="RegExp.html">RegExp</a>
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

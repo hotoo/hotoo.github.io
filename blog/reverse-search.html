@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>reverse-search - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">反向搜索的设计</h1>
+<p>
+文本搜索是一项非常常用的功能，在文本编辑器中更是一个不可或缺的功能。
+</p>
+
+<p>
+而反向搜索（搜索光标之前的文本）的设计，最初也非常原始：
+</p>
+
+<p>
+<a href="http://www.flickr.com/photos/hotoo/4231137828/"><img src="http://farm5.static.flickr.com/4030/4231137828_a3e4fd8031_o.jpg" /></a>
+Windows Notepad
+</p>
+
+<p>
+<a href="http://www.flickr.com/photos/hotoo/4230370125/"><img src="http://farm5.static.flickr.com/4023/4230370125_a8f522ca80_o.png" /></a>
+Editplus 2.3
+</p>
+
+<p>
+<a href="http://www.flickr.com/photos/hotoo/4230370157/"><img src="http://farm3.static.flickr.com/2574/4230370157_461d09e194_o.jpg" /></a>
+<a href="UltraEdit.html">UltraEdit</a> 11
+</p>
+
+<p>
+<a href="http://www.flickr.com/photos/hotoo/4231137878/"><img src="http://farm5.static.flickr.com/4050/4231137878_b2046bd82c_o.png" /></a>
+Eclipse 3.4
+</p>
+
+<p>
+这基本算是可用了，不过还是有一些非常用心的改进的：
+</p>
+
+<p>
+<a href="http://www.flickr.com/photos/hotoo/4231137916/"><img src="http://farm3.static.flickr.com/2741/4231137916_5c5f7ca33a_o.jpg" /></a>
+Editplus 3
+</p>
+
+<p>
+<a href="http://www.flickr.com/photos/hotoo/4231137964/"><img src="http://farm5.static.flickr.com/4055/4231137964_93518fe61d_o.jpg" /></a>
+Windows Internet Explorer 7
+</p>
+
+<p>
+<a href="http://www.flickr.com/photos/hotoo/4230370195/"><img src="http://farm3.static.flickr.com/2768/4230370195_7b954cda56_o.png" /></a>
+Google Chrome 4
+</p>
+
+<p>
+<a href="http://www.flickr.com/photos/hotoo/4230370185/"><img src="http://farm3.static.flickr.com/2790/4230370185_092763befc_o.png" /></a>
+Apple Safari 4
+</p>
+
+<p>
+<a href="http://www.flickr.com/photos/hotoo/4230370225/"><img src="http://farm5.static.flickr.com/4024/4230370225_b39a29718a_o.png" /></a>
+Mozilla Firefox
+</p>
+
+<p>
+这些细小的改进都有一个共性，就是可以快捷的反向搜索，快速定位到上次匹配到的地方。
+作为 Vim 爱好者，她的反向搜索功能（包括搜索功能）更是华丽的惊人，normal 模式下正向搜索(/keyword)， n 键下一个匹配， N 键前一个匹配；如果是反向搜索(?keyword)，则相反。
+</p>
+
+<p>
+ blog:datetime=2009/12/31 13:17:27:tags=UED,Design
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

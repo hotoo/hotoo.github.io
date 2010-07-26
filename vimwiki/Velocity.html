@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>Velocity - 闲耘™.Wiki</title>
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li><a href="../blog/index.html" title="Blog">Blog</a></li>
+        <li class="actived"><a href="index.html" title="Wiki">Wiki</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<article>
+
+<h1 id="toc_1">Velocity</h1>
+<ul>
+<li>
+<a href="http://www.blogjava.net/alexwan/archive/2008/06/07/206473.html">Velocity 语法</a>
+</li>
+<li>
+<a href="http://www.blogjava.net/jackybu/category/2394.html">辰o(^o^)o的专栏#Velocity</a>
+</li>
+<li>
+<a href="http://www.ibm.com/developerworks/cn/java/j-lo-velocity/">编写自定义的 Velocity 指令</a>
+</li>
+<li>
+<a href="http://www.ibm.com/developerworks/cn/java/j-sr1.html">Struts 与 Velocity 的集成</a>
+</li>
+<li>
+<a href="http://www.ibm.com/developerworks/cn/java/j-lo-struts2-velocity/">进一步提升 Struts 2 对 Velocity 的支持力度</a>
+</li>
+</ul>
+
+<h2 id="toc_1.1">Tips</h2>
+<p>
+Velocity 在表单中添加 name="action" 的文本/隐藏域，可以调用对应 Java 类
+（submit 按钮的 name 则指定对应的方法名称，如 event_submit_do_save ），
+但是此时 IE 浏览器无法通过 js 获得 form 本身的 action 属性。
+其他浏览器可以通过 getAttribute 函数获得。
+</p>
+
+<p>
+Form 本身的 action 属性和 action 隐藏域在提交时，浏览器本身不受影响，
+action 隐藏域被当作正常的参数附在 Form 的 action 属性值所对应 URL 之后。
+</p>
+</article>
+<footer>
+    <a href="index.html" id="back-home">&lsaquo; 首页</a>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft © 2010, Driven by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<!--[if lte IE 6]><script type="text/javascript" src="js/ie6.js"></script><![endif]-->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15922433-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

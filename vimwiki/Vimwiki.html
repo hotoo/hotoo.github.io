@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>Vimwiki - 闲耘™.Wiki</title>
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li><a href="../blog/index.html" title="Blog">Blog</a></li>
+        <li class="actived"><a href="index.html" title="Wiki">Wiki</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<article>
+
+<h1 id="toc_1">Vimwiki</h1>
+<pre>
+             __   __  ___   __   __  _     _  ___   ___   _  ___             ~
+            |  | |  ||   | |  |_|  || | _ | ||   | |   | | ||   |            ~
+            |  |_|  ||   | |       || || || ||   | |   |_| ||   |            ~
+            |       ||   | |       ||       ||   | |      _||   |            ~
+            |       ||   | |       ||       ||   | |     |_ |   |            ~
+             |     | |   | | ||_|| ||   _   ||   | |    _  ||   |            ~
+              |___|  |___| |_|   |_||__| |__||___| |___| |_||___|            ~
+
+</pre>
+
+<p>
+选项设置：
+</p>
+<pre>
+let g:vimwiki_use_mouse = 1
+let g:vimwiki_camel_case = 0
+let g:vimwiki_CJK_length = 1
+let g:vimwiki_list = [{'path': 'D:\My Dropbox\VimPrivateWiki'},
+                    \ {'path': 'D:\My Dropbox\vimwiki',
+                    \ 'path_html': 'D:\My Dropbox\Public\vimwiki',
+                    \ 'html_header': 'D:\My Dropbox\vimwiki\template\header.tpl',
+                    \ 'html_footer': 'D:\My Dropbox\vimwiki\template\footer.tpl'},
+                    \ {'path': 'F:\vim-script-cn\intro-wiki',
+                    \ 'path_html': 'F:\vim-script-cn\intro',
+                    \ 'html_header': 'F:\vim-script-cn\intro-wiki\template\header.tpl',
+                    \ 'html_footer': 'F:\vim-script-cn\intro-wiki\template\footer.tpl'}
+                    \ ]
+</pre>
+<p>
+其中 <code>g:vimwiki_CJK_length</code> 从 v1.0 beta 开始支持，它让 vimwiki 的表格更好的适应双宽度字符。
+</p>
+
+
+<h2 id="toc_1.1">技巧</h2>
+<h3 id="toc_1.1.1">TagList</h3>
+<p>
+让 Vimwiki 支持 TagList 的大纲视图。
+</p>
+
+<p>
+需要安装有 <a href="http://ctags.sourceforge.net/">ctags</a> v5.8 及其以上版本的 +regex 特性支持。
+</p>
+
+<p>
+在用户目录中创建 .ctags 文件，并加入以下代码。 <br />
+for Windows XP: C:\Documents and Settings\%USER_NAME%\ctags.cnf <br />
+for Windows 7: C:\Users\%USER_NAME%\.ctags <br />
+for Linux &amp; Mac: ~/.ctags
+</p>
+<pre>
+--langdef=wiki
+--langmap=wiki:.wiki
+--regex-wiki=/^=[ \t]+(.+)[ \t]+=$/\1/h,header/
+--regex-wiki=/^==[ \t]+(.+)[ \t]+==$/. \1/h,header/
+--regex-wiki=/^===[ \t]+(.+)[ \t]+===$/.   \1/h,header/
+--regex-wiki=/^====[ \t]+(.+)[ \t]+====$/.     \1/h,header/
+--regex-wiki=/^=====[ \t]+(.+)[ \t]+=====$/.       \1/h,header/
+--regex-wiki=/^======[ \t]+(.+)[ \t]+======$/.         \1/h,header/
+</pre>
+
+<p>
+<img src="http://farm4.static.flickr.com/3380/4553944243_e356b396de_o.jpg" />
+</p>
+
+<p>
+如果不在乎层级结构，可以使用更简洁的模式。
+</p>
+<pre>
+--langdef=wiki
+--langmap=wiki:.wiki
+--regex-wiki=/^(={1,6})[ \t]+(.+)[ \t]+\1$/\2/h,header/
+</pre>
+
+<p>
+然后在 vimrc 中添加代码：
+</p>
+<pre>
+let tlist_vimwiki_settings = 'wiki;h:Headers'
+</pre>
+
+<h3 id="toc_1.1.2">搜索 Wiki</h3>
+<p>
+直接使用 <code>:VimwikiSearch key</code> 命令或者：
+</p>
+<pre>
+:vimgrep /KEY/ %:p:h/*.wiki
+</pre>
+
+<h2 id="toc_1.2">资源</h2>
+<ul>
+<li>
+<a href="http://code.google.com/p/vimwiki/">vimwiki - Google code</a>
+</li>
+<li>
+<a href="http://www.vim.org/scripts/script.php?script_id=2226">vimwiki:Personal Wiki for Vim</a>
+</li>
+<li>
+<a href="http://habamax.ru/blog/">作者博客</a>
+</li>
+<li>
+<a href="http://yibie.me/?p=1350">个人知识管理：Vimwiki工具</a> <a href="http://www.gtdstudy.com/?p=1350">2</a>
+</li>
+<li>
+<a href="https://developer.mozilla.org/Project:cn/Wiki%E6%A0%87%E8%AE%B0%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83">Wiki标记语法参考</a>
+</li>
+<li>
+<a href="http://www.gracecode.com/archives/3022/">推荐 VimWiki</a>
+</li>
+<li>
+<a href="http://wiki.gracecode.com/VimWiki.html">VimWiki 使用笔记</a>
+</li>
+<li>
+<a href="http://xbeta.info/vimwiki.htm">Pkm工具：Vimwiki</a>
+</li>
+<li>
+<a href="http://nanasi.jp/articles/vim/vimwiki/vimwiki_vim_config.html">Vimwiki : Vimベースの個人用Wiki環境 #4 設定・カスタマイズ</a>
+</li>
+</ul>
+</article>
+<footer>
+    <a href="index.html" id="back-home">&lsaquo; 首页</a>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft © 2010, Driven by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<!--[if lte IE 6]><script type="text/javascript" src="js/ie6.js"></script><![endif]-->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15922433-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

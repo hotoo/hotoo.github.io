@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>fuck-gfw-with-tor - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">带套翻墙</h1>
+<p>
+因为众所周知的原因(?)，最近GFW变本加厉，穷凶极恶，处处昭示着它即将灭亡的预兆。
+不过在它消亡的前夕，我们还是需要翻墙来争取自己的自由，戴套就是一种不错的方法。不过最近的套套出了点问题，下面讲修复的办法：
+</p>
+
+<ol>
+<li>
+到这里下载 <a href="http://www.filedropper.com/tor">Tor Cache</a>
+</li>
+<li>
+然后将里面的文件释放到（%USER% 替换成你的计算机用户）：<br />
+    Windows XP(?): <code>C:\Documents and Settings\%USER%\Application Data\Tor</code><br />
+    Vista: <code>C:\Users\%USER%\AppData\Roaming\Application Data\Tor\torrc</code><br />
+    Windows 7: <code>C:\Users\%USER%\AppData\Roaming\Vidalia</code>
+</li>
+<li>
+启动 Vidalia ，在设置里面，设置”高级”，配置目录为（不同操作系统参考上面及实际地址，下面以XP为例）：
+    Tor Configuration File:<br>
+    <code>C:\Documents and Settings\%USER%\Application Data\Tor\torrc</code><br />
+    Data Directory:<br>
+    <code>C:\Documents and Settings\%USER%\Application Data\Tor</code>
+</li>
+</ol>
+
+
+<p>
+参考：<br>
+<a href="http://www.bugx.org/128"&gt;连不上">tor 的解决方法</a><br>
+<a href="http://tieba.baidu.com/f?kz=647422480">关于近期 Tor 无法连接的问题，请统一在此帖中问、答，谢谢。</a><br>
+<a href="http://tieba.baidu.com/f?kz=647146360">Tor Cache 和使用方法</a><br>
+<a href="http://tieba.baidu.com/f?kz=647221300">近期用不了 tor 的同学请进（zt）</a><br>
+<a href="http://tieba.baidu.com/f?kz=646922417">连不上TOR了</a> (参考第30条回复)<br>
+<a href="http://www.filedropper.com/tor">Tor.zip</a><br>
+<a href="http://blog.sina.com.cn/s/blog_5e9836180100fti1.html">连不上 tor 的解决方法（综合）</a>
+</p>
+
+<p>
+ blog:datetime=2009/10/24:tags=Tor,GFW,Freedom
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

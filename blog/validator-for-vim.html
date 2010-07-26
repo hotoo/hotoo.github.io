@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>validator-for-vim - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">在 Vim 中验证 X/HTML, Javascript 和 CSS</h1>
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1">在 Vim 中验证 X/HTML, Javascript 和 CSS</a></li>
+<ul>
+<li><a href="#toc_1.1">校验X/HTML</a></li>
+<li><a href="#toc_1.2">校验CSS</a></li>
+<li><a href="#toc_1.3">校验Javascript</a></li>
+</ul>
+</ul>
+</div>
+
+<p>
+Unix/Linux（以下统称Unix）下可参考<a href="http://blog.whatwg.org/vim-checker">这里</a>和<a href="http://natalian.org/archives/2008/05/17/vim-web-ide/">这里</a>，因为介绍和代码都是现成的，而且我没有实验过，所以不多作介绍。
+</p>
+
+<p>
+<strong>原理</strong> ：改变makeprg，make时使用curl向指定的检测服务地址发送数据，通过管道，使用sed编辑整理返回的数据后在Quickfix窗口中显示。
+</p>
+
+<p>
+我在Windows 7 下做了部分改动，由于对Unix命令不了解，目前还有一下输出格式的问题待修正。
+</p>
+
+<p>
+大部分代码参考<a href="http://svn.natalian.org/projects/html5/">这个Project</a>，里面的.sh文件都是 Unix中的脚本，Windows下可以改为.bat，有部分格式不同出需要修改，如Unix下的 $1，Windows下是%1，注释符合也不同，另外Sed for Windows是不支持使用单引号(?)的，需要改成双引号，里面的双引号需要转义，cURL和Sed这部分我目前没搞清楚，所以少讲少错些的好。
+</p>
+
+<p>
+下面讲详细步骤：
+<h2 id="toc_1.1">校验X/HTML</h2>
+</p>
+<ol>
+<li>
+安装cURL for Windows：
+</li>
+<ol>
+<li>
+到 <a href="http://curl.haxx.se/download.html">这个页面</a> 找“Win32 – Generic”，下载下面带或不带ssl的都可以；
+</li>
+<li>
+把解压的 curl.exe 放到 Path 环境变量所在的目录（如 C:\Windows）
+</li>
+<li>
+另外还需要几个动态链接库，如 libeay32.dll, libssl32.dll 直接在网上搜索下载并放到 Path 环境变量所在目录下即可。
+</li>
+<li>
+命令行下运行 curl 测试是否安装成功。
+</li>
+</ol>
+<li>
+安装Sed for Windows：
+</li>
+<ol>
+<li>
+到 <a href="http://gnuwin32.sourceforge.net/packages/sed.htm">这里</a> 下载Binaries 版本，将解压的 sed.exe 放至系统 Path 环境变量所在目录。
+</li>
+<li>
+另外需要的 libintl-2, libiconv-2, regex 这几个动态链接库，sed下载页的底部都有链接，放至系统 Path 环境变量所在目录。
+</li>
+<li>
+命令行下运行 sed 测试是否安装成功。
+</li>
+</ol>
+<li>
+下载这个 <a href="http://svn.natalian.org/projects/html5/validate-html.sh">validate-html.sh</a>，重命名为 validate-html.bat，放至系统 Path所在路径，并编辑修改为以下内容：
+</li>
+</ol>
+
+<pre>
+:: sudo ln -s `pwd`/validate-html.sh /usr/bin/validate-html.sh
+:: Many thanks to Anselm Garbe for helping me with the blasted sed regexp
+
+@echo off
+::curl -s -F laxtype=yes -F parser=html5 -F level=error -F out=gnu -F doc=@%1 "http://validator.nu" | sed 's,^.*":,'"%1:"','
+curl -s -F laxtype=yes -F parser=html5 -F level=error -F out=gnu -F doc=@%1 "http://validator.nu" | sed "s,^.*"":,""%1:"","
+</pre>
+<blockquote>
+上面指定以 html5 标准来校验，如果你使用其他标准，可以自行修改。
+</blockquote>
+<ol>
+<li>
+下载这个 <a href="http://svn.natalian.org/projects/html5/html.vim">html.vim</a>，将里面的
+</li>
+</ol>
+
+<pre>
+set makeprg=validate-html.sh\ %
+</pre>
+<blockquote>
+改成
+</blockquote>
+<pre>
+set makeprg=validate-html.bat\ %
+</pre>
+<blockquote>
+放至 <code>$VIM/vimfiles/ftplugin/</code> 目录下。
+</blockquote>
+<ol>
+<li>
+修改 _vimrc，加入如下代码：
+</li>
+</ol>
+
+<pre>
+autocmd FileType html,xhtml nmap &lt;F9&gt; :make&lt;cr&gt;&lt;cr&gt;:copen&lt;cr&gt;
+</pre>
+<ol>
+<li>
+现在，打开.html类型的文件，按&lt;F9&gt;键既可校验当前的html文档合法性了。
+</li>
+</ol>
+
+<p>
+<a href="http://www.flickr.com/photos/hotoo/4043041358/"><img src="http://farm3.static.flickr.com/2753/4043041358_09704d3424_o.png" /></a>
+</p>
+
+<h2 id="toc_1.2">校验CSS</h2>
+
+<p>
+方法和上面的类似，从第3大步开始：
+</p>
+
+<ol>
+<li>
+下载这个 validate-css.sh ，重命名为 validate-css.bat 放至 Path 环境变量所在目录，并修改为如下代码：
+</li>
+</ol>
+
+<pre>
+:: WORK-IN-PROGRESS
+curl -s -F "file=@%1;type=text/css" -F output=text "http://jigsaw.w3.org/css-validator/validator/"
+</pre>
+<ol>
+<li>
+复制一份 $VIM/vimfile/ftplugin/ 下的 html.vim，重命名为 css.vim，并修改以下内容为：
+</li>
+</ol>
+
+<pre>
+set makeprg=validate-css.bat\ %
+</pre>
+<ol>
+<li>
+修改 _vimrc 加入如下代码：
+</li>
+</ol>
+
+<pre>
+autocmd FileType css nmap &lt;F9&gt; :make&lt;cr&gt;&lt;cr&gt;:copen&lt;cr&gt;
+</pre>
+<ol>
+<li>
+至此，打开CSS文件，按下&lt;F9&gt;就可以校验CSS代码了。
+</li>
+</ol>
+
+<p>
+<a href="http://www.flickr.com/photos/hotoo/4042318385/"><img src="http://farm3.static.flickr.com/2465/4042318385_7da39f37e7_o.png" /></a>
+</p>
+
+<p>
+另外还有一个插件支持验证CSS：<a href="http://www.vim.org/scripts/script.php?script_id=1577">css.vim : CSS compiler file</a>
+</p>
+
+<h2 id="toc_1.3">校验Javascript</h2>
+
+<p>
+这个已有单机应用程序版本，更多资料可以参考 <a href="http://www.gracecode.com/archives/2902/">jsLint for Vim</a> 和 <a href="http://www.vim.org/scripts/script.php?script_id=2578">javaScriptLint.vim (script#2578)</a>，另外，还是很期待 X/HTML 和 CSS 也有类似的版本的。
+</p>
+
+<p>
+再次说明：因为我对 cURL 和 Sed 不了解，所以目前这里的代码仍不是完好，如果你了解，请不吝赐教。
+</p>
+
+<p>
+参考：
+</p>
+<ul>
+<li>
+<a href="http://blog.whatwg.org/vim-checker">HTML5 conformance checking in Vim</a>
+</li>
+<li>
+<a href="http://natalian.org/archives/2008/05/17/vim-web-ide/">VIM IDE for Web applications</a>
+</li>
+<li>
+<a href="http://svn.natalian.org/projects/html5/">Project html5 (download)</a>
+</li>
+<li>
+<a href="http://validator.nu/">Validator.nu</a>
+</li>
+<li>
+<a href="http://curl.haxx.se/">cURL</a>
+</li>
+<li>
+<a href="http://gnuwin32.sourceforge.net/packages/sed.htm">Sed for Windows</a>
+</li>
+<li>
+<a href="http://www.gracecode.com/archives/2902/">jsLint for Vim</a>
+</li>
+<li>
+<a href="http://www.vim.org/scripts/script.php?script_id=2578">javaScriptLint.vim : Displays JavaScript Lint warnings in the quickfix error window</a>
+</li>
+<li>
+<a href="http://www.maxsworld.org/index.php/how-tos/w3c-validator-installation">W3C Validator</a>
+</li>
+<li>
+<a href="http://www.jslint.com/">JSLint, The JavaScript Code Quality Tool</a>
+</li>
+</ul>
+
+
+<p>
+ blog:date=2009/10/25:tags=Vim,HTML,<a href="JavaScript.html">JavaScript</a>,CSS,Validate
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

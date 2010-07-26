@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>use-vim-calendar - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">使用 calendar.vim</h1>
+<p>
+最初看到明城 <a href="http://www.gracecode.com/archives/674/">推荐使用 Vim Calendar 插件</a>，
+于是很小白的尝试了一下，然后就没有了然后。
+</p>
+
+<p>
+最初尝试的过程已经基本忘记，恍惚记得在 Calendar 的日期上回车，窗户貌似在右侧窗口
+打开的（后来发现我记错了，这是 Vimwiki-diary的支持）；至于明城推荐设置的 <code>ca</code>
+快捷键，后来才知道是与 text-object 冲突的。
+</p>
+
+<p>
+再后来就用上了 Vimwiki，做个人 Wiki 之余，还用它的 diary 写日记。总体来说，Vimwiki
+的 diary 是比较强大的，我甚至还提了几个被接受的建议。
+</p>
+
+<p>
+但是随着使用的深入，发现通常 Wiki 项目下是不需要 diary 的，而 diary 也基本不需要
+Wiki，把这两种整合在一起也许就是个错误。我们真正需要的是一个更强的 Calendar diary，
+而不是 Wiki 附加的 diary 支持。
+</p>
+
+<p>
+如果真的希望 Vimwiki 有 diary 的支持，我也希望这个 diary 和 Wiki 是相互独立的，
+Wiki 项目中无需 diary，diary 无需包含在每个 Wiki 项目里。
+</p>
+
+<p>
+另外基于 Wiki 的原因，所有的 diary-wiki 文件都放在同一个目录下，当 diary 日渐增多，
+目录变得臃肿起来也不是什么好事。
+</p>
+
+<p>
+我需要的是一个更强的 Vim Calendar。基于这个想法，我便尝试着手增强 Calendar。
+目前已经支持 <code>:CalendarSearch</code> 和更好的 diary 打开方式。更多的想法见
+<a href="http://github.com/hotoo/calendar-vim/blob/master/TODO">这里</a>。
+</p>
+
+<p>
+ blog:datetime=2010/07/23 09:13:01:tags=Vim,Calendar
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

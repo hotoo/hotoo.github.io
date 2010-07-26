@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>performance-of-arguments-to-array - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">arguments to Array 之效率</h1>
+<p>
+怿飞昨天发有一篇《<a href="http://www.planabc.net/2010/01/06/arguments_to_array/">如何将函数的实际参数转换成数组</a>》的日志，其实核心不是讲“如何如何”，而是比较了几种算法/语法的效率。说到算法本身的性能，我和 <a href="http://www.planabc.net/2010/01/06/arguments_to_array/#comment-5869">army 的看法</a> 一样，对这篇日志的观点提出质疑。
+</p>
+
+<p>
+从语法原理上，Array.prototype.slice.call(arguments)是对数组的slice方法的原型直接引用，而[].slice.call(arguments)则需要创建数组对象。没有理由后者比前者的性能还要高的。
+</p>
+
+<p>
+不过我还是写了 <a href="http://hotoo.googlecode.com/svn/trunk/test/toArray.html">测试</a> 来证实自己的观点，为了尽量少的避免其他干扰（包括函数调用带来的消耗），算法/语法都直接内联写在计时器一起。
+</p>
+
+<p>
+这几个例子分别比较了：
+</p>
+
+<ul>
+<li>
+<code>Array.apply(this,arguments)</code>
+</li>
+<li>
+<code>Array.prototype.slice.call(arguments)</code>
+</li>
+<li>
+<code>[].slice.call(arguments)</code>
+</li>
+<li>
+Prototype 的 <code>$A(arguments)</code>
+</li>
+<li>
+jQuery 的 <code>makeArray(arguments)</code>
+</li>
+<li>
+和最土的循环算法。
+</li>
+</ul>
+
+<p>
+并在各个浏览器（Multi IE 6, IETester 5.5, IETester 6, IE 7, FF 3.5, Chrome 4, Safari 4, Opera 10）下一一测试。也欢迎各位参与测试并将结果提交给我，如果你觉得测试有不公平合理的地方也可以提出。
+</p>
+
+<p>
+至于结论，也不是那么好确定，不过大致如下：
+<code>Array.apply(this,arguments)</code> 在大部分情况下都能取得优胜；
+而Prototype和jQuery其次，不过这两者不仅仅是针对arguments编写而且是直接调用其函数（稍有消耗），这里只拿来比较一下，这两个还是非常出色的；
+<code>Array.prototype.slice.call(arguments)</code> 和 <code>[].slice</code>.call(arguments)则旗鼓相当，并没有说谁比谁一定更强，更浏览器实现有关，在部分浏览器中前者有稳定的微量优势；
+至于老土的循环法，<code>arguments.length</code> 较小时表现不俗，较大时也更浏览器有关系。
+而怿飞说的那点（不确定的）非关键或巨大性能优势，其实意义不大。
+</p>
+
+<p>
+延伸阅读：
+</p>
+<ul>
+<li>
+<a href="http://blog.xianyun.org/2008/03/31/javascript-regexp-concat-and-0-length-object.html">正则表达式拼接和构建零长度对象</a>
+</li>
+<li>
+<a href="http://blog.xianyun.org/2008/12/29/javascript-string.html">Javascript String 方法效率大比拼</a>
+</li>
+<li>
+<a href="http://blog.xianyun.org/2008/04/21/efficiency-of-javascript-equals.html">Javascript 相等符(==)与完全相等符(===)之效率</a>
+</li>
+</ul>
+
+<p>
+ blog:date=2010/01/07:tags=Javascript
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

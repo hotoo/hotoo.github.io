@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>CSS-Hacks - 闲耘™.Wiki</title>
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li><a href="../blog/index.html" title="Blog">Blog</a></li>
+        <li class="actived"><a href="index.html" title="Wiki">Wiki</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<article>
+
+<h1 id="toc_1">CSS Hacks &amp; Expression</h1>
+<p>
+全面的IE / Firefox / Webkit / Opera CSS HACK列表：
+</p>
+<pre type="css">
+/***** Selector Hacks ******/
+/* IE6 and below */
+* html #uno  { color: red }
+
+/* IE7 */
+*:first-child+html #dos { color: red }
+
+/* IE7, FF, Saf, Opera  */
+html&gt;body #tres { color: red }
+
+/* IE8, FF, Saf, Opera (Everything but IE 6,7) */
+html&gt;/**/body #cuatro { color: red }
+
+/* Opera 9.27 and below, safari 2 */
+html:first-child #cinco { color: red }
+
+/* Safari 2-3 */
+html[xmlns*=""] body:last-child #seis { color: red }
+
+/* safari 3+, chrome 1+, opera9+, ff 3.5+ */
+body:nth-of-type(1) #siete { color: red }
+
+/* safari 3+, chrome 1+, opera9+, ff 3.5+ */
+body:first-of-type #ocho {  color: red }
+
+/* saf3+, chrome1+ */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+        #diez  { color: red  }
+}
+
+/* iPhone / mobile webkit */
+@media screen and (max-device-width: 480px) {
+        #veintiseis { color: red  }
+}
+
+/* Safari 2 - 3.1 */
+html[xmlns*=""]:root #trece  { color: red  }
+
+/* Safari 2 - 3.1, Opera 9.25 */
+*|html[xmlns*=""] #catorce { color: red  }
+
+/* Everything but IE6-8 */
+:root *&gt; #quince { color: red  }
+
+/* IE7 */
+*+html #dieciocho {  color: red }
+
+/* Firefox only. 1+ */
+#veinticuatro,  x:-moz-any-link  { color: red }
+
+/* Firefox 3.0+ */
+#veinticinco,  x:-moz-any-link, x:default  { color: red  }
+
+
+/***** Attribute Hacks ******/
+/* IE6 */
+#once { _color: blue }
+
+/* IE6, IE7 */
+#doce { *color: blue; /* or #color: blue */ }
+
+/* Everything but IE6 */
+#diecisiete { color/**/: blue }
+
+/* IE6, IE7, IE8 */
+#diecinueve { color: blue\9; }
+
+/* IE7, IE8 */
+#veinte { color/*\**/: blue\9; }
+
+/* IE6, IE7 -- acts as an !important */
+#veintesiete { color: blue !ie; } /* string after ! can be anything */
+
+</pre>
+
+<h2 id="toc_1.1">Expression</h2>
+<p>
+<code>max-width</code>
+</p>
+<pre>
+.data_table tr {
+	background-color: expression(rowIndex % 2 == 0 ? '#999999' : '#cccccc')
+}
+
+p{
+    max-width:800px;
+    *width:expression(document.body.clientWidth&gt;800?"800px":"auto");
+}
+
+#demo{
+    left:expression(document.getElementById('table_container').scrollLeft);
+}
+</pre>
+
+<h2 id="toc_1.2">Bugs</h2>
+<p>
+<code>ol&gt;li{zoom:1}</code> 会导致 IE(5.5,6,7) 重置每个 item 的序数为 1。
+</p>
+
+<h2 id="toc_1.3">参考</h2>
+<ul>
+<li>
+<a href="http://www.happinesz.cn/archives/1331/">说说CSS Hack 和向后兼容</a>
+</li>
+<li>
+<a href="http://webfx.eae.net/dhtml/cssexpr/cssexpr.html">CSS Expressions</a>
+</li>
+<li>
+<a href="http://blog.dynatrace.com/2010/02/16/the-real-performance-overhead-of-css-expressions/">The Real Performance Overhead of CSS Expressions</a>
+</li>
+<li>
+<a href="http://www.planabc.net/2009/09/21/optimization_of_css_eexpression/">CSS Expression 的优化</a>
+</li>
+<li>
+<a href="http://www.never-online.net/blog/article.asp?id=246">CSS expression在IE8里正式退出历史舞台</a>
+</li>
+</ul>
+</article>
+<footer>
+    <a href="index.html" id="back-home">&lsaquo; 首页</a>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft © 2010, Driven by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<!--[if lte IE 6]><script type="text/javascript" src="js/ie6.js"></script><![endif]-->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15922433-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

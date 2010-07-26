@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>firefox-profile-and-multi-instance - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">Firefox Profile 及多实例运行</h1>
+<p>
+之前就知道Firefox 支持多账户，并允许各账户安装不同的插件，会话信息也完全独立。
+</p>
+
+<p>
+方法是制作快捷方式，目标指向Firefox的安装路径，并加上 <code>-P</code> 参数：
+</p>
+<pre>
+"C:\Program Files\Mozilla Firefox\firefox.exe" -P
+</pre>
+<p>
+加引号是为了防止空格问题。这样会启动选择账户的对话框，如果想直接指定账户启动，而不出现对话框，可以在 <code>-P</code> 参数后直接带账户的名称，如默认的 default：
+</p>
+<pre>
+"C:\Program Files\Mozilla Firefox\firefox.exe" -P default
+</pre>
+<p>
+如果想同时启动多个Firefox独立的账户实例，可以加上 <code>-no-remote</code> 参数。
+</p>
+<pre>
+"C:\Program Files\Mozilla Firefox\firefox.exe" -no-remote -P debug
+</pre>
+<p>
+受 Editplus 的影响，其<code>&lt;C-b&gt;</code> 快捷键可以使用内置的IE核心浏览器预览和html源码间快速切换（也可以使用外部浏览器）。
+</p>
+
+<p>
+最近在定义 vimrc 时映射了 Cpp 的快速编译和运行快捷键，顺手一并映射了批处理和 x/html 文件类型的运行/预览快捷键，如下：
+</p>
+<pre>
+autocmd FileType xhtml,html nmap &lt;F5&gt; :exe '!start "C:\Program Files\Mozilla Firefox\firefox.exe" "'.expand("%").'"'&lt;cr&gt;
+autocmd FileType dosbatch nmap &lt;F5&gt; :exe '!"'.expand("%").'"'&lt;cr&gt;&lt;cr&gt;
+</pre>
+<p>
+由于 default 和 debug 账户都加上了 <code>-no-remote</code> 参数，Firefox 被设置为默认浏览器，并使用外部程序打开链接是，会弹出如下警告：
+</p>
+<blockquote>
+“Firefox 已经在运行，但是没有响应。如要打开新窗口，您必须先关闭该 Firefox 进程，或者重新启动您的系统。”
+</blockquote>
+<p>
+确定后会被直接退出，打开链接失败。
+</p>
+
+<p>
+解决办法是的主账户启动时不带 <code>-no-remote</code> 参数，其他账户带此参数启动，此时从外部程序打开的链接，会在此不带 <code>-no-remote</code> 参数的主账户中启动，另外还可以带上 <code>-new-window</code> 或 <code>-new-tag</code> 参数。
+</p>
+
+<p>
+另外还有一个问题是，每次按 <code>&lt;F5&gt;</code> 都会从新的页签或窗口中打开，而不是刷新已有的同路径页。
+</p>
+
+<h2 id="toc_1.1">参考</h2>
+<ul>
+<li>
+<a href="http://blog.cathayan.org/item/1543">同时运行两个 Firefox实例</a>
+</li>
+<li>
+<a href="http://lifehacker.com/software/firefox/geek-to-live--manage-multiple-firefox-profiles-231646.php#c896803">Geek to Live: Manage multiple Firefox profiles</a>
+</li>
+<li>
+<a href="http://kb.mozillazine.org/Command_line_arguments">Command line arguments</a>
+</li>
+<li>
+<a href="http://support.mozilla.com/zh-CN/kb/Profiles">Profiles</a>
+</li>
+<li>
+<a href="http://dreamsouls.net/ds/archives/220">firefox 啟動參數</a>
+</li>
+</ul>
+
+<p>
+另：
+</p>
+<ul>
+<li>
+<a href="http://www.inness.cn/archives/598.html">“Firefox 已经在运行，但是没有响应。”</a>
+</li>
+<li>
+<a href="http://www.anopos.com/ant/firefox-is-already-running-but-is-not-responding/">Firefox 已经在运行，但是没有响应</a> ^<a href="http://hi.baidu.com/wlwlcy/blog/item/eab5e9ce05153f0493457e5d.html">2</a>^
+</li>
+</ul>
+
+<p>
+ blog:datetime=2010/05/10 14:37:37:tags=Firefox
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

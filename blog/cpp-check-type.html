@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>cpp-check-type - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">C++如何判断声明为基类的对象，是否某子类型的实例?</h1>
+<p>
+我有如下类结构
+</p>
+<pre>
+BaseToken
+|-- KeywordToken
+     |-- ThisToken
+     |-- IfToken
+     |-- ...
+</pre>
+
+<p>
+并定义有：
+</p>
+<pre>
+BaseToken lastToken;
+</pre>
+
+<p>
+有一个地方需要判断 lastToken 是否是 <a href="KeywordToken.html">KeywordToken</a>
+</p>
+<pre>
+if(dynamic_cast&amp;lt;KeywordToken *&amp;gt;(lastToken)){}
+</pre>
+
+<p>
+但是编译时报错如下：
+</p>
+<blockquote>
+<a href="LexicalAnalyzer.html">LexicalAnalyzer</a>.cpp|444| error: cannot dynamic_cast <code>((LexicalAnalyzer*)this)-&amp;gt;LexicalAnalyzer::lastToken’ (of type </code>class <a href="BaseToken.html">BaseToken</a>’) to type `class <a href="KeywordToken.html">KeywordToken</a>*’ (source is not a pointer)
+</blockquote>
+<p>
+貌似不能将父类型转为子类型，那么请问如何判断 <code>lastToken</code> 是 <code>KeywordToken</code> ?
+</p>
+
+<p>
+经过“<a href="http://www.douban.com/people/2590444/">帅的不敢出门</a> ”<a href="http://www.douban.com/group/topic/9279355/?start=0&amp;amp;post=ok#last">提点</a>：
+</p>
+<blockquote>
+dynamic_cast &amp;lt; type-id &amp;gt; ( expression )<br>
+
+The type-id must be a pointer or a reference to a previously defined class type or a “pointer to void”. The type of expression must be a pointer if type-id is a pointer, or an l-value if type-id is a reference.
+</blockquote>
+<p>
+<code>dynamic_cast</code> 需要的是一个指针，将代码改为如下即可：
+</p>
+<pre>
+if(dynamic_cast&amp;lt;KeywordToken *&amp;gt;(&amp;amp;lastToken)){}
+</pre>
+
+<p>
+参考：
+</p>
+<ol>
+<li>
+<a href="http://www.vckbase.com/document/viewdoc/?id=653">如何在运行时确定对象类型（RTTI）</a>
+</li>
+<li>
+<a href="http://www.cppreference.com/wiki/keywords/dynamic_cast">dynamic_cast</a>
+</li>
+</ol>
+
+<p>
+ blog:date=2009/12/31:tags=Cpp
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

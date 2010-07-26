@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>map-home-key-for-vim - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">Vim映射Home键到首个非空字符</h1>
+<p>
+许多编辑器有相关选项，可以直接设置让 <code>&lt;Home&gt;</code> 键在首个非空字符和行首之间跳转。
+</p>
+
+<p>
+Vim 也有快捷键，normal 模式下：<br />
+<code>0</code> 跳转到行首；<br />
+<code>^</code> 跳转到首个非空字符；<br />
+<code>$</code> 跳转到行尾。
+</p>
+
+<p>
+目前未知跳转到最后一个非空字符的快捷键，有个网友提供了一个很好玩的技巧：
+</p>
+<pre>
+nmap &lt;End&gt; /\S\s*$&lt;CR&gt;:nohl&lt;CR&gt;
+</pre>
+<p>
+为了将 <code>&lt;Home&gt;</code>和 <code>End&gt;</code> 键映射到其他编辑器常用的设置，我写了个可以用的代码，请高手不吝赐教。
+</p>
+<pre>
+" Dynamic bind &lt;HOME&gt; key
+" if caret/cursor not at the frist non-white-space character
+"   move caret/cursor to there
+" else
+"   move to beginning
+function HomeBind(offset)
+    let cursor=getpos('.')
+    let s0=getline(line('.'))
+    let s1=substitute(s0, "^\\s\\+", "", "")
+    let x=len(s0)-len(s1)+1
+    if col('.') == x-a:offset
+        let x=1
+    endif
+    call setpos('.', [cursor[0], cursor[1], x, cursor[3]])
+endfunction
+imap &lt;silent&gt; &lt;Home&gt; &lt;Esc&gt;:call HomeBind(1)&lt;cr&gt;i
+nmap &lt;silent&gt; &lt;Home&gt; :call HomeBind(0)&lt;cr&gt;
+vmap &lt;silent&gt; &lt;Home&gt; &lt;Esc&gt;:call HomeBind(1)&lt;cr&gt;
+
+" Dynamic bind &lt;END&gt; key
+" if caret/cursor not at the end
+"   move caret/cursor to there
+" else
+"   move to last non-white-space character.
+function EndBind(offset)
+    let cursor=getpos('.')
+    let s0=getline(line('.'))
+    let s1=substitute(s0, "\\s*$", "", "")
+    let x=len(s0)+a:offset
+    if col('.') == x
+        let x=len(s1)+a:offset
+    endif
+    call setpos('.', [cursor[0], cursor[1], x, cursor[3]])
+endfunction
+imap &lt;silent&gt; &lt;End&gt; &lt;Esc&gt;:call EndBind(0)&lt;cr&gt;a
+nmap &lt;silent&gt; &lt;End&gt; :call EndBind(0)&lt;cr&gt;
+vmap &lt;silent&gt; &lt;End&gt; :call EndBind(0)&lt;cr&gt;
+"nmap &lt;End&gt; /\S\s*$&lt;CR&gt;:nohl&lt;CR&gt;
+</pre>
+<p>
+这里还有几个实现很优雅，但稍有问题的脚本：
+</p>
+<ul>
+<li>
+<a href="http://vim.wikia.com/wiki/SmartHome_and_SmartEnd_over_wrapped_lines">SmartHome and SmartEnd over wrapped lines</a>
+</li>
+<li>
+<a href="http://www.vim.org/scripts/script.php?script_id=2772">Crazy Home Key</a> <a href="http://chenkaie.blogspot.com/2009/09/vim-crazy-home-key-crazyhomekeyvim.html">blog</a><sup><small>GFW</small></sup>
+</li>
+<li>
+<a href="http://gist.github.com/214532">c9s: smart_home_end.vim</a>
+</li>
+</ul>
+
+<p>
+ blog:datetime=2009/10/22:tags=Vim
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

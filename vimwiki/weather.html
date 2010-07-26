@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>weather - 闲耘™.Wiki</title>
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li><a href="../blog/index.html" title="Blog">Blog</a></li>
+        <li class="actived"><a href="index.html" title="Wiki">Wiki</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<article>
+
+<h1 id="toc_1">天气预报</h1>
+<ul>
+<li>
+<a href="http://developer.yahoo.com/weather/">Yahoo! Weather RSS Feed</a>
+</li>
+<li>
+<a href="http://www.nmc.gov.cn/">中央气象台</a>
+</li>
+<li>
+<a href="http://www.weather.com.cn/">中国天气网</a>
+</li>
+<li>
+<a href="http://weather.news.qq.com/">腾讯天气频道</a>
+</li>
+<li>
+<a href="http://weather.news.sina.com.cn/">天气预报 - 新浪网</a>
+</li>
+<li>
+<a href="http://qq.ip138.com/weather/">全国主要城市天气查询</a> <a href="http://qq.ip138.com/weather/zhejiang/HangZhou.htm">杭州</a>
+</li>
+<li>
+<a href="http://www.google.com/support/calendar/bin/answer.py?hl=cn&amp;answer=48494">如何查看 Google 日历中的天气预报？</a>
+</li>
+</ul>
+
+<h2 id="toc_1.1">APIs</h2>
+<ul>
+<li>
+<a href="http://www.raychou.com/chou/posts/324.htm">关注天气：免费的短信天气预报</a> <a href="http://www.raychou.com/weather/?/list/">全国天气预报 - RSS,ICAL</a>
+</li>
+<li>
+<a href="http://www.google.com/sms/alerts">谷歌短信提醒</a> - 由于众所周知的缘故，现已被停止服务。
+</li>
+</ul>
+
+
+<h2 id="toc_1.2"><a href="http://www.yaosansi.com/post/1366.html">使用Google Weather API查询天气预报</a></h2>
+<p>
+Google Weather API 只支持美国地区使用邮政编码进行查询,例如:
+</p>
+
+<p>
+<a href="http://www.google.com/ig/api?hl=zh-cn&amp;weather=94043">http://www.google.com/ig/api?hl=zh-cn&amp;weather=94043</a>
+</p>
+
+<p>
+(94043 为 山景城, 美国加州 的邮政编码)
+</p>
+
+<p>
+而除了美国以外的地区需要使用经纬度坐标作为参数才能执行 Google Weather API, 例如:
+</p>
+
+<p>
+<a href="http://www.google.com/ig/api?hl=zh-cn&amp;weather=,,,30670000,104019996">http://www.google.com/ig/api?hl=zh-cn&amp;weather=,,,30670000,104019996</a>
+</p>
+
+<p>
+(30670000,104019996 为 成都, 中国大陆 的经纬度坐标)
+</p>
+
+<p>
+当然,也可能通行城市名称的汉语拼音来查询,例如:以下是北京的天气
+</p>
+
+<p>
+<a href="http://www.google.com/ig/api?weather=Beijing">http://www.google.com/ig/api?weather=Beijing</a>
+</p>
+
+
+<p>
+要其它地区的经纬度坐标,可以通过 Google API 提供的国家代码列表及相应的城市经纬度坐标列表可以查询到,以下是 Google API 提供的查询参数:
+<a href="http://www.google.com/ig/countries?output=xml&amp;hl=zh-cn">http://www.google.com/ig/countries?output=xml&amp;hl=zh-cn</a>
+(查询 Google 所支持的所有国家的代码,并以 zh-cn 简体中文显示)
+<a href="http://www.google.com/ig/cities?output=xml&amp;hl=zh-cn&amp;country=cn">http://www.google.com/ig/cities?output=xml&amp;hl=zh-cn&amp;country=cn</a>
+</p>
+
+<p>
+C#范例:
+</p>
+<pre>
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Xml;
+using System.Net;
+
+///Code by Roman Alifanov - API by Google
+///Posted on http://animaonline.blogspot.com
+namespace GoogleWeatherAPI_Parser
+{
+class Program
+{
+ static void Main(string[] args)
+ {
+     int i = 0;
+     XmlNodeList GWP_NodeList = GoogleWeatherAPI_Parser(@"http://www.google.co.uk/ig/api?weather=Drammen").SelectNodes("xml_api_reply/weather/current_conditions");
+     Console.WriteLine("Current weather in Drammen: " + GWP_NodeList.Item(i).SelectSingleNode("temp_c").Attributes["data"].InnerText);
+     Console.ReadLine();
+ }
+ private static XmlDocument GoogleWeatherAPI_Parser(string baseUrl)
+ {
+     HttpWebRequest GWP_Request;
+     HttpWebResponse GWP_Response = null;
+     XmlDocument GWP_XMLdoc = null;
+     try
+     {
+         GWP_Request = (HttpWebRequest)WebRequest.Create(string.Format(baseUrl));
+         GWP_Request.UserAgent = @"Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.8.1.4) Gecko/20070515 Firefox/2.0.0.4";
+         GWP_Response = (HttpWebResponse)GWP_Request.GetResponse();
+         GWP_XMLdoc = new XmlDocument();
+         GWP_XMLdoc.Load(GWP_Response.GetResponseStream());
+     }
+     catch (Exception ex)
+     {
+         Console.WriteLine(ex.Message);
+     }
+     GWP_Response.Close();
+     return GWP_XMLdoc;
+ }
+ }
+}
+</pre>
+
+<p>
+附:其它天气API
+</p>
+
+<p>
+Yahoo:<a href="http://developer.yahoo.com/weather/">http://developer.yahoo.com/weather/</a>
+</p>
+
+<p>
+北京天气(可以通过搜索查找)
+</p>
+
+<p>
+<a href="http://xml.weather.yahoo.com/forecastrss?p=CHXX0008&amp;u=f">http://xml.weather.yahoo.com/forecastrss?p=CHXX0008&amp;u=f</a>
+</p>
+
+<p>
+国内API:
+</p>
+
+<p>
+北京天气
+</p>
+
+<p>
+<a href="http://weather.all2rss.com">http://weather.all2rss.com</a> /weatherrss.asp?City=北京
+</p>
+</article>
+<footer>
+    <a href="index.html" id="back-home">&lsaquo; 首页</a>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft © 2010, Driven by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<!--[if lte IE 6]><script type="text/javascript" src="js/ie6.js"></script><![endif]-->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15922433-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>let-vim-to-access-remove-resources - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">让 gvim 访问网络资源</h1>
+<p>
+当我还是 Vim 超级菜鸟的时候，我就知道 Vim 可以和 Editplus、<a href="UltraEdit.html">UltraEdit</a> 一样，访问网络资源，操作方式也很类似：
+</p>
+<ol>
+<li>
+使用菜单栏的“文件”-&gt;“打开”命令；
+</li>
+<li>
+或者使用工具栏的“打开”按钮；
+</li>
+<li>
+会打开“编辑文件”对话框，此时在默认光标获焦的“文件名”文本框中输入网络资源定位符；
+</li>
+<li>
+回车，或点击“打开”按钮；
+</li>
+<li>
+Vim 就会加载网站资源文件的内容。
+</li>
+</ol>
+
+<p>
+没有错，作为超级菜鸟，我们就是这样被当作什么都不懂，什么都不会的小孩一样来教导的。
+</p>
+
+<p>
+本来这样已经可以了，我们还有强求什么呢？真是得寸进尺啊，我发现 gvim 使用命令是无法正常访问网络资源的。
+</p>
+<pre>
+:vi http://www.xianyun.org/
+:vim http://www.xianyun.org/
+:gvim http://www.xianyun.org/
+:e http://www.xianyun.org/
+:sp http://www.xianyun.org/
+:tabnew http://www.xianyun.org/
+:Nread http://www.xianyun.org/
+</pre>
+
+<p>
+虽说 Vim 从 7.0 就已经默认集成安装了 netrw. Vim 了，支持网络资源访问，但是如果使用上面的命令，gvim 会告诉你说：
+</p>
+<blockquote>
+*<strong>error</strong>* (netrw) neither the wget nor the fetch command is available
+——————————————————————————————–
+“<a href="NetrwMessage.html">NetrwMessage</a>” –缓冲区无内容–
+</blockquote>
+<p>
+向人请教得到解答：
+这是因为缺少访问网络资源的程序（wget）
+Windows下需要下载 <a href="http://users.ugent.be/~bpuype/wget/">WGET for Windows (win32)</a>，将 wget.exe 放到某个系统环境变量 Path 包含的位置（如 c:\windows）即可。
+如果是Linux，直接安装wget即可。
+</p>
+
+<p>
+现在还有一点问题，gvim使用上面的某个命令访问网络资源时，会打开命令行窗口：
+</p>
+<pre>
+C:\WINDOWS\system32\cmd.exe /c wget -q -O "C:\DOCUME~1\WB-TIA~1\LOCALS~1\Temp\VICC3E.tmp" "http://www.vim.org/"
+Hit any key to close this window...
+</pre>
+<p>
+需要再敲一个键，才能关闭这个命令行窗口（Windows 7因为安全的原因，还有更多一步麻烦），并将网络资源的内容读到 Vim，目前不知有什么完美的方法，不需要打开，或者能够自动关闭这个窗口？
+而使用菜单或功能按钮等 gui 操作方式，是没有这些东西的，只是在同步加载远程资源时，不能进行其他操作。
+</p>
+
+<p>
+参考讨论
+</p>
+<ul>
+<li>
+<a href="http://groups.google.com/group/vim-cn/browse_thread/thread/ca34e99e9d02d25d">vim 网络读写功能的问题</a>
+</li>
+</ul>
+
+<p>
+ blog:date=2009/9/12:tags=Vim,Network
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

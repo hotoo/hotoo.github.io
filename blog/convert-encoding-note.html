@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>convert-encoding-note - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">轉換編碼筆記</h1>
+<p>
+今天發現一個顯示為亂碼的 html 頁面，發現是當前頁面和 reference 頁面編碼
+不一致造成的，reference 編碼為 gbk，當前頁面編碼是 utf8。
+</p>
+
+<p>
+雖然各自 head 里的 charset 和其文件存儲的編碼一致，但某些瀏覽器（如Firefox）
+從 reference 轉過來時，默認當前頁面的 charset 和 reference 的一致，導致亂碼
+顯示。
+</p>
+
+<p>
+由于 reference 所使用的編碼是整站的基準編碼，所以把當前頁面的 fileencoding
+轉成和 reference 一致即可，不過轉碼時遇到一個問題是，文件中存在特殊字符，無法
+由 utf8 正常轉碼為 gbk。
+</p>
+
+<p>
+文檔中無法用肉眼看出那些特殊字符，于是備份后使用 notepad 或 editplus 強行轉碼
+（注：會丟失那些特殊的字符），然后將轉碼后的文檔和原始備份檔比較，來查找特殊
+字符，編輯（刪除無意義的，轉義有用的）保存即可。
+</p>
+
+<p>
+注：Vim <code>:set fenc=gbk</code>，可以轉碼，但 <code>:wq!</code> 無法正常保存；<a href="UltraEdit.html">UltraEdit</a> 本身的編碼
+支持不夠好，不建議用來轉碼。
+</p>
+
+<p>
+注2：Vim diff 可以比較出不同，找出特殊字符，但可能無法正常編輯（如刪除）它們，
+特殊字符是非常怪異的；<a href="BeyondCompare.html">BeyondCompare</a> 和 <a href="WinMarge.html">WinMarge</a> 基本可以勝任。
+</p>
+
+<p>
+ blog:datetime=2010/04/07 10:24:46:tags=Encoding
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

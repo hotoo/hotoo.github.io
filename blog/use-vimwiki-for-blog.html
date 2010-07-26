@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>use-vimwiki-for-blog - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">用 Vimwiki + Dropbox 写博客</h1>
+
+<p>
+由于众所周知的缘故，<a href="http://blog.xianyun.org/">我的博客</a> 被消失了。在国内买域名或主机都是十分不靠谱的事，所以目前没有重新开独立博客的打算。而使用第三方博客服务也同样不靠谱，这也不在计划之内。
+</p>
+
+<p>
+把东西都放在自己的计算机里算是比较可靠的方式了，我计划使用 Vim + Vimwiki + Dropbox 来搭建自己的特殊博客系统。
+</p>
+
+<p>
+使用 Vim 这个极致的编辑器，加上 Vimwiki 这个已经很好，并且还在更好的插件，使用 wiki 语法来写日志，然后由 Dropbox 来同步与发布。整体上来说这个系统基本完好，除了域名稍稍缺憾之外。
+</p>
+
+<p>
+如果你看过 <a href="http://code.google.com/p/vim-script-cn/">Vim Script 文档中文计划</a> 的介绍，下面有写内容大概已经熟悉，这里作为完整的技巧一并介绍：
+</p>
+<ul>
+<li>
+确认正确安装了 <a href="http://www.vim.org">Vim</a> 和 <a href="http://www.vim.org/scripts/script.php?script_id=2226">Vimwiki</a>。
+</li>
+<li>
+如果安装了 <a href="http://www.vim.org/scripts/script.php?script_id=2540">snipMate</a>(可选) 在 $VIM/vimfiles/snippets/ 下新建一个 vimwiki.snippets 文件（已有这打开文件）。在 vimwiki.snippets 中添加自己的博客格式模板，例如我的：
+</li>
+</ul>
+
+<pre>
+snippet blog
+    = ${1:title} =
+    ${2:content}
+
+     blog:datetime=${3:`strftime("%Y/%m/%d %H:%M:%S")`}:tags=${4}
+</pre>
+
+<ul>
+<li>
+因为 Vimwiki 和 snipMate 的 &lt;Tab&gt; 热键冲突，可以将 $VIM/vimfiles/ftplugin/vimwiki.vim 中的第 293 行的
+</li>
+</ul>
+
+<pre>
+inoremap &lt;expr&gt; &lt;buffer&gt; &lt;Tab&gt; vimwiki_tbl#kbd_tab()
+</pre>
+<p>
+换成其他的热键，例如：
+</p>
+<pre>
+inoremap &lt;expr&gt; &lt;buffer&gt; &lt;C-Tab&gt; vimwiki_tbl#kbd_tab()
+</pre>
+
+<ul>
+<li>
+到此，在 .wiki 文件中输入 <code>blog&lt;Tab&gt;</code> 就展开博客模板了。
+</li>
+<li>
+在 vimrc 的 <code>g:vimwiki_list</code> 中加入一个 wiki，例如我的：
+</li>
+</ul>
+
+<pre>
+let g:vimwiki_list = [
+                \ {...},
+                \ {...},
+                \ {...},
+                \ {
+                    \ 'path'        : 'D:\My Dropbox\blog',
+                    \ 'path_html'   : 'D:\My Dropbox\Public\blog',
+                    \ 'html_header' : 'D:\My Dropbox\blog\template\header.tpl',
+                    \ 'html_footer' : 'D:\My Dropbox\blog\template\footer.tpl'
+                \ }
+                \ ]
+</pre>
+
+<p>
+这样我使用 <code>4&lt;leader&gt;ww</code>(一般是<code>4\ww</code>) 就可以快速启动博客 wiki 首页并进行编辑了。wiki 文件保存在 Dropbox 私有目录下，生成的 html 文件保存在公开目录，这样，草稿日志不转成 html 就可以了，写好想发布、或想重新发布，<code>:Vimwiki2HTML</code> 即可。
+</p>
+
+<p>
+ blog:datetime=2010/03/29 09:41:13:tags=Vim,wiki,Vimwiki,Dropbox
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

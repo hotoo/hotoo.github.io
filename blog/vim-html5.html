@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>vim-html5 - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">让Vim支持html5</h1>
+<p>
+<a href="http://www.w3.org/TR/html5/">html5</a> 呼之已出，众多的现代浏览器也已支持其大半新特性。
+<h2 id="toc_1.1">html5 语法高亮</h2>
+</p>
+
+<p>
+网上已有让 Vim 支持新的标签和属性的语法文件，安装好语法文件即可正确的高亮显示html5标记和属性。
+</p>
+
+<p>
+详细方法参考 <a href="http://rm.blog.br/2009/09/vim-syntax-highlight-para-html-5/">VIM syntax highlight para HTML 5</a>，下载其 <a href="http://rm.blog.br/wp-content/uploads/2009/09/html.vim">html.vim</a> 语法文件，放至 $VIM/vimfiles/syntax/ 目录下即可。
+</p>
+
+<p>
+注：因为 html5 本身在不断更新，所以上面的脚本并不完整，我将持续关注并更新这个 <a href="http://hotoo.googlecode.com/svn/trunk/vim/vimfiles/syntax/html.vim">html.vim</a> 脚本。
+</p>
+
+<h2 id="toc_1.2">html5 自动补全</h2>
+<p>
+不过貌似目前还未有让 Vim 完整支持 html5 自动完成（又称自动补全）之脚本。
+</p>
+
+<p>
+我初步研究并修改了 $VIM/vim72/autoload/htmlcomplete.vim ，使其支持 html5 的自动完成。目前这个脚本逻辑基本可用，不过针对html5自动完成的数据（ $VIM/vim72/autoload/xml/html5.vim ）还在收集调整中，我也趁此机会深入学习一些 html5 知识。
+</p>
+
+<h2 id="toc_1.3">安装详情</h2>
+<p>
+将 <a href="http://hotoo.googlecode.com/svn/trunk/vim/vim72/autoload/htmlcomplete.vim">htmlcomplete.vim</a> 下载放至 $VIM/vim72/autoload/ 目录下，覆盖原文件即可，再将 <a href="http://hotoo.googlecode.com/svn/trunk/vim/vim72/autoload/xml/html5.vim">html5.vim</a> 下载放至 $VIM/vim72/autoload/xml/ 目录下即可。
+</p>
+
+<p>
+注：这个 html5.vim近期会做一些更新补充，以支持更完整正确的 html5 语法。
+</p>
+
+<h2 id="toc_1.4">html5 合法性验证</h2>
+<p>
+参考我的前一篇 <a href="validator-for-vim.html">在 Vim 中验证 X/HTML, Javascript 和 CSS</a>。
+</p>
+
+<p>
+ blog:date=2009/11/1:tags=Vim,html5
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

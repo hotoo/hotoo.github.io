@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>Vim-Chinese-Doc - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">Vim 中文帮助文档</h1>
+
+<p>
+前两天不知道为什么，帮助文档又跑会英文了（隐约是用 Vimball 安装了 Vimwiki
+或者 *重复*安装了 <a href="TwitVim.html">TwitVim</a> 的缘故）。
+</p>
+
+<pre>
+:set helplang=cn
+</pre>
+<p>
+无效。
+</p>
+
+<pre>
+let helptags=$VIM.'\vimfiles\doc'
+</pre>
+<p>
+亦无效。
+</p>
+
+<p>
+很早以前不知道从哪里抄来的这个：
+</p>
+<pre>
+cp -R doc $VIM.'\vimfiles\doc\'
+</pre>
+<p>
+从一开始就是报错的，一直被注释，从未被启用。
+</p>
+
+<p>
+在注册表中找到两个相关的项：
+</p>
+<pre>
+HKEY_CLASSES_ROOT\TypeLib\{0F0BFAE0-4C90-11D1-82D7-0004AC368519}\1.1\HELPDIR
+(默认)    d:\Vim\vim72
+</pre>
+<p>
+将默认值修改为：
+</p>
+<pre>
+    d:\Vim\vimfiles
+</pre>
+<p>
+或：
+</p>
+<pre>
+    d:\Vim\vimfiles\doc
+</pre>
+<p>
+重启系统，均无效。
+</p>
+
+<p>
+另一个注册表项的路径是正确的，无需改变：
+</p>
+<pre>
+HKEY_LOCAL_MACHINE\SOFTWARE\Classes\TypeLib\{0F0BFAE0-4C90-11D1-82D7-0004AC368519}\1.1\HELPDIR
+(默认值)    d:\Vim\vimfiles\doc
+</pre>
+
+<p>
+万般无奈，只好重装了中文文档。
+</p>
+
+<p>
+中文文档可以从 <a href="http://vimcdoc.sourceforge.net/">vimCdoc.sf.net</a> 下载，也可以从
+<a href="http://vimdoc.sourceforge.net/">vimdoc.sf.net</a> 找到链接，下载回来的是一个 .exe
+可执行安装文件，研究了下安装过程：
+</p>
+<ol>
+<li>
+前面都是在抽取中文文档文件(.cnx)，并放至合适的位置：(如 D:\Vim\vim72\..\vimfiles\doc)
+</li>
+<li>
+抽取 tags-cn 并输出到文档同一目录 D:\Vim\vim72\..\vimfiles\doc
+</li>
+<li>
+抽取 help_cn.vim 输出到 D:\Vim\vim72\..\vimfiles\syntax
+</li>
+<li>
+抽取 vimcdoc.vim 输出到 D:\Vim\vim72\..\vimfiles\plugin
+</li>
+<li>
+抽取 README,INSTALL,LICENSE,AUTHORS,guides.txt 到 C:\Program Files\vimcdoc
+</li>
+</ol>
+
+<p>
+其中设置 Vim 帮助的默认语言的步骤，即是在 vimcdoc.vim 中，因为 plugin 比 vimrc
+加载要晚(<a href="http://forum.ubuntu.org.cn/viewtopic.php?f=68&amp;t=190529">参考</a>)，所以在 vimrc 中的设置会被 vimcdoc.vim 覆盖掉。
+</p>
+
+<p>
+ blog:datetime=2010/03/15 14:48:23:tags=Vim
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

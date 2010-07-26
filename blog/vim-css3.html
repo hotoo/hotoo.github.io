@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>vim-css3 - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">让 Vim 支持 CSS3</h1>
+<p>
+和 <a href="http://www.w3.org/TR/html5/">HTML5</a> 一样，<a href="http://www.w3.org/TR/css3-roadmap/">CSS3</a> 也是目前热门的技术，为了在 Vim 中更舒适的编辑 css ，我整理补充了 css3 的语法高亮和自动补全部分。
+</p>
+
+<h2 id="toc_1.1">语法高亮</h2>
+
+<p>
+下载这个 <a href="http://hotoo.googlecode.com/svn/trunk/vim/vimfiles/syntax/css.vim">css.vim</a> ，放至 <code>$VIM/vimfiles/syntax/</code> (Windows) 或 <code>~/.vim/syntax/</code> (*nix) 目录下即可。
+<strong>更新</strong> ：
+将 <a href="http://hotoo.googlecode.com/svn/trunk/vim/vim72/syntax/css.vim">css.vim</a> 下载放置 <code>$VIM/vim72/syntax/</code> 下，覆盖源文件，这个版本补充和修正了CSS3的伪类支持。
+</p>
+
+<h2 id="toc_1.2">自动补全</h2>
+
+<p>
+下载这个 <a href="http://hotoo.googlecode.com/svn/trunk/vim/vim72/autoload/csscomplete.vim">csscomplete.vim</a> 放至 <code>$VIM/vim72/autoload/</code> 目录下，覆盖原文件即可。
+</p>
+
+<p>
+其中 vim72 中的 72 是 Vim 版本号。
+</p>
+
+<p>
+如果安装有 snipMate，可以参考这个 <a href="http://hotoo.googlecode.com/svn/trunk/vim/vimfiles/snippets/css.snippets">css.snippets</a>
+</p>
+
+<h2 id="toc_1.3">语法验证</h2>
+
+<p>
+可以参考这篇 <a href="validator-for-vim.html">在 Vim 中验证 X/HTML, Javascript 和 CSS</a>
+</p>
+
+<p>
+参考：
+</p>
+<ul>
+<li>
+<a href="http://webteam.tencent.com/css3/">CSS 3.0 参考手册 (中文版)</a>
+</li>
+</ul>
+
+
+<p>
+ blog:datetime=2009/11/06 15:31:51:tags=Vim,CSS,CSS3
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

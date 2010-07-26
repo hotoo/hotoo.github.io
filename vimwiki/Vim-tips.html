@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>Vim-tips - 闲耘™.Wiki</title>
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li><a href="../blog/index.html" title="Blog">Blog</a></li>
+        <li class="actived"><a href="index.html" title="Wiki">Wiki</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<article>
+
+<h1 id="toc_1">Vim Tips</h1>
+<p>
+这里收集一些网友关于各种 Vim 技巧的讨论总结，和一些非常有效的提高编辑效率的奇技淫巧。同样欢迎各位分享自己的技巧。
+</p>
+
+<h2 id="toc_1.1">导航</h2>
+<p>
+Vim 中打开当前文件所在的目录。
+</p>
+<pre>
+:e %:h
+</pre>
+
+<h2 id="toc_1.2">搜索(Search)</h2>
+<p>
+Vim 搜索预览+替换技巧：用 <code>/key&lt;cr&gt;</code> 执行搜索，所有的匹配项均会被高亮，要替换这些被高亮的部分可以使用命令 <code>:%s//word/g&lt;cr&gt;</code> ，如果不加 g ，则仅替换每行的第一个匹配项。
+</p>
+
+<h2 id="toc_1.3">缩写 &amp; 补全</h2>
+<p>
+在程序代码（如C#）中，如果使用这样的缩写：
+</p>
+<pre>
+:ab /// ///&lt;summary&gt;&lt;cr&gt;///&lt;cr&gt;///&lt;/summary&gt;
+</pre>
+<p>
+在实际输入 <code>/// </code> 的过程中，会被展开为：
+</p>
+<pre>
+///&lt;summary&gt;
+//////
+//////&lt;/summary&gt;
+</pre>
+<p>
+这是由于 Vim 在代码注释下敲回车会自动补全 <code>///</code> 部分。有多种方法可以避免这个问题：
+1. 设置（这个会影响全局的编辑行为）：
+</p>
+<pre>
+:set comments-=://
+</pre>
+<p>
+2. 缩写改为：
+</p>
+<pre>
+ab /// ///&lt;summary&gt;&lt;cr&gt;&lt;cr&gt;&lt;/summary&gt;
+</pre>
+<p>
+3. 或改为：
+</p>
+<pre>
+ab /// ///&lt;summary&gt;&lt;cr&gt;&lt;c-w&gt;///&lt;cr&gt;&lt;c-w&gt;///&lt;/summary&gt;
+</pre>
+</article>
+<footer>
+    <a href="index.html" id="back-home">&lsaquo; 首页</a>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft © 2010, Driven by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<!--[if lte IE 6]><script type="text/javascript" src="js/ie6.js"></script><![endif]-->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15922433-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

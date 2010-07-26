@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>editplus-and-everything - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">让 Editplus和Everything结合，快速搜索</h1>
+<p>
+今天朋友向我分享了他新学的一个小技巧：将 Everything 搜索集成到 Editplus。
+</p>
+
+<p>
+毫无疑问，<a href="http://www.voidtools.com/">Everything</a> 是 NTFS磁盘下，本地文件快速搜索的极品，而 <a href="http://www.editplus.com/">Editplus</a> 也是Windows下非常优秀的文本编辑器。
+</p>
+
+<p>
+虽然 Editplus 本身也有文件搜索功能，而且支持内容搜索，不过这个集成也非常有意思。
+</p>
+
+<ul>
+<li>
+首先需要安装（绿色的也可以）有Everything本身。
+</li>
+<li>
+下载面向命令行界面的 <a href="http://www.voidtools.com/download.php">es.exe</a> ^<a href="http://xbeta.info/everything/download.htm">2</a>^ 程序，放至 Everything 安装目录。
+</li>
+<li>
+打开 Editplus ， “工具” -&gt; “配置用户工具” -&gt; “添加工具”
+</li>
+<li>
+“菜单文本”可以随便命名，
+</li>
+<li>
+“命令”填入 es.exe 所在的完整路径，如 E:\Everything\es.exe
+</li>
+<li>
+“参数”填 <code>$(FileDir) $(CurSel)</code>
+</li>
+<li>
+选中捕获输出
+</li>
+<li>
+确定，现在选中一串文本，就可以使用 &lt;Ctrl-N&gt; 快捷键或菜单执行搜索了，搜索结果集会输出在输出窗口中。
+</li>
+</ul>
+
+<p>
+谢谢晓东的分享。有时间的话可以为 Vim 也写一个插件，搜索结果在 <a href="QuickFix.html">QuickFix</a> 窗口中输出。
+</p>
+
+<p>
+注意：一定要记得先选定文本一串，否则会搜索出所有的文件，如果参数没有加入当前文件所在的目录，还会更惨 <sup><small>_</small></sup>! 。不过作为 Vim 插件就可以更灵活了，不需要选定文本，直接执行类似命令就可以了。
+</p>
+<pre>
+:ES ${keyword}[ ${path}]
+</pre>
+
+<p>
+ blog:date=2010/2/27:tags=Editplus,Everything,Search
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

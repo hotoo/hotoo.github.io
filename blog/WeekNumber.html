@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>WeekNumber - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">周数(Week Number, <a href="WeekNum.html">WeekNum</a>)计算</h1>
+
+<p>
+jQuery UI v1.8rc 版的日历控件已经非常完善，比之 v1.7.1 已经支持显示周数(<a href="WeekNum.html">WeekNum</a>)，
+而且计算 <a href="WeekNum.html">WeekNum</a> 的算法可以自定义；而 <a href="http://www.my97.net/dp/demo/index.htm">My97DatePicker</a>
+的算法又有Bug。对于两年交接的周，有两种常见的算法：
+</p>
+
+<p>
+每年 1月 1日所在的周均为该年的第 1周（如MS Excel的<a href="WeekNum.html">WeekNum</a>()函数和 jQuery 实现）；
+</p>
+<pre class="code javascript jquery">
+/* Set as calculateWeek to determine the week of the year based on the ISO 8601 definition.
+   @param  date  Date - the date to get the week for
+   @return  number - the number of the week within the year that contains this date */
+iso8601Week: function(date) {
+    var checkDate = new Date(date.getTime());
+    // Find Thursday of this week starting on Monday
+    checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
+    var time = checkDate.getTime();
+    checkDate.setMonth(0); // Compare with Jan 1
+    checkDate.setDate(1);
+    return Math.floor(Math.round((time - checkDate) / 86400000) / 7) + 1;
+},
+</pre>
+
+<p>
+每年最后 1天所在的周
+</p>
+<pre class="code javascript jquery">
+/**
+ * @param date {Date} 每周第 1天。
+ * @return {Number}
+ */
+calculateWeek:function(date){
+    var d = new Date(date.getTime()+(6*86400000)), t=d.getTime();
+    var start = new Date(d.getTime()); start.setMonth(0); start.setDate(1);
+    return Math.floor((t - start.getTime())/86400000/7)+1;
+}
+</pre>
+
+<p>
+而从自然语言中来说，这交接的一周即可以是头一年的最后一周，也可以是后一年的第 1周。
+</p>
+
+<p>
+ blog:date=2010/03/16 14:47:39:tags=Javascript,jQuery
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>talk-about-popup-window - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">论广告窗口的弹出</h1>
+<p>
+弹窗广告，这（和页面漂浮广告）是上个世纪用的最频繁的广告方式，这种广告之所以“流行”，是因为它引人注目的特性，广告商也正是看中这一点。而这也是最讨人厌的一种广告方式，因为它未经用户同意，擅自弹出新窗口，一来每次都要手动关闭窗口很烦，二来它不尊重用户的意愿。
+</p>
+
+<p>
+既然服务商不尊重用户，用户当然说服务商很讨厌。
+</p>
+
+<p>
+后来通过服务商，广告商，开发人员和用户等大众的共同努力，这种弹窗方式逐渐受到质疑：
+1. 这种广告方式真的很有效吗？
+2. 有更好更受欢迎的广告模式吗，为什么(Google) <strong>内联的</strong> ，精确匹配的广告模式会受广告商和普通用户的一致好评？
+</p>
+
+<p>
+同时这（两）种广告模式逐渐退出广告历史的舞台，只有非常小众的网站才偶尔，或非常恶劣的网站才频繁出现。
+</p>
+
+<p>
+并且，即使链接本身是否在新窗口弹出都成了讨论的热点话题。w3c 已经不建议使用 target 属性了，是否在新窗口、新页签中打开，这应该是用户可控的，属于用户的偏好问题，应该尊重用户的选择。
+</p>
+
+<p>
+不过，用过淘宝的人应该都知道，<a href="http://www.taobao.com/">淘宝首页</a> 是会弹出广告窗口的，即使默认情况下被浏览器自动屏蔽掉，在用户点击页面时还是会被弹出，此时因为带有用户行为，浏览器较难判断是否应该屏蔽。
+</p>
+
+<p>
+真是令人发指，淘宝这样出色的公司，居然做出这么卑劣的事情，而且还费尽心机。
+</p>
+
+<p>
+前些时候我发现淘宝首页的拼音索引和商品详细信息等都不可用了，于是在 Twitter 上对 <a href="https://twitter.com/taobaoued">@TaobaoUED</a> 发了句牢骚，然后 <a href="https://twitter.com/macji">@Macji</a> 很主动的跟我联系了解情况。后来发现问题出在 <a href="https://addons.mozilla.org/zh-CN/firefox/addon/1865">Adblock plus</a> ^<a href="http://adblockplus.org/en/">2</a>^的 <a href="ChinaList.html">ChinaList</a> 直接将淘宝用的 tbra 框架屏蔽了，然后我和 Macji 进行了“深入的激辩”，大致情况如下：
+</p>
+<blockquote>
+Macji: 对于 china list 这种不负责的乱禁用 js 框架, 而不是只是禁用广告. 所以我们也无办法<br />
+闲耘: 我觉得在弹窗这一点上，chinalist 是负责任的，是淘宝不负责任<br />
+Macji: chinalist 应该专业点的,  只是禁用弹出广告<br />
+闲耘: 也许淘宝应该专业点，不要用弹窗广告<br />
+...<br />
+Macji: 弹出广告 严重邮箱用户体验, 其实我们一直再争取, 但我们不是高层<br />
+Macji: 我会写信给 chinalist 给出禁用弹窗的解决方案
+</blockquote>
+<p>
+最后想说：淘宝是个很有责任感的公司，这个弹窗广告除外；淘宝是个很注重用户体验的公司，这个弹窗广告除外；淘宝是个很尊重用户的公司，这个弹窗广告除外。淘宝是个很注重细节的公司，包括这个弹窗在内；淘宝是个很注重技术的团队，包括这个弹窗在内。
+</p>
+
+<p>
+<strong>更新：可喜的是，经过努力，新版淘宝已经戒掉了这个恶习。</strong>
+</p>
+
+<p>
+延伸阅读：
+</p>
+<ul>
+<li>
+<a href="http://shawphy.com/2009/01/window-open-is-evil.html">万恶的弹窗广告</a>
+</li>
+<li>
+<a href="http://www.om19.cn/2008/08/16/%E7%AC%A6%E5%90%88%E5%9B%BD%E6%83%85%E7%9A%84%E9%93%BE%E6%8E%A5%E6%96%B0%E7%AA%97%E5%8F%A3%E6%89%93%E5%BC%80/">符合国情的链接新窗口打开</a>
+</li>
+<li>
+<a href="http://shawphy.com/2009/01/window-open-is-evil.html">在新窗口打开链接是流氓行为</a>
+</li>
+</ul>
+
+<p>
+ blog:date=2009/8/7:tags=UED
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>vimwiki-google-code - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">用 Google Code 管理与发布 Wiki</h1>
+<p>
+由于 <a href="Dropbox-died-in-China.html">Dropbox 的墙掉</a>，https 协议访问 dl 或 dl-web 子域
+的方法也随之失效，虽然可以通过修改 hosts 来继续同步文件，但是 Public 目录再也
+不能输出文化了。
+</p>
+
+<p>
+我之前 <a href="use-vimwiki-for-blog.html">在 Dropbox Public 目录搭建的博客和 Wiki 系统</a>
+也无法在线浏览了，为了能够继续 辅助文化局输出文化，我便利用万恶的资本主义国家
+的 Google Code 来为我们服务了。
+</p>
+
+<p>
+由于可以继续使用 Dropbox 来自动同步私有文件，所以可以保持 .wiki 文件在 Dropbox
+中，其他自动同步的软件也可以用来做类似的事情。
+</p>
+
+<p>
+将 Vimwiki 的 <code>path_html</code> 修改为 Google Code 的某个 svn 或 Hg 目录：
+</p>
+<pre>
+let g:vimwiki_list = [{...},
+    \ {...},
+    \ {...},
+    \ {
+        \ 'path'        : 'D:\My Dropbox\blog',
+        \ 'path_html'   : 'D:\hotoo\blog',
+        \ 'html_header' : 'D:\My Dropbox\blog\template\header.tpl',
+        \ 'html_footer' : 'D:\My Dropbox\blog\template\footer.tpl'
+    \ }
+    \ ]
+</pre>
+<p>
+虽然 Vimwiki 目前的 toHTML 方法还不支持重新生成仅更新过的 wiki 文件，但是 svn
+可以判断文件是否有真正被修改过。
+</p>
+
+<p>
+另外 <a href="http://hotoo.googlecode.com/svn/wiki">http://hotoo.googlecode.com/svn/wiki</a> 目录存放的是 Google Code 的 Wiki 文件，
+这里面的 wiki 文件无需通过 Vimwiki 导出 HTML，Google Code 会自动完成这一工作，
+并可以通过 <a href="http://code.google.com/p/hotoo/w/list">http://code.google.com/p/hotoo/w/list</a> 浏览。而 Vimwiki 是 Google Code
+Wiki 语法的一个子集，所以基本可以天衣无缝的配合使用。
+</p>
+
+<p>
+这也是不错的一个方案，除了需要 commit 之外，Google Code 比 Dropbox 的 Public
+有过之而无不足，域名也是杠杠的。
+</p>
+
+<p>
+另外不小心发现还有其他的托管方案，让防火墙筑的更高些吧，当局者把自己当猪圈养起来
+比较好，做个专职的脑子又笨，目光又短浅的墙脚之猪也可以提高幸福指数的。
+</p>
+
+<p>
+ blog:datetime=2010/05/20 21:27:52:tags=Vimwiki,Google,Code,Wiki
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>
