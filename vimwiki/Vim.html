@@ -167,7 +167,7 @@ Video
 </li>
 <ul>
 <li>
-<a href="http://v.youku.com/v_show/id_XMTIwNDY5MjY4.html">7 Habits For Effective Text Editing 2.0</a>
+<a href="http://v.youku.com/v_show/id_XMTIwNDY5MjY4.html">7 Habits For Effective Text Editing 2.0</a> <a href="http://www.youtube.com/watch?v=eX9m3g5J-XA">youtube</a> <a href="http://xbeta.info/7habits-edit.htm">xbeta</a>
 </li>
 </ul>
 </ul>
@@ -175,39 +175,20 @@ Video
 
 <h2 id="toc_1.4">选项(Options)</h2>
 <h3 id="toc_1.4.1">编码(Encoding)</h3>
-<pre>
-" encoding
-set encoding=utf-8
-set termencoding=utf-8
-if has('win32')
-    set fileencoding=chinese
-else
-    set fileencoding=utf-8
-endif
-"set fileencodings=ucs-bom,utf-8,chinese,latin-1
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-set langmenu=zh_CN.utf-8
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-language messages zh_cn.utf-8
-</pre>
-<p>
-可以参考：
-</p>
 <ul>
+<li>
+<a href="http://gist.github.com/473488">My Settings</a>
+</li>
 <li>
 <a href="http://blah.blogsome.com/2007/08/23/vim_cn_faq/">Vim中输入法与编码设置的FAQ - 碎碎念</a>
 </li>
 </ul>
 
 <h3 id="toc_1.4.2">字体(fonts)</h3>
-<pre>
-if has("win32")
-    set guifont=Courier_New:h12:cANSI
-    "set guifontwide=YouYuan:h11:cGB2312
-endif
-</pre>
 <ul>
+<li>
+<a href="http://gist.github.com/473495">My Settings</a>
+</li>
 <li>
 <a href="http://blog.csdn.net/richardsa/archive/2009/01/20/3838469.aspx">Windows下的Gvim使用微软雅黑字体</a>
 </li>
@@ -328,65 +309,18 @@ vnoremap  #  y?&lt;C-R&gt;=escape(@", '\\/.*$^~[]')&lt;CR&gt;&lt;CR&gt;
 <p>
 自动补全成对的括号、引号
 </p>
-<pre>
-"inoremap ( ()&lt;ESC&gt;i
-inoremap ( &lt;c-r&gt;=OpenPair('(')&lt;CR&gt;
-inoremap ) &lt;c-r&gt;=ClosePair(')')&lt;CR&gt;
-"inoremap { {}&lt;ESC&gt;i
-inoremap { &lt;c-r&gt;=OpenPair('{')&lt;CR&gt;
-inoremap } &lt;c-r&gt;=ClosePair('}')&lt;CR&gt;
-"inoremap [ []&lt;ESC&gt;i
-inoremap [ &lt;c-r&gt;=OpenPair('[')&lt;CR&gt;
-inoremap ] &lt;c-r&gt;=ClosePair(']')&lt;CR&gt;
-"inoremap &lt; &lt;&gt;&lt;ESC&gt;i
-inoremap &lt; &lt;c-r&gt;=OpenPair('&lt;')&lt;CR&gt;
-inoremap &gt; &lt;c-r&gt;=ClosePair('&gt;')&lt;CR&gt;
-function! OpenPair(char)
-    let PAIRs = {
-                \ '{' : '}',
-                \ '[' : ']',
-                \ '(' : ')',
-                \ '&lt;' : '&gt;'
-                \}
-    let ol = len(split(getline('.'), a:char, 1))-1
-    let cl = len(split(getline('.'), PAIRs[a:char], 1))-1
-    if ol==cl
-        return a:char . PAIRs[a:char] . "\&lt;Left&gt;"
-    else
-        return a:char
-    endif
-endfunction
-function! ClosePair(char)
-    if getline('.')[col('.') - 1] == a:char
-        return "\&lt;Right&gt;"
-    else
-        return a:char
-    endif
-endf
-
-inoremap ' &lt;c-r&gt;=CompleteQuote("'")&lt;CR&gt;
-inoremap " &lt;c-r&gt;=CompleteQuote('"')&lt;CR&gt;
-function! CompleteQuote(quote)
-    let ql = len(split(getline('.'), a:quote, 1))-1
-    " a:quote length is odd.
-    if (ql%2)==1
-        return a:quote
-    elseif getline('.')[col('.') - 1] == a:quote
-        return "\&lt;Right&gt;"
-    else
-        return a:quote . a:quote . "\&lt;Left&gt;"
-    endif
-endfunction
-</pre>
 <ul>
+<li>
+<a href="../blog/vim-autocomplete-pairs.html">Vim 自动补全成对的括号或引号</a>
+</li>
+<li>
+<a href="http://gist.github.com/449512">My Settings</a>
+</li>
 <li>
 <a href="http://vim.wikia.com/wiki/Making_Parenthesis_And_Brackets_Handling_Easier">Making Parenthesis And Brackets Handling Easier</a>
 </li>
 <li>
 <a href="http://aoyme.wordpress.com/2010/05/31/%E5%9C%A8vim%E4%B8%AD%E5%B0%86%E6%8B%AC%E5%8F%B7%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%EF%BC%9A/">自动补全括号</a>
-</li>
-<li>
-<a href="../blog/vim-autocomplete-pairs.html">Vim 自动补全成对的括号或引号</a>
 </li>
 </ul>
 
@@ -527,6 +461,15 @@ Doxygen注释
 </li>
 <ul>
 <li>
+<a href="http://www.vim.org/scripts/script.php?script_id=987">DoxygenToolkit.vim : Simplify Doxygen documentation in C, C++, Python.</a>
+</li>
+<li>
+<a href="http://www.vim.org/scripts/script.php?script_id=1955">doxygen-support.vim : Generate Doxygen comments from user defined templates</a>
+</li>
+<li>
+<a href="http://www.vim.org/scripts/script.php?script_id=5">DoxyGen Syntax : DoxyGen Highlighting on top of c/c++/java</a>
+</li>
+<li>
 <a href="http://zwai.pixnet.net/blog/post/25974789">VIM 小技巧 (2)： Doxygen Syntax</a>
 </li>
 <li>
@@ -565,39 +508,46 @@ HTML
 <a href="http://www.catonmat.net/blog/vim-plugins-surround-vim/">Vim Plugins You Should Know About, Part I: surround.vim</a>
 </li>
 <li>
+TagList
+</li>
+<ul>
+<li>
 <a href="http://vim-taglist.sourceforge.net">TagList</a>^<a href="http://vim.sourceforge.net/scripts/script.php?script_id=273">script#273</a>^
 </li>
 <li>
-ctags
-</li>
-<ul>
-<li>
-<a href="http://blog.csdn.net/alexdboy/archive/2009/02/10/3871707.aspx">ctags的使用及相关参数介绍</a>^<a href="http://blog.csdn.net/moiyer/archive/2010/03/31/5438962.aspx">RT</a>^
+<a href="http://www.newsmth.net/frames.html?mainurl=/bbscon.php%3Fbid%3D731%26id%3D54466">修正taglist.vim对中文支持的问题</a>
 </li>
 <li>
-<a href="http://scie.nti.st/2006/12/22/how-to-add-css-support-to-ctags">How to add CSS support to ctags</a>
+<a href="http://code.google.com/p/txtbrowser/downloads/detail?name=taglist.diff&amp;can=2&amp;q=">taglist.diff</a>
 </li>
 <li>
-Javascript
-</li>
-<ul>
-<li>
-<a href="http://www.unbad.net/blog/ctags-and-relevant-support-for-javascript">CTAGS and relevant support for Javascript</a>
-</li>
-<li>
-<a href="http://weblogs.asp.net/george_v_reilly/archive/2009/03/24/exuberant-ctags-and-javascript.aspx">Exuberant ctags and Javascript</a>
-</li>
-<li>
-<a href="http://www.cellcortex.com/2009/10/vim-ctags-for-javascript-frameworks.html">VIM ctags for JavaScript Frameworks</a>
+<a href="http://code.google.com/p/txtbrowser/downloads/detail?name=taglist.vim&amp;can=2&amp;q=">taglist.vim</a>
 </li>
 </ul>
-</ul>
+<li>
+<a href="Ctags.html">Ctags</a>
+</li>
 <li>
 <a href="snipMate.html">snipMate</a>
 </li>
 <li>
+<a href="http://www.vim.org/scripts/script.php?script_id=1879">AutoComplPop : Automatically opens popup menu for completions</a>
+    <a href="https://bitbucket.org/ns9tks/vim-autocomplpop/">src(Hg)</a>
+</li>
+<li>
 <a href="http://www.vim.org/scripts/script.php?script_id=2611">XPTemplate</a>^<a href="http://code.google.com/p/xptemplate/">2</a>^(<a href="http://you.video.sina.com.cn/b/26112622-1539471463.html">screencast in C</a>, <a href="http://you.video.sina.com.cn/b/26383083-1539471463.html">screencast in python</a>)
 </li>
+<li>
+<a href="http://www.vim.org/scripts/script.php?script_id=52">Calendar</a> <a href="http://github.com/mattn/calendar-vim">2</a>
+</li>
+<ul>
+<li>
+<a href="http://www.weloving.net/?p=1234">Vim Calendar插件和Google Calendar同步 java版</a>
+</li>
+<li>
+<a href="http://code.google.com/p/diaryvgc/">Synchronism Python Script between VIM Calendar diary and Google Calendar.</a>
+</li>
+</ul>
 <li>
 Sparkup
 </li>
@@ -615,6 +565,9 @@ Zen-Coding
 <ul>
 <li>
 <a href="http://www.vim.org/scripts/script.php?script_id=2981">ZenCoding.vim : vim plugins for HTML and CSS hi-speed coding.</a>
+        <a href="http://github.com/mattn/zencoding-vim">2</a>,
+        <a href="http://github.com/mattn/zencoding-vim/blob/master/TUTORIAL">TUTORIAL</a>
+        <a href="http://wifeng.cn/?p=118">cn</a>
 </li>
 <li>
 <a href="http://leeiio.me/zen-coding-in-vim/">在Vim里玩Zen Coding</a>
@@ -627,7 +580,7 @@ Zen-Coding
 </li>
 </ul>
 <li>
-s<a href="http://www.vim.org/scripts/script.php?script_id=1697">urround</a>^<a href="http://github.com/tpope/vim-surround">2</a>^^<a href="http://www.catonmat.net/blog/vim-plugins-surround-vim/">Vim Plugins You Should Know About, Part I: surround.vim</a>^
+<a href="http://www.vim.org/scripts/script.php?script_id=1697">surround</a>^<a href="http://github.com/tpope/vim-surround">2</a>^^<a href="http://www.catonmat.net/blog/vim-plugins-surround-vim/">Vim Plugins You Should Know About, Part I: surround.vim</a>^
 </li>
 <li>
 <a href="Vimwiki.html">Vimwiki</a>
@@ -688,11 +641,17 @@ Python
 </li>
 </ul>
 <li>
-File Type
+xml
 </li>
 <ul>
 <li>
-<a href="http://www.vim.org/scripts/script.php?script_id=301">xmledit : A filetype plugin to help edit XML, HTML, and SGML documents</a>
+<a href="http://www.xmlsoft.org/xmllint.html">xmllint</a>
+</li>
+<li>
+<a href="http://powerclark.javaeye.com/blog/578169">使用 xmllint + schema 校验 xml 文档</a>
+</li>
+<li>
+<a href="http://www.vim.org/scripts/script.php?script_id=301">xmledit : A filetype plugin to help edit XML, HTML, and SGML documents</a> - 个人感觉太大，用不上这么多东西，而且第一次试用时中报没有设置 omni 之类的错误，编辑效率超低。
 </li>
 </ul>
 <li>
@@ -707,6 +666,12 @@ CSS3
 搜索(Search)
 </li>
 <ul>
+<li>
+<a href="http://www.vim.org/scripts/script.php?script_id=1238">mark.vim</a> - 较早版本，一直用着挺好。
+</li>
+<li>
+<a href="http://www.vim.org/scripts/script.php?script_id=2666">Mark.vim</a> - 传说的升级版本，试用中。
+</li>
 <li>
 <a href="http://www.vim.org/scripts/script.php?script_id=479">MultipleSearch : Highlight multiple searches at the same time, each with a different color.</a> | <a href="http://www.vim.org/scripts/script.php?script_id=1183">MultipleSearch2.vim : Improve Multiple search</a> - 这两个 Multiple Search 项目已经搁置，另外 mark.vim 是更好的选择。
 </li>
@@ -1009,19 +974,7 @@ PDF
 <a href="http://blah.blogsome.com/category/vim/">碎碎念 (hashtags#vim)</a>
 </li>
 <li>
-<a href="http://www.vim.org/scripts/script.php?script_id=1879">AutoComplPop : Automatically opens popup menu for completions</a>
-</li>
-<li>
-<a href="http://www.vim.org/scripts/script.php?script_id=5">DoxyGen Syntax : DoxyGen Highlighting on top of c/c++/java</a>
-</li>
-<li>
-<a href="http://www.vim.org/scripts/script.php?script_id=987">DoxygenToolkit.vim : Simplify Doxygen documentation in C, C++, Python.</a>
-</li>
-<li>
 <a href="http://github.com/rainux/jslint.vim">Fork of hallettj/jslint.vim</a> @see <a href="http://dabr.co.uk/status/4026010567">JSLint的Vim插件，支持高亮显示错误代码以及Quickfix模式。Fork过来打了个读取~/.jslintrc的小补丁。</a>
-</li>
-<li>
-<a href="http://ctags.sourceforge.net/">ctags</a>
 </li>
 <li>
 <a href="http://www.maycode.com/index.php/linux/54-linuxdevelop/">maycode.com (linuxdevelop)</a>
@@ -1062,6 +1015,9 @@ PDF
 <li>
 <a href="http://qixinglu.com/tag/vim">七星居(hashtags#vim)</a>
 </li>
+<li>
+<a href="http://thomer.com/vi/vi.html">Vi Lovers Home Page</a>
+</li>
 </ul>
 
 
@@ -1069,6 +1025,9 @@ PDF
 <ul>
 <li>
 <a href="http://blog.csdn.net/xianfengdesign/archive/2008/04/21/2312315.aspx">编写 Vim 脚本</a>
+</li>
+<li>
+<a href="http://blah.blogsome.com/2006/04/22/vim_tut_script/">脚本::Vim进阶索引</a>
 </li>
 </ul>
 

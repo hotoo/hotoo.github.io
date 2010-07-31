@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<title>PHP - 闲耘™.Wiki</title>
+<title>javascript-performance-details - 闲耘™.Wiki</title>
 </head>
 <body>
 <div id="wrapper">
@@ -21,32 +21,32 @@
 </header>
 <article>
 
-<h1 id="toc_1">PHP</h1>
-<ul>
+<h1 id="toc_1">Javascript 性能的细节</h1>
+<p>
+数组的 push
+</p>
+<ol>
 <li>
-<a href="http://php.net/">PHP: Hypertext Preprocessor</a>
+<code>a.push(i)</code>
 </li>
-</ul>
+<li>
+<code>a[a.length] = i</code>
+    性能较好。
+</li>
+</ol>
 
-<h2 id="toc_1.1">Project</h2>
-<ul>
+<p>
+遍历字符串的每个字符：
+</p>
+<ol>
 <li>
-<a href="http://wordpress.org/">Wordpress</a>
-</li>
-</ul>
-
-<h2 id="toc_1.2">Tools</h2>
-<ul>
-<li>
-<a href="http://www.zend.com/en/products/studio/">Zend Studio</a> - The Professional PHP IDE.
+<code>s.charAt(i)</code>
 </li>
 <li>
-<a href="http://www.zendstudio.net/">Zend Studio 中文</a>
+<code>s.split("")[i]</code>
+    Firefox 之外的其他浏览器下性能较好。
 </li>
-<li>
-<a href="http://www.koch.ro/blog/index.php?/archives/63-VIM-an-a-PHP-IDE.html">VIM an a PHP IDE</a>
-</li>
-</ul>
+</ol>
 </article>
 <footer>
     <a href="index.html" id="back-home">&lsaquo; 首页</a>

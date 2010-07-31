@@ -26,7 +26,12 @@
 这里收集一些网友关于各种 Vim 技巧的讨论总结，和一些非常有效的提高编辑效率的奇技淫巧。同样欢迎各位分享自己的技巧。
 </p>
 
-<h2 id="toc_1.1">导航</h2>
+<h2 id="toc_1.1">设置(Settings)</h2>
+<p>
+改变行距 <code>:set linespace=6</code>，默认 linespace=0
+</p>
+
+<h2 id="toc_1.2">导航</h2>
 <p>
 Vim 中打开当前文件所在的目录。
 </p>
@@ -34,12 +39,32 @@ Vim 中打开当前文件所在的目录。
 :e %:h
 </pre>
 
-<h2 id="toc_1.2">搜索(Search)</h2>
+<h2 id="toc_1.3">搜索(Search) &amp; 替换</h2>
 <p>
 Vim 搜索预览+替换技巧：用 <code>/key&lt;cr&gt;</code> 执行搜索，所有的匹配项均会被高亮，要替换这些被高亮的部分可以使用命令 <code>:%s//word/g&lt;cr&gt;</code> ，如果不加 g ，则仅替换每行的第一个匹配项。
 </p>
 
-<h2 id="toc_1.3">缩写 &amp; 补全</h2>
+<p>
+提问者：vim有没有简单命令交换文本的? 譬如一段文字中, 我要把所有的good和bad换个位子?<br />
+问题本质：good 替换为 bad，bad 替换为 good。<br />
+简单解法：
+</p>
+<ol>
+<li>
+<code>:%s/\&lt;good\&gt;/%{TEMP}%/g</code>
+</li>
+<li>
+<code>:%s/\&lt;bad\&gt;/good/g</code>
+</li>
+<li>
+<code>:%s/%{TEMP}%/\&lt;good\&gt;/g</code>
+</li>
+</ol>
+<p>
+所谓“优雅解法”：<code>%s/\&lt;good\&gt;\|\&lt;bad\&gt;/\=submatch(0)=='good'?'bad':'good'/g</code>
+</p>
+
+<h2 id="toc_1.4">缩写 &amp; 补全</h2>
 <p>
 在程序代码（如C#）中，如果使用这样的缩写：
 </p>
