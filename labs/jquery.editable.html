@@ -52,6 +52,7 @@ table{border-spacing:0; border-collapse:collapse;}
         <td>2</td>
         <td>Lover</td>
         <td>18</td>
+        <td>170.5</td>
         <td>
             <a href="javascript:void(0);" class="edit">±à¼­</a>
             <a href="javascript:void(0);" class="remove">É¾³ý</a>
@@ -63,81 +64,15 @@ table{border-spacing:0; border-collapse:collapse;}
 </table>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.editable.src.js"></script>
 <script type="text/javascript">/*<![CDATA[*/
-(function($){
-    $.fn.editable = function(options){
-        var defaults = {
-            operateColumn : "tr>td:last-child",
-            editbar : "tr>td:last-child>a.edit",
-            removebar : "tr>td:last-child>a.remove",
-            savebar : "tr>td:last-child>a.save",
-            cancelbar : "tr>td:last-child>a.cancel",
-            columns : []
-        };
-        var settings = $.extend(settings, defaults, options);
-        var _this = this;
-        $(settings.editbar, this).live("click", function(){
-            var line = $(this).parent().parent(),
-                columns = line.find(">td");
-            for(var i=0,val,l=columns.length; i<l; i++){
-                if(!settings.columns[i].type){continue;}
-                val = columns[i].innerHTML;
-                switch(settings.columns[i].type){
-                case "readonly":
-                    break;
-                case "number":
-                case "int":
-                    val = parseInt(val);
-                    columns[i].innerHTML = '<input type="number" size="'+size(settings.columns[i].max)+'" value="'+val+'" />';
-                    break;
-                case "text":
-                    columns[i].innerHTML = '<input type="text" size="'+settings.columns[i].max+'" value="'+val+'" />';
-                    break;
-                default:
-                    break;
-                }
-            }
-            // FIXME: get the button.
-            var p=$(_this);
-            $(settings.editbar, p).hide();
-            $(settings.removebar, p).hide();
-            $(settings.savebar, p).show();
-            $(settings.cancelbar, p).show();
-        });
-        $(settings.removebar, this).click(function(){
-            $(this).parent().parent().remove();
-        });
-        $(settings.savebar, this).click(function(){
-            settings.save.call(this);
-        });
-        $(settings.cancelbar, this).click(function(){
-            // FIXME: get the button.
-            var p = $(_this).parent();
-            $(settings.savebar, p).hide();
-            $(settings.cancelbar, p).hide();
-            $(settings.editbar, p).show();
-            $(settings.removebar, p).show();
-        });
-
-        function size(val){
-            return String(val).length;
-
-            if(typeof val =="string" || val instanceof String){
-                return val.length;
-            }else if(typeof(val)=="number" || val instanceof Number){
-                return String(val).length;
-            }
-        }
-    };
-})(jQuery);
-
 $(function(){
     $("#editableTable").editable({
         columns : [
             {type:"readonly"},
             {type:"text", min:1, max:32, pattern:""},
-            {type:"number", min:0, max:100}
-            {type:"float", min:0, max:100}
+            {type:"number", min:0, max:100},
+            {type:"float", min:0, max:300}
         ]
     });
 });
