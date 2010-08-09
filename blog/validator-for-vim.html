@@ -95,9 +95,6 @@ Unix/Linux（以下统称Unix）下可参考<a href="http://blog.whatwg.org/vim-
 </ol>
 <li>
 下载这个 <a href="http://svn.natalian.org/projects/html5/validate-html.sh">validate-html.sh</a>，重命名为 validate-html.bat，放至系统 Path所在路径，并编辑修改为以下内容：
-</li>
-</ol>
-
 <pre>
 :: sudo ln -s `pwd`/validate-html.sh /usr/bin/validate-html.sh
 :: Many thanks to Anselm Garbe for helping me with the blasted sed regexp
@@ -106,37 +103,25 @@ Unix/Linux（以下统称Unix）下可参考<a href="http://blog.whatwg.org/vim-
 ::curl -s -F laxtype=yes -F parser=html5 -F level=error -F out=gnu -F doc=@%1 "http://validator.nu" | sed 's,^.*":,'"%1:"','
 curl -s -F laxtype=yes -F parser=html5 -F level=error -F out=gnu -F doc=@%1 "http://validator.nu" | sed "s,^.*"":,""%1:"","
 </pre>
-<blockquote>
-上面指定以 html5 标准来校验，如果你使用其他标准，可以自行修改。
-</blockquote>
-<ol>
+    上面指定以 html5 标准来校验，如果你使用其他标准，可以自行修改。
+</li>
 <li>
 下载这个 <a href="http://svn.natalian.org/projects/html5/html.vim">html.vim</a>，将里面的
-</li>
-</ol>
-
 <pre>
 set makeprg=validate-html.sh\ %
 </pre>
-<blockquote>
-改成
-</blockquote>
+    改成
 <pre>
 set makeprg=validate-html.bat\ %
 </pre>
-<blockquote>
-放至 <code>$VIM/vimfiles/ftplugin/</code> 目录下。
-</blockquote>
-<ol>
+    放至 <code>$VIM/vimfiles/ftplugin/</code> 目录下。
+</li>
 <li>
 修改 _vimrc，加入如下代码：
-</li>
-</ol>
-
 <pre>
 autocmd FileType html,xhtml nmap &lt;F9&gt; :make&lt;cr&gt;&lt;cr&gt;:copen&lt;cr&gt;
 </pre>
-<ol>
+</li>
 <li>
 现在，打开.html类型的文件，按&lt;F9&gt;键既可校验当前的html文档合法性了。
 </li>
@@ -151,36 +136,26 @@ autocmd FileType html,xhtml nmap &lt;F9&gt; :make&lt;cr&gt;&lt;cr&gt;:copen&lt;c
 <p>
 方法和上面的类似，从第3大步开始：
 </p>
-
 <ol>
 <li>
 下载这个 validate-css.sh ，重命名为 validate-css.bat 放至 Path 环境变量所在目录，并修改为如下代码：
-</li>
-</ol>
-
 <pre>
 :: WORK-IN-PROGRESS
 curl -s -F "file=@%1;type=text/css" -F output=text "http://jigsaw.w3.org/css-validator/validator/"
 </pre>
-<ol>
+</li>
 <li>
 复制一份 $VIM/vimfile/ftplugin/ 下的 html.vim，重命名为 css.vim，并修改以下内容为：
-</li>
-</ol>
-
 <pre>
 set makeprg=validate-css.bat\ %
 </pre>
-<ol>
+</li>
 <li>
 修改 _vimrc 加入如下代码：
-</li>
-</ol>
-
 <pre>
 autocmd FileType css nmap &lt;F9&gt; :make&lt;cr&gt;&lt;cr&gt;:copen&lt;cr&gt;
 </pre>
-<ol>
+</li>
 <li>
 至此，打开CSS文件，按下&lt;F9&gt;就可以校验CSS代码了。
 </li>
@@ -242,12 +217,14 @@ autocmd FileType css nmap &lt;F9&gt; :make&lt;cr&gt;&lt;cr&gt;:copen&lt;cr&gt;
 
 
 <p>
- blog:date=2009/10/25:tags=Vim,HTML,<a href="JavaScript.html">JavaScript</a>,CSS,Validate
+ blog:date=2009/10/25:tags=Vim,HTML,JavaScript,CSS,Validate
 </p>
     </article>
     <section>
         <blockquote>
-        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address><br />
+        Google Reader 订阅地址： <a href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss">RSS</a>,
+                    <a href="http://vimcn.blogspot.com/feeds/posts/default">Atom</a>.
         </blockquote>
     </section>
 </div>
