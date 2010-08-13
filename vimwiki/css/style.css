@@ -1,5 +1,9 @@
+/*@import url("beige.css") screen;*/
+/*@import url("white.css") screen;*/
 body {font-family:Georgia,Times,sans-serif,Arial; margin:0; padding:0; font-size: 100%; line-height: 130%;
-    background:transparent url(bg/bg_plant.jpg) no-repeat fixed right 0;}
+    background:transparent url(bg/bg_plant.jpg) no-repeat fixed right 0;
+}
+#wrapper{width:960px; margin:0 auto;}
 nav{width:100%; margin:0 auto; left:0; top:0;}
     nav ul{list-style-type:none; margin:0; padding:0; height:37px; overflow:hidden; position:absolute; top:0; right:1em; display:inline-block;}
     nav ul:after{content:"\0020"; display:block; height:0; clear:both;}
