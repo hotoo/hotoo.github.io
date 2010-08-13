@@ -39,7 +39,7 @@ XX宝-技术部-数据仓库
 </pre>
 
 <p>
-我们的系统一个根据用户所在部门进行过滤的功能，所以我们用了类似下面的查询语句：
+我们的系统有一个根据用户所在部门进行过滤的功能，所以我们用了类似下面的查询语句：
 </p>
 <pre>
 SELECT * FROM users WHERE dept LIKE "XX宝-技术部%";
@@ -64,6 +64,15 @@ SELECT *
 FROM users
 WHERE REGEXP_LIKE(dept, "^XX宝-CEO$")
 OR REGEXP_LIKE(dept, "^XX宝-CEO-[\w\-]+");
+</pre>
+
+<p>
+合并正则表达式的另一解：
+</p>
+<pre>
+SELECT *
+FROM users
+WHERE REGEXP_LIKE(dept, "^XX宝-CEO($|-[\w\-]+)");
 </pre>
 
 <p>
