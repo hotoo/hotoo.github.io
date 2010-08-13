@@ -30,30 +30,30 @@
 
 <h1 id="toc_1">SQL LIKE 查询的一个问题</h1>
 <p>
-在做用户管理的时候，用户表(users) 有一个字段用来存储用户所在部门的信息，
-字段的值一般是这样的：
+在做用户管理的时候，用户表(users) 有一个字段(dept)用来存储用户所在部门的信息，
+字段的值一般是这样的，各级部门间使用横杠分隔：
 </p>
 <pre>
-支付宝-技术部
-支付宝-技术部-数据仓库
+XX宝-技术部
+XX宝-技术部-数据仓库
 </pre>
 
 <p>
 我们的系统一个根据用户所在部门进行过滤的功能，所以我们用了类似下面的查询语句：
 </p>
 <pre>
-SELECT * FROM users WHERE dept LIKE "支付宝-技术部%";
+SELECT * FROM users WHERE dept LIKE "XX宝-技术部%";
 </pre>
 
 <p>
 这样的性能还好，但是今天发现一个问题是，当有两个部门名称很相似，比如：
 </p>
 <pre>
-支付宝-CEO
-支付宝-CEO办公室
+XX宝-CEO
+XX宝-CEO办公室
 </pre>
 <p>
-这时在查询 <code>支付宝CEO</code> 的时候就会把 <code>支付宝-CEO办公室</code> 的用户也查询出来。
+这时在查询 <code>XX宝CEO</code> 的时候就会把 <code>XX宝-CEO办公室</code> 的用户也查询出来。
 </p>
 
 <p>
@@ -62,8 +62,8 @@ SELECT * FROM users WHERE dept LIKE "支付宝-技术部%";
 <pre>
 SELECT *
 FROM users
-WHERE REGEXP_LIKE(dept, "^支付宝-CEO$")
-OR REGEXP_LIKE(dept, "^支付宝-CEO-[\w\-]+");
+WHERE REGEXP_LIKE(dept, "^XX宝-CEO$")
+OR REGEXP_LIKE(dept, "^XX宝-CEO-[\w\-]+");
 </pre>
 
 <p>
@@ -76,8 +76,8 @@ OR REGEXP_LIKE(dept, "^支付宝-CEO-[\w\-]+");
 <pre>
 SELECT *
 FROM users
-WHERE dept="支付宝-CEO"
-OR dept LIKE "支付宝-CEO-%";
+WHERE dept="XX宝-CEO"
+OR dept LIKE "XX宝-CEO-%";
 </pre>
 
 <p>
