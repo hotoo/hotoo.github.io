@@ -7,7 +7,7 @@
 <meta name="generator" content="gvim" />
 <meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-<title>Vim-Chinese-Doc - 闲耘™.博客</title>
+<title>particulars-of-right-click-menu - 闲耘™.博客</title>
 <!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
 <link type="text/css" rel="stylesheet" href="css/template.css" />
 </head>
@@ -28,102 +28,64 @@
 <div id="container">
     <article>
 
-<h1 id="toc_1">Vim 中文帮助文档</h1>
-
+<h1 id="toc_1">右键菜单的细节</h1>
 <p>
-前两天不知道为什么，帮助文档又跑会英文了（隐约是用 Vimball 安装了 Vimwiki
-或者 *重复*安装了 TwitVim 的缘故）。
-</p>
-
-<pre>
-:set helplang=cn
-</pre>
-<p>
-无效。
-</p>
-
-<pre>
-let helptags=$VIM.'\vimfiles\doc'
-</pre>
-<p>
-亦无效。
+在Web客户端编程中，绑定Javascript的contextmenu事件来驱动触发自定义右键菜单，并通过停止事件冒泡来阻止Windows默认菜单，是一种比较常见的自定义菜单实现方式，自定义菜单的基准位置是基于事件的触发位置得来的。
+<a href="http://www.flickr.com/photos/hotoo/3761004107/"><img src="http://farm3.static.flickr.com/2475/3761004107_8f9f25efc1_o.png" /></a>
 </p>
 
 <p>
-很早以前不知道从哪里抄来的这个：
-</p>
-<pre>
-cp -R doc $VIM.'\vimfiles\doc\'
-</pre>
-<p>
-从一开始就是报错的，一直被注释，从未被启用。
+就右键菜单的本意来说，这基本没什么问题，不过Windows PC键盘上有一个右键功能键。
+<a href="http://www.flickr.com/photos/hotoo/3760929801/"><img src="http://farm3.static.flickr.com/2583/3760929801_31e0e4b6c8_o.png" /></a>
 </p>
 
 <p>
-在注册表中找到两个相关的项：
-</p>
-<pre>
-HKEY_CLASSES_ROOT\TypeLib\{0F0BFAE0-4C90-11D1-82D7-0004AC368519}\1.1\HELPDIR
-(默认)    d:\Vim\vim72
-</pre>
-<p>
-将默认值修改为：
-</p>
-<pre>
-    d:\Vim\vimfiles
-</pre>
-<p>
-或：
-</p>
-<pre>
-    d:\Vim\vimfiles\doc
-</pre>
-<p>
-重启系统，均无效。
+通过按这个功能键来触发右键菜单，除了Firefox （v3.5，其他版本未测试）外，均表现不正常。
+<a href="http://www.flickr.com/photos/hotoo/3761023363/"><img src="http://farm4.static.flickr.com/3529/3761023363_50cd93a685_o.png" /></a>
 </p>
 
 <p>
-另一个注册表项的路径是正确的，无需改变：
-</p>
-<pre>
-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\TypeLib\{0F0BFAE0-4C90-11D1-82D7-0004AC368519}\1.1\HELPDIR
-(默认值)    d:\Vim\vimfiles\doc
-</pre>
-
-<p>
-万般无奈，只好重装了中文文档。
+IE 事件触发对象的坐标仍是鼠标所在的坐标位置。
+<a href="http://www.flickr.com/photos/hotoo/3761015003/"><img src="http://farm4.static.flickr.com/3529/3761015003_552bdedc82_o.png" /></a>
 </p>
 
 <p>
-中文文档可以从 <a href="http://vimcdoc.sourceforge.net/">vimCdoc.sf.net</a> 下载，也可以从
-<a href="http://vimdoc.sourceforge.net/">vimdoc.sf.net</a> 找到链接，下载回来的是一个 .exe
-可执行安装文件，研究了下安装过程：
+Safari和Chrome均不能触发自定义右键菜单，呈现浏览器默认菜单（Safari在使用鼠标邮件激活自定义右键菜单后，自定义右键菜单消失前，不呈现浏览器默认菜单）。
+</p>
+
+<p>
+Opera不支持contextmenu事件，默认情况下也禁止脚本控制右键菜单。
+</p>
+
+<p>
+而标准的桌面应用程序中使用这个键，和右击鼠标是基本一致的，基准位置参照焦点对象的位置。
+<a href="http://www.flickr.com/photos/hotoo/3760955767/"><img src="http://farm3.static.flickr.com/2591/3760955767_8fb08f8007_o.png" /></a>
+</p>
+
+<p>
+<strong>右键功能键是为无鼠标或鼠标不可用情况设计的，所以使用右键功能键激活的右键菜单，应该呈现在焦点对象附近，并且自定义菜单应该（至少在视觉上）获得焦点，以便于通过方向键控制选中的菜单项。</strong>
+</p>
+
+<p>
+这在很大程度上应该属于浏览器的问题，不过在现实的情况下，如果前端开发者可以解决掉这个问题，就不要寄希望于浏览器将来的新版本。
+</p>
+
+<p>
+<strong>不过更好的方式也许是：严谨区分鼠标和键盘事件。</strong>
+</p>
+
+<p>
+参考阅读：
 </p>
 <ol>
 <li>
-前面都是在抽取中文文档文件(.cnx)，并放至合适的位置：(如 D:\Vim\vim72\..\vimfiles\doc)
-</li>
-<li>
-抽取 tags-cn 并输出到文档同一目录 D:\Vim\vim72\..\vimfiles\doc
-</li>
-<li>
-抽取 help_cn.vim 输出到 D:\Vim\vim72\..\vimfiles\syntax
-</li>
-<li>
-抽取 vimcdoc.vim 输出到 D:\Vim\vim72\..\vimfiles\plugin
-</li>
-<li>
-抽取 README,INSTALL,LICENSE,AUTHORS,guides.txt 到 C:\Program Files\vimcdoc
+<a href="http://blog.csdn.net/spring21st/archive/2009/02/04/3862606.aspx">Opera下自定义右键菜单的研究</a>
 </li>
 </ol>
 
-<p>
-其中设置 Vim 帮助的默认语言的步骤，即是在 vimcdoc.vim 中，因为 plugin 比 vimrc
-加载要晚(<a href="http://forum.ubuntu.org.cn/viewtopic.php?f=68&amp;t=190529">参考</a>)，所以在 vimrc 中的设置会被 vimcdoc.vim 覆盖掉。
-</p>
 
 <p>
- blog:datetime=2010/03/15 14:48:23:tags=Vim
+ blog:datetime=2009/07/27 21:47:54:tags=Design
 </p>
     </article>
     <section>

@@ -7,7 +7,7 @@
 <meta name="generator" content="gvim" />
 <meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-<title>editplus-and-everything - 闲耘™.博客</title>
+<title>jingmi-tea - 闲耘™.博客</title>
 <!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
 <link type="text/css" rel="stylesheet" href="css/template.css" />
 </head>
@@ -28,59 +28,67 @@
 <div id="container">
     <article>
 
-<h1 id="toc_1">让 Editplus和Everything结合，快速搜索</h1>
+<h1 id="toc_1">老家的粳米茶</h1>
 <p>
-今天朋友向我分享了他新学的一个小技巧：将 Everything 搜索集成到 Editplus。
+我的老家在江西 <a href="http://baike.baidu.com/view/8920.htm">九江</a>
+<a href="http://baike.baidu.com/view/29958.htm">瑞昌市</a>
+<a href="http://baike.baidu.com/view/743717.htm">南义镇</a>，
+有非常多独特的乡村美食，大多只能用老家土话叫名字，普通话都不知道该怎么说，
+汉字也不知道该怎么写才正确。
 </p>
 
 <p>
-毫无疑问，<a href="http://www.voidtools.com/">Everything</a> 是 NTFS磁盘下，本地文件快速搜索的极品，而 <a href="http://www.editplus.com/">Editplus</a> 也是Windows下非常优秀的文本编辑器。
+比如说粳(Jing)米茶，老家土话的发音应该是“箭米茶”，箭米其实就是粳米，
+粳米茶是老家的习惯叫法，因为大都是在炎热的夏日中午，咕嘟咕嘟炖几个钟头，
+然后让它自然凉掉，到下午的时候当晚餐，或下午茶喝。实际上我想应该属于粳米粥。
 </p>
 
 <p>
-虽然 Editplus 本身也有文件搜索功能，而且支持内容搜索，不过这个集成也非常有意思。
-</p>
-
-<ul>
-<li>
-首先需要安装（绿色的也可以）有Everything本身。
-</li>
-<li>
-下载面向命令行界面的 <a href="http://www.voidtools.com/download.php">es.exe</a> ^<a href="http://xbeta.info/everything/download.htm">2</a>^ 程序，放至 Everything 安装目录。
-</li>
-<li>
-打开 Editplus ， “工具” -&gt; “配置用户工具” -&gt; “添加工具”
-</li>
-<li>
-“菜单文本”可以随便命名，
-</li>
-<li>
-“命令”填入 es.exe 所在的完整路径，如 E:\Everything\es.exe
-</li>
-<li>
-“参数”填 <code>$(FileDir) $(CurSel)</code>
-</li>
-<li>
-选中捕获输出
-</li>
-<li>
-确定，现在选中一串文本，就可以使用 &lt;Ctrl-N&gt; 快捷键或菜单执行搜索了，搜索结果集会输出在输出窗口中。
-</li>
-</ul>
-
-<p>
-谢谢晓东的分享。有时间的话可以为 Vim 也写一个插件，搜索结果在 QuickFix 窗口中输出。
+我搜了一下粳米茶，大都是九江的做法，用粳米和绿茶煮成，这完全不同于我老家的材料和做法。
 </p>
 
 <p>
-注意：一定要记得先选定文本一串，否则会搜索出所有的文件，如果参数没有加入当前文件所在的目录，还会更惨 <sup><small>_</small></sup>! 。不过作为 Vim 插件就可以更灵活了，不需要选定文本，直接执行类似命令就可以了。
+西祠胡同有一篇《辉婶学艺–粳米茶》的做法和老家的非常相似：
 </p>
-<pre>
-:ES ${keyword}[ ${path}]
-</pre>
+<ol>
+<li>
+先要有炒熟的粳米。这是整个过程中最为关键的一步， 我没有专门学，
+    当然不会，熟粳米是从老家带过来的，老妈很辛苦。
+    <a href="http://www.flickr.com/photos/hotoo/3895028061/"><img src="http://farm4.static.flickr.com/3428/3895028061_903075509b_o.jpg" /></a>
+    喷香的熟粳米
+</li>
+<li>
+还要有晒熟的红薯，或白薯粒。这个也很关键，过程有点漫长，大概几天吧，
+    一般是夏天把挖回来的红、白薯洗净切成正方体颗粒，放在外面让太阳暴晒，
+    晒干之后可以存储很久。老家还有纯粹煮红、白薯，或薯粒的做法，
+    叫薯茶或薯粒茶，当早茶或下午茶都可以。
+    <a href="http://www.flickr.com/photos/hotoo/3895027971/"><img src="http://farm3.static.flickr.com/2502/3895027971_3e37708813_o.jpg" /></a>
+    甘甜的薯粒
+</li>
+<li>
+白砂糖，红糖也可以。
+</li>
+</ol>
 
 <p>
- blog:date=2010/2/27:tags=Editplus,Everything,Search
+如果上面的原材料都具备了的话，煮法就没什么好说的了，直接放到锅里煮就行了，
+先用猛火煮开，然后用文火慢慢炖，到薯粒变软和，粳米煮开花就可以了。
+</p>
+
+<p>
+<a href="http://www.flickr.com/photos/hotoo/3895811614/"><img src="http://farm3.static.flickr.com/2620/3895811614_7f0856628e_o.jpg" /></a>
+粳米茶
+</p>
+
+<p>
+干薯粒本身就很甜，不过如果喜欢，加糖后味道会更佳。
+<a href="http://www.flickr.com/photos/hotoo/3895027803/"><img src="http://farm3.static.flickr.com/2470/3895027803_bb63391431_o.jpg" /></a>
+粳米茶
+</p>
+
+
+<p>
+ blog:datetime=2009/9/6 20:47:26:tags=Life
 </p>
     </article>
     <section>

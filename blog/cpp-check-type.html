@@ -48,7 +48,7 @@ BaseToken lastToken;
 </pre>
 
 <p>
-有一个地方需要判断 lastToken 是否是 <a href="KeywordToken.html">KeywordToken</a>
+有一个地方需要判断 lastToken 是否是 KeywordToken
 </p>
 <pre>
 if(dynamic_cast&amp;lt;KeywordToken *&amp;gt;(lastToken)){}
@@ -58,7 +58,7 @@ if(dynamic_cast&amp;lt;KeywordToken *&amp;gt;(lastToken)){}
 但是编译时报错如下：
 </p>
 <blockquote>
-<a href="LexicalAnalyzer.html">LexicalAnalyzer</a>.cpp|444| error: cannot dynamic_cast <code>((LexicalAnalyzer*)this)-&amp;gt;LexicalAnalyzer::lastToken’ (of type </code>class <a href="BaseToken.html">BaseToken</a>’) to type `class <a href="KeywordToken.html">KeywordToken</a>*’ (source is not a pointer)
+LexicalAnalyzer.cpp|444| error: cannot dynamic_cast <code>((LexicalAnalyzer*)this)-&amp;gt;LexicalAnalyzer::lastToken’ (of type </code>class BaseToken’) to type `class KeywordToken*’ (source is not a pointer)
 </blockquote>
 <p>
 貌似不能将父类型转为子类型，那么请问如何判断 <code>lastToken</code> 是 <code>KeywordToken</code> ?
@@ -97,7 +97,9 @@ if(dynamic_cast&amp;lt;KeywordToken *&amp;gt;(&amp;amp;lastToken)){}
     </article>
     <section>
         <blockquote>
-        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address><br />
+        Google Reader 订阅地址： <a href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss">RSS</a>,
+                    <a href="http://vimcn.blogspot.com/feeds/posts/default">Atom</a>.
         </blockquote>
     </section>
 </div>
