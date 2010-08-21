@@ -116,8 +116,10 @@ blockquote{
 }
 
 table{border-collapse:collapse; border-spacing:0;
-    -moz-box-shadow:0 0 8px #666; -webkit-box-shadow:0 0 8px #666; box-shadow:0 0 8px #666;
     border-width:1px 0 0 1px; border-style:solid; border-color:#ccc;}
+table:hover{
+    -moz-box-shadow:0 0 8px #666; -webkit-box-shadow:0 0 8px #666; box-shadow:0 0 8px #666;
+}
 
     th, td{border-width:0 1px 1px 0; border-style:solid; border-color:#ccc; padding: 0.3em;}
     th{background-color: #f0f0f0;}
