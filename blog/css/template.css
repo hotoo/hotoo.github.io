@@ -154,6 +154,8 @@ div.toc{border:1px solid #ccc; background:#f8f8f8; float:right; padding:3px;
     -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;
 }
 
+#disqus_thread{background:#f6f6f6 none; border-top:1px solid #ddd; padding:10px;}
+
 footer{border-width:1px 0 0; border-style:solid; border-color:#ccc; background:#fff none; color:#999; text-align:right; margin:0; padding:5px; display:block;}
     footer p{margin:0; padding:0; font-size:.75em;}
     footer a{color:#333; margin:0 5px;}
