@@ -34,22 +34,24 @@
 参考 <a href="http://gist.github.com/502217">gist:502217</a>
 </p>
 
-<p>
-1. 在用户目录下的 .gitconfig 中加入：
-</p>
+<ol>
+<li>
+在用户目录下的 .gitconfig 中加入：
 <pre>
 [diff]
   external = git_diff_wrapper.bat
 [pager]
   diff =
 </pre>
-<p>
-2. 创建 git_diff_wrapper.bat 文件放到 $PATH 目录下，内容为：
-注意其中的 path\to\ 要改为 gvim.exe 所在目录。
-</p>
+</li>
+<li>
+创建 git_diff_wrapper.bat 文件放到 $PATH 目录下，内容为：
 <pre>
 path\to\gvim.exe -d "%2" "%5"
 </pre>
+    注意其中的 path\to\ 要改为 gvim.exe 所在目录。
+</li>
+</ol>
 
 <h2 id="toc_1.2">for Linux</h2>
 <p>
@@ -62,7 +64,7 @@ path\to\gvim.exe -d "%2" "%5"
     </article>
     <section>
         <blockquote>
-        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address><br />
         Google Reader 订阅地址： <a href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss">RSS</a>,
                     <a href="http://vimcn.blogspot.com/feeds/posts/default">Atom</a>.
         </blockquote>

@@ -1,0 +1,585 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dth XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/Dth/xhtml1-strict.dth">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content="闲耘™ (hotoo.cn[AT]gmail.com)" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<style type="text/css">/*<![CDATA[*/
+a{color:blue;}
+a.disabled{color:#999; cursor:default;}
+table.igo{border:1px solid #ccc; border-collapse:collapse; border-spacing:0;}
+    table.igo th,
+    table.igo td,
+    table.igo td div{width:22px; height:22px;}
+    table.igo th{border:0px solid #ccc; background:#eee none; color:#666;}
+    table.igo td{border:0px solid #f8f8f8; background:transparent url(igo-grid.gif) no-repeat center center; cursor:pointer;}
+    table.igo td.point{background-image:url(igo-grid-point.gif);}
+    table.igo td.top-left{background-image:url(igo-grid-top-left.gif);}
+    table.igo td.top{background-image:url(igo-grid-top.gif);}
+    table.igo td.top-right{background-image:url(igo-grid-top-right.gif);}
+    table.igo td.left{background-image:url(igo-grid-left.gif);}
+    table.igo td.right{background-image:url(igo-grid-right.gif);}
+    table.igo td.bot-left{background-image:url(igo-grid-bot-left.gif);}
+    table.igo td.bot{background-image:url(igo-grid-bot.gif);}
+    table.igo td.bot-right{background-image:url(igo-grid-bot-right.gif);}
+
+    table.igo td div{background:transparent url(igo-grid.gif) no-repeat center center; text-align:center; font-size:.8em; line-height:1.4em;}
+    table.igo td div.black{background-image:url(igo-grid-black.png); color:#fff;}
+    table.igo td div.white{background-image:url(igo-grid-white.png); color:#000;}
+
+    table.igo td:hover{background-image:url(igo-grid-white.png);}
+/*]]>*/</style>
+<title>围棋.棋盘</title>
+</head>
+<body>
+
+<div>
+    <a href="javascript:void(0)" id="btn-zoom-in">Zoom In (+)</a>,
+    <a href="javascript:void(0)" class="disabled" id="btn-zoom-out">Zoom Out (-)</a>,
+    <a href="javascript:void(0)" id="btn-show-num">Show Number</a>
+</div>
+<div>
+<table class="igo" id="igo">
+    <thead>
+        <tr>
+            <th></th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+            <th>F</th>
+            <th>G</th>
+            <th>H</th>
+            <th>I</th>
+            <th>J</th>
+            <th>K</th>
+            <th>L</th>
+            <th>M</th>
+            <th>O</th>
+            <th>P</th>
+            <th>Q</th>
+            <th>R</th>
+            <th>S</th>
+            <th>T</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>19</th>
+            <td class="top-left"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top"></td>
+            <td class="top-right"></td>
+            <th>19</th>
+        </tr>
+        <tr>
+            <th>18</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>18</th>
+        </tr>
+        <tr>
+            <th>17</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td><div class="black" id="igo-1"></div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>17</th>
+        </tr>
+        <tr>
+            <th>16</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td class="point"></td>
+            <td><div class="black" id="igo-3"></div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="point"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="point"></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>16</th>
+        </tr>
+        <tr>
+            <th>15</th>
+            <td class="left"></td>
+            <td></td>
+            <td><div class="white" id="igo-2"></div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>15</th>
+        </tr>
+        <tr>
+            <th>14</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>14</th>
+        </tr>
+        <tr>
+            <th>13</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>13</th>
+        </tr>
+        <tr>
+            <th>12</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>12</th>
+        </tr>
+        <tr>
+            <th>11</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>11</th>
+        </tr>
+        <tr>
+            <th>10</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td class="point"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="point"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="point"></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>10</th>
+        </tr>
+        <tr>
+            <th>9</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>9</th>
+        </tr>
+        <tr>
+            <th>8</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>8</th>
+        </tr>
+        <tr>
+            <th>7</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>7</th>
+        </tr>
+        <tr>
+            <th>6</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>6</th>
+        </tr>
+        <tr>
+            <th>5</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>5</th>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td class="point"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="point"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="point"></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>4</th>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>3</th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td class="left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="right"></td>
+            <th>2</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <td class="bot-left"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot"></td>
+            <td class="bot-right"></td>
+            <th>1</th>
+        </tr>
+    <tbody>
+    <tfoot>
+        <tr>
+            <th></th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+            <th>F</th>
+            <th>G</th>
+            <th>H</th>
+            <th>I</th>
+            <th>J</th>
+            <th>K</th>
+            <th>L</th>
+            <th>M</th>
+            <th>O</th>
+            <th>P</th>
+            <th>Q</th>
+            <th>R</th>
+            <th>S</th>
+            <th>T</th>
+            <th></th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+
+<script type="text/javascript">/*<![CDATA[*/
+function $(id){
+    return document.getElementById(id);
+}
+function igoZoom(zoom){
+    var ths = $("igo").getElementsByTagName("th");
+    for (var i=0, l=ths.length; i<l; i++){
+        ths[i].style.width =
+        ths[i].style.height = zoom + "px";
+    }
+    var tds = $("igo").getElementsByTagName("td");
+    for (var i=0, l=tds.length; i<l; i++){
+        tds[i].style.width =
+        tds[i].style.height = zoom + "px";
+    }
+    var divs = $("igo").getElementsByTagName("div");
+    for (var i=0, l=divs.length; i<l; i++){
+        divs[i].style.width =
+        divs[i].style.height = zoom + "px";
+    }
+}
+function igoZoomIn(){
+    if(this.className=="disabled"){return;}
+    igoZoom(32);
+    this.className="disabled";
+    $("btn-zoom-out").className = "";
+}
+function igoZoomOut(){
+    if(this.className=="disabled"){return;}
+    igoZoom(22);
+    this.className="disabled";
+    $("btn-zoom-in").className = "";
+}
+function showNum(){
+    var divs = $("igo").getElementsByTagName("div");
+    for (var i=0, l=divs.length; i<l; i++){
+        divs[i].innerHTML = divs[i].getAttribute("id").replace("igo-","");
+    }
+}
+
+window.onload = function(){
+    $("btn-zoom-in").onclick = igoZoomIn;
+    $("btn-zoom-out").onclick = igoZoomOut;
+    $("btn-show-num").onclick = showNum;
+};
+/*]]>*/</script>
+</body>
+</html>

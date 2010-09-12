@@ -68,7 +68,7 @@
 @="{51EEE242-AD87-11d3-9C1E-0090278BBD99}"
 </pre>
 <p>
-是关键项，他貌似根据 gvimext.dll 来附加右键菜单的动态项，包括 Diff with Vim。
+是关键项，他根据 gvimext.dll 来附加右键菜单的动态项，包括 Diff with Vim。
 如果你不想有默认的新窗口中打开文件的“用 Vim 编辑 (&amp;V)”(Edit with Vim)，
 就需要把上面这项删除，不过这也会殃及 Diff with Vim。
 </p>
@@ -144,8 +144,16 @@ imap &lt;C-S-w&gt; &lt;Esc&gt;:tabonly&lt;cr&gt;
 nmap &lt;C-S-w&gt; :tabonly&lt;cr&gt;
 </pre>
 
+<h2 id="toc_1.2">更新 (2010/6/26)</h2>
+<p>
+今天想折腾一下 gvimext.dll ，因为这个是问题的本源，只要将它里面的“用 Vim 编辑”(Edit with Vim)加上参数，
+改成新页签中打开的方式就好了，而且选中多个文件进行比较，好像也必须使用动态连接库的方式实现，
+于是找到了这个 <a href="http://www.vim.org/scripts/script.php?script_id=1720">gvimext.dll</a>
+它让 Vim 7 支持新页签中打开。试用了一下，感觉有点啰嗦了，它让新窗口和新页签打开文件的方式共存，并且快捷键
+仍然设置在新窗口打开的菜单项上。不过里面带有源码，我们可以改成自己喜欢的方式。
+</p>
 
-<h2 id="toc_1.2">参考链接</h2>
+<h2 id="toc_1.3">参考链接</h2>
 <ul>
 <li>
 <a href="http://wiki.ubuntu.org.cn/index.php?title=Vimfaq&amp;amp;variant=zh-cn">Vimfaq - Ubuntu 中文</a>
@@ -160,7 +168,16 @@ nmap &lt;C-S-w&gt; :tabonly&lt;cr&gt;
 <a href="http://davidvielmetter.com/?p=1094">Context menu issues with gVim in Windows 7 x64</a>
 </li>
 <li>
+<a href="http://vim.wikia.com/wiki/Add_open-in-tabs_context_menu_for_Windows">Add open-in-tabs context menu for Windows</a>
+</li>
+<li>
 <a href="http://vim.wikia.com/wiki/Show_tab_number_in_your_tab_line">Show tab number in your tab line</a>
+</li>
+<li>
+<a href="http://hi.baidu.com/mimimo/blog/item/e742243f3fe865e755e72351.html">为gVim Portable添加右键菜单</a>
+</li>
+<li>
+<a href="http://liyanrui.is-programmer.com/posts/1857.html">Vim 的标签页功能</a>
 </li>
 </ul>
 
@@ -171,7 +188,9 @@ nmap &lt;C-S-w&gt; :tabonly&lt;cr&gt;
     </article>
     <section>
         <blockquote>
-        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address><br />
+        Google Reader 订阅地址： <a href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss">RSS</a>,
+                    <a href="http://vimcn.blogspot.com/feeds/posts/default">Atom</a>.
         </blockquote>
     </section>
 </div>

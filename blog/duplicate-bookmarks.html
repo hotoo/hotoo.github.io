@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>duplicate-bookmarks - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">重复的书签</h1>
+<p>
+项目需求要做一个收藏夹，供用户收藏项目中的功能点。开发人员先给了个初步的设计文稿，
+基本上是参考IE的设计方案（当然其他浏览器的方案也差不离），后来在讨论如何对待
+用户收藏重复的功能点这个细节问题时，也没有经过太多的争论，照例抄袭了IE的处理方式：
+</p>
+
+<ol>
+<li>
+同一文件夹下不允许收藏重复的功能点，只将新的信息（如名称）覆盖到旧有的信息上；
+</li>
+<li>
+不同文件夹下可以收藏同一个已收藏的功能点。
+</li>
+</ol>
+
+<p>
+但是经过讨论，后来摒弃了这个方案，因为我们看到了Firefox的优秀设计：
+</p>
+
+<ol>
+<li>
+同一账户不允许重复收藏同一书签；
+</li>
+<li>
+当用户收藏一个已收藏的书签时，覆盖已有信息（如名称）；
+</li>
+<li>
+如果被收藏到另一个不同的文件夹时，则将旧的收藏移动到新文件夹。
+</li>
+</ol>
+<p>
+<a href="http://www.flickr.com/photos/hotoo/3820043578/"><img src="http://farm4.static.flickr.com/3534/3820043578_f8831c9265_o.png" /></a>
+</p>
+
+<p>
+Chrome包括智能地址栏和收藏夹都吸收了Firefox的优秀设计。
+<a href="http://www.flickr.com/photos/hotoo/3819237321/"><img src="http://farm3.static.flickr.com/2537/3819237321_47e6bb1abe_o.png" /></a>
+</p>
+
+<p>
+Safari则表现的不同凡响：
+</p>
+<ol>
+<li>
+用户可以收藏重复的书签；
+</li>
+<li>
+甚至在同一个文件夹中，以相同的名称存放。
+</li>
+</ol>
+<p>
+<a href="http://www.flickr.com/photos/hotoo/3820043592/"><img src="http://farm3.static.flickr.com/2549/3820043592_a4788c3f80_o.png" /></a>
+</p>
+
+<p>
+Opera和Safari表现完全一致，或许他们认为，这是用户的自由。
+<a href="http://www.flickr.com/photos/hotoo/3820043604/"><img src="http://farm4.static.flickr.com/3445/3820043604_ec7d0cd7d5_o.png" /></a>
+</p>
+
+<p>
+IE7和我们所熟悉的一样：
+</p>
+<ol>
+<li>
+用户可以重复收藏已有的书签；
+</li>
+<li>
+仅当这两个书签放在不同的文件夹；
+</li>
+<li>
+或者以不同名称，放在同一个文件夹中。
+</li>
+</ol>
+<p>
+<a href="http://www.flickr.com/photos/hotoo/3819237355/"><img src="http://farm4.static.flickr.com/3437/3819237355_0bef9cb98c_o.png" /></a>
+</p>
+
+<p>
+Maxthon最初是从IE学习并扩展而来，可想而知，并且实际上也是，
+它们在对待重复的书签上，也是一致的。
+<a href="http://www.flickr.com/photos/hotoo/3820043628/"><img src="http://farm3.static.flickr.com/2439/3820043628_f621cc76a5_o.png" /></a>
+</p>
+
+<p>
+面对这些主流浏览器对待重复书签的态度，像Safari和Opera这样给用户充分的自由，
+或Firefox和Chrome这样“所谓”的智能，以及IE及Mathon取两者（自由或相对不自由）
+之中庸，作为经常使用书签的普通用户，你觉得哪种设计更合理？
+</p>
+
+<p>
+这里我表达一点自己的想法：
+</p>
+<ol>
+<li>
+不受约束的自由，不是什么好自由；过分的灵活，只会给用户带来迷茫。
+</li>
+<li>
+书签本身的作用，就是给用户一个记录、并能够快速打开常用或优秀的网址的地方。
+    如果收藏夹，甚至同一个文件夹中存在（看起来）相同的书签，
+    用户就需要停下来思考自己要的是哪一个。
+</li>
+<li>
+书签一般都需要记录用户使用的次数，并根据算法排序提供给智能地址栏，
+    收藏夹存在多个副本也会存在歧义。
+</li>
+</ol>
+
+<p>
+从这个角度来讲，Opera和Safari是做的最烂的，IE和Maxthon则做的一般。
+很幸运，这个想法也博得了我们项目组开发人员和PM的赞同，并应用与项目设计中。
+</p>
+
+<h2 id="toc_1.1">关键字：</h2>
+<ol>
+<li>
+收藏夹(Favorite)：指浏览器用来管理书签集合的工具。
+</li>
+<li>
+书签(Bookmark)：指单个被收藏的网址信息。
+</li>
+</ol>
+
+
+<p>
+ blog:datetime=2009/08/14 21:19:42:tags=Design
+</p>
+    </article>
+    <section>
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address><br />
+        Google Reader 订阅地址： <a href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss">RSS</a>,
+                    <a href="http://vimcn.blogspot.com/feeds/posts/default">Atom</a>.
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

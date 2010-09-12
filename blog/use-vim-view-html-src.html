@@ -57,20 +57,13 @@
 </li>
 <li>
 右键该快捷方式，属性，目标文本框中加入参数：
-</li>
-</ol>
-</ol>
-
 <pre>
 "D:\Vim\vim72\gvim.exe" -c "set filetype=html" "%*"
 </pre>
-<ol>
+</li>
 <li>
 修改注册表：<code>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\View Source Editor\Editor Name]=D:\\Vim\\vim72\\ieVim.lnk</code> <br />
       注意最后要加上 .lnk 后缀。
-</li>
-</ol>
-
 <pre>
 HKEY_LOCAL_MACHINE
   |-- SOFTWARE
@@ -79,49 +72,41 @@ HKEY_LOCAL_MACHINE
               |-- View Source Editor
                   |-- Editor Name (默认)=D:\Vim\vim72\ieVim.lnk
 </pre>
-<blockquote>
-另外也可以将如下代码保存为 .reg 文件，引号中路径改成 Vim 安装路径即可
-</blockquote>
+        另外也可以将如下代码保存为 .reg 文件，引号中路径改成 Vim 安装路径即可
 <pre>
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\View Source Editor\Editor Name]
 @="D:\\Vim\\vim72\\ieVim.lnk"
 </pre>
-<blockquote>
-或者下载这个 <a href="http://hotoo.googlecode.com/svn/trunk/vim/vim72/ievim.reg">注册表文件</a>，双击运行，或右键“合并”即可。
-</blockquote>
-<ol>
+        或者下载这个 <a href="http://hotoo.googlecode.com/svn/trunk/vim/vim72/ievim.reg">注册表文件</a>，双击运行，或右键“合并”即可。
+</li>
 <li>
 现在在IE里使用右键，“查看源代码”就可以使用 Vim 打开 html 源码。
 </li>
 </ol>
-
-<ol>
 <li>
 批处理+注册表<sup><small>2</small></sup>
 </li>
 <ol>
 <li>
 将如下代码保存为批处理文件，如 ievim.bat，例如放到 $VIMRUNTIME 下。
-</li>
-</ol>
-</ol>
-
 <pre>
 "D:\\Vim\\vim72\\gvim.exe" --servername "VIEW SOURCE" --remote-silent "+set syn=html" %1
 </pre>
-<ol>
+</li>
 <li>
 参照第 1 个方法的第 3 步，修改注册表的值为这个批处理文件的地址，如 <code>D:\Vim\vim72\ievim.bat</code>。
 </li>
 <li>
 现在就可以使用 Vim 或其他外部编辑器打开 IE 的页面源代码了。
 </li>
-</ol>
-<blockquote>
+<li>
 缺点：打开的批处理命令行窗口不会自动关闭，直到被打开的页面源代码编辑器被关闭。
-</blockquote>
+</li>
+</ol>
+</ol>
+
 <h2 id="toc_1.2">针对Firefox<sup><small>3</small></sup></h2>
 <ol>
 <li>
@@ -160,11 +145,12 @@ Windows Registry Editor Version 5.00
 <li>
 即可使用 Vim 或其他任意外部编辑器打开 Firefox 的页面源代码。
 </li>
-</ol>
-</ol>
-<blockquote>
+<li>
 缺点：需要安装插件，且所在右键菜单的层级较深。
-</blockquote>
+</li>
+</ol>
+</ol>
+
 <h2 id="toc_1.3">针对Opera<sup><small>4</small></sup></h2>
 <ol>
 <li>
@@ -213,7 +199,9 @@ Windows Registry Editor Version 5.00
     </article>
     <section>
         <blockquote>
-        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address><br />
+        Google Reader 订阅地址： <a href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss">RSS</a>,
+                    <a href="http://vimcn.blogspot.com/feeds/posts/default">Atom</a>.
         </blockquote>
     </section>
 </div>

@@ -45,15 +45,12 @@
 <p>
 如果你看过 <a href="http://code.google.com/p/vim-script-cn/">Vim Script 文档中文计划</a> 的介绍，下面有写内容大概已经熟悉，这里作为完整的技巧一并介绍：
 </p>
-<ul>
+<ol>
 <li>
 确认正确安装了 <a href="http://www.vim.org">Vim</a> 和 <a href="http://www.vim.org/scripts/script.php?script_id=2226">Vimwiki</a>。
 </li>
 <li>
 如果安装了 <a href="http://www.vim.org/scripts/script.php?script_id=2540">snipMate</a>(可选) 在 $VIM/vimfiles/snippets/ 下新建一个 vimwiki.snippets 文件（已有这打开文件）。在 vimwiki.snippets 中添加自己的博客格式模板，例如我的：
-</li>
-</ul>
-
 <pre>
 snippet blog
     = ${1:title} =
@@ -61,32 +58,22 @@ snippet blog
 
      blog:datetime=${3:`strftime("%Y/%m/%d %H:%M:%S")`}:tags=${4}
 </pre>
-
-<ul>
+</li>
 <li>
 因为 Vimwiki 和 snipMate 的 &lt;Tab&gt; 热键冲突，可以将 $VIM/vimfiles/ftplugin/vimwiki.vim 中的第 293 行的
-</li>
-</ul>
-
 <pre>
 inoremap &lt;expr&gt; &lt;buffer&gt; &lt;Tab&gt; vimwiki_tbl#kbd_tab()
 </pre>
-<p>
-换成其他的热键，例如：
-</p>
+    换成其他的热键，例如：
 <pre>
 inoremap &lt;expr&gt; &lt;buffer&gt; &lt;C-Tab&gt; vimwiki_tbl#kbd_tab()
 </pre>
-
-<ul>
+</li>
 <li>
 到此，在 .wiki 文件中输入 <code>blog&lt;Tab&gt;</code> 就展开博客模板了。
 </li>
 <li>
 在 vimrc 的 <code>g:vimwiki_list</code> 中加入一个 wiki，例如我的：
-</li>
-</ul>
-
 <pre>
 let g:vimwiki_list = [
                 \ {...},
@@ -100,6 +87,8 @@ let g:vimwiki_list = [
                 \ }
                 \ ]
 </pre>
+</li>
+</ol>
 
 <p>
 这样我使用 <code>4&lt;leader&gt;ww</code>(一般是<code>4\ww</code>) 就可以快速启动博客 wiki 首页并进行编辑了。wiki 文件保存在 Dropbox 私有目录下，生成的 html 文件保存在公开目录，这样，草稿日志不转成 html 就可以了，写好想发布、或想重新发布，<code>:Vimwiki2HTML</code> 即可。
@@ -111,7 +100,9 @@ let g:vimwiki_list = [
     </article>
     <section>
         <blockquote>
-        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address><br />
+        Google Reader 订阅地址： <a href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss">RSS</a>,
+                    <a href="http://vimcn.blogspot.com/feeds/posts/default">Atom</a>.
         </blockquote>
     </section>
 </div>
