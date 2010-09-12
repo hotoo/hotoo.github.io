@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<title>实现文本转语音 - 闲耘™.博客</title>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+</head>
+<body>
+<div id="wrapper">
+<header>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">实现文本转语音</h1>
+<p>
+又是心血来潮，想把文本转为语音朗读，通过听书的方式来多重利用时间。分心听书有效
+吗，未可知也。不过还是想折腾下，心血来潮嘛。
+</p>
+
+<p>
+刚开始以为一定需要下载个语音软件，用它将文本转成语音，通过调节字词之间的停顿，
+来达到较好的视听效果。
+</p>
+
+<p>
+因为很久以前有折腾过使用 Word 实现语音朗读的事，朗读效果非常不好，所以不想下载
+那些大型的朗读软件，总感觉他们读出来的声音会让人恶心死。
+</p>
+
+<p>
+群里请教了一下有没有推荐的，得到 <a href="http://www.eguidedog.net/">eGuideDog</a>，但是
+似乎仍然不甚理想，后来又发现了 <a href="http://www.neospeech.com/">NeoSpeech</a>，里面提供
+的试听效果非常好，尤其是日语朗读，跟真人朗读差不多。
+</p>
+
+<p>
+于是继续寻找相关资料，在 VeryCD 上得到这些：<a href="http://www.verycd.com/topics/2780296/">1</a>
+<a href="http://www.verycd.com/topics/2799359/">2</a> <a href="http://www.verycd.com/topics/2780296/">3</a>
+</p>
+
+<p>
+后来看到一张语音属性的图片，才进控制面板明白了一些事情。
+</p>
+
+<p>
+看到有通过微软拼音输入法3.0的语音功能实现的介绍，不过我在微软拼音3.0和 2007 中
+都没有找到对应菜单项。
+</p>
+
+<p>
+通过 <a href="http://blog.miyui.net/work/text-to-speech-in-excel-2007/">Excel 2007中的文本到语音</a>
+知道 Excel 内置了语音朗读的功能，但是 Word 没有找到对应的。便找到了
+<a href="http://bbs.cfan.com.cn/viewthread.php?tid=661265">office2007文本到语音命令的问题</a>
+</p>
+
+<h2 id="toc_1.1">详细步骤</h2>
+<ol>
+<li>
+安装语音引擎，我下载的 <a href="http://www.verycd.com/topics/2799359/">这个</a>，解压安装
+    会自动设置控制面板里的语音选择，可以进入“控制面板”-&gt;“语音”-&gt;“语音选择”，
+    系统默认是 "Microsoft Sam"，可以改为刚安装的语音，试听一下。
+</li>
+<li>
+打开 Excel (2007)，点击左上角（靠右侧的）三角下拉菜单（鼠标悬浮提示是
+    “自定义快速访问工具栏”-&gt;“其他命令”-&gt;“不在功能区的命令”，
+    添加“朗读单元格”和“朗读单元格 - 停止朗读单元格”，
+    在单元格中输入文本，点击“朗读单元格”就会听到发声。
+</li>
+<li>
+要想让 Word 朗读发声，可以使用自定义宏：
+</li>
+<ol>
+<li>
+按 <code>&lt;Alt-F11&gt;</code> 启动 Visual Basic 编辑器。
+</li>
+<li>
+创建名为 <code>ReadRec</code> 的宏：
+<pre>
+ReadSelection()
+    Excel.Application.speech.speak Selection
+End Sub
+</pre>
+</li>
+<li>
+单击VBE编辑器窗口中的“工具”菜单，选择“引用”命令，在弹出的
+        “引用-Normal”对话框中选择“Microsoft Excel 12.0 Object Library”复选框。
+</li>
+<li>
+确定，关闭Visual Basic编辑器返回Word窗口。
+</li>
+<li>
+右击工具栏，选择“自定义”命令，切换到“命令”选项卡，在“类别”中
+        选择“宏”，将命令中的“Normal NewMacros.ReadSelection”拖放到工具栏中。
+</li>
+<li>
+现在在 Word 里选中文本，点击工具栏刚加入的按钮，就可以朗读选中文本了。
+</li>
+</ol>
+</ol>
+
+<h2 id="toc_1.2">参考 &amp; 延伸阅读</h2>
+<ol>
+<li>
+<a href="http://www.neospeech.com/">NeoSpeech</a>
+</li>
+<li>
+<a href="http://www.verycd.com/topics/2780296/">NeoSpeech 语音下载(VeryCD)</a>
+    <a href="http://www.verycd.com/topics/2799359/">2</a>
+    <a href="http://www.verycd.com/topics/2780296/">3</a>
+</li>
+<li>
+<a href="http://blog.miyui.net/work/text-to-speech-in-excel-2007/">Excel 2007中的文本到语音</a>
+</li>
+<li>
+<a href="http://bbs.cfan.com.cn/viewthread.php?tid=661265">office2007文本到语音命令的问题</a>
+    <a href="http://blog.exiaoxue.cn/200815213528.html">2</a>
+</li>
+<li>
+<a href="http://blogimg.chinaunix.net/blog/upfile2/081226113747.rar">Word 从文本到语音工具栏</a>
+</li>
+<li>
+<a href="http://club.excelhome.net/viewthread.php?tid=419686&amp;page=1&amp;extra=page%3D1">Word音标助手COM加载项(更新2009.6.30版)</a>
+</li>
+<li>
+<a href="http://www.gmw.cn/content/2005-03/18/content_198426.htm">Word 2003如何实现文本朗读</a>
+</li>
+<li>
+<a href="http://masnun.com/blog/2009/12/14/googles-text-to-speech-api-a-php-wrapper-class/">Google's Text to Speech API : A PHP Wrapper Class</a>
+</li>
+</ol>
+
+<p>
+ blog:datetime=2010/09/12 11:01:52:tags=[]
+</p>
+    </article>
+    <section>
+       <script type="text/javascript" src="http://disqus.com/forums/hotoo/combination_widget.js?num_items=5&hide_mods=0&color=blue&default_tab=people&excerpt_length=200"></script>
+       <!-- <a href="http://disqus.com/">Powered by Disqus</a> -->
+
+        <blockquote>
+        有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address><br />
+        Google Reader 订阅地址： <a href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss">RSS</a>,
+                    <a href="http://vimcn.blogspot.com/feeds/posts/default">Atom</a>.
+        </blockquote>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>
