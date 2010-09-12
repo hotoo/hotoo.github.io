@@ -60,6 +60,7 @@ if(dynamic_cast&amp;lt;KeywordToken *&amp;gt;(lastToken)){}
 <blockquote>
 LexicalAnalyzer.cpp|444| error: cannot dynamic_cast <code>((LexicalAnalyzer*)this)-&amp;gt;LexicalAnalyzer::lastToken’ (of type </code>class BaseToken’) to type `class KeywordToken*’ (source is not a pointer)
 </blockquote>
+
 <p>
 貌似不能将父类型转为子类型，那么请问如何判断 <code>lastToken</code> 是 <code>KeywordToken</code> ?
 </p>
@@ -69,9 +70,11 @@ LexicalAnalyzer.cpp|444| error: cannot dynamic_cast <code>((LexicalAnalyzer*)thi
 </p>
 <blockquote>
 dynamic_cast &amp;lt; type-id &amp;gt; ( expression )<br>
-
+</blockquote>
+<blockquote>
 The type-id must be a pointer or a reference to a previously defined class type or a “pointer to void”. The type of expression must be a pointer if type-id is a pointer, or an l-value if type-id is a reference.
 </blockquote>
+
 <p>
 <code>dynamic_cast</code> 需要的是一个指针，将代码改为如下即可：
 </p>
@@ -96,6 +99,30 @@ if(dynamic_cast&amp;lt;KeywordToken *&amp;gt;(&amp;amp;lastToken)){}
 </p>
     </article>
     <section>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /**
+    * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
+    */
+  (function() {
+   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+   dsq.src = 'http://hotoo.disqus.com/embed.js';
+   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=hotoo">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script type="text/javascript">
+var disqus_shortname = 'hotoo';
+(function () {
+  var s = document.createElement('script'); s.async = true;
+  s.src = 'http://disqus.com/forums/hotoo/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
         <blockquote>
         有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address><br />
         Google Reader 订阅地址： <a href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss">RSS</a>,

@@ -7,7 +7,7 @@
 <meta name="generator" content="gvim" />
 <meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-<title>impoved-fold-for-vim - 闲耘™.博客</title>
+<title>检测浏览器地址栏 #hash 的变化 - 闲耘™.博客</title>
 <!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
 <link type="text/css" rel="stylesheet" href="css/template.css" />
 </head>
@@ -28,167 +28,23 @@
 <div id="container">
     <article>
 
-<h1 id="toc_1">增强 Vim 的语法折叠</h1>
-<p>
-1. 折叠多行注释
-</p>
-<pre>
-/*
- * This is file description.
- * @author 闲耘™ (@hotoo xianyun[AT]xianyun.org)
- */
-</pre>
-<p>
-折叠为：
-</p>
-<pre>
-/* This is file description. ... */
-</pre>
+<h1 id="toc_1">检测浏览器地址栏 #hash 的变化</h1>
+
+<h2 id="toc_1.1">参考</h2>
+<ol>
+<li>
+<a href="http://ajaxian.com/archives/emulating-onhashchange-without-setinterval">Emulating onhashchange without setInterval</a>
+</li>
+<li>
+<a href="http://benalman.com/projects/jquery-hashchange-plugin/">jQuery hashchange event</a>
+</li>
+<li>
+<a href="https://developer.mozilla.org/en/DOM/window.onhashchange">window.onhashchange - MDC</a>
+</li>
+</ol>
 
 <p>
-2. 折叠单行注释
-</p>
-<pre>
-// Line Comment 1.
-// Line Comment 2.
-// Line Comment 3.
-</pre>
-<p>
-折叠为：
-</p>
-<pre>
-// Line Comments 1. ...
-</pre>
-
-<p>
-3. 折叠导入外部定义
-</p>
-<pre>
-@import java.lang.*;
-@import java.io.*;
-@import java.net.*;
-@import java.util.*;
-</pre>
-<p>
-折叠为：
-</p>
-<pre>
-@import java.lang.*; ...
-</pre>
-<pre>
-#include &lt;iostream&gt;
-#include "xxx.h"
-#include "yyy.h"
-</pre>
-<p>
-折叠为”
-</p>
-<pre>
-#include &lt;iostream&gt; ...
-</pre>
-
-<p>
-4. 折叠作用域
-</p>
-<pre>
-window.setTimeout(function(){
-    alert(0);
-}, 1000);
-</pre>
-<p>
-折叠为：
-</p>
-<pre>
-window.setTimeout(function(){...}, 1000);
-</pre>
-<p>
-这属于语法折叠部分。
-</p>
-
-<p>
-5. 折叠标记语言
-</p>
-<pre>
-&lt;div id="demo" onclick="alert(0)"&gt;
-    some thing.
-&lt;/div&gt;
-</pre>
-<p>
-折叠为：
-</p>
-<pre>
-&lt;div id="demo"&gt;...&lt;/div&gt;
-</pre>
-<pre>
-&lt;link type="text/css" rel="stylesheet" href="xx.css" /&gt;
-&lt;link type="text/css" rel="stylesheet" href="yy.css" /&gt;
-&lt;link type="text/css" rel="stylesheet" href="zz.css" /&gt;
-</pre>
-<p>
-折叠为：
-</p>
-<pre>
-&lt;link type="text/css" rel="stylesheet" href="xx.css" /&gt; ...
-</pre>
-<pre>
-&lt;script type="text/javascript" src="xx.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="yy.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="zz.js"&gt;&lt;/script&gt;
-</pre>
-<p>
-折叠为：
-</p>
-<pre>
-&lt;script type="text/javascript" src="xx.js"&gt;&lt;/script&gt; ...
-</pre>
-<pre>
-&lt;script type="text/javascript"&gt;/*&lt;![CDATA[*/
-alert(0);
-/*]]&gt;*/&lt;/script&gt;
-</pre>
-<p>
-折叠为：
-</p>
-<pre>
-&lt;script type="text/javascript"&gt;...&lt;/script&gt;
-</pre>
-
-<p>
-以上是我目前想到的折叠方式，欢迎补充。
-</p>
-
-<p>
-这里推荐一个 <a href="http://www.vim.org/scripts/script.php?script_id=1491">增强的 Javascript 语法文件</a>，有非常多值得借鉴的地方。
-</p>
-
-<p>
-遗憾：折叠文本(foldtext)没有状态栏(statusline)的居左、居右概念(以等号[=]分隔)，比如想将在左侧放置折叠上下文文本，右侧放置被折叠的行数：
-</p>
-<pre>
-if(true){...) ----------------------------------[3 lines]
-</pre>
-<p>
-目前只能通过计算 Vim 窗口宽度和折叠文本的长度来模拟。
-</p>
-
-<p>
-这个折叠方法我已经在C,C++,Java,Javascript,CSS上实现，主要跟语法(syntax)文件和折叠文本(foldtext) 有关。
-</p>
-
-<p>
-另外我觉得被折叠的行应该和注释一样低调一点（desert主题使用金色的文本前景色）。
-</p>
-
-<p>
-<a href="http://www.flickr.com/photos/hotoo/4157973680/"><img src="http://farm3.static.flickr.com/2490/4157973680_be7167ac77_o.png" /></a>
-</p>
-
-<p>
-<a href="http://www.flickr.com/photos/hotoo/4157213437/"><img src="http://farm3.static.flickr.com/2556/4157213437_144329fe89_o.png" /></a>
-</p>
-
-<p>
- blog:date=2010/05/10:tags=Vim
+ blog:datetime=2010/09/05 11:15:35:tags=
 </p>
     </article>
     <section>

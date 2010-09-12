@@ -40,6 +40,7 @@
 <strong>前倾</strong> 就是前面的子表达式使用贪婪匹配或较大的量词，尽可能多的匹配内容，导致前面匹配的内容较多而使“天平”前倾。例如：<code>/(?:\d{1,3}\.){3}\d{1,3}/</code>。<br />
 <strong>后倾</strong> 则相反，后面的子表达式使用贪婪匹配或较大的量词。如：<code>/\d{1,3}(?:\.\d{1,3}){3}/</code>。
 </blockquote>
+
 <p>
 前倾和后倾在实际应用中很常见，如时间，主机名等，中间以某特殊字符（串?）分隔，被分隔部分的规则又相同的情况下，一般都是使用这两种实现方式之一。
 </p>
@@ -70,6 +71,30 @@ p.s. 这种重复子模式，要有语法上的简写就好了，像 Perl 正则
 </p>
     </article>
     <section>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /**
+    * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
+    */
+  (function() {
+   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+   dsq.src = 'http://hotoo.disqus.com/embed.js';
+   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=hotoo">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script type="text/javascript">
+var disqus_shortname = 'hotoo';
+(function () {
+  var s = document.createElement('script'); s.async = true;
+  s.src = 'http://disqus.com/forums/hotoo/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
         <blockquote>
         有话说？请邮件至：<address>hotoo.cn[AT]gmail.com</address><br />
         Google Reader 订阅地址： <a href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss">RSS</a>,
