@@ -42,7 +42,21 @@ Vim 中打开当前文件所在的目录。
 
 <h2 id="toc_1.3">搜索(Search) &amp; 替换</h2>
 <p>
-Vim 搜索预览+替换技巧：用 <code>/key&lt;cr&gt;</code> 执行搜索，所有的匹配项均会被高亮，要替换这些被高亮的部分可以使用命令 <code>:%s//word/g&lt;cr&gt;</code> ，如果不加 g ，则仅替换每行的第一个匹配项。
+Vim 搜索预览+替换技巧：
+</p>
+<ol>
+<li>
+用 <code>/key&lt;cr&gt;</code> 执行搜索，所有的匹配项均会被高亮，
+</li>
+<li>
+要替换这些被高亮的部分可以使用命令 <code>:%s//word/g&lt;cr&gt;</code> ，<br />
+    如果不加 <code>g</code> ，则仅替换每行的第一个匹配项。
+</li>
+</ol>
+
+<p>
+计数某个单词在文档中出现了多少次？
+<code>:%s/\&lt;key\&gt;/&amp;/g</code>
 </p>
 
 <p>
@@ -64,6 +78,15 @@ Vim 搜索预览+替换技巧：用 <code>/key&lt;cr&gt;</code> 执行搜索，�
 <p>
 所谓“优雅解法”：<code>%s/\&lt;good\&gt;\|\&lt;bad\&gt;/\=submatch(0)=='good'?'bad':'good'/g</code>
 </p>
+
+<p>
+我在 Vim 里搜索匹配到不规则的 20 行，怎么把这个20行单独取出来？
+</p>
+<pre>
+:redir &gt; output.txt
+:g/pattern/print
+:redir end
+</pre>
 
 <h2 id="toc_1.4">缩写 &amp; 补全</h2>
 <p>

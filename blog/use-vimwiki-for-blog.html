@@ -12,7 +12,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss" />
 <link rel="alternate" type="application/atom+xml" title="Atom" href="http://vimcn.blogspot.com/feeds/posts/default" />
 <link type="text/css" rel="stylesheet" href="css/template.css" />
-<title>用 Vimwiki + Dropbox 写博客 - 闲耘™.博客</title>
+<title>用 Vimwiki 写博客 - 闲耘™.博客</title>
 </head>
 <body>
 <div id="wrapper">
@@ -31,39 +31,55 @@
 <div id="container">
     <article>
 
-<h1 id="toc_1">用 Vimwiki + Dropbox 写博客</h1>
+<h1 id="toc_1">用 Vimwiki 写博客</h1>
 
 <p>
-由于众所周知的缘故，<a href="http://blog.xianyun.org/">我的博客</a> 被消失了。在国内买域名或主机都是十分不靠谱的事，所以目前没有重新开独立博客的打算。而使用第三方博客服务也同样不靠谱，这也不在计划之内。
+由于众所周知的缘故，<a href="http://blog.xianyun.org/">我的博客</a> 被消失了。
+在国内买域名或主机都是十分不靠谱的事，所以目前没有重新开独立博客的打算。
+而使用第三方博客服务也同样不靠谱，这也不在计划之内。
 </p>
 
 <p>
-把东西都放在自己的计算机里算是比较可靠的方式了，我计划使用 Vim + Vimwiki + Dropbox 来搭建自己的特殊博客系统。
+把东西都放在自己的计算机里算是比较可靠的方式了，
+我计划使用 Vim + Vimwiki + Dropbox 来搭建自己的特殊博客系统。
 </p>
 
+<h2 id="toc_1.1">原理</h2>
 <p>
-使用 Vim 这个极致的编辑器，加上 Vimwiki 这个已经很好，并且还在更好的插件，使用 wiki 语法来写日志，然后由 Dropbox 来同步与发布。整体上来说这个系统基本完好，除了域名稍稍缺憾之外。
+使用 Vim 这个极致的编辑器，加上 Vimwiki 这个优秀的插件，
+可以用 Wiki 语法来写日志，<del>1. 然后由 Dropbox 自动同步与发布，</del>
+<del>2. 已经改为 SVN 提交到 Google Code（生成的 HTML 文件需要设置 svn:mime-type 为 text/html），</del>
+3. 现在是用 Git 提交到 <a href="http://hotoo.github.com">hotoo.github.com</a>。
+整体上来说这个系统基本完好，<del>除了域名稍稍缺憾之外，</del>Github 支持绑定第三方域名。
 </p>
 
+<h2 id="toc_1.2">步骤</h2>
 <p>
-如果你看过 <a href="http://code.google.com/p/vim-script-cn/">Vim Script 文档中文计划</a> 的介绍，下面有写内容大概已经熟悉，这里作为完整的技巧一并介绍：
+如果你看过 <a href="http://code.google.com/p/vim-script-cn/">Vim Script 文档中文计划</a>
+的介绍，下面有写内容大概已经熟悉，这里作为完整的技巧一并介绍：
 </p>
 <ol>
 <li>
-确认正确安装了 <a href="http://www.vim.org">Vim</a> 和 <a href="http://www.vim.org/scripts/script.php?script_id=2226">Vimwiki</a>。
+确认正确安装了 <a href="http://www.vim.org">Vim</a> 和
+    <a href="http://www.vim.org/scripts/script.php?script_id=2226">Vimwiki</a>。
 </li>
 <li>
-如果安装了 <a href="http://www.vim.org/scripts/script.php?script_id=2540">snipMate</a>(可选) 在 $VIM/vimfiles/snippets/ 下新建一个 vimwiki.snippets 文件（已有这打开文件）。在 vimwiki.snippets 中添加自己的博客格式模板，例如我的：
+如果安装了 <a href="http://www.vim.org/scripts/script.php?script_id=2540">snipMate</a>(可选)
+    在 $VIM/vimfiles/snippets/ 下新建一个 vimwiki.snippets 文件（已有这打开文件）。
+    在 vimwiki.snippets 中添加自己的博客格式模板，例如我的：
 <pre>
+%\title $1("title" 前面的 "\" 去掉)
+
 snippet blog
     = ${1:title} =
     ${2:content}
 
-     blog:datetime=${3:`strftime("%Y/%m/%d %H:%M:%S")`}:tags=${4}
+     blog:datetime=`strftime("%Y/%m/%d %H:%M:%S")`:tags=${3}
 </pre>
 </li>
 <li>
-因为 Vimwiki 和 snipMate 的 &lt;Tab&gt; 热键冲突，可以将 $VIM/vimfiles/ftplugin/vimwiki.vim 中的第 293 行的
+因为 Vimwiki 和 snipMate 的 <code>&lt;Tab&gt;</code> 热键冲突，
+    可以将 $VIM/vimfiles/ftplugin/vimwiki.vim 中的
 <pre>
 inoremap &lt;expr&gt; &lt;buffer&gt; &lt;Tab&gt; vimwiki_tbl#kbd_tab()
 </pre>
@@ -79,26 +95,44 @@ inoremap &lt;expr&gt; &lt;buffer&gt; &lt;C-Tab&gt; vimwiki_tbl#kbd_tab()
 在 vimrc 的 <code>g:vimwiki_list</code> 中加入一个 wiki，例如我的：
 <pre>
 let g:vimwiki_list = [
-                \ {...},
-                \ {...},
-                \ {...},
-                \ {
-                    \ 'path'        : 'D:\My Dropbox\blog',
-                    \ 'path_html'   : 'D:\My Dropbox\Public\blog',
-                    \ 'html_header' : 'D:\My Dropbox\blog\template\header.tpl',
-                    \ 'html_footer' : 'D:\My Dropbox\blog\template\footer.tpl'
-                \ }
-                \ ]
+    \ {...},
+    \ {...},
+    \ {...},
+    \ {
+        \ 'path'        : 'D:\My Dropbox\blog',
+      " \ 'path_html'   : 'D:\My Dropbox\Public\blog',
+      " \ 'path_html'   : 'D:\wrokbench\hotoo.googlecode.com\blog',
+        \ 'path_html'   : 'D:\wrokbench\hotoo.github.com\blog',
+        \ 'html_header' : 'D:\My Dropbox\blog\template\header.tpl',
+        \ 'html_footer' : 'D:\My Dropbox\blog\template\footer.tpl'
+    \ }
+\ ]
 </pre>
 </li>
 </ol>
 
+<h2 id="toc_1.3">技巧</h2>
 <p>
-这样我使用 <code>4&lt;leader&gt;ww</code>(一般是<code>4\ww</code>) 就可以快速启动博客 wiki 首页并进行编辑了。wiki 文件保存在 Dropbox 私有目录下，生成的 html 文件保存在公开目录，这样，草稿日志不转成 html 就可以了，写好想发布、或想重新发布，<code>:Vimwiki2HTML</code> 即可。
+这样我使用 <code>4&lt;leader&gt;ww</code>(一般是<code>4\ww</code>) 就可以快速启动博客 Wiki 首页并进行编辑了。
+Wiki 文件保存在 Dropbox 私有目录下，生成的 html 文件保存在公开目录。
 </p>
 
 <p>
- blog:datetime=2010/03/29 09:41:13:tags=Vim,wiki,Vimwiki,Dropbox
+草稿日志的 Wiki 文件中加入 <code>%nohtml</code> 不转成 HTML，索引页用 HTML 注释
+<code>&lt; !-- --&gt;</code> （去掉 ! 前面的空格）就可以了。写好想发布时，
+修改对应代码并 <code>:Vimwiki2HTML</code> 即可。
+</p>
+
+<p>
+我的模板文件可以直接查看源码得到，或者来邮件索取。
+</p>
+
+<p>
+评论系统可以使用 <a href="http://disqus.com/">disq.us</a>。
+</p>
+
+<p>
+ blog:datetime=2010/03/29 09:41:13:tags=Vim,Wiki,Vimwiki,Dropbox
 </p>
     </article>
     <section>

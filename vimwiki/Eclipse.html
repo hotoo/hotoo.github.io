@@ -151,18 +151,26 @@ Vim
 </p>
 
 <p>
-命令格式Explorer [/n][/e]<a href=",/root],[path.html">,/root],[path</a><a href=",/select],[path filename.html">,/select],[path filename</a>
+命令格式 <code>Explorer [/n][/e][[,/root],[path]][[,/select],[path filename]]</code>
 </p>
 
 <p>
 参数说明
-　　/n表示以“我的电脑”方式打开一个新的窗口，通常打开的是Windows安装分区的根目录。
-　　/e表示以“资源管理器”方式打开一个新的窗口，通常打开的也是Windows安装分区的根目录。
-　　/root,[path]表示打开指定的文件夹，/root表示只显示指定文件夹下面的文件（夹），不显示其它磁盘分区和文件夹；[path]表示指定的路径。
-　　如果不加/root参数，而只用[path]参数，则可以显示其它磁盘分区和文件夹中的内容。另外，[path]还可以指定网络共享文件夹。
-　　/select,[path filename]表示打开指定的文件夹并且选中指定的文件，[path filename]表示指定的路径和文件名。
-　　如果不加/select参数，则系统会用相应的关联程序打开该文件。如果[path filename]不跟文件名就会打开该文件夹的上级目录并选中该文件夹。
+　　/n 表示以“我的电脑”方式打开一个新的窗口，通常打开的是Windows安装分区的根目录。
+　　/e 表示以“资源管理器”方式打开一个新的窗口，通常打开的也是Windows安装分区的根目录。
+　　/root,[path] 表示打开指定的文件夹，/root表示只显示指定文件夹下面的文件（夹），不显示其它磁盘分区和文件夹；[path]表示指定的路径。
+　　    如果不加/root参数，而只用[path]参数，则可以显示其它磁盘分区和文件夹中的内容。
 </p>
+<blockquote>
+另外，[path]还可以指定网络共享文件夹。
+</blockquote>
+<p>
+　　/select,[path filename] 表示打开指定的文件夹并且选中指定的文件，[path filename]表示指定的路径和文件名。
+</p>
+<blockquote>
+　　如果不加/select参数，则系统会用相应的关联程序打开该文件。
+如果[path filename]不跟文件名就会打开该文件夹的上级目录并选中该文件夹。
+</blockquote>
 
 <p>
 　　通过对以上explorer.exe的参数分析，我们可能会有个希望就是实现既显示左边的文件树，又同时右边也定位到的选定的文件或文件夹上面。

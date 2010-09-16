@@ -5,7 +5,7 @@
 <!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="/css/vim-like.css" />
-<title>Tomcat - 闲耘™.Wiki</title>
+<title>XML - 闲耘™.Wiki</title>
 </head>
 <body>
 <div id="wrapper">
@@ -22,44 +22,13 @@
 </header>
 <article>
 
-<h1 id="toc_1">Tomcat</h1>
-<p>
-<a href="http://tomcat.apache.org">Tomcat</a>
-</p>
-
-<p>
-注册 Tomcat 为系统服务，%TOMCAT_HOME%/bin：
-</p>
-<pre>
-    service install tomcat
-    service remove tomcat
-</pre>
-
-<p>
-启动系统服务：
-</p>
-<pre>
-    net start tomcat
-    net stop tomcat
-</pre>
-
-<p>
-创建新的服务，conf/server.xml 中，&lt;Host&gt; 下增加：
-</p>
-<pre>
-    &lt;Context path="/skin" docBase="D:\template\skin\trunk" crossContext="true"&gt;
-    &lt;/Context&gt;
-</pre>
-
-<p>
-增加新的 mime-type，conf/web.xml：
-</p>
-<pre>
-    &lt;mime-mapping&gt;
-        &lt;extension&gt;json&lt;/extension&gt;
-        &lt;mime-type&gt;application/json&lt;/mime-type&gt;
-    &lt;/mime-mapping&gt;
-</pre>
+<h1 id="toc_1">XML</h1>
+<ul>
+<li>
+<a href="http://www.xmlmind.com/">XMLmind</a>
+    <a href="http://www.xmlmind.com/xmleditor/">XMLmind XML Editor</a>
+</li>
+</ul>
 </article>
 <footer>
     <a href="index.html" id="back-home">&lsaquo; 首页</a>
