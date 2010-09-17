@@ -12,7 +12,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss" />
 <link rel="alternate" type="application/atom+xml" title="Atom" href="http://vimcn.blogspot.com/feeds/posts/default" />
 <link type="text/css" rel="stylesheet" href="css/template.css" />
-<title>首页 - 闲耘™.博客</title>
+<title>IE6 的 CSS:hover 伪类 - 闲耘™.博客</title>
 </head>
 <body>
 <div id="wrapper">
@@ -31,130 +31,89 @@
 <div id="container">
     <article>
 
-<h1 id="toc_1">闲耘™.博客</h1>
+<h1 id="toc_1">IE6 的 CSS:hover 伪类</h1>
+<p>
+众所周知，IE6 不支持 a:hover 以外的 CSS 伪类，解决办法一般有一下 3 种方案：
+</p>
 
+<h2 id="toc_1.1">使用 JavaScript 事件</h2>
+<p>
+直接使用 JavaScript 的 onmouseover/onmouseenter 和 onmouseout/onmouseleave
+事件进行针对性开发，这大概没什么好详细介绍的。
+</p>
+
+<h2 id="toc_1.2">使用 CSS 表达式</h2>
+<p>
+辅以 CSS 表达式中 JScript 同样也有 onmouseover/onmouseenter 和
+onmouseout/onmouseleave 事件，用以实现 :hover 效果。<br />
+注意：其中冒号之前的事件名称可以随意，关键是 expression() 里面的事件。
+</p>
+<pre>
+ul li{
+    onmouseout:expression(onmouseout=function(){this.style.backgroundColor=''});
+    onmouseover:expression(onmouseover=function(){this.style.backgroundColor='yellow'});
+}
+ol li{
+    onmouseleave:expression(onmouseleave=function(){this.style.backgroundColor=''});
+    onmouseenter:expression(onmouseenter=function(){this.style.backgroundColor='yellow'});
+}
+</pre>
+
+<p>
+不过应该说使用 CSS class 是更好的实践。
+</p>
+<pre>
+table tr{
+    onmouseout:expression(onmouseout=function(){try{this.className=this.className.replace(' hover','')}catch(ex){}});
+    onmouseover:expression(onmouseover=function(){this.className+=' hover'});
+}
+table tr.hover td{background:yellow;}
+</pre>
+
+<p>
+onmouseout 事件处理函数中加了 try/catch 是为了避免 IE5.5 因为不支持 <code>replace()</code>
+而报脚本错误。当然为了避免这个错误，还是其他的实现方式：
+</p>
+<pre>
+table tr{
+    onmouseenter:expression(onmouseout=function(){
+        var c=this.className, h=' hover', l=h.length;
+        var s=c.indexOf(h);
+        this.className=c.substring(0,s)+c.substr(s+l);
+    });
+    onmouseleave:expression(onmouseover=function(){this.className+=' hover'});
+}
+table tr.hover td{background:yellow;}
+</pre>
+
+<h2 id="toc_1.3">使用 CSS behavior 行为</h2>
+<p>
+使用 <a href="http://www.xs4all.nl/~peterned/csshover.html">Whatever:hover</a>
+</p>
+
+<p>
+<a href="http://www.xs4all.nl/~peterned/htc/csshover3.htc">csshover3.htc</a>
+</p>
+<pre>
+&lt; !--[if lte IE 6]&gt;
+&lt;style type="text/css"&gt;
+body{behavior:url("csshover3.htc"); }
+&lt;/style&gt;
+&lt;![endif]-- &gt;
+</pre>
+
+<h2 id="toc_1.4">延伸阅读</h2>
 <ol>
 <li>
-<a href="css-hover-for-ie6.html">IE6 的 CSS:hover 伪类 (2010/09/15)</a> (<a href="css-hover-for-ie6#disqus_thread.html">评论</a>)
+<a href="http://blog.csdn.net/andyyukun/archive/2007/07/03/1676963.aspx">强大的CSS表达式 -- expression</a>
 </li>
 <li>
-<a href="tts.html">实现文本转语言(Text to Speech) (2010/09/12)</a> (<a href="tts#disqus_thread.html">评论</a>)
-</li>
-<li>
-<a href="hashchange.html">检测浏览器地址栏 #hash 的变化 (2010/09/05)</a> (<a href="hashchange#disqus_thread.html">评论</a>)
-</li>
-<li>
-<a href="cancel-vs-undo.html">“取消”与“撤销” (2010/09/01)</a>
-</li>
-<li>
-<a href="jump-to-difftext.html">Diff 模式下，让光标直接跳转到被修改的文本处 (2010/08/30)</a>
-</li>
-<li>
-<a href="about-Privacy.html">隐私权 (2010/08/22)</a>
-</li>
-<li>
-<a href="vim73-tee.html">【已结束】关于团购庆祝 Vim 7.3 正式发布的 Tee (2010/08/14)</a>
-</li>
-<li>
-<a href="about-sql-like.html">SQL LIKE 查询的一个问题 (2010/08/13)</a>
-</li>
-<li>
-<a href="gitdiff-with-vim.html">用 Vim 比较 gitdiff (2010/08/01)</a>
-</li>
-<li>
-<a href="integrate-guide-button-and-status-button.html">整合状态按钮和导向按钮 (2010/07/31)</a>
-</li>
-<li>
-<a href="performance-for-each-char.html">遍历字符的性能 (2010/07/29)</a>
-</li>
-<li>
-<a href="use-vim-calendar.html">使用 calendar.vim (2010/07/23)</a>
-</li>
-<li>
-<a href="open-files-in-vim-tabs.html">在Vim页签中打开文件 (2010/6/25)</a>
-</li>
-<li>
-<a href="vim-autocomplete-pairs.html">Vim 自动补全成对的括号和引号 (2010/6/20)</a>
-</li>
-<li>
-<a href="3d-game-in-google-maps.html">在 Google Maps 的街景视图里看实况足球 (2010/6/16)</a>
-</li>
-<li>
-<a href="vimwiki-google-code.html">用 Google Code 管理与发布 Wiki (2010/5/20)</a>
-</li>
-<li>
-<a href="log-syntax-4-vim.html">让 Vim 支持 LOG 文件 (2010/5/13)</a>
-</li>
-<li>
-<a href="Dropbox-died-in-China.html">Dropbox 的墙掉 (2010/5/10)</a>
-</li>
-<li>
-<a href="hometown.html">老家</a>
-</li>
-<li>
-<a href="outreach-activities-2010-04.html">天目山拓展(2010/4/17)</a>
-</li>
-<li>
-<a href="Vim-tutor.html">Vim 学习路线 (2010/4/11)</a>
-</li>
-<li>
-<a href="Gtalk-group-for-Vim.html">欢迎加入 Vim 的 Gtalk 群 (2010/4/9)</a>
-</li>
-<li>
-<a href="form-design.html">表单设计 (2010/4/8)</a>
-</li>
-<li>
-<a href="China-joke.html">有中国特色的社会主义笑话 (2010/4/8)</a>
-</li>
-<li>
-<a href="convert-encoding-note.html">轉換編碼筆記 (2010/04/07)</a>
-</li>
-<li>
-<a href="snippets-for-html.html">针对HTML的Snippets (2010/04/06)</a>
-</li>
-<li>
-<a href="use-vimwiki-for-blog.html">用 Vimwiki 写博客 (2010/03/29)</a>
-</li>
-<li>
-<a href="Vimwiki.html">Vimwiki 介绍 (2010/3/16)</a>
-</li>
-<li>
-<a href="WeekNumber.html">周数(WeekNum)计算 (2010/3/16)</a>
-</li>
-<li>
-<a href="Vim-Chinese-Doc.html">Vim 中文文档 (2010/3/15)</a>
-</li>
-<li>
-<a href="css-limit-bg.html">CSS 实现有限、不确定背景 (2010/2/20)</a>
-</li>
-<li>
-<a href="forbid-cnnic.html">禁用CNNIC的所谓安全证书 (2010/2/2)</a>
-</li>
-<li>
-<a href="regex-share.html">“正则表达式”分享资料 (2010/1/31)</a>
-</li>
-<li>
-<a href="editplus-and-everything.html">让 Editplus和Everything结合，快速搜索 (2010/1/27)</a>
-</li>
-<li>
-<a href="performance-for-regex-repeat-sub-pattern.html">正则表达式重复子模式前、后倾的性能比较 (2010/1/26)</a>
-</li>
-<li>
-<a href="performance-of-arguments-to-array.html">arguments to Array 之效率 (2010/1/7)</a>
-</li>
-<li>
-<a href="index-near-the-content.html">让索引和内容靠的更近 (2010/1/6)</a>
-</li>
-<li>
-<a href="place-of-lift-floor-control-panel.html">电梯楼层选项板的位置 (2010/1/6)</a>
-</li>
-<li>
-<a href="safari-4-select-bug.html">发现 Safari4的select控件bug (2010/1/5)</a>
+<a href="http://www.planabc.net/2009/09/21/optimization_of_css_eexpression/">CSS Expression 的优化</a>
 </li>
 </ol>
 
 <p>
-<a href="archive-2009.html">« Older(2009)</a>
+ blog:datetime=2010/09/15 19:20:02:tags=IE6,CSS
 </p>
     </article>
     <section>
@@ -184,7 +143,6 @@
         </script>
     </section>
     <section>
-
 <div id="cse" style="width: 100%;">Loading</div>
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script type="text/javascript">
@@ -192,9 +150,7 @@
   google.setOnLoadCallback(function() {
     var customSearchControl = new google.search.CustomSearchControl('012242588420705517395:spt0k_ybmgm');
     customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-    var options = new google.search.DrawOptions();
-    options.setAutoComplete(true);
-    customSearchControl.draw('cse', options);
+    customSearchControl.draw('cse');
   }, true);
 </script>
 <link rel="stylesheet" href="http://www.google.com/cse/style/look/shiny.css" type="text/css" />
