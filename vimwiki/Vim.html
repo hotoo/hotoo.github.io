@@ -59,7 +59,8 @@
 
 <h2 id="toc_1.1">简介</h2>
 <p>
-我是 <a href="http://www.vim.org">Vim</a> 爱好者（但不排斥<a href="http://www.gnu.org/software/emacs/">Emacs</a>），这里收录一些Vim相关的文字。
+我是 <a href="http://www.vim.org">Vim</a> 爱好者（但不排斥<a href="http://www.gnu.org/software/emacs/">Emacs</a>），
+这里收录一些Vim相关的文字。
 </p>
 
 <p>
@@ -67,11 +68,13 @@
 </p>
 
 <p>
-Vim 是什么？如何下载、安装之类的本身很简单，而且网络上有诸多的介绍，这里不再赘述。至于为什么使用 Vim？我就不劝你了。
+Vim 是什么？如何下载、安装之类的本身很简单，而且网络上有诸多的介绍，这里不再赘述。
+至于为什么使用 Vim？我就不劝你了。
 </p>
 
 <p>
-传说Vim的学习曲线很陡，确实如此。不过越是陡峭，只要持续付出，每前进一点，就越是有成倍的提升，这是好事。
+传说 Vim 的学习曲线很陡，确实如此。
+不过越是陡峭，只要持续付出，每前进一点，就越是有成倍的提升，这是好事。
 </p>
 
 <p>
@@ -84,11 +87,13 @@ Vim 是什么？如何下载、安装之类的本身很简单，而且网络上�
 </p>
 
 <p>
-这里是 <a href="http://hotoo.googlecode.com/svn/trunk/vim/">我的个人vim项目</a> ，包含有配置文件、部分插件及根据自身习惯改写的资源文件。项目目录结构基本保持和vim安装目录一致，另外有一个 <a href="http://hotoo.googlecode.com/svn/trunk/vim/addons">Addons目录</a> ，主要用来放置和vim有关，但不适合放在Vim安装目录中的资源或工具文件。
+这里是 <a href="http://github.com/hotoo/vimrc">我的个人 Vim 项目</a> ，包含有配置文件、部分插件及根据自身习惯改写的资源文件。
+项目目录结构基本保持和vim安装目录一致，里面有一个 Addons 目录] ，
+主要用来放置和 Vim 有关，但不适合放在 Vim 安装目录中的资源或工具文件。
 </p>
 
 <p>
-我的大部分设置及插件都可以从 <a href="http://hotoo.googlecode.com/svn/trunk/vim/_vimrc">_vimrc</a> 中看出端倪，另外也可以参考我写的部分 <a href="http://blog.xianyun.org/tag/vim">涉及vim的文章</a> <sup><small>已失效</small></sup> 。
+我的大部分设置及插件都可以从 vimrc 中看出端倪，另外也可以参考我的 <a href="http://hotoo.github.com/blog/">Blog</a>。
 </p>
 
 <ul>
@@ -107,6 +112,9 @@ Vim 是什么？如何下载、安装之类的本身很简单，而且网络上�
 <li>
 <a href="http://www.vi-improved.org/">Vi-IMproved</a>
 </li>
+<li>
+<a href="http://stevelosh.com/blog/2010/09/coming-home-to-vim/">Coming Home to Vim</a>
+</li>
 </ul>
 
 <h2 id="toc_1.2">精准广告投放</h2>
@@ -115,7 +123,7 @@ Vim 是什么？如何下载、安装之类的本身很简单，而且网络上�
 </p>
 
 <p>
-希望相互交流学习，可以加入 *<a href="http://hotoo.googlecode.com/svn/blog/Gtalk-group-for-Vim.html">Vim 的 GTalk 群</a>*
+希望相互交流学习， *<a href="http://hotoo.github.com/blog/Gtalk-group-for-Vim.html">欢迎加入 Vim 的 GTalk 群</a>*
 </p>
 
 <h2 id="toc_1.3">教程</h2>
@@ -206,7 +214,7 @@ Video
 <a href="http://support.microsoft.com/kb/306527/zh-cn">HOW TO： 使用 ClearType 增强屏幕字体</a>
 </li>
 <li>
-<a href="../blog/vim-fonts.html">vim字体设置</a>
+<a href="../blog/vim-fonts.html">Vim 字体设置</a>
 </li>
 </ul>
 
@@ -244,19 +252,13 @@ diff 模式下：
 </p>
 <ol>
 <li>
-同步两侧的光标位置；
+<del>同步两侧的光标位置(Vim 7.3 已默认支持此特性；)</del>
 </li>
 <li>
-设置 &lt;F7&gt; 和 &lt;F8&gt; 分别跳转到上一个不同、下一个不同处，如果不是 diff 模式，则分别设置为 QucikFix 的上一条、下一条信息行。
-</li>
-</ol>
-
+设置 &lt;F7&gt; 和 &lt;F8&gt; 分别跳转到上一个不同、下一个不同处，如果不是 diff 模式，
+    则分别设置为 QucikFix 的上一条、下一条信息行。
 <pre>
-" @see http://vim.wikia.com/wiki/Selecting_changes_in_diff_mode
 if &amp;diff
-    let g:origCursorPos=getpos('.')
-    autocmd WinEnter * :call setpos('.', g:origCursorPos)
-    autocmd WinLeave * :let g:origCursorPos=getpos('.')
     nmap &lt;F7&gt; [c
     nmap &lt;F8&gt; ]c
 else
@@ -264,12 +266,13 @@ else
     map &lt;F8&gt; :cn&lt;cr&gt;
 endif
 </pre>
+</li>
+</ol>
 
 <p>
-有一个办法可以让 Vim 的默认寄存器和系统剪贴板共享，在 vimrc 中加入：
+让 Vim 的默认寄存器和系统剪贴板共享，可以在 vimrc 中加入：
 </p>
 <pre>
-" share system clipboard.
 set clipboard+=unnamed
 </pre>
 <p>
@@ -280,14 +283,14 @@ set clipboard+=unnamed
 另外，我不推荐，但是如果你希望 Vim 启动时自动进入插入模式，可以在 vimrc 中加入：
 </p>
 <pre>
-" Set default mode:insert.
 exe "startinsert"
 </pre>
 
 
 <h3 id="toc_1.4.3">映射(Mapping)</h3>
 <p>
-普通模式，可视模式和选择模式下使用 &lt;Tab&gt; 和 &lt;Shift-Tab&gt; 键来缩进文本。在可视模式和选择模式下，可以自动恢复选中的文本。
+普通模式，可视模式和选择模式下使用 &lt;Tab&gt; 和 &lt;Shift-Tab&gt; 键来缩进文本。
+在可视模式和选择模式下，可以自动恢复选中的文本。
 </p>
 <pre>
 " Normal Mode, Visual Mode, and Select Mode,
@@ -298,6 +301,10 @@ nmap &lt;s-tab&gt; v&lt;
 vmap &lt;tab&gt; &gt;gv
 vmap &lt;s-tab&gt; &lt;gv
 </pre>
+<p>
+注意：normal 模式下 &lt;Tab&gt; 键默认用于跳转到跳转列表较新的位置，我已经取消了这个设置，
+毕竟 normal 模式下基本是使用 <code>&gt;&gt;</code>。
+</p>
 
 <p>
 选中一段文字并全文搜索这段文字
@@ -327,20 +334,15 @@ vnoremap  #  y?&lt;C-R&gt;=escape(@", '\\/.*$^~[]')&lt;CR&gt;&lt;CR&gt;
 
 
 <p>
-普通模式下使用空格键。
+普通模式下使用空格键可以参考 <a href="http://gist.github.com/549200">gist:549200</a>，
+这个脚本可以让你在 normal 模式下输入 <code>[count]&lt;Space&gt;</code>。
 </p>
-<pre>
-" &lt;Space&gt; key at normal model.
-nmap &lt;Space&gt; i&lt;Space&gt;&lt;Esc&gt;l
-</pre>
 
 <p>
 插入模式下使用 Meta 键（Windows下是Alt键）+自定义快捷键来移动光标。
+注意：灵格斯(Lingoes Translator)的热键可能会有冲突，禁用或这更换灵格斯的热键即可。
 </p>
 <pre>
-" use Meta key(Windows:Alt) to move cursor in insert mode.
-" Note: if system install "Lingoes Translator",
-"   you will need change/disabled hot key.
 noremap! &lt;M-j&gt; &lt;Down&gt;
 noremap! &lt;M-k&gt; &lt;Up&gt;
 noremap! &lt;M-h&gt; &lt;left&gt;
@@ -348,21 +350,17 @@ noremap! &lt;M-l&gt; &lt;Right&gt;
 </pre>
 
 <p>
-使用 Windows Explorer 打开当前文件所在文件夹，并选中当前文件。
+使用 Windows Explorer 打开当前文件所在文件夹，并选中目标文件，可以参考
+<a href="http://gist.github.com/482563">gist#482563</a>，这个脚本同时支持文件和 NERD_tree。
 </p>
-<pre>
-" Open Windows Explorer and Fouse current file.
-"                                      %:p:h     " Just Fold Name.
-if has("win32")
-nmap &lt;F6&gt; :!start explorer /e,/select, %:p&lt;CR&gt;
-imap &lt;F6&gt; &lt;Esc&gt;&lt;F6&gt;
-command -nargs=0 Explor :!start explorer /e,/select, %:p
-command -nargs=0 Explorer :!start explorer /e,/select, %:p
-endif
-</pre>
 
 <p>
-切换 Quickfix 窗口的打开和关闭状态。
+快速启动命令行(cmd)，并将默认目录设置为当前文件所在目录，可以参考
+<a href="http://gist.github.com/482560">gist#482560</a>，这个脚本同样支持文件和 NERD_tree。
+</p>
+
+<p>
+<del>切换 Quickfix 窗口的打开和关闭状态。</del>
 </p>
 <pre>
 nmap &lt;F4&gt; :cw&lt;CR&gt;
@@ -428,14 +426,6 @@ autocmd BufWritePre * call RemoveTrailingWhitespace()
 <li>
 <a href="http://habamax.ru/myvim/index.html#manuscript">manuscript : Dark colorscheme</a>
 </li>
-<li>
-<a href="http://www.vim.org/scripts/script.php?script_id=2340">molokai : A port of the monokai scheme for TextMate</a>
-</li>
-<ul>
-<li>
-<a href="http://winterdom.com/2008/08/molokaiforvim">Molokai for Vim</a>
-</li>
-</ul>
 <li>
 <a href="http://www.vim.org/scripts/script.php?script_id=2648">Darkburn : A darker mod of Zenburn</a> - 在终端显示效果比GUI下要好。
 </li>
@@ -543,8 +533,25 @@ TagList
 </li>
 </ul>
 <li>
-<a href="http://www.vim.org/scripts/script.php?script_id=2611">XPTemplate</a>^<a href="http://code.google.com/p/xptemplate/">2</a>^(<a href="http://you.video.sina.com.cn/b/26112622-1539471463.html">screencast in C</a>, <a href="http://you.video.sina.com.cn/b/26383083-1539471463.html">screencast in python</a>)
+XPTemplate
 </li>
+<ul>
+<li>
+<a href="http://www.vim.org/scripts/script.php?script_id=2611">@vim.org</a>
+</li>
+<li>
+<a href="http://code.google.com/p/xptemplate/">@googlecode</a>
+</li>
+<li>
+<a href="http://hi.baidu.com/drdr">author's blog</a>
+</li>
+<li>
+<a href="http://you.video.sina.com.cn/b/26112622-1539471463.html">screencast in C</a>
+</li>
+<li>
+<a href="http://you.video.sina.com.cn/b/26383083-1539471463.html">screencast in python</a>
+</li>
+</ul>
 <li>
 <a href="http://www.vim.org/scripts/script.php?script_id=52">Calendar</a> <a href="http://github.com/mattn/calendar-vim">2</a>
 </li>
@@ -573,7 +580,7 @@ Zen-Coding
 <ul>
 <li>
 <a href="http://www.vim.org/scripts/script.php?script_id=2981">ZenCoding.vim : vim plugins for HTML and CSS hi-speed coding.</a>
-        <a href="http://github.com/mattn/zencoding-vim">2</a>,
+        <a href="http://github.com/mattn/zencoding-vim">2</a> <a href="http://mattn.github.com/zencoding-vim/">3</a>,
         <a href="http://github.com/mattn/zencoding-vim/blob/master/TUTORIAL">TUTORIAL</a>
         <a href="http://wifeng.cn/?p=118">cn</a>
 </li>
@@ -964,22 +971,25 @@ PDF
 <h2 id="toc_1.9">集合</h2>
 <ul>
 <li>
-<a href="http://xbeta.info/tag/gvim">善用佳软 (hashtags#gvim)</a>
+<a href="http://easwy.com/blog/archives/advanced-vim-skills-catalog/">vim使用进阶 - 易水博客</a>
+</li>
+<li>
+<a href="http://blah.blogsome.com/category/vim/">碎碎念 (hashtags#vim)</a>
 </li>
 <li>
 <a href="http://www.gracecode.com/category/496/">Gracecode (hashtags#vim)</a>
+</li>
+<li>
+<a href="http://www.leninlee.cn/?tag=vim">牧马志 (hashtags#vim)</a>
+</li>
+<li>
+<a href="http://xbeta.info/tag/gvim">善用佳软 (hashtags#gvim)</a>
 </li>
 <li>
 <a href="http://blog.chinaunix.net/u2/78601/article_94584.html">vim那点儿事儿</a>
 </li>
 <li>
 <a href="http://blog.csdn.net/easwy/category/234641.aspx">Vim编辑器vim编辑器的技巧、经验、资源等收集。</a>
-</li>
-<li>
-<a href="http://easwy.com/blog/archives/advanced-vim-skills-catalog/">vim使用进阶 - 易水博客</a>
-</li>
-<li>
-<a href="http://blah.blogsome.com/category/vim/">碎碎念 (hashtags#vim)</a>
 </li>
 <li>
 <a href="http://github.com/rainux/jslint.vim">Fork of hallettj/jslint.vim</a>
@@ -997,9 +1007,6 @@ PDF
 </li>
 <li>
 <a href="http://axisym3.net/jdany/tag/vim/">JDany''s World (hashtags#vim)</a>
-</li>
-<li>
-<a href="http://www.leninlee.cn/?tag=vim">牧马志 (hashtags#vim)</a>
 </li>
 <li>
 <a href="http://blog.csdn.net/searun/category/316244.aspx">searun的专栏 (hashtags#Hacking VIM)</a>
@@ -1188,6 +1195,9 @@ Opera
 <a href="http://my.opera.com/Blazeix/blog/vimperator-for-opera">Vimperator for Opera</a>
 </li>
 </ul>
+<li>
+<a href="http://www.vimprobable.org/">Vimprobable WWW browser</a>
+</li>
 <li>
 即时通讯(IM)
 </li>
