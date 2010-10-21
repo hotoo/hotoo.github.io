@@ -6,6 +6,9 @@ echo Blogger sync starting...
 echo .
 git pull origin master
 
+echo .
+echo ======================================================================
+git status
 
 echo .
 echo ======================================================================
