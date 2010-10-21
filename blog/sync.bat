@@ -1,8 +1,8 @@
 @echo off
-title Sync Blogger...
+title Sync Blogger
 
 :PULL
-echo Blogger sync starting...
+echo Blogger sync(pull) starting...
 echo .
 git pull origin master
 
@@ -13,14 +13,13 @@ git status
 echo .
 echo ==============================================================================
 :LABEL_CONFIRM
-set /p doPush=Pull blogger from server complete, continue to push(y/n)?
+set /p doPush=Pull from server completed, continue to push(y/n)?
 if "%doPush%"=="y" goto LABEL_PUSH
 if "%doPush%"=="n" goto exit
 goto LABEL_CONFIRM
 
 
 :LABEL_PUSH
-echo Commit changes...
 echo .
 
 :: get date and time
