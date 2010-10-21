@@ -5,11 +5,12 @@ title Sync Blogger...
 ::Start...
 echo Start synchronizing...
 git pull origin master
-@echo on
+REM @echo on
 
 
 :CONFIRM
 set /p doPush=continue(y/n)?
+REM @echo off
 if "%doPush%"=="y" goto PUSH
 if "%doPush%"=="n" goto DONE
 goto OONFIRM
