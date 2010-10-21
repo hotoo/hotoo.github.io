@@ -36,7 +36,8 @@ call git push origin master
 
 echo .
 echo ======================================================================
-echo Sync is complete!
+echo .
+echo                        Sync is complete!
 echo .
 
 :LABEL_DONE
