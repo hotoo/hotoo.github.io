@@ -28,7 +28,7 @@ set mytime=%TIME:~0,8%
 set fvar=%mydate% %mytime%
 
 git add .
-git commit -a -m "Automatic commit on %fvar%"
+git commit -a -m "Automatic commit at %fvar%"
 
 :: check if ssh-agent is running
 :: tasklist|find /i "ssh-agent.exe" || cmd /c ""C:\Program Files\Git\bin\sh.exe" --login -i" && exit
@@ -37,7 +37,7 @@ call git push origin master
 echo .
 echo ======================================================================
 echo .
-echo                        Sync is complete!
+echo                          Sync is complete!
 echo .
 
 :LABEL_DONE
