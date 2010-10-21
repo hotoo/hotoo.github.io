@@ -30,7 +30,7 @@ set mytime=%TIME:~0,8%
 set fvar=%mydate% %mytime%
 
 git add .
-git commit -a -m "Automatic commit at %fvar%"
+git commit -a -m "Automatic commit blog at %fvar%"
 
 :: check if ssh-agent is running
 :: tasklist|find /i "ssh-agent.exe" || cmd /c ""C:\Program Files\Git\bin\sh.exe" --login -i" && exit
