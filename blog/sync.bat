@@ -5,12 +5,12 @@ title Sync Blogger...
 ::Start...
 echo Start synchronizing...
 git pull origin master
-REM @echo on
 
 
 :CONFIRM
+echo ""
+echo "======================================================================"
 set /p doPush=continue(y/n)?
-REM @echo off
 if "%doPush%"=="y" goto PUSH
 if "%doPush%"=="n" goto DONE
 goto OONFIRM
@@ -34,6 +34,8 @@ call git commit -a -m "Automatic commit on %fvar%"
 :: tasklist|find /i "ssh-agent.exe" || cmd /c ""C:\Program Files\Git\bin\sh.exe" --login -i" && exit
 call git push origin master
 
+echo ""
+echo "======================================================================"
 echo Synchronization is complete.
 
 :DONE
