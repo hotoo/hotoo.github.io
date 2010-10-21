@@ -7,16 +7,16 @@ echo .
 git pull origin master
 
 
-:CONFIRM
 echo .
 echo ======================================================================
+:LABEL_CONFIRM
 set /p doPush=Pull blogger from server complete, continue to push(y/n)?
-if "%doPush%"=="y" goto PUSH
+if "%doPush%"=="y" goto LABEL_PUSH
 if "%doPush%"=="n" goto exit
-goto OONFIRM
+goto LABEL_CONFIRM
 
 
-:PUSH
+:LABEL_PUSH
 echo Commit changes...
 echo .
 
@@ -39,5 +39,5 @@ echo ======================================================================
 echo Sync is complete!
 echo .
 
-:DONE
+:LABEL_DONE
 pause
