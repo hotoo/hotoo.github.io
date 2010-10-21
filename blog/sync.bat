@@ -3,6 +3,7 @@ title Sync Blogger...
 
 :PULL
 echo Blogger sync starting...
+echo .
 git pull origin master
 
 
@@ -17,6 +18,7 @@ goto OONFIRM
 
 :PUSH
 echo Commit changes...
+echo .
 
 :: get date and time
 :: for /f "delims=" %%a in ('date/t') do @set mydate=%%a
@@ -35,6 +37,7 @@ call git push origin master
 echo .
 echo ======================================================================
 echo Sync is complete!
+echo .
 
 :DONE
 pause
