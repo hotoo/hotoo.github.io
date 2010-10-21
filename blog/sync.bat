@@ -7,11 +7,11 @@ echo .
 git pull origin master
 
 echo .
-echo ======================================================================
+echo ==============================================================================
 git status
 
 echo .
-echo ======================================================================
+echo ==============================================================================
 :LABEL_CONFIRM
 set /p doPush=Pull blogger from server complete, continue to push(y/n)?
 if "%doPush%"=="y" goto LABEL_PUSH
@@ -38,7 +38,7 @@ git commit -a -m "Automatic commit at %fvar%"
 call git push origin master
 
 echo .
-echo ======================================================================
+echo ==============================================================================
 echo .
 echo                          Sync is complete!
 echo .
