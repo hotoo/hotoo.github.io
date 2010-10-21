@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>key</title>
+</head>
+<body>
+keydown:<input type="text" name="psd" id="down" /><span>CapsLock</span><br />
+keypress:<input type="text" name="psd" id="press" /><span>CapsLock</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;keyup:<input type="text" name="psd" id="up" /><span>CapsLock</span><br />
+<div id="keys">KEY:<br /></div>
+<div id="keymap"></div>
+<script type="text/javascript">/*<![CDATA[*/
+function  detectCapsLock(event){
+    var e = event||window.event;
+    var o = e.target||e.srcElement;
+    var oTip = o.nextSibling;
+    var keyCode  =  e.keyCode||e.which; // 获取按键的keyCode
+    var isShift  =  e.shiftKey ||(keyCode  ==   16 ) || false ;
+    // 判断shift键是否按住
+    if (
+        ((keyCode >=   65   &&  keyCode  <=   90 )  &&   !isShift)
+        // Caps Lock 打开，且没有按住shift键
+        || ((keyCode >=   97   &&  keyCode  <=   122 )  &&  isShift)
+        // Caps Lock 打开，且按住shift键
+    ){return true;}
+    else{return false;}
+}
+//document.getElementById('psd').onkeypress = detectCapsLock;
+
+window.onload = function(){
+    var Browser = {
+        trident : (navigator.userAgent.indexOf("MSIE")>=0) && (navigator.userAgent.indexOf("Opera")<0),
+        FireFox : navigator.userAgent.indexOf("Firefox") >= 0,
+        IE      : (navigator.userAgent.indexOf("MSIE")>=0) && (navigator.userAgent.indexOf("Opera")<0),
+        Maxthon : navigator.userAgent.indexOf("Maxthon")>=0,
+        Netscape: navigator.userAgent.indexOf('Netscape') >= 0,
+        Opera   : navigator.userAgent.indexOf("Opera") >= 0,
+        Safari  : navigator.userAgent.indexOf("Safari")>=0,
+        Chrome  : navigator.userAgent.indexOf("Chorme")>=0
+
+    };
+
+    var Event = {
+        KEY_BACKSPACE   : 8,
+        KEY_TAB         : 9,
+        KEY_RETURN      : 13,
+        KEY_SHIFT       : 16,
+        KEY_CTRL        : 17,
+        KEY_CAPSLOCK    : 20,
+        KEY_ESC         : 27,
+        KEY_LEFT        : 37,
+        KEY_UP          : 38,
+        KEY_RIGHT       : 39,
+        KEY_DOWN        : 40,
+        KEY_DELETE      : 46,
+        KEY_HOME        : 36,
+        KEY_END         : 35,
+        KEY_PAGEUP      : 33,
+        KEY_PAGEDOWN    : 34,
+        KEY_INSERT      : 45,
+        KEY_WINDOWS     : 91,
+        KEY_COMMA       : 188,
+        KEY_SEMICOLON   : 186,
+        KEY_QUOTATION   : 222,
+        KEY_SIGN        : 49
+    };
+    Event.stop = function(evt){
+        if(evt.stopPropagation){
+            event.preventDefault();
+            event.stopPropagation();
+        }else{
+            evt.cancelBubble = true;
+            evt.returnValue = false;
+        }
+    };
+    Event.key = function(evt){
+        evt = window.event || evt;
+        var keycode = evt.keyCode || evt.which || evt.charCode;
+        var keyname = String.fromCharCode(keycode);
+        if(Event.KEY_SHIFT==keycode || Event.KEY_CTRL==keycode){
+            return;
+        }
+        if((evt.shiftKey && Event.CapsLock(evt)) || (!evt.shiftKey &&!Event.CapsLock(evt))){
+            keyname = keyname.toLowerCase();
+        }
+        return keyname;
+    };
+    Event.CapsLock = function(evt){
+        var e = evt||window.event;
+        var o = e.target||e.srcElement;
+        var oTip = o.nextSibling;
+        var keyCode  =  e.keyCode||e.which; // 获取按键的keyCode
+        var isShift  =  e.shiftKey ||(keyCode  ==   16 ) || false ;
+        // 判断shift键是否按住
+        if (
+            ((keyCode >=   65   &&  keyCode  <=   90 )  &&   !isShift)
+            // Caps Lock 打开，且没有按住shift键
+            || ((keyCode >=   97   &&  keyCode  <=   122 )  &&  isShift)
+            // Caps Lock 打开，且按住shift键
+        ){return true;}
+        else{return false;}
+    };
+
+
+    document.getElementById("down").onkeydown = handler;
+    document.getElementById("press").onkeypress = handler;
+    document.getElementById("up").onkeyup = handler;
+    function handler(evt){
+        var d=this.nextSibling;
+        evt = evt || window.event;
+        var keycode = evt.keyCode || evt.which || evt.charCode;
+        var key = String.fromCharCode(keycode);
+        //if(Event.KEY_SHIFT==keycode || Event.KEY_CTRL==keycode){
+        //    return;
+        //}
+        //if(!evt.shiftKey){
+        //    key = key.toLowerCase();
+        //}
+        d.innerHTML = Event.key(evt)+" : "+keycode;
+        //d.appendChild(document.createTextNode(Event.key(evt)+" : "+keycode));
+        //d.appendChild(document.createElement("br"));
+    };
+
+    return;
+    var m=document.getElementById("keymap");
+    for (var i=0; i<=255; i++){
+        m.appendChild(document.createTextNode(String.fromCharCode(i)+" : "+i));
+        m.appendChild(document.createElement("br"));
+    }
+};
+/*]]>*/</script>
+</body>
+</html>
