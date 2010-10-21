@@ -1,8 +1,8 @@
 @echo off
-title Sync Blogger
+title Sync Wiki
 
 :PULL
-echo Blogger sync(pull) starting...
+echo Wiki sync(pull) starting...
 echo .
 git pull origin master
 
@@ -30,7 +30,7 @@ set mytime=%TIME:~0,8%
 set fvar=%mydate% %mytime%
 
 git add .
-git commit -a -m "Automatic commit at %fvar%"
+git commit -a -m "Automatic commit wiki at %fvar%"
 
 :: check if ssh-agent is running
 :: tasklist|find /i "ssh-agent.exe" || cmd /c ""C:\Program Files\Git\bin\sh.exe" --login -i" && exit
