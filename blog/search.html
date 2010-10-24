@@ -116,10 +116,14 @@
     customSearchControl.setNoResultsString('什么也没找到，请重试');
     customSearchControl.setResultSetSize(google.search.Search.SMALL_RESULTSET);
     customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_SELF);
+    var inCallback = false;
+    var t;
 	customSearchControl.setSearchCompleteCallback(null,function() {
+        if(t){window.clearTimeout(t);}
+        inCallback = true;
 		$('input.gsc-input').select();
 		var searchwords = $('input.gsc-input').val();
-        window.title = "搜索："+searchwords+" - 闲耘™.博";
+        document.title = "搜索："+searchwords+" - 闲耘™.博";
         location.hash = searchwords;
         $("#toc_1").text("搜索："+searchwords);
 		//$('.p > b').text(searchwords);
@@ -135,6 +139,8 @@
 		//});
 		$('b:contains("...")').contents().unwrap();
 		$('.gsc-cursor-current-page').removeClass('gsc-cursor-page');
+
+        t=window.setTimeout(function(){inCallback=false; t=null;}, 100);
 	});
     //customSearchControl.setSearchCompleteCallback(null, function() {
     //    $('input.gsc-input').select();
@@ -156,12 +162,16 @@
         customSearchControl.execute(decodeURIComponent(key));
     }
 
-//    window.onhashchange = function(){
-//        var key = location.hash.replace("#","");
-//        if(key){
-//            customSearchControl.execute(decodeURIComponent(key));
-//        }
-//    };
+    window.onhashchange = function(){
+        if(inCallback){
+            inCallback = false;
+            return;
+        }
+        var key = location.hash.replace("#","");
+        if(key){
+            customSearchControl.execute(decodeURIComponent(key));
+        }
+    };
 }, true);
 </script>
     </section>
