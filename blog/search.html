@@ -14,16 +14,65 @@
 <link type="text/css" rel="stylesheet" href="css/template.css" />
 <style type="text/css" media="screen">
     #container{position:relative;}
-    .gsc-search-box{width:100px; border:0 none;}
-    .gsc-search-box td{border:0 none;}
+    .gsc-search-box{width:600px; border:0 none;}
+    .gsc-search-box td{border:0 none; padding:0; margin:0;}
+    .gsc-search-box td:hover{border:0 none;}
     .gsc-input{width:300px; padding:3px 4px; font:1em/1 Helvetica,Tahoma,Arial,\5b8b\4f53,sans-serif;}
     .gsc-resultsHeader{display:none;}
-    .gsc-branding{position:absolute; top:0; right:0; border:0 none; margin-top:2em;}
-    .gsc-branding td{border:0 none;}
+    .gsc-branding{position:absolute; bottom:30px; right:0; border:0 none; margin-top:2em;}
+    .gsc-branding td{border:0 none; padding:0; margin:0;}
+    .gsc-branding td:hover{border:0 none;}
+    .gsc-search-button{padding:3px 5px; font-size:1em;}
 
-    .gsc-cursor-page{display:inline-block; float:left; width:16px; border:1px solid #ccc; background:#eee none; margin:2px;}
+    /* search content body */
+    .gsc-wrapper b{background:#FFEEAA none; padding:2px 3px;
+        -moz-border-radius:3px; -khtml-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;
+    }
+    .gs-snippet b{font-weight:normal;}
+    .gsc-tabsAreaInvisible,
+    .gs-visibleUrl-short,.gs-watermark{display:none;}
+    .gs-visibleUrl-long{color:#0E774A; font-size:.8em;}
+
+    /* search page nav */
+    .{
+
+    }
+    .gsc-cursor:after{content:"\0020"; display:block; height:0; clear:both;}
+    .gsc-cursor{zoom:1;}
+    .gsc-cursor div{
+        float:left; display:table; border:1px solid #ccc;
+        width:24px;
+        line-height:24px;
+        overflow:visible;
+        margin:2px;
+        padding:2px 4px;
+        vertical-align:middle;
+        text-align:center;
+        white-space:nowrap;
+        -moz-border-radius:3px; -khtml-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;
+    }
+    .gsc-cursor-current-page{
+        background:#ddd none;
+    }
+    .gsc-cursor-page{
+        background:none repeat scroll 0 0 #f6f6f6;
+        border:1px solid #ccc;
+        line-height:16px;
+        text-decoration:none;
+        text-shadow:0 1px 0 #FFFFFF;
+        cursor:pointer;
+        color:#03c;
+    }
+    .gsc-cursor-page:hover{
+        -moz-use-text-color -moz-use-text-color #DDDDDD;
+        border:1px solid #999;
+        background:#f6f6f6 none;
+        text-decoration:none;
+        -moz-box-shadow:4px 4px 4px #333;
+        -moz-box-shadow:0 0 8px #666; -webkit-box-shadow:0 0 8px #666; box-shadow:0 0 8px #666;
+    }
 </style>
-<title>首页 - 闲耘™.博客</title>
+<title>搜索 - 闲耘™.博客</title>
 </head>
 <body>
 <div id="wrapper">
@@ -53,7 +102,8 @@
     <div>
     <section>
 <!--http://fis.io/ajax-google-custom-search-engine.html-->
-<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript">
 
   google.load('search', '1', {language:'zh-CN', "nocss":true});
@@ -66,6 +116,26 @@
     customSearchControl.setNoResultsString('什么也没找到，请重试');
     customSearchControl.setResultSetSize(google.search.Search.SMALL_RESULTSET);
     customSearchControl.setLinkTarget(google.search.Search.LINK_TARGET_SELF);
+	customSearchControl.setSearchCompleteCallback(null,function() {
+		$('input.gsc-input').select();
+		var searchwords = $('input.gsc-input').val();
+        window.title = "搜索："+searchwords+" - 闲耘™.博";
+        location.hash = searchwords;
+        $("#toc_1").text("搜索："+searchwords);
+		//$('.p > b').text(searchwords);
+		$('a.gs-title').addClass('new').unwrap().wrap('<h3></h3>').each(function() {
+			//var title = $(this).html().replace(/Twitter \|/, 'Thread Twitter 本站页面 |').replace(/\|.*/g, '');
+            var title=$(this).html().replace(/\- 闲耘™.博客$/, "");
+			$(this).html(title);
+		});
+		//$('h3 > a[href*="twitter.com"]').parent().text('').addClass('search-twitter').next().addClass('tweet round5px').next().next().show();
+		//$('.tweet').each(function() {
+		//	var tweet = $(this).html().replace(/Login · Join Twitter! /, '').replace(/· fisio.*/g, '');
+		//	$(this).html(tweet);
+		//});
+		$('b:contains("...")').contents().unwrap();
+		$('.gsc-cursor-current-page').removeClass('gsc-cursor-page');
+	});
     //customSearchControl.setSearchCompleteCallback(null, function() {
     //    $('input.gsc-input').select();
     //    $('a.gs-title').unwrap().wrap('<h3></h3>').each(function() {
@@ -75,13 +145,24 @@
     //    $('b:contains("...")').contents().unwrap();
     //});
 
-    var match = location.search.match(/q=([^&]*)(&|$)/);
-    if(match && match[1]){
-        var search = decodeURIComponent(match[1]);
-        customSearchControl.execute(search);
+    var key = location.hash.replace("#","");
+    if(!key){
+        var match = location.search.match(/q=([^&]*)(&|$)/);
+        if(match && match[1]){
+            key = match[1];
+        }
+    }
+    if(key){
+        customSearchControl.execute(decodeURIComponent(key));
     }
 
-  }, true);
+//    window.onhashchange = function(){
+//        var key = location.hash.replace("#","");
+//        if(key){
+//            customSearchControl.execute(decodeURIComponent(key));
+//        }
+//    };
+}, true);
 </script>
     </section>
 </div>

@@ -35,7 +35,9 @@ small::selection,
 th::selection,
 td::selection,
 a::selection,
+b::selection,
 strong::selection{background-color:#f60; color:#fff;}
+
 body::-moz-selection,
 h1::-moz-selection,
 h2::-moz-selection,
@@ -58,6 +60,7 @@ small::-moz-selection,
 th::-moz-selection,
 td::-moz-selection,
 a::-moz-selection,
+b::-moz-selection,
 strong::-moz-selection{background-color:#f60; color:#fff;}
 
 h1, h2, h3, h4, h5, h6 {font-family:"Trebuchet MS",serif; margin:.5em 0; line-height:1.2em;}
@@ -131,6 +134,8 @@ a{color:#002BB8; text-decoration:none;}
 a:hover{text-decoration:underline;}
 a[href^="http://"],
 a[href^="https://"]{background:transparent url(bg/popout.png) no-repeat scroll right 0; padding:0 18px 0 0;}
+a[target="_self"],
+a[rel="internal"]{background-image:none!important;}
 
 div.toc{border:1px solid #ccc; background:#f8f8f8; float:right; padding:3px;
     -moz-box-shadow:0 0 8px #666; -webkit-box-shadow:0 0 8px #666; box-shadow:0 0 8px #666;

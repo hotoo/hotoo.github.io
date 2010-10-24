@@ -12,11 +12,23 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss" />
 <link rel="alternate" type="application/atom+xml" title="Atom" href="http://vimcn.blogspot.com/feeds/posts/default" />
 <link type="text/css" rel="stylesheet" href="css/template.css" />
+<script type="text/javascript">
+function onSearch(){
+    location.href = "search.html#"+document.getElementById("input_search").value;
+    return false;
+}
+</script>
 <title>IE6 的 CSS:hover 伪类 - 闲耘™.博客</title>
 </head>
 <body>
 <div id="wrapper">
 <header>
+<div style="float:right;">
+    <form action="search.html" id="searchbox" onsubmit="return onSearch();">
+        <input type="text" name="q" id="input_search" />
+        <input type="submit" value="搜索" />
+    </form>
+</div>
 <nav>
     <ul>
         <li class="first"><a href="../index.html" title="Home">Home</a></li>
@@ -33,7 +45,7 @@
 
 <h1 id="toc_1">IE6 的 CSS:hover 伪类</h1>
 <p>
-众所周知，IE6 不支持 a:hover 以外的 CSS 伪类，解决办法一般有一下 3 种方案：
+众所周知，IE6 不支持 a:hover 以外的 CSS 伪类，解决办法一般有 3 种方案：
 </p>
 
 <h2 id="toc_1.1">使用 JavaScript 事件</h2>
@@ -116,6 +128,10 @@ body{behavior:url("csshover3.htc"); }
  blog:datetime=2010/09/15 19:20:02:tags=IE6,CSS
 </p>
     </article>
+    </div>
+
+    <script type="text/javascript" src="js/comments.js"></script>
+    <div>
     <section>
         <div id="disqus_thread"></div>
         <script type="text/javascript">
@@ -141,118 +157,6 @@ body{behavior:url("csshover3.htc"); }
           (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
         </script>
-    </section>
-    <section>
-<div id="cse" style="width: 100%;">Loading</div>
-<script src="http://www.google.com/jsapi" type="text/javascript"></script>
-<script type="text/javascript">
-  google.load('search', '1', {language : 'zh-CN'});
-  google.setOnLoadCallback(function() {
-    var customSearchControl = new google.search.CustomSearchControl('012242588420705517395:spt0k_ybmgm');
-    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-    customSearchControl.draw('cse');
-  }, true);
-</script>
-<link rel="stylesheet" href="http://www.google.com/cse/style/look/shiny.css" type="text/css" />
-<style type="text/css">
-  .gsc-control-cse {
-    font-family: Verdana, sans-serif;
-    border-color: #ffffff;
-    background-color: #ffffff;
-  }
-  input.gsc-input {
-    border-color: #8A99A6;
-  }
-  input.gsc-search-button {
-    border-color: #8A99A6;
-    background-color: #D0D1D4;
-  }
-  .gsc-tabHeader.gsc-tabhInactive {
-    border-color: #B2BDC6;
-    background-color: #B2BDC6;
-  }
-  .gsc-tabHeader.gsc-tabhActive {
-    border-color: #8A99A6;
-    background-color: #8A99A6;
-  }
-  .gsc-tabsArea {
-    border-color: #8A99A6;
-  }
-  .gsc-webResult.gsc-result {
-    border-color: #FFFFFF;
-    background-color: #FFFFFF;
-  }
-  .gsc-webResult.gsc-result:hover {
-    border-color: #D2D6DC;
-    background-color: #EDEDED;
-  }
-  .gs-webResult.gs-result a.gs-title:link,
-  .gs-webResult.gs-result a.gs-title:link b {
-    color: #0568CD;
-  }
-  .gs-webResult.gs-result a.gs-title:visited,
-  .gs-webResult.gs-result a.gs-title:visited b {
-    color: #0568CD;
-  }
-  .gs-webResult.gs-result a.gs-title:hover,
-  .gs-webResult.gs-result a.gs-title:hover b {
-    color: #0568CD;
-  }
-  .gs-webResult.gs-result a.gs-title:active,
-  .gs-webResult.gs-result a.gs-title:active b {
-    color: #0568CD;
-  }
-  .gsc-cursor-page {
-    color: #0568CD;
-  }
-  a.gsc-trailing-more-results:link {
-    color: #0568CD;
-  }
-  .gs-webResult.gs-result .gs-snippet {
-    color: #5F6A73;
-  }
-  .gs-webResult.gs-result .gs-visibleUrl {
-    color: #5F6A73;
-  }
-  .gs-webResult.gs-result .gs-visibleUrl-short {
-    color: #5F6A73;
-  }
-  .gsc-cursor-box {
-    border-color: #FFFFFF;
-  }
-  .gsc-results .gsc-cursor-page {
-    border-color: #B2BDC6;
-    background-color: #FFFFFF;
-  }
-  .gsc-results .gsc-cursor-page.gsc-cursor-current-page {
-    border-color: #8A99A6;
-    background-color: #8A99A6;
-  }
-  .gs-promotion.gs-result {
-    border-color: #D2D6DC;
-    background-color: #D0D1D4;
-  }
-  .gs-promotion.gs-result a.gs-title:link {
-    color: #0066CC;
-  }
-  .gs-promotion.gs-result a.gs-title:visited {
-    color: #0066CC;
-  }
-  .gs-promotion.gs-result a.gs-title:hover {
-    color: #0066CC;
-  }
-  .gs-promotion.gs-result a.gs-title:active {
-    color: #0066CC;
-  }
-  .gs-promotion.gs-result .gs-snippet {
-    color: #333333;
-  }
-  .gs-promotion.gs-result .gs-visibleUrl,
-  .gs-promotion.gs-result .gs-visibleUrl-short {
-    color: #5F6A73;
-  }
-</style>
-
     </section>
 </div>
 <footer>

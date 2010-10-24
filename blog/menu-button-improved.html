@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://vimcn.blogspot.com/feeds/posts/default" />
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+<script type="text/javascript">
+function onSearch(){
+    location.href = "search.html#"+document.getElementById("input_search").value;
+    return false;
+}
+</script>
+<title>改进的菜单按钮 - 闲耘™.博客</title>
+</head>
+<body>
+<div id="wrapper">
+<header>
+<div style="float:right;">
+    <form action="search.html" id="searchbox" onsubmit="return onSearch();">
+        <input type="text" name="q" id="input_search" />
+        <input type="submit" value="搜索" />
+    </form>
+</div>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">改进的菜单按钮</h1>
+<p>
+一直想写关于菜单按钮的设计，但是太懒惰的原因，老是拖着不做。当然今天也没勤快到哪里去，
+下面第二个改进图是用 <a href="http://www.evolus.vn/Pencil/">Pencil</a> 画的，并没有用脚本实现，哎，懒啊。
+</p>
+
+<p>
+先看QQ/TM的设计，无论选项是什么，按钮上都没有体现出来。
+<img src="http://4.bp.blogspot.com/_POl6bUDELqY/SedGvF26A7I/AAAAAAAAH_Y/-UB9My9RlP8/s320/qq-send-button-orig.jpg" />
+</p>
+
+<p>
+我觉得其实不论是文本，还是图标，都可以把当前选中状态体现在按钮上的，便于用户确认按钮当前的状态。
+下面是改进后的菜单按钮（以QQ/TM为例）。
+<img src="http://1.bp.blogspot.com/_POl6bUDELqY/SedFixewtuI/AAAAAAAAH_Q/fFRR8KiM4OE/s320/qq-send-button.jpg" />
+</p>
+
+<p>
+一般来说，菜单按钮都应该做用户“最后一次”使用选择的动作。
+例如早期QQ的视频、语音菜单按钮，MSN的菜单按钮，还有旺旺的菜单按钮，都应该如此。
+<img src="http://2.bp.blogspot.com/_POl6bUDELqY/SedKDnXmfOI/AAAAAAAAH_g/rGTWQwL8MSE/s320/wangwang-trans-file.JPG" />
+</p>
+
+<h2 id="toc_1.1">延伸阅读</h2>
+<ol>
+<li>
+<a href="http://vimcn.blogspot.com/2009/04/menu-button-improved.html">@blogspot</a>
+</li>
+</ol>
+
+<p>
+ blog:datetime=2009/4/17 14:50:53:tags=Design
+</p>
+    </article>
+    </div>
+
+    <script type="text/javascript" src="js/comments.js"></script>
+    <div>
+    <section>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          /**
+            * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
+            */
+          (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://hotoo.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>
+        要查看或参与评论，请启用 JavaScript 支持。<br />
+        Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=hotoo">comments powered by Disqus.</a>
+        </noscript>
+
+        <script type="text/javascript">
+        var disqus_shortname = 'hotoo';
+        (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.src = 'http://disqus.com/forums/hotoo/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

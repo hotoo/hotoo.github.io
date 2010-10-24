@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://vimcn.blogspot.com/feeds/posts/default" />
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+<script type="text/javascript">
+function onSearch(){
+    location.href = "search.html#"+document.getElementById("input_search").value;
+    return false;
+}
+</script>
+<title>未知选项的表单设计 - 闲耘™.博客</title>
+</head>
+<body>
+<div id="wrapper">
+<header>
+<div style="float:right;">
+    <form action="search.html" id="searchbox" onsubmit="return onSearch();">
+        <input type="text" name="q" id="input_search" />
+        <input type="submit" value="搜索" />
+    </form>
+</div>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">未知选项的表单设计</h1>
+<p>
+发现许多的注册表单设计中，性别部分的设计大都这样：使用单选按钮（radio）
+并默认选中一个（大都为男性，某些女性频道为主的可能为女性）。例如：
+</p>
+
+<p>
+<img src="http://3.bp.blogspot.com/_POl6bUDELqY/SgUXbXDilSI/AAAAAAAAICg/iWEub23YPns/s320/qq-reg-gender.jpg" />
+网页申请QQ （<a href="http://www.qq.com/">qq.com</a>）帐号
+</p>
+
+<p>
+<img src="http://3.bp.blogspot.com/_POl6bUDELqY/SgUXhW92jnI/AAAAAAAAICo/aPBUi5Ew-34/s320/163-reg-gender.jpg" />
+注册网易（<a href="http://www.163.com/">163.com</a>）通行证
+</p>
+
+<p>
+雅虎（<a href="http://www.yahoo.com/">yahoo.com</a>）的设计比较特立独行，使用选择框（select），
+并默认不选中任何一个。
+<img src="http://3.bp.blogspot.com/_POl6bUDELqY/SgUYkKl3WQI/AAAAAAAAICw/-TCSOh0wpbA/s320/yahoo.com-reg-gender.jpg" />
+</p>
+
+<p>
+而雅虎中国（<a href="http://www.yahoo.cn/">yahoo.cn</a>）的设计也是使用单选框（radio），
+但是不选中任何一个。
+<img src="http://4.bp.blogspot.com/_POl6bUDELqY/SgUZRosOFDI/AAAAAAAAIC4/5QXSQhtQFH0/s1600-h/yahoo.cn-reg-gender.jpg" />
+</p>
+
+<p>
+按常理来说，注册系统并不知道用户的性别是什么，默认选中任何一个都不合理。
+yummy有一篇文章《<a href="http://www.yummyux.com/?p=366">中文按1，For English, press 2</a>》
+提到“如果用户必须做出选择，那就先给他做好一个选择。”，这个道理在某些情况很不错，
+但是用在这里不合适。
+</p>
+
+<p>
+<strong>如果不足够了解用户，就不要替用户做选择。</strong>
+</p>
+
+<h2 id="toc_1.1">延伸閱讀</h2>
+<ol>
+<li>
+<a href="http://vimcn.blogspot.com/2009/05/form-design-for-unknow-options.html">@blogspot</a>
+</li>
+</ol>
+
+
+<p>
+ blog:datetime=2009/5/9 14:15:56:tags=Design
+</p>
+    </article>
+    </div>
+
+    <script type="text/javascript" src="js/comments.js"></script>
+    <div>
+    <section>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          /**
+            * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
+            */
+          (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://hotoo.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>
+        要查看或参与评论，请启用 JavaScript 支持。<br />
+        Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=hotoo">comments powered by Disqus.</a>
+        </noscript>
+
+        <script type="text/javascript">
+        var disqus_shortname = 'hotoo';
+        (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.src = 'http://disqus.com/forums/hotoo/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

@@ -12,11 +12,23 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss" />
 <link rel="alternate" type="application/atom+xml" title="Atom" href="http://vimcn.blogspot.com/feeds/posts/default" />
 <link type="text/css" rel="stylesheet" href="css/template.css" />
+<script type="text/javascript">
+function onSearch(){
+    location.href = "search.html#"+document.getElementById("input_search").value;
+    return false;
+}
+</script>
 <title>web-design-for-feature - 闲耘™.博客</title>
 </head>
 <body>
 <div id="wrapper">
 <header>
+<div style="float:right;">
+    <form action="search.html" id="searchbox" onsubmit="return onSearch();">
+        <input type="text" name="q" id="input_search" />
+        <input type="submit" value="搜索" />
+    </form>
+</div>
 <nav>
     <ul>
         <li class="first"><a href="../index.html" title="Home">Home</a></li>
@@ -38,7 +50,7 @@
 </p>
 
 <p>
-在PM试体验的时候，发现他的拖放方式都（跟部门主管一样）是“丢放式”的，鼠标抓起一个模块，带有速度的往某个位置一扔，有时在没有到达目标区域就放手了，导致实际上没有被扔到目标区域。不仅仅是拖放模块，甚至连拖放改变边侧栏宽度也是使用这种手法。可以想象他们使用桌面应用程序（比如改变窗口大小）也是这样操作的。1
+在PM试体验的时候，发现他的拖放方式都（跟部门主管一样）是“丢放式”的，鼠标抓起一个模块，带有速度的往某个位置一扔，有时在没有到达目标区域就放手了，导致实际上没有被扔到目标区域。不仅仅是拖放模块，甚至连拖放改变边侧栏宽度也是使用这种手法。可以想象他们使用桌面应用程序（比如改变窗口大小）也是这样操作的。<sup><small>1</small></sup>
 </p>
 
 <p>
@@ -46,7 +58,7 @@
 </p>
 
 <p>
-如果你看过微软未来操作系统的视频2，或者腾讯未来QQ的演示视频3，大概能了解这是怎样的一种情形。
+如果你看过微软未来操作系统的视频<sup><small>2</small></sup>，或者腾讯未来QQ的演示视频<sup><small>3</small></sup>，大概能了解这是怎样的一种情形。
 </p>
 
 <p>
@@ -85,6 +97,10 @@
  blog:datetime=2009/08/12 21:35:32:tags=Design
 </p>
     </article>
+    </div>
+
+    <script type="text/javascript" src="js/comments.js"></script>
+    <div>
     <section>
         <div id="disqus_thread"></div>
         <script type="text/javascript">

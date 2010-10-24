@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://vimcn.blogspot.com/feeds/posts/default" />
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+<script type="text/javascript">
+function onSearch(){
+    location.href = "search.html#"+document.getElementById("input_search").value;
+    return false;
+}
+</script>
+<title>状态模式 - 闲耘™.博客</title>
+</head>
+<body>
+<div id="wrapper">
+<header>
+<div style="float:right;">
+    <form action="search.html" id="searchbox" onsubmit="return onSearch();">
+        <input type="text" name="q" id="input_search" />
+        <input type="submit" value="搜索" />
+    </form>
+</div>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">状态模式</h1>
+<p>
+现有的IM软件都有状态设置功能，常见的默认状态有：在线，忙碌，离开，隐身，离线，
+但是这些状态对应的选项是不可设置的，例如TM/QQ，选择在线或者忙碌，对应的通知铃声，
+接收消息方式都是指定、不可改变的，虽然这些默认设置在某些情景下可能很合理，但不总是这样。
+</p>
+
+<p>
+<img src="http://3.bp.blogspot.com/_POl6bUDELqY/SgQrIxd1QAI/AAAAAAAAIBg/Ky02D0-lldY/s320/TM-status.JPG" />
+TM/QQ 状态：可以使用默认状态作为模板附加消息来添加状态。
+</p>
+
+<p>
+<img src="http://4.bp.blogspot.com/_POl6bUDELqY/SgQuUjBzaiI/AAAAAAAAIBo/1huCGCCenME/s320/Gtalk-status.JPG" />
+Gtalk 状态：可以直接在状态写状态信息，但是只有在线，离开和离线三种状态。
+</p>
+
+<p>
+<img src="http://4.bp.blogspot.com/_POl6bUDELqY/SgQuYt6H6OI/AAAAAAAAIBw/d9PHFq32QOc/s320/Wangwang-status.JPG" />
+WangWang 状态：可以添加状态信息。
+</p>
+
+<p>
+可以看出，基本上IM软件的状态信息只能向好友展示文本消息，告诉好友你当前的状态，
+有时候并不能真正帮助我们在某些需要的时候过滤某些信息，例如老板告诉秘书，帮我回绝所有约会和电话。
+</p>
+
+<p>
+最近工作的时候发现，我希望工作的时候设置状态为在线，或者忙碌也可以，而且不想接收所有或某些群消息。
+例如上班工作的时候不想接受技术探讨群或娱 乐群的叽歪消息，
+但是要聆听部门或项目组的群消息，尤其要注意老板发来的消息，
+当然手工修改每个群的消息设置也可以做到，但是每次改都非常不方便，如果可 以保存为模式
+（如命名为“工作模式”，寂寞的时候想找人聊天可以设置一个“寂寞模式”），在模式之间切换就更实用了。
+</p>
+
+<p>
+智能手机（如我的Smartphone）在这方面就做的不错，值得学习。
+Smartphone上有各种“情景模式”，如普通，静音，会议，室外，自 动，耳机，车载和免提，
+每一种模式的铃声类型，音量，包括模式名称等多项设置都可以根据用户自身情况改变
+（当然默认的情景模式设置也已经很合理了，但我也有在一些特殊的时候，做一些适当的修改）。
+<img src="http://2.bp.blogspot.com/_POl6bUDELqY/SgQzKZVKoKI/AAAAAAAAIB4/dc_dJtAA3dU/s320/dopod-577w.jpg" />
+</p>
+
+<p>
+下面使用Windows Mobile 2003的相关屏幕截屏
+</p>
+
+<p>
+<img src="http://3.bp.blogspot.com/_POl6bUDELqY/SgQz0nQ2nVI/AAAAAAAAICA/VVtYVy6DAfQ/s320/smartphone-1.jpg" />
+</p>
+
+<p>
+<img src="http://4.bp.blogspot.com/_POl6bUDELqY/SgQz3xB2zUI/AAAAAAAAICI/1Vz4I9VzXAE/s320/smartphone-2.jpg" />
+</p>
+
+<p>
+<img src="http://4.bp.blogspot.com/_POl6bUDELqY/SgQz6xCW68I/AAAAAAAAICQ/a7T_Sw4jD3I/s320/smartphone-3.jpg" />
+</p>
+
+<p>
+<img src="http://4.bp.blogspot.com/_POl6bUDELqY/SgQz98t-tgI/AAAAAAAAICY/JT08w_36uRU/s320/smartphone-4.jpg" />
+</p>
+
+<p>
+ blog:datetime=2009/5/8 14:24:02:tags=Design
+</p>
+    </article>
+    </div>
+
+    <script type="text/javascript" src="js/comments.js"></script>
+    <div>
+    <section>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          /**
+            * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
+            */
+          (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://hotoo.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>
+        要查看或参与评论，请启用 JavaScript 支持。<br />
+        Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=hotoo">comments powered by Disqus.</a>
+        </noscript>
+
+        <script type="text/javascript">
+        var disqus_shortname = 'hotoo';
+        (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.src = 'http://disqus.com/forums/hotoo/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

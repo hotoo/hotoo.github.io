@@ -12,11 +12,23 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss" />
 <link rel="alternate" type="application/atom+xml" title="Atom" href="http://vimcn.blogspot.com/feeds/posts/default" />
 <link type="text/css" rel="stylesheet" href="css/template.css" />
+<script type="text/javascript">
+function onSearch(){
+    location.href = "search.html#"+document.getElementById("input_search").value;
+    return false;
+}
+</script>
 <title>Vimwiki - 闲耘™.博客</title>
 </head>
 <body>
 <div id="wrapper">
 <header>
+<div style="float:right;">
+    <form action="search.html" id="searchbox" onsubmit="return onSearch();">
+        <input type="text" name="q" id="input_search" />
+        <input type="submit" value="搜索" />
+    </form>
+</div>
 <nav>
     <ul>
         <li class="first"><a href="../index.html" title="Home">Home</a></li>
@@ -59,6 +71,10 @@ GTD (/TODO) list 使用 &lt;C-Space&gt; 切换 List Item 的 check 状态，但�
  blog:datetime=2010/03/16 11:11:11:tags=Vim,Vimwiki
 </p>
     </article>
+    </div>
+
+    <script type="text/javascript" src="js/comments.js"></script>
+    <div>
     <section>
         <div id="disqus_thread"></div>
         <script type="text/javascript">

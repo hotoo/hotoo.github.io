@@ -12,11 +12,23 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss" />
 <link rel="alternate" type="application/atom+xml" title="Atom" href="http://vimcn.blogspot.com/feeds/posts/default" />
 <link type="text/css" rel="stylesheet" href="css/template.css" />
+<script type="text/javascript">
+function onSearch(){
+    location.href = "search.html#"+document.getElementById("input_search").value;
+    return false;
+}
+</script>
 <title>css-names-with-cn-en-unicode - 闲耘™.博客</title>
 </head>
 <body>
 <div id="wrapper">
 <header>
+<div style="float:right;">
+    <form action="search.html" id="searchbox" onsubmit="return onSearch();">
+        <input type="text" name="q" id="input_search" />
+        <input type="submit" value="搜索" />
+    </form>
+</div>
 <nav>
     <ul>
         <li class="first"><a href="../index.html" title="Home">Home</a></li>
@@ -69,6 +81,10 @@ css字体名可以使用2种Unicode格式来书写，以“微软雅黑”为例
  blog:datetime=2009/08/14 21:15:00:tags=CSS,Encoding
 </p>
     </article>
+    </div>
+
+    <script type="text/javascript" src="js/comments.js"></script>
+    <div>
     <section>
         <div id="disqus_thread"></div>
         <script type="text/javascript">

@@ -12,11 +12,23 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss" />
 <link rel="alternate" type="application/atom+xml" title="Atom" href="http://vimcn.blogspot.com/feeds/posts/default" />
 <link type="text/css" rel="stylesheet" href="css/template.css" />
+<script type="text/javascript">
+function onSearch(){
+    location.href = "search.html#"+document.getElementById("input_search").value;
+    return false;
+}
+</script>
 <title>archive-2009 - 闲耘™.博客</title>
 </head>
 <body>
 <div id="wrapper">
 <header>
+<div style="float:right;">
+    <form action="search.html" id="searchbox" onsubmit="return onSearch();">
+        <input type="text" name="q" id="input_search" />
+        <input type="submit" value="搜索" />
+    </form>
+</div>
 <nav>
     <ul>
         <li class="first"><a href="../index.html" title="Home">Home</a></li>
@@ -120,6 +132,48 @@
 <li>
 <a href="the-god-of-editor.html">编辑器之神 (2009/7/24)</a>
 </li>
+<li>
+<a href="form-design-for-unknow-options.html">未知选项的表单设计 (2009/5/9)</a>
+</li>
+<li>
+<a href="status-pattern.html">状态模式 (2009/5/8)</a>
+</li>
+<li>
+<a href="tags-pattern.html">标签模式 (2009/5/2)</a>
+</li>
+<li>
+<a href="crumb-navigation.html">关于面包屑导航 (2009/4/19)</a>
+</li>
+<li>
+<a href="menu-button-improved.html">改进的菜单按钮 (2009/4/17)</a>
+</li>
+<li>
+<a href="how-to-peel-pencil.html">如何削铅笔 (2009/4/14)</a>
+</li>
+<li>
+<a href="lift-button-design.html">电梯按钮设计 (2009/4/8)</a>
+</li>
+<li>
+<a href="after-written-examination.html">笔试后双方最好能当面讨论题解 (2009/3/26)</a>
+</li>
+<li>
+<a href="whitehousegov-in-singapore.html">白宫在新加坡 (2009/3/18)</a>
+</li>
+<li>
+<a href="idea-from-email-srot.html">由邮件排序想到的 (2009/3/15)</a>
+</li>
+<li>
+<a href="dignity.html">尊严 (2009/3/13)</a>
+</li>
+<li>
+<a href="after-nterview.html">淘宝应聘后记 (2009/3/10)</a>
+</li>
+<li>
+<a href="ghost-hand.html">遭遇鬼手 (2009/3/10)</a>
+</li>
+<li>
+<a href="remove-msn-9-ad.html">去除MSN 9的广告 (2009/1/11)</a>
+</li>
 </ol>
 
 <p>
@@ -127,8 +181,8 @@
 </p>
     </article>
     </div>
-    <script type="text/javascript" src="js/comments.js"></script>
 
+    <script type="text/javascript" src="js/comments.js"></script>
     <div>
     <section>
         <div id="disqus_thread"></div>
@@ -155,121 +209,6 @@
           (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
         </script>
-    </section>
-    <section>
-
-<div id="cse" style="width: 100%;">Loading</div>
-<script src="http://www.google.com/jsapi" type="text/javascript"></script>
-<script type="text/javascript">
-  google.load('search', '1', {language : 'zh-CN'});
-  google.setOnLoadCallback(function() {
-    var customSearchControl = new google.search.CustomSearchControl('012242588420705517395:spt0k_ybmgm');
-    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-    var options = new google.search.DrawOptions();
-    options.setAutoComplete(true);
-    customSearchControl.draw('cse', options);
-  }, true);
-</script>
-<link rel="stylesheet" href="http://www.google.com/cse/style/look/shiny.css" type="text/css" />
-<style type="text/css">
-  .gsc-control-cse {
-    font-family: Verdana, sans-serif;
-    border-color: #ffffff;
-    background-color: #ffffff;
-  }
-  input.gsc-input {
-    border-color: #8A99A6;
-  }
-  input.gsc-search-button {
-    border-color: #8A99A6;
-    background-color: #D0D1D4;
-  }
-  .gsc-tabHeader.gsc-tabhInactive {
-    border-color: #B2BDC6;
-    background-color: #B2BDC6;
-  }
-  .gsc-tabHeader.gsc-tabhActive {
-    border-color: #8A99A6;
-    background-color: #8A99A6;
-  }
-  .gsc-tabsArea {
-    border-color: #8A99A6;
-  }
-  .gsc-webResult.gsc-result {
-    border-color: #FFFFFF;
-    background-color: #FFFFFF;
-  }
-  .gsc-webResult.gsc-result:hover {
-    border-color: #D2D6DC;
-    background-color: #EDEDED;
-  }
-  .gs-webResult.gs-result a.gs-title:link,
-  .gs-webResult.gs-result a.gs-title:link b {
-    color: #0568CD;
-  }
-  .gs-webResult.gs-result a.gs-title:visited,
-  .gs-webResult.gs-result a.gs-title:visited b {
-    color: #0568CD;
-  }
-  .gs-webResult.gs-result a.gs-title:hover,
-  .gs-webResult.gs-result a.gs-title:hover b {
-    color: #0568CD;
-  }
-  .gs-webResult.gs-result a.gs-title:active,
-  .gs-webResult.gs-result a.gs-title:active b {
-    color: #0568CD;
-  }
-  .gsc-cursor-page {
-    color: #0568CD;
-  }
-  a.gsc-trailing-more-results:link {
-    color: #0568CD;
-  }
-  .gs-webResult.gs-result .gs-snippet {
-    color: #5F6A73;
-  }
-  .gs-webResult.gs-result .gs-visibleUrl {
-    color: #5F6A73;
-  }
-  .gs-webResult.gs-result .gs-visibleUrl-short {
-    color: #5F6A73;
-  }
-  .gsc-cursor-box {
-    border-color: #FFFFFF;
-  }
-  .gsc-results .gsc-cursor-page {
-    border-color: #B2BDC6;
-    background-color: #FFFFFF;
-  }
-  .gsc-results .gsc-cursor-page.gsc-cursor-current-page {
-    border-color: #8A99A6;
-    background-color: #8A99A6;
-  }
-  .gs-promotion.gs-result {
-    border-color: #D2D6DC;
-    background-color: #D0D1D4;
-  }
-  .gs-promotion.gs-result a.gs-title:link {
-    color: #0066CC;
-  }
-  .gs-promotion.gs-result a.gs-title:visited {
-    color: #0066CC;
-  }
-  .gs-promotion.gs-result a.gs-title:hover {
-    color: #0066CC;
-  }
-  .gs-promotion.gs-result a.gs-title:active {
-    color: #0066CC;
-  }
-  .gs-promotion.gs-result .gs-snippet {
-    color: #333333;
-  }
-  .gs-promotion.gs-result .gs-visibleUrl,
-  .gs-promotion.gs-result .gs-visibleUrl-short {
-    color: #5F6A73;
-  }
-</style>
-
     </section>
 </div>
 <footer>
