@@ -805,6 +805,19 @@ Web Page: <a href="http://www.weebly.com/">Weebly</a> - 免费网站。
 </li>
 </ul>
 </ul>
+
+<script type="text/javascript">
+function onSearch(){
+    location.href = "search.html#"+document.getElementById("input_search").value;
+    return false;
+}
+</script>
+<div style="border-top:1px solid #ccc; background:#f6f6f6 none;padding:8px;">
+    <form action="search.html" id="searchbox" onsubmit="return onSearch();">
+        <input type="text" name="q" id="input_search" />
+        <input type="submit" value="搜索" />
+    </form>
+</div>
 </article>
 <footer>
     <a href="index.html" id="back-home">&lsaquo; 首页</a>
