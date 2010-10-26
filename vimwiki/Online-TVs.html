@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="/css/vim-like.css" />
@@ -59,18 +60,32 @@
 <a href="http://biz.vsdn.tv380.com/live.php?5B63686E5D445830303030303034327C3336397C317C313030307CD6D0CEC4CCA85B2F63686E5DVSDNSOOONERCOM00|5B63686E5D434E4330303030303033327C3237367C327C313030307CE4B8ADE69687E58FB07C727473705B2F63686E5D5B74735D307C687474703A2F2F3132332E3132392E3235312E3131393A2F434E4330303030303033325F3237365B2F74735DVSDNSOOONERCOM00|asx">凤凰卫视中文台</a>
 </li>
 </ul>
+
+<script type="text/javascript">
+function onSearch(){
+    location.href = "search.html#"+document.getElementById("input_search").value;
+    return false;
+}
+</script>
+<div style="border-top:1px solid #ccc; background:#f6f6f6 none;padding:8px;">
+    <form action="search.html" id="searchbox" onsubmit="return onSearch();">
+        <input type="text" name="q" id="input_search" />
+        <input type="submit" value="搜索" />
+    </form>
+</div>
 </article>
 <footer>
     <a href="index.html" id="back-home">&lsaquo; 首页</a>
     <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
     Copyleft © 2010, Driven by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
     </p>
+    <p>本页最后修订于 2010年10月26日 10:40:51</p>
 </footer>
 </div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <!--[if lte IE 6]><script type="text/javascript" src="js/ie6.js"></script><![endif]-->
-<script type="text/javascript" src="js/WikiWords.js"></script>
-<script type="text/javascript" src="js/vim-like.js"></script>
+<!-- <script type="text/javascript" src="js/WikiWords.js"></script>
+<script type="text/javascript" src="js/vim-like.js"></script> -->
 
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

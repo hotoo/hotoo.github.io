@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="/css/vim-like.css" />
@@ -66,18 +67,48 @@
 <a href="http://bradmontgomery.blogspot.com/2010/01/add-json-syntax-highlighting-in-vim-on.html">Add JSON syntax highlighting in Vim on OS X</a>
 </li>
 </ul>
+
+<h2 id="toc_1.3">JSONP</h2>
+<ul>
+<li>
+<a href="http://www.ibm.com/developerworks/cn/web/wa-aj-jsonp1/index.html">使用 JSONP 实现跨域通信，第 1 部分: 结合 JSONP 和 jQuery 快速构建强大的 mashup</a>
+</li>
+<li>
+<a href="http://www.ibm.com/developerworks/cn/web/wa-aj-jsonp2/index.html">使用 JSONP 实现跨域通信，第 2 部分: 使用 JSONP、jQuery 和 Yahoo! 查询语言构建 mashup</a>
+</li>
+<li>
+<a href="http://www.cn-cuckoo.com/2008/09/13/the-origin-of-jsonp-262.html">JSONP的起源</a>
+</li>
+<li>
+<a href="http://www.ibm.com/developerworks/cn/xml/x-mashups.html">Mashups：Web 应用程序新成员</a>
+</li>
+</ul>
+
+<script type="text/javascript">
+function onSearch(){
+    location.href = "search.html#"+document.getElementById("input_search").value;
+    return false;
+}
+</script>
+<div style="border-top:1px solid #ccc; background:#f6f6f6 none;padding:8px;">
+    <form action="search.html" id="searchbox" onsubmit="return onSearch();">
+        <input type="text" name="q" id="input_search" />
+        <input type="submit" value="搜索" />
+    </form>
+</div>
 </article>
 <footer>
     <a href="index.html" id="back-home">&lsaquo; 首页</a>
     <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
     Copyleft © 2010, Driven by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
     </p>
+    <p>本页最后修订于 2010年10月26日 10:40:45</p>
 </footer>
 </div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <!--[if lte IE 6]><script type="text/javascript" src="js/ie6.js"></script><![endif]-->
-<script type="text/javascript" src="js/WikiWords.js"></script>
-<script type="text/javascript" src="js/vim-like.js"></script>
+<!-- <script type="text/javascript" src="js/WikiWords.js"></script>
+<script type="text/javascript" src="js/vim-like.js"></script> -->
 
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

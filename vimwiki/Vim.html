@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="/css/vim-like.css" />
@@ -980,7 +981,7 @@ PDF
 <a href="http://www.gracecode.com/category/496/">Gracecode (hashtags#vim)</a>
 </li>
 <li>
-<a href="http://www.leninlee.cn/?tag=vim">牧马志 (hashtags#vim)</a>
+<a href="http://sinolog.it/?tag=vim">牧马志 (hashtags#vim)</a> 
 </li>
 <li>
 <a href="http://xbeta.info/tag/gvim">善用佳软 (hashtags#gvim)</a>
@@ -1157,14 +1158,15 @@ PDF
 </li>
 </ul>
 <li>
-Firefox
+<a href="Mozilla-Firefox.html">Mozilla-Firefox</a>
 </li>
 <ul>
 <li>
 <a href="Vimperator.html">Vimperator</a>
 </li>
 <li>
-<a href="http://code.google.com/p/jv-extension/">jv-extension (A Firefox extension that emulates Vim in all html textareas)</a> <a href="https://addons.mozilla.org/en-US/firefox/addon/8529">Addons</a>
+<a href="http://code.google.com/p/jv-extension/">jv-extension (A Firefox extension that emulates Vim in all html textareas)</a>
+        <a href="https://addons.mozilla.org/en-US/firefox/addon/8529">Addons</a>
 </li>
 <li>
 <a href="https://addons.mozilla.org/en-US/firefox/addon/6319">Textarea viEditor</a>
@@ -1446,18 +1448,32 @@ QQ 群：Vim 草堂(28971390) - 撇开腾讯不说，这个群的氛围是非常
 但最好的东西往往是免费的，
 空气，水，Vim。
 </pre>
+
+<script type="text/javascript">
+function onSearch(){
+    location.href = "search.html#"+document.getElementById("input_search").value;
+    return false;
+}
+</script>
+<div style="border-top:1px solid #ccc; background:#f6f6f6 none;padding:8px;">
+    <form action="search.html" id="searchbox" onsubmit="return onSearch();">
+        <input type="text" name="q" id="input_search" />
+        <input type="submit" value="搜索" />
+    </form>
+</div>
 </article>
 <footer>
     <a href="index.html" id="back-home">&lsaquo; 首页</a>
     <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
     Copyleft © 2010, Driven by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
     </p>
+    <p>本页最后修订于 2010年10月26日 10:41:04</p>
 </footer>
 </div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <!--[if lte IE 6]><script type="text/javascript" src="js/ie6.js"></script><![endif]-->
-<script type="text/javascript" src="js/WikiWords.js"></script>
-<script type="text/javascript" src="js/vim-like.js"></script>
+<!-- <script type="text/javascript" src="js/WikiWords.js"></script>
+<script type="text/javascript" src="js/vim-like.js"></script> -->
 
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

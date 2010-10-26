@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="/css/vim-like.css" />
@@ -29,9 +30,6 @@
 </li>
 <li>
 <a href="https://git.wiki.kernel.org/index.php/Main_Page">Git Wiki Homepage</a>
-</li>
-<li>
-<a href="http://gitref.org/">Git Reference</a>
 </li>
 <li>
 <a href="http://zh-cn.whygitisbetterthanx.com/">Why Git is Better than X</a>
@@ -71,9 +69,15 @@
 </li>
 <li>
 <a href="http://www.ibm.com/developerworks/cn/linux/l-git-subversion-1/">面向 Subversion 用户的 Git，第 1 部分: 入门指南</a>
+    <a href="http://www.ibm.com/developerworks/linux/library/l-git-subversion-1/">en</a>
 </li>
 <li>
 <a href="http://www.ibm.com/developerworks/cn/linux/l-git-subversion-2/">面向 Subversion 用户的 Git，第 2 部分: 实施控制</a>
+    <a href="http://www.ibm.com/developerworks/opensource/library/l-git-subversion-2/index.html">en</a>
+</li>
+<li>
+<a href="http://www.ibm.com/developerworks/cn/web/wa-git/">Git 改变了分布式 Web 开发规则</a>
+    <a href="http://www.ibm.com/developerworks/web/library/wa-git/">en</a>
 </li>
 <li>
 <a href="http://www.joomlagate.com/article/joomla-review/why-subversion-will-be-replaced-by-git-for-version-control/">为什么说 Git 将取代 SVN 做软件版本控制？</a>
@@ -101,6 +105,12 @@
 <a href="http://www.bitsun.com/documents/GitUserManualChinese.html">Git 用户手册（1.5.3 及后续版本适用）</a>
     <a href="http://www.kernel.org/pub/software/scm/git/docs/user-manual.html">En</a>
 </li>
+<li>
+<a href="http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/">Synchronizing plugins with git submodules and pathogen</a>
+</li>
+<li>
+<a href="http://gitref.org/">Git Reference</a>
+</li>
 </ul>
 
 <h2 id="toc_1.2">Slide</h2>
@@ -113,6 +123,12 @@
 </li>
 <li>
 <a href="http://jserv.sayya.org/writing/loving-git.pdf">我爱 Git</a> - by jserv
+</li>
+<li>
+<a href="http://git-tips.heroku.com/#1">Git Wrangling - Advanced Tips and Tricks</a>
+</li>
+<li>
+<a href="http://gitcasts.com/">GitCasts Player</a>
 </li>
 </ul>
 
@@ -139,6 +155,9 @@
 <li>
 <a href="http://gitbox.pierlis.com/">Gitbox</a> - Mac
 </li>
+<li>
+<a href="http://hg-git.github.com/">the Hg-Git mercurial plugin</a> <a href="http://hghub.com/">2</a>
+</li>
 </ul>
 
 <h2 id="toc_1.4">托管服务</h2>
@@ -164,7 +183,11 @@
 </li>
 <li>
 <a href="http://book.git-scm.com/">Git Community Book</a>
-    <a href="http://liuhui998.javaeye.com/category/109230">Git Community Book翻译</a>
+    <a href="http://github.com/schacon/gitbook">@github</a><br />
+    <a href="http://gitbook.liuhui998.com/">中文版</a>
+    (<a href="http://github.com/liuhui998/gitbook">@github</a>,
+     <a href="http://liuhui998.javaeye.com/category/109230">@javaeye</a>,
+     <a href="http://liuhui998.com/">译者</a>)
 </li>
 <li>
 <a href="http://nathanj.github.com/gitguide/index.html">An Illustrated Guide to Git on Windows</a>
@@ -186,15 +209,15 @@
 
 <h2 id="toc_1.7">Notes</h2>
 <p>
-收藏使用如果希望可以提交到第三方代码托管服务器上，需要配置 ssh key，
-用户都通过这个 key 来验证用户身份。参考： <a href="http://help.github.com/msysgit-key-setup/">Generating SSH keys(Win/msysgit)</a>
+如果希望提交到第三方代码托管服务器上，需要配置 ssh key，
+系统通过这个 key 来验证用户身份。参考： <a href="http://help.github.com/msysgit-key-setup/">Generating SSH keys(Win/msysgit)</a>
 </p>
 
 <p>
 <strong>注意</strong> ：Windows 下需要先设置 HOME 环境变量，指向 <code>C:\Documents and Settings\{username}</code> 即可。
 </p>
 <pre>
-ssh-keygen -t rsa -C "tekkub@gmail.com"
+ssh-keygen -t rsa -C "email@addr.ess"
 </pre>
 <p>
 下面的三个等待输入可以直接回车确认。
@@ -205,9 +228,9 @@ ssh-keygen -t rsa -C "tekkub@gmail.com"
 </p>
 <pre>
 .ssh
- |- id_rsa
- |- id_rsa.pub
- +- known_hosts
+ +- id_rsa
+ +- id_rsa.pub
+ `- known_hosts
 </pre>
 <p>
 把其中的 id_rsa.pub 的内容加到服务器的 SSH Public Keys 即可。
@@ -217,21 +240,35 @@ ssh-keygen -t rsa -C "tekkub@gmail.com"
 初始化用户信息：
 </p>
 <pre>
-git config --global user.name "Tekkub"
-git config --global user.email "tekkub@gmail.com"
+git config --global user.name "{username}"
+git config --global user.email "email@addr.ess"
 </pre>
+
+<script type="text/javascript">
+function onSearch(){
+    location.href = "search.html#"+document.getElementById("input_search").value;
+    return false;
+}
+</script>
+<div style="border-top:1px solid #ccc; background:#f6f6f6 none;padding:8px;">
+    <form action="search.html" id="searchbox" onsubmit="return onSearch();">
+        <input type="text" name="q" id="input_search" />
+        <input type="submit" value="搜索" />
+    </form>
+</div>
 </article>
 <footer>
     <a href="index.html" id="back-home">&lsaquo; 首页</a>
     <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
     Copyleft © 2010, Driven by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
     </p>
+    <p>本页最后修订于 2010年10月26日 10:40:41</p>
 </footer>
 </div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <!--[if lte IE 6]><script type="text/javascript" src="js/ie6.js"></script><![endif]-->
-<script type="text/javascript" src="js/WikiWords.js"></script>
-<script type="text/javascript" src="js/vim-like.js"></script>
+<!-- <script type="text/javascript" src="js/WikiWords.js"></script>
+<script type="text/javascript" src="js/vim-like.js"></script> -->
 
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
