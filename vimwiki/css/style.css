@@ -30,15 +30,17 @@ div.toc:hover{
     div.toc ul ul{*padding:0 0 0 8px;}
     div.toc li{list-style-type: none; margin:0; padding:0 0 0 18px; background:transparent url(bg/icons.png) no-repeat scroll 0 -48px; font-size:.9em; line-height:18px; overflow:hidden;}
 
-h1, h2, h3, h4, h5, h6 {font-family: Trebuchet MS, serif; margin-top: 1em; margin-bottom: 0.5em;
-    border-bottom:0px solid #aaa; text-shadow:2px 2px 6px #999;
+h1, h2, h3, h4, h5, h6 {
+    font-family:"Trebuchet MS", serif; line-height:1.5em;
+    margin-top: 1em; margin-bottom: 0.5em;
+    border-bottom:0px none; text-shadow:2px 2px 6px #ccc;
 }
-h1 {font-size: 2.0em; border-bottom:1px solid #ccc; line-height:1.5em; color:#f60;}
-h2 {font-size: 1.6em;}
-h3 {font-size: 1.3em;}
-h4 {font-size: 1.2em;}
-h5 {font-size: 1.1em;}
-h6 {font-size: 1.0em;}
+h1 {font-size: 2.0em; border-bottom:1px dashed #f60; color:#f60;}
+h2 {font-size: 1.6em; border-bottom:1px solid #eee; font-weight:normal;}
+h3 {font-size: 1.3em; font-weight:normal; border-bottom:1px dashed #ddd;}
+h4 {font-size: 1.2em; font-weight:normal;}
+h5 {font-size: 1.1em; font-weight:normal;}
+h6 {font-size: 1.0em; font-weight:normal;}
 
 h1:after{content:'¶'; color:#FDA972;}
 h2:after{content:'¶¶'; color:#999;}
