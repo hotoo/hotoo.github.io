@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (hotoo.cn[AT]gmail.com)" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://vimcn.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://vimcn.blogspot.com/feeds/posts/default" />
+<link type="text/css" rel="stylesheet" href="css/template.css" />
+<script type="text/javascript">
+function onSearch(){
+    location.href = "search.html#"+document.getElementById("input_search").value;
+    return false;
+}
+</script>
+<title>Javascript无块级作用域 - 闲耘™.博客</title>
+</head>
+<body>
+<div id="wrapper">
+<header>
+<div style="float:right;">
+    <form action="search.html" id="searchbox" onsubmit="return onSearch();">
+        <input type="text" name="q" id="input_search" />
+        <input type="submit" value="搜索" />
+    </form>
+</div>
+<nav>
+    <ul>
+        <li class="first"><a href="../index.html" title="Home">Home</a></li>
+        <li class="actived"><a href="index.html" title="Blog">Blog</a></li>
+        <li><a href="../vimwiki/index.html" title="Wiki">Wiki</a></li>
+        <li><a href="../vimwiki/Vim.html" title="Vim">Vim</a></li>
+        <li><a href="https://twitter.com/hotoo" title="Twitter">Twitter</a></li>
+        <li class="last"><a href="../resume/resume.html" title="About Me">README</a></li>
+    </ul>
+</nav>
+</header>
+<div id="container">
+    <article>
+
+<h1 id="toc_1">Javascript无块级作用域</h1>
+<p>
+最近在做一系列Javascript压缩工具，语法压缩，语义压缩，字符串压缩均有涉及（p.s.有趣的是，
+压缩变量名之类的“有损压缩”不影响代码执行，但是字符串压缩这样的“无损压缩”却总是需要解压消耗）。
+</p>
+
+<p>
+在实现压缩局部变量名时，最初的实现是将 if/else, for/in, do/while, switch/case/default,
+try/catch/finally, with和Object实例对象（后面统称为“块级作用域”）与function一样，
+都作为独立的作用域，但是测试发现在Javascript中并不是这么回事。
+</p>
+
+<p>
+尝试着在块级作用域里声明定义变量：
+</p>
+<pre>
+    if(true){
+    var bool=true;
+    }
+    document.write(bool); // output:true
+</pre>
+
+<p>
+会发现输出true，而且不论嵌套多深，也不论使用任何块级作用域进行嵌套，最后变量
+依然如同在调用处之前，而且同级的作用域中定义的一样；值为在此之前，在块级作用域中所做改变的结果。
+注意：如果块级作用域未被执行，则其中声明定义的变量会被声明（var name），但不被定义
+（即未被初始化，此时name为undefined，引用name时不抛异常）。
+</p>
+<pre>
+    if(false){var bool=true;}
+    document.write(bool); // output:undefined
+</pre>
+
+<p>
+之前虽知道，IE里for(var i=0;...)里定义的i，在for之外也是可以使用的，但是现在才知道这种情况更为猖獗，
+大出我的意料之外，而更意外的是，IE 7(IE6?), Firefox 3(FF1,FF2?), Opera 9, Chrome 1, Safari 3表现均丝毫不差。
+</p>
+
+<p>
+虽然与某些编程规范不同，但是js就是这样了，唉。早知道这样，压缩变量名这部分也就不用那么费劲了，只得重写了。
+</p>
+
+<p>
+另外还有一些Javascript作用域方面的文章：<br />
+<a href="http://www.blueidea.com/tech/web/2007/4855.asp">Javascript中的作用域</a>，好像是realazy翻译的，
+文章很好，虽然有点文不对题（主要阐述this的作用域链问题）。<br />
+<a href="http://www.cnblogs.com/3zfp/archive/2008/10/24/528644.html">js变量作用域及可访问性的探讨</a>，
+详细介绍了各种变量的作用域及其可访问性问题。
+</p>
+
+<p>
+附A 测试代码：
+</p>
+<pre>
+// Global Scope
+if (true){
+  var v10 = true;
+}else {
+  var v00 = false;
+}
+document.write("v10 : "+v10+"<br />");
+document.write("v00 : "+v00+"<br />");
+document.write("<hr />");
+
+// Function Scope
+function functionScopes(){
+  if (true){
+      // 以下均执行
+      var v11 = true;
+
+      do{
+          var v12 = true;
+      }while (false);
+
+      while (true){
+          var v13 = true;
+          break;
+      }
+
+      switch (1){
+      case 1:
+          var v14 = true;
+      default:
+          var v15 = true;
+      }
+
+      try{
+          var v16 = true;
+          throw new Error("");
+      }catch(e){
+          var v17 = true;
+      }finally{
+          var v18 = true;
+      }
+
+      for (var v19=0; v19&lt;1; v19++){
+          var v1a=true;
+      }
+
+      with(v11){
+          var v1b = true;
+      }
+
+      function inn1(){
+          var inn11 = false;
+      }
+  }else {
+      // 以下均未执行
+      var v01 = false;
+
+      do{
+          var v02 = false;
+      }while (false);
+
+      while (false){
+          var v03 = false;
+      }
+
+      try{
+          var v06 = true;
+          throw new Error("");
+      }catch(e){
+          var v07 = true;
+      }finally{
+          var v08 = true;
+      }
+
+      switch (1){
+      case 1:
+          var v04 = true;
+      default:
+          var v05 = false;
+      }
+
+      for (var v09=0; v09&lt;1; v09++){
+          var v0a=true;
+      }
+
+      with(v01){
+          var v0b = true;
+      }
+
+      function inn0(){
+          var inn01 = false;
+      }
+  }
+  document.write("v11 : "+v11+"<br />");
+  document.write("v12 : "+v12+"<br />");
+  document.write("v13 : "+v13+"<br />");
+  document.write("v14 : "+v14+"<br />");
+  document.write("v15 : "+v15+"<br />");
+  document.write("v16 : "+v16+"<br />");
+  document.write("v17 : "+v17+"<br />");
+  document.write("v18 : "+v18+"<br />");
+  document.write("v19 : "+v19+"<br />");
+  document.write("v1a : "+v1a+"<br />");
+  document.write("v1b : "+v1b+"<br />");
+  document.write("<hr />");
+  document.write("v01 : "+v01+"<br />");
+  document.write("v02 : "+v02+"<br />");
+  document.write("v03 : "+v03+"<br />");
+  document.write("v04 : "+v04+"<br />");
+  document.write("v05 : "+v05+"<br />");
+  document.write("v06 : "+v06+"<br />");
+  document.write("v07 : "+v07+"<br />");
+  document.write("v08 : "+v08+"<br />");
+  document.write("v09 : "+v09+"<br />");
+  document.write("v0a : "+v0a+"<br />");
+  document.write("v0b : "+v0b+"<br />");
+
+  document.write("<hr />");
+  try{alert(inn11);}catch(e){document.write((e.message||e)+"<br />");}
+  try{alert(inn01);}catch(e){document.write((e.message||e)+"<br />");}
+}
+functionScopes();
+
+document.write("<hr />");
+try{alert(v11);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v12);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v13);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v14);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v15);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v16);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v17);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v18);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v19);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v1a);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v1b);}catch(e){document.write((e.message||e)+"<br />");}
+
+try{alert(v01);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v02);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v03);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v04);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v05);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v06);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v07);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v08);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v09);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v0a);}catch(e){document.write((e.message||e)+"<br />");}
+try{alert(v0b);}catch(e){document.write((e.message||e)+"<br />");}
+</pre>
+
+<p>
+附B 测试结果（IE 7, FF 3, Opera 9, Safari 3, Chorme 1均同）：
+</p>
+<pre>
+    v10 : true
+    v00 : undefined
+    v11 : true
+    v12 : true
+    v13 : true
+    v14 : true
+    v15 : true
+    v16 : true
+    v17 : true
+    v18 : true
+    v19 : 1
+    v1a : true
+    v1b : true
+    v01 : undefined
+    v02 : undefined
+    v03 : undefined
+    v04 : undefined
+    v05 : undefined
+    v06 : undefined
+    v07 : undefined
+    v08 : undefined
+    v09 : undefined
+    v0a : undefined
+    v0b : undefined
+    'inn11' 未定义
+    'inn01' 未定义
+    'v11' 未定义
+    'v12' 未定义
+    'v13' 未定义
+    'v14' 未定义
+    'v15' 未定义
+    'v16' 未定义
+    'v17' 未定义
+    'v18' 未定义
+    'v19' 未定义
+    'v1a' 未定义
+    'v1b' 未定义
+    'v01' 未定义
+    'v02' 未定义
+    'v03' 未定义
+    'v04' 未定义
+    'v05' 未定义
+    'v06' 未定义
+    'v07' 未定义
+    'v08' 未定义
+    'v09' 未定义
+    'v0a' 未定义
+    'v0b' 未定义
+</pre>
+
+<p>
+ blog:datetime=2009/1/6 13:47:55:tags=JavaScript
+</p>
+    </article>
+    </div>
+
+    <script type="text/javascript" src="js/comments.js"></script>
+    <div>
+    <section>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          /**
+            * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
+            */
+          (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://hotoo.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>
+        要查看或参与评论，请启用 JavaScript 支持。<br />
+        Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=hotoo">comments powered by Disqus.</a>
+        </noscript>
+
+        <script type="text/javascript">
+        var disqus_shortname = 'hotoo';
+        (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.src = 'http://disqus.com/forums/hotoo/count.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+    </section>
+</div>
+<footer>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
+    Copyleft &copy; 2005-2010, Power by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
+    </p>
+</footer>
+</div>
+<script type="text/javascript">
+var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker=_gat._getTracker("UA-2048484-1");
+pageTracker._trackPageview();
+}catch(err){}</script>
+</body>
+</html>

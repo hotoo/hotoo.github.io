@@ -122,7 +122,7 @@ post 提交后，刷新仍是 post 提交相同的数据。
 </p>
 <ol>
 <li>
-最根本的，就是统一客户端和服务器端的编码。建议都使用 utf-8。
+最根本的，就是统一客户端和服务器端的编码。建议都使用 utf-8。<br />
     目前服务器上均是使用 utf-8 接受数据，所以可以考虑统一使用 utf-8 编码，
     要做的有一下几点：
 </li>
@@ -157,8 +157,8 @@ post 提交后，刷新仍是 post 提交相同的数据。
     Hack in IE: <code>onsubmit="document.charset='utf-8';"</code>
 </li>
 <li>
-通过 JavaScript 的 <code>encodeURIComponent(key)</code> 函数转码，一般用于 AJAX 提交。
-    另有两个转码函数：<code>escape()</code>, <code>encodeURI()</code>
+通过 JavaScript 的 <code>encodeURIComponent(key)</code> 函数转码，一般用于 AJAX 提交。<br />
+    另有两个转码函数：<code>escape()</code>, <code>encodeURI()</code><br />
     解码函数分别是：<code>unescape()</code>, <code>decodeURI()</code>, <code>decodeURIComponent()</code>
 </li>
 </ol>
@@ -190,7 +190,7 @@ form.onsubmit = function(){
 </pre>
 </li>
 <li>
-更专业的事件绑定方法是：
+更专业的事件绑定方法（考虑到兼容性问题，这里使用 jQuery 代码）：
 <pre>
 $("#formId").submit(function(){
     return this.k.value;
@@ -291,12 +291,12 @@ function validater(form){
 </p>
 
 <p>
-翻页系统一般还运行用户手动输入页面并直接跳转到指定页，这个翻页表单建议和
+翻页系统一般还允许用户手动输入页码并直接跳转到指定页，这个翻页表单建议和
 搜索表单分离，分别是不同的 form 组成。
 </p>
 
 <p>
-下面是搜索关键字 key 并翻页到第 2 页的状态：
+下面是搜索关键字 key 并翻页到第 2 页之后的状态：
 </p>
 <pre class="html">
 &lt;form action="search.html" method="get"&gt;
@@ -304,7 +304,7 @@ function validater(form){
     &lt;input type="submit" value="搜索" /&gt;
 &lt;/form&gt;
 
-data grid.
+受结果列表...
 
 &lt;a href="search.html?k=key&amp;p=1"&gt;上一页&lt;/a&gt;
 &lt;a href="search.html?k=key&amp;p=3"&gt;下一页&lt;/a&gt;
