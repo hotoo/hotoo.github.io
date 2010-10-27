@@ -64,12 +64,13 @@ b::-moz-selection,
 strong::-moz-selection{background-color:#f60; color:#fff;}
 
 h1, h2, h3, h4, h5, h6 {font-family:"Trebuchet MS",serif; margin:.5em 0; line-height:1.2em;}
-h1 {font-size:1.8em; border-bottom:1px solid #eee;}
-h2 {font-size:1.6em; font-weight:normal;}
-h3 {font-size:1.3em; font-weight:normal;}
-h4 {font-size:1.2em;}
-h5 {font-size:1.1em;}
-h6 {font-size:1.0em;}
+h1{font-size:1.8em; border-bottom:1px solid #eee;}
+h2{font-size:1.6em; font-weight:normal; border-bottom:1px solid #eee;}
+/*h2:first-letter{font-size:1.25em; font-weight:bold;}*/
+h3{font-size:1.3em; font-weight:normal; border-bottom:1px dashed #e3e3e3;}
+h4{font-size:1.2em;}
+h5{font-size:1.1em;}
+h6{font-size:1.0em;}
 h1:after{content:'¶'; color:#999;}
 h2:after{content:'¶¶'; color:#999;}
 h3:after{content:'¶¶¶'; color:#999;}
@@ -106,7 +107,7 @@ pre:hover{
     overflow:auto;
     padding-bottom:1em\9;
 }
-code{ font-family:"Courier New","\5B8B\4F53"; background:#f8f8f8 none; border:1px dashed #ccc; padding:2px 5px; -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;}
+code{font-family:"Courier New","\5B8B\4F53"; background:#f8f8f8 none; border:1px dashed #ccc; padding:2px 5px; -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; white-space:nowrap;}
 
 blockquote{
     margin:.5em 1em; padding:0.4em 50px; line-height:1.5em; min-height:50px;
