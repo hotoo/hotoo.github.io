@@ -20,6 +20,7 @@ h3::selection,
 h4::selection,
 h5::selection,
 h6::selection,
+del::selection,
 div::selection,
 span::selection,
 address::selection,
@@ -45,6 +46,7 @@ h3::-moz-selection,
 h4::-moz-selection,
 h5::-moz-selection,
 h6::-moz-selection,
+del::-moz-selection,
 div::-moz-selection,
 span::-moz-selection,
 address::-moz-selection,
@@ -129,7 +131,7 @@ table:hover{
     th{background-color: #f0f0f0;}
 
 hr {border: none; border-top: 1px solid #ccc; width: 100%;}
-del {text-decoration:line-through; color: #777777;}
+del{text-decoration:line-through; color: #777777;}
 
 a{color:#002BB8; text-decoration:none;}
 a:hover{text-decoration:underline;}

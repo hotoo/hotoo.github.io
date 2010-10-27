@@ -316,10 +316,17 @@ data grid.
 </pre>
 
 
-<h2 id="toc_1.9">陋习</h2>
+<h2 id="toc_1.9">可爱的陋习</h2>
 <p>
 不要在表单中为 button 类型的按钮绑定 onclick 事件，并在事件处理函数中执行
 <code>form.submit();</code> ，然后费尽心思实现“在输入框中也可以回车提交”这种蠢事。
+</p>
+
+<p>
+也不要为了<del>解决</del>避免编码问题而在 onsubmit 处理函数中做
+<code>input.value=encodeURIComponent(input.value);</code>，然后为了避免这个带来的
+“乱码(被编码的字符)瞬间出现在表单中”而把搜索框做成隐藏域，再附加一个傀儡
+输入框用于输入。
 </p>
 
 
