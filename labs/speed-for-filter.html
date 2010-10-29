@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>speed test for filter</title>
+</head>
+<body>
+<input type="button" value="Filter by Sort" onclick="filterBySort(DATA,KEY)" />
+<input type="button" value="Filter by Each" onclick="filterByEach(DATA,KEY)" />
+<div id="output"></div>
+<script type="text/javascript">/*<![CDATA[*/
+var DATA = [];
+var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+var KEY="ef";
+for (var i=0; i<100000; i++){
+    DATA[i] = chars.charAt(Math.random()*62)+
+        chars.charAt(Math.random()*62)+
+        chars.charAt(Math.random()*62)+
+        chars.charAt(Math.random()*62)+
+        chars.charAt(Math.random()*62);
+}
+function filterBySort(data, key){
+    var t=new Date();
+    var r=[], x=0;
+    var d = data.sort(function(a,b){
+        //if(a.indexOf(key)>=0){
+        //    r[r.length] = a;
+        //}
+        //return 0;
+        return a.indexOf(key)==-1?1:-1;
+    });
+    for (var i=0,l=d.length; i<l; i++){
+        if(d[i].indexOf(key)==-1){
+        window.status = i;
+            break;
+        }
+        r[r.length] = d[i];
+    }
+    document.getElementById("output").innerHTML = "Filter by Sort:<br />time: "+(new Date()-t)+"<br />"+r.join("<br />");
+}
+function filterByEach(data,key){
+    var t=new Date();
+    var r=[];
+    for (var i=0,l=data.length; i<l; i++){
+        if(data[i].indexOf(key)>=0){
+            r[r.length] = data[i];
+        }
+    }
+    document.getElementById("output").innerHTML = "Filter by Each:<br />time: "+(new Date()-t)+"<br />"+r.join("<br />");
+}
+//var dt=new Date();
+//document.write(filterBySort(DATA,k).join("<br />"));
+//document.write(filterByEach(DATA,k).join("<br />"));
+//document.write("<br />");
+//document.write("time: ", new Date()-dt);
+/*]]>*/</script>
+</body>
+</html>
