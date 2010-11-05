@@ -55,6 +55,18 @@
     <a href="http://9.douban.com/site/entry/141529564/view">2</a>
     <a href="http://9.douban.com/site/entry/141529564/">3</a>
 </li>
+<li>
+<a href="http://nvelocity.sourceforge.net/">NVelocity</a> - for .NET.
+</li>
+<li>
+<a href="http://chenpingtai2008.javaeye.com/blog/757226">扩展Velocity</a> - 扩展为可基础、覆写的模板，非常不错做法。
+</li>
+<li>
+<a href="http://express.ruanko.com/ruanko-express_28/technologyexchange5.html">Velocity技术线谈</a>
+</li>
+<li>
+<a href="http://qa.taobao.com/?p=7830">Webx框架浅析</a>
+</li>
 </ul>
 
 
@@ -68,15 +80,84 @@
 </li>
 </ul>
 
-<h2 id="toc_1.2">Slide</h2>
+
+<h2 id="toc_1.2">手册文档</h2>
+
 <ul>
+<li>
+<a href="http://velocity.apache.org/engine/devel/vtl-reference-guide.html">http://velocity.apache.org/engine/devel/vtl-reference-guide.html</a>
+</li>
+<li>
+<a href="http://velocity.apache.org/engine/releases/velocity-1.5/apidocs/">http://velocity.apache.org/engine/releases/velocity-1.5/apidocs/</a>
+</li>
+<li>
+<a href="http://velocity.apache.org/engine/releases/velocity-1.4/api/index.html">http://velocity.apache.org/engine/releases/velocity-1.4/api/index.html</a>
+</li>
+</ul>
+
+
+<h2 id="toc_1.3">会议&amp;分享(Slide Share)</h2>
+<ul>
+<li>
+Velocity 2010
+</li>
+<ul>
+<li>
+<a href="http://en.oreilly.com/velocity2010">Velocity 2010@oreilly</a>
+</li>
+<li>
+<a href="http://www.youtube.com/watch?v=j6sAm7CLoCQ&amp;p=D1D3B0B233F2AD66&amp;index=1&amp;feature=BF">@youtube</a>
+</li>
+<li>
+<a href="http://velocity.oreilly.com.cn/">O'Reilly Velocity China 2010</a>
+</li>
+</ul>
 <li>
 <a href="http://www.docin.com/p-41668004.html">Apache Velocity A Java Templating Engine</a>
 </li>
 </ul>
 
 
-<h2 id="toc_1.3">Tips</h2>
+<h2 id="toc_1.4">Note</h2>
+<p>
+这里简要记录一下常用的内容，详细可以查看书。
+</p>
+
+<p>
+变量： <code>${name}</code>，简写 <code>$name</code>。
+注：引用属性或调用函数时不能加{花括号}。
+</p>
+
+<p>
+数据类型：
+"字符串string"
+123  -- 数字
+["数","组"]
+</p>
+
+<p>
+## 单行注释
+#*
+   多行注释
+*#
+</p>
+
+<p>
+赋值 <code>#set()</code>
+#set($foo="bar")
+注：
+</p>
+<ol>
+<li>
+如果右侧的值为 null，则赋值失败，左侧变量仍保持原值。
+</li>
+</ol>
+<p>
+#
+</p>
+
+
+<h2 id="toc_1.5">Tips</h2>
 <p>
 Velocity 在表单中添加 name="action" 的文本/隐藏域，可以调用对应 Java 类
 （submit 按钮的 name 则指定对应的方法名称，如 event_submit_do_save ），
@@ -107,7 +188,7 @@ function onSearch(){
     <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
     Copyleft © 2010, Driven by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
     </p>
-    <p>本页最后修订于 2010年10月26日 11:10:41</p>
+    <p>本页最后修订于 2010年11月05日 10:54:12</p>
 </footer>
 </div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
