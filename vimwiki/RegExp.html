@@ -22,6 +22,18 @@
     </ul>
 </nav>
 </header>
+<div>
+    目前 Wiki 已经转到了 wiki.hotoo.me，如果没有自动跳转，请<a id="a-redirect" href="http://wiki.hotoo.me/">点击这里</a>。
+</div>
+<script type="text/javascript">/*<![CDATA[*/
+    function $(id){return document.getElementById(id);}
+    function url2(){
+        return location.href.replace(/^https?:\/\/hotoo.github.com\/vimwiki\//i, "http://wiki.hotoo.me/");
+    }
+    var s = url2();
+    $("a-redirect").href = s;
+    location.replace(s);
+/*]]>*/</script>
 <article>
 
 <h1 id="toc_1">正则表达式</h1>
@@ -34,6 +46,7 @@
 <a href="http://www.regexlab.com/zh/">正则表达式工作室</a>
     <a href="http://www.regexlab.com/zh/regref.htm">揭开正则表达式的神秘面纱</a>
     <a href="http://www.regexlab.com/zh/regtopic.htm">正则表达式话题</a>
+    <a href="http://www.regexlab.com/zh/deelx/introidx.htm">DEELX 正则引擎性能与特点</a>
 </li>
 <li>
 <a href="http://blog.chinaunix.net/u3/112728/showart_2207101.html">各种工具之正则表达式语法比较</a>
@@ -56,6 +69,9 @@
 </li>
 <li>
 <a href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-7/?ca=drs-tp4608">学习 Linux，101: 使用正则表达式搜索文本文件</a>
+</li>
+<li>
+<a href="http://www.ibm.com/developerworks/cn/java/wa-regexp/index.html">构建用于正则表达式的抽象 Java API</a>
 </li>
 <li>
 <a href="http://www.greenend.org.uk/rjk/2002/06/regexp.html">Regexp Syntax Summary</a>
@@ -107,6 +123,9 @@
 </li>
 <li>
 <a href="http://www.jiehoo.me/java-regex-performance-problem.htm">Java正则表达式的性能问题</a>
+</li>
+<li>
+<a href="http://developer.51cto.com/art/200908/144916.htm">.NET程序中的正则表达式性能问题</a>
 </li>
 </ul>
 
@@ -186,7 +205,7 @@ function onSearch(){
     <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
     Copyleft © 2010, Driven by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
     </p>
-    <p>本页最后修订于 2010年08月25日 23:13:35</p>
+    <p>本页最后修订于 2010年11月06日 23:47:55</p>
 </footer>
 </div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>

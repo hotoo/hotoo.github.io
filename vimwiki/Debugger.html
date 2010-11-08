@@ -22,6 +22,18 @@
     </ul>
 </nav>
 </header>
+<div>
+    目前 Wiki 已经转到了 wiki.hotoo.me，如果没有自动跳转，请<a id="a-redirect" href="http://wiki.hotoo.me/">点击这里</a>。
+</div>
+<script type="text/javascript">/*<![CDATA[*/
+    function $(id){return document.getElementById(id);}
+    function url2(){
+        return location.href.replace(/^https?:\/\/hotoo.github.com\/vimwiki\//i, "http://wiki.hotoo.me/");
+    }
+    var s = url2();
+    $("a-redirect").href = s;
+    location.replace(s);
+/*]]>*/</script>
 <article>
 
 <h1 id="toc_1">Debugger</h1>
@@ -47,6 +59,9 @@
 <li>
 <a href="http://www.gnu.org/software/ddd/">DDD</a>
     <a href="http://www.gnu.org/manual/ddd/">manual</a>
+</li>
+<li>
+<a href="http://code.google.com/p/vimpdb/">vimpdb: Integrated Python debugging within Vim</a>
 </li>
 </ul>
 
@@ -91,7 +106,7 @@ function onSearch(){
     <p><a rel="license" href="http://creativecommons.org/licenses/by/2.5/"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by/2.5/88x31.png" align="right"></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 Generic License</a>.<br>
     Copyleft © 2010, Driven by <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>, Theme by 闲耘™(@hotoo).
     </p>
-    <p>本页最后修订于 2010年10月14日 10:58:43</p>
+    <p>本页最后修订于 2010年11月07日 19:16:06</p>
 </footer>
 </div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
