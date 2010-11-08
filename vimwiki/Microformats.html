@@ -28,7 +28,7 @@
 <script type="text/javascript">/*<![CDATA[*/
     function $(id){return document.getElementById(id);}
     function url2(){
-        return location.href.replace(/^https?:\/\/hotoo.github.com\/vimwiki\//i, "http://wiki.hotoo.me/");
+        return location.href.replace(/^https?:\/\/hotoo\.(?:me|github\.com)\/vimwiki\//i, "http://wiki.hotoo.me/");
     }
     var s = url2();
     $("a-redirect").href = s;
