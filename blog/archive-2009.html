@@ -40,6 +40,18 @@ function onSearch(){
     </ul>
 </nav>
 </header>
+<div>
+    目前博客已经转到了 blog.hotoo.me，如果没有自动跳转，请<a id="a-redirect" href="http://blog.hotoo.me/">点击这里</a>。
+</div>
+<script type="text/javascript">/*<![CDATA[*/
+    function $(id){return document.getElementById(id);}
+    function url2(){
+        return location.href.replace(/^https?:\/\/hotoo\.(?:me|github\.com)\/blog\//i, "http://blog.hotoo.me/");
+    }
+    var s = url2();
+    $("a-redirect").href = s;
+    location.replace(s);
+/*]]>*/</script>
 <div id="container">
     <article>
 
@@ -172,7 +184,19 @@ function onSearch(){
 <a href="ghost-hand.html">遭遇鬼手 (2009/3/10)</a>
 </li>
 <li>
+<a href="strange-dream.html">哎，这样的一个怪梦 (2009/3/9)</a>
+</li>
+<li>
+<a href="gmail-labs-multiple-inboxes.html">Gmail labs:Multiple inboxes (2009/2/12)</a>
+</li>
+<li>
 <a href="remove-msn-9-ad.html">去除MSN 9的广告 (2009/1/11)</a>
+</li>
+<li>
+<a href="javascript-vars-scope.html">Javascript无块级作用域 (2009/1/6)</a>
+</li>
+<li>
+<a href="open-basketball-field.html">开放篮球场地.地标工程 (2009/1/2)</a>
 </li>
 </ol>
 
@@ -185,6 +209,7 @@ function onSearch(){
     <script type="text/javascript" src="js/comments.js"></script>
     <div>
     <section>
+        <div id="disqus_thread"></div>
         <script type="text/javascript">
           /**
             * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]

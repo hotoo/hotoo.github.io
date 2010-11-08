@@ -40,6 +40,18 @@ function onSearch(){
     </ul>
 </nav>
 </header>
+<div>
+    目前博客已经转到了 blog.hotoo.me，如果没有自动跳转，请<a id="a-redirect" href="http://blog.hotoo.me/">点击这里</a>。
+</div>
+<script type="text/javascript">/*<![CDATA[*/
+    function $(id){return document.getElementById(id);}
+    function url2(){
+        return location.href.replace(/^https?:\/\/hotoo\.(?:me|github\.com)\/blog\//i, "http://blog.hotoo.me/");
+    }
+    var s = url2();
+    $("a-redirect").href = s;
+    location.replace(s);
+/*]]>*/</script>
 <div id="container">
     <article>
 
@@ -47,6 +59,9 @@ function onSearch(){
 <ol>
 <li>
 <a href="family-tree-builder-3-released.html">Family Tree Builder 3.0发布 (2008/12/30)</a>
+</li>
+<li>
+<a href="javascript-string.html">Javascript String 方法效率大比拼 (2008/12/29)</a>
 </li>
 </ol>
 
@@ -59,6 +74,7 @@ function onSearch(){
     <script type="text/javascript" src="js/comments.js"></script>
     <div>
     <section>
+        <div id="disqus_thread"></div>
         <script type="text/javascript">
           /**
             * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]

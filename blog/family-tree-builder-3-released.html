@@ -18,7 +18,7 @@ function onSearch(){
     return false;
 }
 </script>
-<title>family-tree-builder-3-released - 闲耘™.博客</title>
+<title>Family Tree Builder 3.0发布 - 闲耘™.博客</title>
 </head>
 <body>
 <div id="wrapper">
@@ -40,16 +40,33 @@ function onSearch(){
     </ul>
 </nav>
 </header>
+<div>
+    目前博客已经转到了 blog.hotoo.me，如果没有自动跳转，请<a id="a-redirect" href="http://blog.hotoo.me/">点击这里</a>。
+</div>
+<script type="text/javascript">/*<![CDATA[*/
+    function $(id){return document.getElementById(id);}
+    function url2(){
+        return location.href.replace(/^https?:\/\/hotoo\.(?:me|github\.com)\/blog\//i, "http://blog.hotoo.me/");
+    }
+    var s = url2();
+    $("a-redirect").href = s;
+    location.replace(s);
+/*]]>*/</script>
 <div id="container">
     <article>
 
 <h1 id="toc_1">Family Tree Builder 3.0发布</h1>
 <p>
-收到 MyHeritage.com 的邮件通知：<a href="http://www.myheritage.com/family-tree-builder">Family Tree Builder 3.0</a> 发布了，比之前29种语言又新增了5种，纵然如此，亦纵然很久之前就有了 <a href="http://www.myheritage.cn/">MyHeritage 中文站</a>，但是软件的中文语言包还是迟迟未出。我之前 <a href="http://code.google.com/p/familytreebuildercn/">为 2.0 版汉化的语言包</a> 仍然还可以凑合着用，注意：一些新版里添加的词条，默认显示为 TODO。
+收到 MyHeritage.com 的邮件通知：<a href="http://www.myheritage.com/family-tree-builder">Family Tree Builder 3.0</a>
+发布了，比之前29种语言又新增了5种，纵然如此，亦纵然很久之前就有了 <a href="http://www.myheritage.cn/">MyHeritage 中文站</a>，
+但是软件的中文语言包还是迟迟未出。我之前 <a href="http://code.google.com/p/familytreebuildercn/">为 2.0 版汉化的语言包</a>
+仍然还可以凑合着用，注意：一些新版里添加的词条，默认显示为 TODO。
 </p>
 
 <p>
-其 他功能没有细查，不知道有什么改善，虽然之前的中文乱码问题仍然存在（还没有中文语言包的情况下，这个可以理解，而且乱码部分不是太多），不过安装程序倒 比2.0“大气”了些，而且默认选中将 MyHeritage.com 设为主页的选项，很智能的，另外还默认选中自动将族谱/家谱发布到网站的选项也很智能。
+其他功能没有细查，不知道有什么改善，虽然之前的中文乱码问题仍然存在（还没有中文语言包的情况下，
+这个可以理解，而且乱码部分不是太多），不过安装程序倒 比2.0“大气”了些，而且默认选中将 MyHeritage.com
+设为主页的选项，很智能的，另外还默认选中自动将族谱/家谱发布到网站的选项也很智能。
 </p>
 
 <p>

@@ -40,6 +40,18 @@ function onSearch(){
     </ul>
 </nav>
 </header>
+<div>
+    目前博客已经转到了 blog.hotoo.me，如果没有自动跳转，请<a id="a-redirect" href="http://blog.hotoo.me/">点击这里</a>。
+</div>
+<script type="text/javascript">/*<![CDATA[*/
+    function $(id){return document.getElementById(id);}
+    function url2(){
+        return location.href.replace(/^https?:\/\/hotoo\.(?:me|github\.com)\/blog\//i, "http://blog.hotoo.me/");
+    }
+    var s = url2();
+    $("a-redirect").href = s;
+    location.replace(s);
+/*]]>*/</script>
 <div id="container">
     <article>
 
@@ -102,9 +114,9 @@ function onSearch(){
 </p>
 
 <p>
-多数情况下，或者多数人几乎都非常少用下面的搜索框，可以精简掉吗？呃，对于搜索引擎
-本身来说，他至少没什么负面影响，另外支持这个输入框的用户同样会站出来捍卫自己的
-利益。如果还有其他更好的方式，他们还会反对吗？
+多数情况下，或者多数人几乎都非常少用下面的搜索框，可以精简掉吗？呃，对于本来
+就很简洁的搜索引擎来说，他至少没什么负面影响，另外支持这个输入框的用户同样会
+站出来捍卫他们的利益。如果还有其他更好的方式，他们还会反对吗？
 </p>
 
 <p>
