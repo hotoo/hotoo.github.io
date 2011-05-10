@@ -40,6 +40,18 @@ function onSearch(){
     </ul>
 </nav>
 </header>
+<div>
+    目前博客已经转到了 blog.hotoo.me，如果没有自动跳转，请<a id="a-redirect" href="http://blog.hotoo.me/">点击这里</a>。
+</div>
+<script type="text/javascript">/*<![CDATA[*/
+    function $(id){return document.getElementById(id);}
+    function url2(){
+        return location.href.replace(/^https?:\/\/hotoo\.(?:me|github\.com)\/blog\//i, "http://blog.hotoo.me/");
+    }
+    var s = url2();
+    $("a-redirect").href = s;
+    location.replace(s);
+/*]]>*/</script>
 <div id="container">
     <article>
 
@@ -51,7 +63,14 @@ function onSearch(){
 没有任何限制。由于非常可惜的建废了一个名为 Vim 迷 (Vimi) 的群，只好用了这个
 大言不惭的名称。
 </p>
+<blockquote>
+<strong>抱歉：</strong> 如果您对 Vim 没有兴趣，请不要打扰这里面的朋友，谢谢 :)
+</blockquote>
 
+<table>
+<tr>
+<th>白色背景</th>
+<th>透明背景</th>
 <div class="toc">
 <ul>
 <li><a href="#toc_1">欢迎加入 Vim 的 Gtalk 群</a></li>
@@ -62,13 +81,10 @@ function onSearch(){
 <li><a href="#toc_1.4">缺陷 &amp; 不足</a></li>
 <li><a href="#toc_1.5">Gtalk 群的使用：</a></li>
 <li><a href="#toc_1.6">为什么不是 QQ 群？</a></li>
+<li><a href="#toc_1.7">Vim Talks™大事記</a></li>
 </ul>
 </ul>
 </div>
-<table>
-<tr>
-<th>白色背景</th>
-<th>透明背景</th>
 </tr>
 <tr>
 <td><img src="http://farm3.static.flickr.com/2683/4540127131_9304e4aac9_o.png" /></td>
@@ -94,7 +110,7 @@ function onSearch(){
 <li>
 直接访问 <a href="http://chatterous.com/vimcn/">http://chatterous.com/vimcn/</a> <sup><small>GFW</small></sup> 可以在线匿名或具名聊天，
     与传统的聊天室相似。
-<iframe width='500' height='400' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' allowtransparency='true' src="http://chatterous.com/vimcn/embed/?bgcolor=EBF3FF&titlecolor=3171C8&linecolor=98C0FF&send_button=true"></iframe></li>
+</li>
 <li>
 在 Gtalk 里加 <code>vimcn@chatterous.com</code> 为好友，并向其发送内容为 <code>@join</code> 的消息。
 </li>
@@ -195,6 +211,38 @@ function onSearch(){
 GTalk 没有人数限制，不需要冲Q币来增加某些服务，而受到更多不可理喻的限制；可以轻易的加入或退出群，或随时暂停接收他人的讨论；具有完整的开放性，有非常多的官方或第三方客户端可以用，包括Windows,Linux,Mac平台；更尊重 <a href="http://zh.wikipedia.org/zh-cn/%E8%A8%80%E8%AE%BA%E8%87%AA%E7%94%B1">言论自由</a>，没有无理取闹的<a href="http://zh.wikipedia.org/zh-cn/%E5%AE%A1%E6%9F%A5%E5%88%B6%E5%BA%A6">审查制度</a>，不会因为胡萝卜、李子和温习功课而被敏感词。
 </p>
 
+<h2 id="toc_1.7">Vim Talks™大事記</h2>
+<p>
+2010/4/9 Vim Talks™Gtalk 群创立于深夜。之前我加入“Vim 草堂”QQ 群，是比较活跃的成员，
+</p>
+<blockquote>
+因为不喜欢腾讯的所作所为，创立此群。不久后，重度删除腾讯的各种软件，逃脱魔爪。
+</blockquote>
+<p>
+2010/6/12 关于“群隐私”及 Vim Talks™要处于 Public 还是 Private 状态的讨论。
+</p>
+<blockquote>
+<a href="http://www.chatterous.com/vimcn/history/79/">http://www.chatterous.com/vimcn/history/79/</a>
+</blockquote>
+<p>
+2010/9/15 <a href="http://lilydjwg.is-programmer.com/">百合仙子(依云,lilydjwg)</a> 成为管理员
+</p>
+<blockquote>
+<a href="http://www.chatterous.com/vimcn/history/196/#msg_info_52">http://www.chatterous.com/vimcn/history/196/#msg_info_52</a> 。
+不久 <a href="http://davidx.me/">davidx</a> 也成为管理员。
+</blockquote>
+<p>
+2010/11/3 <a href="http://www.chatterous.com/vimcn/history/293/#msg_info_2">#5132176862502009</a> :
+</p>
+<blockquote>
+“我刚做了一个艰难的决定，如果群里明天还有聊QQ和360的，禁止发言24小时。”
+</blockquote>
+<p>
+2010/11/4 “<a href="http://qun.qq.com/air/28971390">Vim 草堂</a>”堂主 张九天 成为 Vim Talks™的管理员。
+</p>
+<blockquote>
+<a href="http://www.chatterous.com/vimcn/history/296/#msg_info_21">#5145129995941272</a>
+</blockquote>
 
 <p>
  blog:datetime=2010/04/9 23:32:02:tags=Gtalk,Vim

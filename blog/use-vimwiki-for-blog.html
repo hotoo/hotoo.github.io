@@ -40,6 +40,18 @@ function onSearch(){
     </ul>
 </nav>
 </header>
+<div>
+    目前博客已经转到了 blog.hotoo.me，如果没有自动跳转，请<a id="a-redirect" href="http://blog.hotoo.me/">点击这里</a>。
+</div>
+<script type="text/javascript">/*<![CDATA[*/
+    function $(id){return document.getElementById(id);}
+    function url2(){
+        return location.href.replace(/^https?:\/\/hotoo\.(?:me|github\.com)\/blog\//i, "http://blog.hotoo.me/");
+    }
+    var s = url2();
+    $("a-redirect").href = s;
+    location.replace(s);
+/*]]>*/</script>
 <div id="container">
     <article>
 
@@ -48,7 +60,7 @@ function onSearch(){
 <p>
 由于众所周知的缘故，<a href="http://blog.xianyun.org/">我的博客</a> 被消失了。
 在国内买域名或主机都是十分不靠谱的事，所以目前没有重新开独立博客的打算。
-而使用第三方博客服务也同样不靠谱，这也不在计划之内。
+而使用第三方博客服务也同样不靠谱，目前只同步在 Google Blogger 上。
 </p>
 
 <p>
@@ -77,12 +89,12 @@ function onSearch(){
 </li>
 <li>
 如果安装了 <a href="http://www.vim.org/scripts/script.php?script_id=2540">snipMate</a>(可选)
-    在 $VIM/vimfiles/snippets/ 下新建一个 vimwiki.snippets 文件（已有这打开文件）。
+    在 $VIM/vimfiles/snippets/ 下新建一个 vimwiki.snippets 文件（已有则打开文件）。
     在 vimwiki.snippets 中添加自己的博客格式模板，例如我的：
 <pre>
-%\title $1("title" 前面的 "\" 去掉)
-
 snippet blog
+    %\title $1 (注意："title" 前面的 "\" 去掉)
+
     = ${1:title} =
     ${2:content}
 
