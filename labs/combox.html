@@ -1,0 +1,104 @@
+<HTML>
+
+<HEAD>
+<style type="text/css">
+/*input{border:1px solid #ccc;}*/
+	.combox{position:relative; margin:0; padding:0; height:1em;}
+	.combox input{position:absolute;}
+	.combox select{position:absolute; left:0;}
+</style>
+<script>
+var Combox = function(sel){
+	var box = document.createElement("span");
+	box.className = "combox";
+	sel.parentNode.insertBefore(box, sel);
+	box.appendChild(sel);
+
+	var iptVal = document.createElement("input");
+	iptVal.type = "hidden";
+	iptVal.name = sel.name;
+	iptVal.value = sel.options[sel.selectedIndex].value; // iptVal.value = sel.value;
+	box.insertBefore(iptVal, sel);
+
+	var iptTxt = document.createElement("input");
+	iptTxt.type = "text";
+	iptTxt.name = "combox_txt_"+sel.name;
+	iptTxt.value = sel.options[sel.selectedIndex].text;
+	var w = sel.offsetWidth;
+	var h = sel.offsetHeight;
+	iptTxt.style.width = w;
+	box.insertBefore(iptTxt, sel);
+
+	sel.style.clip = "rect(2 "+w+" "+h+" "+(w-20)+")";
+
+	sel.name = "combox_select_"+sel.name;
+
+	var ME = this;
+	ME.text = sel.value;
+	ME.value = iptVal.value;
+	sel.onchange = function(){
+		var txt = sel.options[sel.selectedIndex].text,
+			val = sel.options[sel.selectedIndex].value; //sel.value;
+		iptVal.value = val;
+		iptTxt.value = txt;
+		//if(ME.onchange){ME.onchange.call({text:txt, value:val});}
+		if(ME.onchange){ME.onchange.call(sel);}
+	};
+	return this;
+};
+</script>
+</HEAD>
+<BODY>
+
+
+<p /><br /><p /><br />
+
+static demo:
+<div style="position:relative;">
+<input type="text" style="width:120px;" style="position:absolute;" />
+<select style="width:120px; clip:rect(0 120 80 100); position:absolute; left:0;">
+	<option value="one">11111</option>
+	<option value="two">22222</option>
+	<option>33333</option>
+	<option>44444</option>
+</select>
+</div>
+
+
+<p /><br />
+
+script demo:
+<div>label:
+<select id="demo" name="demo" style="width:300px;">
+	<option value="one">11111</option>
+	<option>22222</option>
+	<option value="three">33333</option>
+	<option>44444</option>
+</select>
+</div>
+<br />
+value:
+<div id="demo_value"></div>
+<p /><br />
+
+
+<div><span>label</span>
+<select id="demo2" name="demo2">
+	<option value="111">one</option>
+	<option value="222">two</option>
+	<option value="three">33333</option>
+	<option>44444</option>
+</select>
+</div>
+<script>
+var cbx = new Combox(document.getElementById("demo"));
+cbx.onchange = function(){
+	document.getElementById("demo_value").innerHTML = this.value;
+};
+
+
+var cbx2 = new Combox(document.getElementById("demo2"));
+</script>
+
+</BODY>
+</HTML>
