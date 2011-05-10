@@ -35,10 +35,10 @@ var Combox = function(sel){
 	iptTxt.value = sel.options[sel.selectedIndex].text;
 	var w = sel.offsetWidth;
 	var h = sel.offsetHeight;
-	iptTxt.style.width = w;
+	iptTxt.style.width = (w-("BackCompat"==document.compatMode?0:5))+"px";
 	box.insertBefore(iptTxt, sel);
 
-	sel.style.clip = "rect(2 "+w+" "+h+" "+(w-20)+")";
+    sel.style.clip = "rect(2px "+w+"px "+h+"px "+(w-20)+"px)";
 
 	sel.name = "combox_select_"+sel.name;
 
