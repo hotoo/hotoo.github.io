@@ -18,34 +18,76 @@
 </style>
 <script>
 var Combox = function(sel){
+    function hasAttr(elem, attr){
+        if(elem.hasAttribute){
+            return elem.hasAttribute(attr);
+        }
+        return null!=elem.getAttribute(attr);
+    }
 	var box = document.createElement("span");
-	box.className = "combox";
+    var multiple = hasAttr(sel, "multiple");
+    if(!multiple){
+        box.className = "combox";
+    }
 	sel.parentNode.insertBefore(box, sel);
 	box.appendChild(sel);
 
 	var iptVal = document.createElement("input");
 	iptVal.type = "hidden";
-	iptVal.name = sel.name;
-	iptVal.value = sel.options[sel.selectedIndex].value; // iptVal.value = sel.value;
+	//iptVal.value = sel.options[sel.selectedIndex].value; // iptVal.value = sel.value;
+	iptVal.value = sel.value;
 	box.insertBefore(iptVal, sel);
 
 	var iptTxt = document.createElement("input");
 	iptTxt.type = "text";
-	iptTxt.name = "combox_txt_"+sel.name;
-	iptTxt.value = sel.options[sel.selectedIndex].text;
 	var w = sel.offsetWidth;
+    if(!w){w=110;}
 	var h = sel.offsetHeight;
+    if(!h){h=20;}
 	iptTxt.style.width = (w-("BackCompat"==document.compatMode?0:5))+"px";
 	box.insertBefore(iptTxt, sel);
 
     sel.style.clip = "rect(2px "+w+"px "+h+"px "+(w-20)+"px)";
 
-	sel.name = "combox_select_"+sel.name;
+    if(multiple){
+        sel.parentNode.insertBefore(document.createElement("br"), sel);
+        iptTxt.onkeydown = function(evt){
+            evt = window.event || evt;
+            if(evt.keyCode == 13){
+                // Add options to select.
+                var vals = this.value.split(";");
+                for(var i=0,l=vals.length; i<l; i++){
+                    var o = new Option(vals[i], vals[i], true);
+                    o.selected = true; // for IE.
+                    sel.options[sel.options.length] = o;
+                }
+                this.value = "";
+                if(evt.preventDefault){
+                    evt.preventDefault();
+                    evt.stopPropagation();
+                }else{
+                    evt.cancelBubble = true;
+                    evt.returnValue = false;
+                }
+                return false;
+            }
+            return true;
+        }
+    }else{
+        iptVal.name = sel.name;
+        iptTxt.name = "combox_txt_"+sel.name;
+        sel.name = "combox_select_"+sel.name;
+        iptTxt.value = sel.options[sel.selectedIndex].text;
+        iptTxt.onchange = function(){
+            iptVal.value = iptTxt.value;
+        };
+    }
 
 	var ME = this;
 	ME.text = sel.value;
 	ME.value = iptVal.value;
 	sel.onchange = function(){
+        if(multiple){return;}
 		var txt = sel.options[sel.selectedIndex].text,
 			val = sel.options[sel.selectedIndex].value; //sel.value;
 		iptVal.value = val;
@@ -99,6 +141,17 @@ value:
 	<option>44444</option>
 </select>
 </div>
+
+<p /><br />
+<div>
+    <select multiple name="demo_multiple" id="demo_multiple">
+        <option value="111">one</option>
+        <option value="222">two</option>
+        <option value="three">33333</option>
+        <option>44444</option>
+    </select>
+</div>
+
 <script>
 var cbx = new Combox(document.getElementById("demo"));
 cbx.onchange = function(){
@@ -107,6 +160,8 @@ cbx.onchange = function(){
 
 
 var cbx2 = new Combox(document.getElementById("demo2"));
+
+new Combox(document.getElementById("demo_multiple"));
 </script>
 
 </body>
