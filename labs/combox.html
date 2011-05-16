@@ -49,17 +49,33 @@ var Combox = function(sel){
 
     sel.style.clip = "rect(2px "+w+"px "+h+"px "+(w-20)+"px)";
 
+	var ME = this;
     if(multiple){
+        // [public]
+        ME.duplicate = false;
         sel.parentNode.insertBefore(document.createElement("br"), sel);
         iptTxt.onkeydown = function(evt){
             evt = window.event || evt;
             if(evt.keyCode == 13){
                 // Add options to select.
                 var vals = this.value.split(";");
+                lab:
                 for(var i=0,l=vals.length; i<l; i++){
-                    var o = new Option(vals[i], vals[i], true);
-                    o.selected = true; // for IE.
-                    sel.options[sel.options.length] = o;
+                    if(ME.duplicate){
+                        var o = new Option(vals[i], vals[i], true);
+                        o.selected = true; // for IE.
+                        sel.options[sel.options.length] = o;
+                    }else{
+                        for(var j=0,m=sel.options.length; j<m; j++){
+                            if(sel.options[j].value == vals[i]){
+                                sel.options[j].selected = true;
+                                continue lab;
+                            }
+                        }
+                        var o = new Option(vals[i], vals[i], true);
+                        o.selected = true; // for IE.
+                        sel.options[sel.options.length] = o;
+                    }
                 }
                 this.value = "";
                 if(evt.preventDefault){
@@ -83,7 +99,6 @@ var Combox = function(sel){
         };
     }
 
-	var ME = this;
 	ME.text = sel.value;
 	ME.value = iptVal.value;
 	sel.onchange = function(){
@@ -145,10 +160,10 @@ value:
 <p /><br />
 <div>
     <select multiple name="demo_multiple" id="demo_multiple">
-        <option value="111">one</option>
-        <option value="222">two</option>
-        <option value="three">33333</option>
-        <option>44444</option>
+        <option value="111">111</option>
+        <option value="222">222</option>
+        <option value="333">333</option>
+        <option value="444">444</option>
     </select>
 </div>
 
