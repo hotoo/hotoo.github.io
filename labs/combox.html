@@ -54,9 +54,9 @@ var Combox = function(sel){
         // [public]
         ME.duplicate = false;
         sel.parentNode.insertBefore(document.createElement("br"), sel);
-        iptTxt.onkeydown = function(evt){
+        iptTxt.onkeyup = function(evt){
             evt = window.event || evt;
-            if(evt.keyCode == 13){
+            if(evt.keyCode==10 || evt.keyCode == 13){
                 // Add options to select.
                 var vals = this.value.split(";"), last=false;
                 lab:
@@ -81,7 +81,11 @@ var Combox = function(sel){
                     }
                 }
                 if(last){
-                    sel.scrollTop = 30*sel.length;
+                    //window.setTimeout(function(){
+                        window.status = sel.scrollTop;
+                        sel.scrollTop = (30*sel.length);
+                        window.status += ":"+sel.scrollTop+" "+sel.length;
+                    //},1000);
                 }
                 this.value = "";
                 if(evt.preventDefault){
@@ -165,7 +169,7 @@ value:
 
 <p /><br />
 <div>
-    <select multiple name="demo_multiple" id="demo_multiple">
+    <select multiple name="demo_multiple" id="demo_multiple" size="4">
         <option value="111">111</option>
         <option value="222">222</option>
         <option value="333">333</option>
