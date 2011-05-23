@@ -58,13 +58,15 @@ var Combox = function(sel){
             evt = window.event || evt;
             if(evt.keyCode == 13){
                 // Add options to select.
-                var vals = this.value.split(";");
+                var vals = this.value.split(";"), last=false;
                 lab:
                 for(var i=0,l=vals.length; i<l; i++){
+                    if(!vals[i]){continue;}
                     if(ME.duplicate){
                         var o = new Option(vals[i], vals[i], true);
                         o.selected = true; // for IE.
                         sel.options[sel.options.length] = o;
+                        last = true;
                     }else{
                         for(var j=0,m=sel.options.length; j<m; j++){
                             if(sel.options[j].value == vals[i]){
@@ -75,7 +77,11 @@ var Combox = function(sel){
                         var o = new Option(vals[i], vals[i], true);
                         o.selected = true; // for IE.
                         sel.options[sel.options.length] = o;
+                        last = true;
                     }
+                }
+                if(last){
+                    sel.scrollTop = 30*sel.length;
                 }
                 this.value = "";
                 if(evt.preventDefault){
@@ -164,6 +170,7 @@ value:
         <option value="222">222</option>
         <option value="333">333</option>
         <option value="444">444</option>
+        <option value="555">555</option>
     </select>
 </div>
 
