@@ -83,7 +83,7 @@ var Combox = function(sel){
                 if(last){
                     //window.setTimeout(function(){
                         window.status = sel.scrollTop;
-                        sel.scrollTop = (30*sel.length);
+                        sel.scrollTop = (30*sel.options.length);
                         window.status += ":"+sel.scrollTop+" "+sel.length;
                     //},1000);
                 }
