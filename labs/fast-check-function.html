@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE>fast check funciton</TITLE>
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">
+ </HEAD>
+
+ <BODY>
+  <script>
+	function fun(){}
+	var tot = 10000;
+
+	var t0 = new Date();
+	for (var i=0; i<tot; i++){
+		if(typeof fun == "function"){fun()}
+	}
+	t0 = new Date() - t0;
+	
+	var t1 = new Date();
+	for (var i=0; i<tot; i++){
+		try{fun();}catch(ex){}
+	}
+	t1 = new Date() - t1;
+	
+	var t2 = new Date();
+	for (var i=0; i<tot; i++){
+		if(typeof notFunc == "function"){notFunc()}
+	}
+	t2 = new Date() - t2;
+	
+	var t3 = new Date();
+	for (var i=0; i<tot; i++){
+		try{notFunc();}catch(ex){}
+	}
+	t3 = new Date() - t3;
+	
+	var t4 = new Date();
+	for (var i=0; i<tot; i++){
+		if(!!window.notFunc){notFunc()}
+	}
+	t4 = new Date() - t4;
+	
+	var t5 = new Date();
+	for (var i=0; i<tot; i++){
+		if(window.notFunc instanceof Function){notFunc()}
+	}
+	t5 = new Date() - t5;
+
+	document.write("<br />&nbsp;typeof fun: "+t0);
+	document.write("<br />&nbsp;&nbsp; &nbsp;try fun: "+t1);
+	document.write("<br />typeof !fun: "+t2);
+	document.write("<br />&nbsp; &nbsp;try !fun: "+t3);
+	document.write("<br />&nbsp; &nbsp; &nbsp; !!fun: "+t4);
+	document.write("<br />instanceof !fun: "+t5);
+  </script>
+ </BODY>
+</HTML>
