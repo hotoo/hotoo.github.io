@@ -24,14 +24,14 @@ html,body{margin:0; padding:0; height:100%;}
                 .hotoo-sign dl dd ul li{list-style-type:none; margin:0 1px; padding:0; float:left; width:32px; height:32px; overflow:hidden;}
                 .hotoo-sign dl dd ul li a{color:#666; text-decoration:none; margin:0; padding:32px 0 0 0; width:32px; height:0; overflow:hidden; display:inline-block; background:transparent url(icons.png) no-repeat;}
                 .hotoo-sign dl dd ul li.blog a{background-position:0 0;}
-                .hotoo-sign dl dd ul li.blog:hover a{background-position:0 -32px;}
+                .hotoo-sign dl dd ul li.blog a:hover, .hotoo-sign dl dd ul li.blog a:focus{background-position:0 -32px;}
                 .hotoo-sign dl dd ul li.wiki a{background-position:-32px 0;}
-                .hotoo-sign dl dd ul li.wiki:hover a{background-position:-32px -32px;}
+                .hotoo-sign dl dd ul li.wiki a:hover, .hotoo-sign dl dd ul li.wiki a:focus{background-position:-32px -32px;}
                 .hotoo-sign dl dd ul li.pic a{background-position:-64px 0;}
-                .hotoo-sign dl dd ul li.pic:hover a{background-position:-64px -32px;}
+                .hotoo-sign dl dd ul li.pic a:hover, .hotoo-sign dl dd ul li.pic a:focus{background-position:-64px -32px;}
                 .hotoo-sign dl dd ul li.twitter a{background-position:-96px 0;}
-                .hotoo-sign dl dd ul li.twitter:hover a{background-position:-96px -32px;}
-                .hotoo-sign dl dd ul li.more{width:16px; overflow:visible; position:relative;}
+                .hotoo-sign dl dd ul li.twitter a:hover, .hotoo-sign dl dd ul li.twitter a:focus{background-position:-96px -32px;}
+                .hotoo-sign dl dd ul li.more{width:16px; overflow:visible; position:relative; outline:none;}
                 .hotoo-sign dl dd ul li.more a{background-position:-156px 0;}
                 .hotoo-sign dl dd ul li.more ul{display:none; position:absolute; top:0; left:16px;
                     border:1px solid #ccc;
@@ -48,7 +48,7 @@ html,body{margin:0; padding:0; height:100%;}
                 .hotoo-sign dl dd ul li.more li{display:block; clear:both; padding:0; margin:0; width:200px; height:2em; line-height:2em; overflow:visible; background:#f8f8f8 none;}
                 .hotoo-sign dl dd ul li.more li:first-child{margin-top:4px;}
                     .hotoo-sign dl dd ul li.more li a{display:block; padding:4px 5px 4px 28px; margin:0; width:200px; height:1.2em; line-height:1.3em; color:#000; border-width:1px 0; border-color:transparent; border-style:dashed;}
-                    .hotoo-sign dl dd ul li.more li a:hover{background-color:#eee; border-color:#ccc;}
+                    .hotoo-sign dl dd ul li.more li a:hover, .hotoo-sign dl dd ul li.more li a:focus{background-color:#eee; border-color:#ccc;}
                     #github{background-position:-176px -33px;}
                     #google-plus{background-position:-154px -55px;}
                     #flickr{background-position:-128px -78px;}
@@ -64,5 +64,5 @@ html,body{margin:0; padding:0; height:100%;}
     .hotoo-sign:hover dl dd ul a, .hotoo-sign:focus dl dd ul a{color:#fff;}
     .hotoo-sign dl dd ul a:hover{}
     .hotoo-sign dl dd li.more:hover{}
-    .hotoo-sign dl dd ul li.more:hover a{background-position:-184px 0;}
-    .hotoo-sign dl dd li.more:hover ul{display:block;}
+    .hotoo-sign dl dd ul li.more:hover a, .hotoo-sign dl dd ul li.more:focus a{background-position:-184px 0;}
+    .hotoo-sign dl dd li.more:hover ul, .hotoo-sign dl dd li.more:focus ul{display:block;}
