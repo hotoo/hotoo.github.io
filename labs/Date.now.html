@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<HTML>
+ <HEAD>
+ <meta charset="utf-8" />
+  <TITLE> New Document </TITLE>
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">
+ </HEAD>
+
+ <BODY>
+  <script>
+	var T = 100000;
+	var t0 = new Date();
+	var tmp;
+	for (var i=0; i<T; i++){
+		tmp = new Date() - t0;
+	}
+	t0 = new Date() - t0;
+
+	var t1 = new Date().getTime();
+	for (var i=0; i<T; i++){
+		tmp = new Date().getTime() - t1;
+	}
+	t1 = new Date().getTime() - t1;
+
+	var t2 = +new Date();
+	for (var i=0; i<T; i++){
+		tmp = +(new Date()) - t2;
+	}
+	t2 = new Date() - t2;
+
+	var t3 = new Date().valueOf();
+	for (var i=0; i<T; i++){
+		tmp = new Date().valueOf() - t3;
+	}
+	t3 = new Date().valueOf() - t3;
+
+if(typeof Date.now == "function"){
+	var t4 = Date.now();
+	for (var i=0; i<T; i++){
+		tmp = Date.now() - t4;
+	}
+	t4 = Date.now() - t4;
+}
+	document.write("new Date(): "+t0+"<br />");
+	document.write("new Date().getTime(): "+t1+"<br />");
+	document.write("+new Date(): "+t2+"<br />");
+	document.write("new Date().valueOf(): "+t3+"<br />");
+	document.write("Date.now(): "+t4+"<br />");
+	
+  </script>
+ </BODY>
+</HTML>
