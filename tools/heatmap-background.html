@@ -21,11 +21,15 @@ td.area{padding-left:5px;}
 	<caption>点击热点(heatmap)底版预处理工具</caption>
 	<tr>
 		<td class="label">姓名：</td>
-		<td class="area"><input type="text" name="n" id="n" value="" /> <strong>[选填]</strong> 抓取HTML源码时使用的账户名。</td>
+		<td class="area"><input type="text" name="n" id="n" value="" /> <strong>[选填]</strong> 抓取HTML源码时使用的账户名，如：张三。</td>
 	</tr>
 	<tr>
 		<td class="label">邮箱：</td>
 		<td class="area"><input type="text" name="email" id="email" value="" /> <strong>[选填]</strong> 抓取HTML源码时使用的邮箱地址。</td>
+    </tr>
+    <tr>
+		<td class="label">URL：</td>
+		<td class="area"><input type="text" name="url" id="url" value="" style="width:600px;" /> <strong>[选填]</strong> 页面的线上 URL 地址。</td>
 	</tr>
 	<tr>
 		<td class="label">HTML<br />源码：</td>
@@ -44,6 +48,7 @@ td.area{padding-left:5px;}
 <script type="text/javascript">/*<![CDATA[*/
 // TODO: path 部分的智能补全。
 function folder(uri){
+    if(!uri){return uri;}
 	var idx = uri.lastIndexOf("/");
 	return idx==-1 ? uri+"/" : uri.substr(0, idx+1);
 }
@@ -52,15 +57,21 @@ function $(id){
 }
 // TODO: 剔除 tracker, heatmap, monitor 脚本。
 function compress(src){
-	var re_domain = /document\.domain\s*=[^;\r\n]+/g,
-		re_location = /(?:window\.)?(?:top\.)?location\.href\s*=[^;\r\n]+/g,
+    var re_domain = /document\.domain\s*=[^;\r\n}]+([;\r\n}])/g,
+        re_location = /(?:window\.)?(?:top\.)?location(?:\.href)?\s*=[^;\r\n}]+([;\r\n}])/g,
 		re_src = /\bsrc=(["'])([^\1]*?)\1/g,
 		re_href = /\bhref=(["'])([^\1]*?)\1/g,
 		re_protocol = /\w+:/,
-		path,
+        path = folder($("url").value),
+        warnRelPath = false,
 		r = src;
-	r = r.replace(re_domain, "");
-	r = r.replace(re_location, "");
+
+    r = r.replace(re_domain, function($0, $1){
+        return "}" == $1 ? $1 : "";
+    });
+    r = r.replace(re_location, function($0, $1){
+        return "}" == $1 ? $1 : "";
+    });
 	var name = $("n").value;
 	if(name){
 		r = r.replace(new RegExp(name, "g"), "XXX");
@@ -74,29 +85,37 @@ function compress(src){
 	// @param {String} $2, src value.
 	r = r.replace(re_src, function($0, $1, $2){
 		if(re_protocol.test($2)){return $0;}
+        // 忽略 #flag & javascript:action();
+        if(0 == $2.indexOf("#") || 0 == $2.indexOf("javascript:")){
+            return $0;
+        }
 		// 修复相对路径
 		if(!path){
-			path=window.prompt("请输入当前源码的页面 URL 地址：", "https://www.alipay.com/");
-			if(!path){
-				alert("已取消修复 *[src] 相对路径。");
-				return $0;
-			}
-			path = folder(path);
+            if(!warnRelPath){
+                window.alert("请输入当前源码的页面 URL 地址，重新处理。");
+                warnRelPath = true;
+            }
+            return $0;
 		}
 		return "src="+$1+(re_protocol.test($2) ? $2 : path+$2)+$1;
 	});
+    if(warnRelPath){return "";}
 	r = r.replace(re_href, function($0, $1, $2){
 		if(re_protocol.test($2)){return $0;}
+        // 忽略 #flag & javascript:action();
+        if(0 == $2.indexOf("#") || 0 == $2.indexOf("javascript:")){
+            return $0;
+        }
 		if(!path){
-			path=window.prompt("请输入当前源码的页面 URL 地址：", "https://www.alipay.com/");
-			if(!path){
-				alert("已取消修 *[href] 复相对路径。");
-				return;
-			}
-			path = folder(path);
+            if(!warnRelPath){
+                window.alert("请输入当前源码的页面 URL 地址，重现处理。");
+                warnRelPath = true;
+            }
+            return $0;
 		}
 		return "href="+$1+(re_protocol.test($2) ? $2 : path+$2)+$1;
 	});
+    if(warnRelPath){return "";}
 	return r;
 }
 function doCompress(){
