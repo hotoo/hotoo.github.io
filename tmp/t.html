@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘™ (hotoo.cn[AT]gmail.com)" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>T</title>
+</head>
+<body onload="loadHandler()">
+    <div id="out"></div>
+    <script type="text/javascript">/*<![CDATA[*/
+        var start = new Date().valueOf(),
+            out = document.getElementById("out");
+
+        function loadHandler(){
+            var now = new Date().valueOf(),
+                navigationStart = performance.timing.navigationStart;
+            out.innerHTML += "now: "+now+"<br />";
+            out.innerHTML += "navigationStart: "+navigationStart+" diff: "+(now - navigationStart)+"<br />";
+            out.innerHTML += "new Date: "+start+" diff: "+(now - start)+"<br />";
+        }
+    /*]]>*/</script>
+</body>
+</html>
