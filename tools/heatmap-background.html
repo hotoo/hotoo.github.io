@@ -58,7 +58,7 @@ function $(id){
 // TODO: 剔除 tracker, heatmap, monitor 脚本。
 function compress(src){
     var re_domain = /document\.domain\s*=[^;\r\n}]+([;\r\n}])/g,
-        re_location = /(?:window\.)?(?:top\.)?location(?:\.href)?\s*=[^;\r\n}]+([;\r\n}])/g,
+        re_location = /(?:window\.)?(?:top\.)?location(?:\.href)?\s*=[^,;\r\n}]+([,;\r\n}])/g,
 		re_src = /\bsrc=(["'])([^\1]*?)\1/g,
 		re_href = /\bhref=(["'])([^\1]*?)\1/g,
 		re_protocol = /\w+:/,
