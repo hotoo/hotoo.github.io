@@ -8,6 +8,7 @@ html,body{
 }
 h2{
   text-indent:5px;
+  /*text-align:center;*/
 }
 hr.delimiter{
   background:transparent url(delimiter.png) no-repeat 50% 50%;
