@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘™ (hotoo.cn[AT]gmail.com)" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>Detector</title>
+</head>
+<body>
+  <div id="detector"></div>
+	<script type="text/javascript">/*<![CDATA[*/
+    function isObject(obj){
+      return Object.prototype.toString.call(obj) === "[object Object]";
+    }
+    function expandObject(obj){
+      if(!isObject(obj)){return obj;}
+      var s = '{';
+      for(var k in obj){
+        if(obj.hasOwnProperty(k)){
+          s += k + ':' + typeof obj[k] + ',';
+        }
+      }
+      s += '}';
+      return s;
+    }
+    var ua = navigator.userAgent;
+    var vendor = navigator.vendor;
+    var vendorSub = navigator.vendorSub;
+    var platform = navigator.platform;
+    var external = window.external;
+    var appCodeName = navigator.appCodeName;
+    var appName = navigator.appName;
+    var appVersion = navigator.appVersion;
+    var product = navigator.product;
+    var productSub = navigator.productSub;
+
+    document.getElementById("detector").innerHTML = [
+    "| 字段 | 值 ",
+    "|------|----",
+    "| userAgent | " + ua,
+    "| vendor | " + vendor,
+    "| vendroSub | " + vendorSub,
+    "| platform | " + platform,
+    "| external | " + expandObject(external),
+    "| appName | " + appName,
+    "| appVersion | " + appVersion,
+    "| appCodeName | " + appCodeName,
+    "| product: " + product,
+    "| productSub | " + productSub
+    ].join('|<br />');
+
+	/*]]>*/</script>
+</body>
+</html>
