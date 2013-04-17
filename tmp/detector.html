@@ -27,31 +27,32 @@
       s += '}';
       return s;
     }
-    var ua = navigator.userAgent;
-    var vendor = navigator.vendor;
-    var vendorSub = navigator.vendorSub;
-    var platform = navigator.platform;
-    var external = window.external;
-    var appCodeName = navigator.appCodeName;
-    var appName = navigator.appName;
-    var appVersion = navigator.appVersion;
-    var product = navigator.product;
-    var productSub = navigator.productSub;
+    var info = {
+      ua : navigator.userAgent,
+      vendor : navigator.vendor,
+      vendorSub : navigator.vendorSub,
+      platform : navigator.platform,
+      external : window.external,
+      appCodeName : navigator.appCodeName,
+      appName : navigator.appName,
+      appVersion : navigator.appVersion,
+      product : navigator.product,
+      productSub : navigator.productSub,
+      screenWidth : screen.width,
+      screenHeight : screen.height,
+      colorDepth : screen.colorDepth
+    };
 
-    document.getElementById("detector").innerHTML = [
-    "| 字段 | 值 ",
-    "|------|----",
-    "| userAgent | " + ua,
-    "| vendor | " + vendor,
-    "| vendroSub | " + vendorSub,
-    "| platform | " + platform,
-    "| external | " + expandObject(external),
-    "| appName | " + appName,
-    "| appVersion | " + appVersion,
-    "| appCodeName | " + appCodeName,
-    "| product: " + product,
-    "| productSub | " + productSub
-    ].join('|<br />');
+    var a = [
+      "| 字段 | 值 |",
+      "|------|----|"
+    ];
+    for(var k in info){
+      if(!info.hasOwnProperty(k)){continue;}
+      a.push("| "+k+" | "+info[k]+" |");
+    }
+
+    document.getElementById("detector").innerHTML = a.join('<br />');
 
 	/*]]>*/</script>
 </body>
