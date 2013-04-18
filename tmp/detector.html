@@ -52,7 +52,7 @@
       if(!info.hasOwnProperty(k)){continue;}
       try{
         a.push("| "+k+" | "+String(info[k])+" |");
-      }catch(ex){console.log(ex.message);}
+      }catch(ex){console.log(k+":"ex.message);}
     }
 
     document.getElementById("detector").innerHTML = a.join("<br />");
