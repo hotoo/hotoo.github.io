@@ -28,29 +28,32 @@
       return s;
     }
   window.onload = function(){
-    console.log(0);
     var info = {
       ua : navigator.userAgent,
       vendor : navigator.vendor,
       vendorSub : navigator.vendorSub,
-      platform : navigator.platform
+      platform : navigator.platform,
+      external : window.external,
+      appCodeName : navigator.appCodeName,
+      appName : navigator.appName,
+      appVersion : navigator.appVersion,
+      product : navigator.product,
+      productSub : navigator.productSub,
+      screenWidth : screen.width,
+      screenHeight : screen.height,
+      colorDepth : screen.colorDepth
     };
-    console.log(1);
 
     var a = [
       "| 字段 | 值 |",
       "|------|----|"
     ];
     for(var k in info){
-      console.log(10, k, info[k]);
       if(!info.hasOwnProperty(k)){continue;}
-      console.log(11, k, info[k]);
-      a.push("| "+k+" | "+info[k]+" |");
+      a.push("| "+k+" | "+String(info[k])+" |");
     }
-    console.log(2);
 
     document.getElementById("detector").innerHTML = a.join("<br />");
-    console.log(3);
 
     var img = new Image();
     img.onload = img.onerror = img.onabort = function(){
@@ -63,7 +66,6 @@
       "&r="+Math.random()+
       "&v=1.0"+
       "&BIProfile=clk";
-    console.log(4);
   };
 
 	/*]]>*/</script>
