@@ -35,8 +35,8 @@
       vendorSub : navigator.vendorSub,
       platform : navigator.platform,
       external : window.external,
-      appCodeName : navigator.appCodeName,
-      appName : navigator.appName,
+      //appCodeName : navigator.appCodeName,
+      //appName : navigator.appName,
       appVersion : navigator.appVersion,
       product : navigator.product,
       productSub : navigator.productSub,
@@ -51,9 +51,9 @@
       "|------|----|"
     ];
     for(var k in info){
-      console.log(10, k, info);
+      console.log(10, k, info[k]);
       if(!info.hasOwnProperty(k)){continue;}
-      console.log(11, k, info);
+      console.log(11, k, info[k]);
       a.push("| "+k+" | "+info[k]+" |");
     }
     console.log(2);
