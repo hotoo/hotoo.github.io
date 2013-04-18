@@ -48,9 +48,11 @@
       "| 字段 | 值 |",
       "|------|----|"
     ];
-    for(var kk in info){
-      if(!info.hasOwnProperty(kk)){continue;}
-      a.push("| "+kk+" | "+String(info[kk])+" |");
+    for(var k in info){
+      if(!info.hasOwnProperty(k)){continue;}
+      try{
+        a.push("| "+k+" | "+String(info[k])+" |");
+      }catch(ex){console.log(ex.message);}
     }
 
     document.getElementById("detector").innerHTML = a.join("<br />");
