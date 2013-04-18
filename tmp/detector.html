@@ -28,7 +28,7 @@
       return s;
     }
   window.onload = function(){
-    console.debug(0);
+    console.log(0);
     var info = {
       ua : navigator.userAgent,
       vendor : navigator.vendor,
@@ -44,22 +44,22 @@
       screenHeight : screen.height,
       colorDepth : screen.colorDepth
     };
-    console.debug(1);
+    console.log(1);
 
     var a = [
       "| 字段 | 值 |",
       "|------|----|"
     ];
     for(var k in info){
-      console.debug(10);
+      console.log(10);
       if(!info.hasOwnProperty(k)){continue;}
-      console.debug(11);
+      console.log(11);
       a.push("| "+k+" | "+info[k]+" |");
     }
-    console.debug(2);
+    console.log(2);
 
     document.getElementById("detector").innerHTML = a.join("<br />");
-    console.debug(3);
+    console.log(3);
 
     var img = new Image();
     img.onload = img.onerror = img.onabort = function(){
@@ -72,7 +72,7 @@
       "&r="+Math.random()+
       "&v=1.0"+
       "&BIProfile=clk";
-    console.debug(4);
+    console.log(4);
   };
 
 	/*]]>*/</script>
