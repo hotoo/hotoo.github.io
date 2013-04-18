@@ -53,7 +53,7 @@
       a.push("| "+k+" | "+info[k]+" |");
     }
 
-    document.getElementById("detector").appendChild(document.createTextNode(a.join("<br />")));
+    document.getElementById("detector").innerHTML = a.join("<br />");
 
     var img = new Image();
     img.onload = img.onerror = img.onabort = function(){
