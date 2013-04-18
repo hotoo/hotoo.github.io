@@ -50,7 +50,7 @@
     ];
     for(var k in info){
       if(!info.hasOwnProperty(k)){continue;}
-      try{
+      try{ // IE10 不支持此属性或方法。。。
         a.push("| "+k+" | "+String(info[k])+" |");
       }catch(ex){console.log(k+":"ex.message);}
     }
