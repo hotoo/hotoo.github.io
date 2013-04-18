@@ -28,6 +28,7 @@
       return s;
     }
   window.onload = function(){
+    console.debug(0);
     var info = {
       ua : navigator.userAgent,
       vendor : navigator.vendor,
@@ -43,6 +44,7 @@
       screenHeight : screen.height,
       colorDepth : screen.colorDepth
     };
+    console.debug(1);
 
     var a = [
       "| 字段 | 值 |",
@@ -52,8 +54,10 @@
       if(!info.hasOwnProperty(k)){continue;}
       a.push("| "+k+" | "+info[k]+" |");
     }
+    console.debug(2);
 
     document.getElementById("detector").innerHTML = a.join("<br />");
+    console.debug(3);
 
     var img = new Image();
     img.onload = img.onerror = img.onabort = function(){
@@ -66,6 +70,7 @@
       "&r="+Math.random()+
       "&v=1.0"+
       "&BIProfile=clk";
+    console.debug(4);
   };
 
 	/*]]>*/</script>
