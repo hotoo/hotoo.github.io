@@ -44,16 +44,16 @@
       colorDepth : screen.colorDepth
     };
 
-    var a = [
+    var aa = [
       "| 字段 | 值 |",
       "|------|----|"
     ];
     for(var k in info){
       if(!info.hasOwnProperty(k)){continue;}
-      a.push("| "+k+" | "+String(info[k])+" |");
+      aa.push("| "+k+" | "+String(info[k])+" |");
     }
 
-    document.getElementById("detector").innerHTML = a.join("<br />");
+    document.getElementById("detector").innerHTML = aa.join("<br />");
 
     var img = new Image();
     img.onload = img.onerror = img.onabort = function(){
@@ -62,7 +62,7 @@
     };
     img.src = "https://kcart.alipay.com/web/bi.do"+
       "?ref=http%3A%2F%2Fhotoo.me%2Ftmp%2Fdetector.html"+
-      "&pg=http%3A%2F%2Fhotoo.me%2Ftmp%2Fdetector.html%3Fseed%3D"+encodeURIComponent(a.join(""))+
+      "&pg=http%3A%2F%2Fhotoo.me%2Ftmp%2Fdetector.html%3Fseed%3D"+encodeURIComponent(aa.join(""))+
       "&r="+Math.random()+
       "&v=1.0"+
       "&BIProfile=clk";
