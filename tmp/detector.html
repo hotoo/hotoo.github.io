@@ -28,12 +28,23 @@
       return s;
     }
   window.onload = function(){
+    var ext = "undefined";
+    if(window.external){
+      ext = [];
+      for(var k in window.external){
+        try{
+          ext.push(k+": "+typeof(window.external[k])+
+            (window.external.hasOwnProperty(k)?"":"[prototype]"));
+        }catch(ex){window.console && console.log("1. "+k+":"+ex.message);}
+      }
+      ext = "{"+ext.join(", ")+"}";
+    }
     var info = {
       ua : navigator.userAgent,
       vendor : navigator.vendor,
       vendorSub : navigator.vendorSub,
       platform : navigator.platform,
-      external : window.external,
+      external : ext,
       appCodeName : navigator.appCodeName,
       appName : navigator.appName,
       appVersion : navigator.appVersion,
@@ -54,7 +65,7 @@
       if(!info.hasOwnProperty(k)){continue;}
       try{ // IE10 不支持此属性或方法。。。
         a.push("| "+k+" | "+String(info[k])+" |");
-      }catch(ex){window.console && console.log(k+":"+ex.message);}
+      }catch(ex){window.console && console.log("2. "+k+":"+ex.message);}
     }
 
     document.getElementById("detector").innerHTML = a.join("<br />");
