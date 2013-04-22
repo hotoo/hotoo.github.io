@@ -28,8 +28,10 @@
       return s;
     }
   window.onload = function(){
-    var ext = "undefined";
-    if(window.external){
+    var ext;
+    if(!window.external){
+      ext = "undefined";
+    }if(Object.prototype.toString.call(window.external)==="[object Object]"){
       ext = [];
       for(var k in window.external){
         try{
@@ -38,6 +40,8 @@
         }catch(ex){window.console && console.log("1. "+k+":"+ex.message);}
       }
       ext = "{"+ext.join(", ")+"}";
+    }else{
+      ext = window.external +"["+typeof(window.external)+"]";
     }
     var info = {
       ua : navigator.userAgent,
