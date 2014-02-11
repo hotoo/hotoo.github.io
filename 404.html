@@ -23,30 +23,16 @@
 
   var url = location.href;
   var path = location.pathname;
+  var RE_BLOG = /^\/blog(\/.*)?/i;
+  var RE_WIKI = /^\/(?:vim)?wiki(\/.*)?/i;
+  var match;
 
   // 自动路由。
-  if(path === "/blog" || path==="/blog/" ||
-    path === "/blog/index" ||
-    path === "/blog/index.html"){
-
-    location.replace("http://blog.hotoo.me/");
-
-  }else if(path.indexOf("/blog/") === 0){
-
-    var newPath = path.replace("/blog/", "");
-    location.replace("http://blog.hotoo.me/post/" + newPath);
-
-  }else if(path === "/wiki" || path==="/wiki/" ||
-    path === "/wiki/index" ||
-    path === "/wiki/index.html"){
-
-    location.replace("http://wiki.hotoo.me/");
-
-  }else if(path.indexOf("/wiki/") === 0){
-
-    var newPath = path.replace("/wiki/", "");
-    location.replace("http://wiki.hotoo.me/" + newPath);
-
+  if(match = RE_BLOG.(url)){
+    location.replace("http://blog.hotoo.me" +
+      (match[1] ? "/post" + match[1] : "/"));
+  }else if(match = RE_WIKI.test(url)){
+    location.replace("http://wiki.hotoo.me" + (match[1]||"/"))
   }
 
 })();
