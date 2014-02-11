@@ -28,10 +28,10 @@
   var match;
 
   // 自动路由。
-  if(match = RE_BLOG.(url)){
+  if(match = RE_BLOG.match(url)){
     location.replace("http://blog.hotoo.me" +
       (match[1] ? "/post" + match[1] : "/"));
-  }else if(match = RE_WIKI.test(url)){
+  }else if(match = RE_WIKI.match(url)){
     location.replace("http://wiki.hotoo.me" + (match[1]||"/"))
   }
 
