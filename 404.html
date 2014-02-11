@@ -21,19 +21,18 @@
 <script type="text/javascript">
 (function(){
 
-  var url = location.href;
   var path = location.pathname;
   var RE_BLOG = /^\/blog(\/.*)?/i;
   var RE_WIKI = /^\/(?:vim)?wiki(\/.*)?/i;
   var match;
 
   // 自动路由。
-  if(!url){
+  if(!path){
     return;
-  }else if(match = url.match(RE_BLOG)){
+  }else if(match = path.match(RE_BLOG)){
     location.replace("http://blog.hotoo.me" +
       (match[1] ? "/post" + match[1] : "/"));
-  }else if(match = url.match(RE_WIKI)){
+  }else if(match = path.match(RE_WIKI)){
     location.replace("http://wiki.hotoo.me" + (match[1]||"/"))
   }
 
