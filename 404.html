@@ -30,8 +30,8 @@
   if(!path){
     return;
   }else if(match = path.match(RE_BLOG)){
+    var filename = match[1];
     location.replace("http://blog.hotoo.me" +
-      var filename = match[1];
       (filename && filename !== "/" &&
         filename !== "/index" && filename !== "/index.html" ?
         "/post" + match[1] : "/"));
