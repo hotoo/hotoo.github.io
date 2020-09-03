@@ -22,6 +22,8 @@ body {
 
   height: 100px;
   color: #fff;
+
+  -webkit-backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
 }
