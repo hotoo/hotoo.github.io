@@ -31,6 +31,15 @@ img,a{
   /*width:100px;*/
   /*height:150px;*/
 }
+
+table {
+  border-collapse: collapse;
+  border: 1px solid #eee;
+}
+table th, table td {
+  border: 1px solid #eee;
+  padding: 4px 10px;
+}
 #reading{
 }
 footer{
