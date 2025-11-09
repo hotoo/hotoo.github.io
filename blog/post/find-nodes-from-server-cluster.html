@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Rspress v1.45.8">
+    <meta name="keyword"content="闲耘, hotoo, xianyun, 个人网站, 博客, blog, rspress, pinyin, gitopen, markline, obsidian"><title data-rh="true">定位到服务器集群的特定节点 - 闲耘小站</title><meta data-rh="true" name="description" content="闲耘的个人网站和博客"/>
+  <script>{;const saved = localStorage.getItem('rspress-theme-appearance');const preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches;const isDark = !saved || saved === 'auto' ? preferDark : saved === 'dark';document.documentElement.classList.toggle('dark', isDark);document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';}</script><link rel="icon" href="/xianyun.png"><script defer src="/static/js/styles.635f2054.js"></script><script defer src="/static/js/lib-react.442f38df.js"></script><script defer src="/static/js/lib-router.53ff1cf6.js"></script><script defer src="/static/js/8266.a5d43b20.js"></script><script defer src="/static/js/index.d7d6ea76.js"></script><link href="/static/css/styles.6baecde0.css" rel="stylesheet"><script async src="https://www.googletagmanager.com/gtag/js?id=G-DNVHC57TGF"></script><script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DNVHC57TGF');</script><link rel="stylesheet" href="/styles/global.css"></head>
+
+  <body >
+    <div id="root"><link rel="preload" as="image" href="/images/xianyun.png"/><link rel="preload" as="image" href="https://i.alipayobjects.com/i/localhost/png/201404/2TD6uw5N0n.png"/><link rel="preload" as="image" href="https://i.alipayobjects.com/i/localhost/png/201404/2Tdj3TmMdR.png"/><div class="navContainer_d18b1 rspress-nav px-6  sticky_ddfa7"><div class="container_e4235 flex justify-between items-center h-full"><div class="navBarTitle_c5f07"><a href="/index.html" class="link_a7cea flex items-center w-full h-full text-base font-semibold transition-opacity duration-300 hover:opacity-60"><div class="mr-1 min-w-8"><img src="/images/xianyun.png" alt="logo" id="logo" class="rspress-logo dark:hidden"/><img src="/images/xianyun.png" alt="logo" id="logo" class="rspress-logo hidden dark:block"/></div><span>闲耘</span></a></div><div class="flex flex-1 justify-end items-center"><div class="leftNav_e6722"><div class="rspress-nav-menu menu h-14"><a href="/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-1.5 px-3 py-2 flex items-center break-keep">首页</div></a><a href="/blog/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154 activeItem_a28b5 text-sm font-medium mx-1.5 px-3 py-2 flex items-center break-keep">博客</div></a><a href="/project/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-1.5 px-3 py-2 flex items-center break-keep">项目</div></a><a href="/about/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-1.5 px-3 py-2 flex items-center break-keep">关于</div></a></div></div><div class="rightNav_a2fea"><div class="flex sm:flex-1 items-center sm:pl-4 sm:pr-2"><div class="rspress-nav-search-button navSearchButton_df1fb"><button><svg width="18" height="18" viewBox="0 0 32 32"><path fill="var(--rp-c-gray)" d="m29 27.586-7.552-7.552a11.018 11.018 0 1 0-1.414 1.414L27.586 29ZM4 13a9 9 0 1 1 9 9 9.01 9.01 0 0 1-9-9"></path></svg><p class="searchWord_af2c1">Search</p><div style="opacity:0"><span></span><span>K</span></div></button></div><div class="mobileNavSearchButton_d85a9"><svg width="24" height="24" viewBox="0 0 32 32"><path fill="var(--rp-c-gray)" d="m29 27.586-7.552-7.552a11.018 11.018 0 1 0-1.414 1.414L27.586 29ZM4 13a9 9 0 1 1 9 9 9.01 9.01 0 0 1-9-9"></path></svg></div></div><div class="rspress-nav-menu menu h-14"></div><div class="flex-center flex-row"><div class="mx-2"><div class="md:mr-2 rspress-nav-appearance"><div class="p-1 border border-solid border-gray-300 text-gray-400  cursor-pointer rounded-md hover:border-gray-600 hover:text-gray-600 dark:hover:border-gray-200 dark:hover:text-gray-200 transition-all duration-300 w-7 h-7"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 24 24" class="dark:hidden" width="18" height="18" fill="currentColor"><path d="M12 18c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6m0-10c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4M12 4c-.6 0-1-.4-1-1V1c0-.6.4-1 1-1s1 .4 1 1v2c0 .6-.4 1-1 1M12 24c-.6 0-1-.4-1-1v-2c0-.6.4-1 1-1s1 .4 1 1v2c0 .6-.4 1-1 1M5.6 6.6c-.3 0-.5-.1-.7-.3L3.5 4.9c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l1.4 1.4c.4.4.4 1 0 1.4-.1.2-.4.3-.7.3M19.8 20.8c-.3 0-.5-.1-.7-.3l-1.4-1.4c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l1.4 1.4c.4.4.4 1 0 1.4-.2.2-.5.3-.7.3M3 13H1c-.6 0-1-.4-1-1s.4-1 1-1h2c.6 0 1 .4 1 1s-.4 1-1 1M23 13h-2c-.6 0-1-.4-1-1s.4-1 1-1h2c.6 0 1 .4 1 1s-.4 1-1 1M4.2 20.8c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l1.4-1.4c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-1.4 1.4c-.2.2-.4.3-.7.3M18.4 6.6c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l1.4-1.4c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-1.4 1.4c-.2.2-.5.3-.7.3"></path></svg><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 24 24" class="hidden dark:block" width="18" height="18" fill="currentColor"><path d="M12.1 22h-.9c-5.5-.5-9.5-5.4-9-10.9.4-4.8 4.2-8.6 9-9 .4 0 .8.2 1 .5s.2.8-.1 1.1c-2 2.7-1.4 6.4 1.3 8.4 2.1 1.6 5 1.6 7.1 0 .3-.2.7-.3 1.1-.1.3.2.5.6.5 1-.2 2.7-1.5 5.1-3.6 6.8-1.9 1.4-4.1 2.2-6.4 2.2M9.3 4.4c-2.9 1-5 3.6-5.2 6.8-.4 4.4 2.8 8.3 7.2 8.7 2.1.2 4.2-.4 5.8-1.8 1.1-.9 1.9-2.1 2.4-3.4-2.5.9-5.3.5-7.5-1.1-2.8-2.2-3.9-5.9-2.7-9.2"></path></svg></div></div></div><div class="social-links menu-item_e90a6 flex-center relative"><div class="flex-center h-full gap-x-4 transition-colors duration-300 md:mr-2"><a href="https://x.com/hotoo" target="_blank" rel="noopener noreferrer" class="social-links"><div class="social-links-icon_a4ad0"><div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24"><path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584l-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></div></div></a><a href="https://github.com/hotoo" target="_blank" rel="noopener noreferrer" class="social-links"><div class="social-links-icon_a4ad0"><div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div></div></a></div></div></div></div><div class="mobileNavMenu_e7045"><div class="navScreen_ec30c  rspress-nav-screen" id="navScreen"><div class="container_c935d"><div class="navMenu_b887b"><div class="navMenuItem_e7978 w-full"><a href="/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-1.5 px-3 py-2 flex items-center break-keep">首页</div></a></div><div class="navMenuItem_e7978 w-full"><a href="/blog/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154 activeItem_a28b5 text-sm font-medium mx-1.5 px-3 py-2 flex items-center break-keep">博客</div></a></div><div class="navMenuItem_e7978 w-full"><a href="/project/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-1.5 px-3 py-2 flex items-center break-keep">项目</div></a></div><div class="navMenuItem_e7978 w-full"><a href="/about/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-1.5 px-3 py-2 flex items-center break-keep">关于</div></a></div></div><div class="flex-center flex-col gap-2"><div class="mt-2 navAppearance_bf893 flex justify-center"></div><div class="social-links menu-item_e90a6 flex-center relative"><div class="flex-center h-full gap-x-4 transition-colors duration-300 md:mr-2"><a href="https://x.com/hotoo" target="_blank" rel="noopener noreferrer" class="social-links"><div class="social-links-icon_a4ad0"><div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24"><path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584l-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></div></div></a><a href="https://github.com/hotoo" target="_blank" rel="noopener noreferrer" class="social-links"><div class="social-links-icon_a4ad0"><div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div></div></a></div></div></div></div></div><button aria-label="mobile hamburger" class=" rspress-mobile-hamburger navHamburger_ac64c text-gray-500"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="currentColor"><circle cx="8" cy="16" r="2" fill="currentColor"></circle><circle cx="16" cy="16" r="2" fill="currentColor"></circle><circle cx="24" cy="16" r="2" fill="currentColor"></circle></svg></button></div></div></div></div><section><div class="docLayout_af141 pt-0"><div class="flex-1 relative min-w-0"><div class="rspress-sidebar-menu-container "><div class="rspress-sidebar-menu"><button type="button" class="flex-center ml-auto"><span class="text-sm">ON THIS PAGE</span><div class="text-md mr-2" style="transform:rotate(0deg);transition:transform 0.2s ease-out;margin-top:2px"><svg width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M22 16 12 26l-1.4-1.4 8.6-8.6-8.6-8.6L12 6z"></path></svg></div></button><div class="rspress-local-toc-container "><ul><li><a href="#背景" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">背景</span></a></li><li><a href="#方案" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">方案</span></a></li><li><a href="#结论" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">结论</span></a></li><li><a href="#延伸思考" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">延伸思考</span></a></li></ul></div></div></div><div class="content_ff766 rspress-doc-container flex"><div class="flex-1 overflow-x-auto"><div class="rspress-doc"><!--$--><h1 id="定位到服务器集群的特定节点" class="rspress-doc-title text-3xl mb-10 leading-10 tracking-tight title_fb7eb">定位到服务器集群的特定节点<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#定位到服务器集群的特定节点">#</a></h1>
+<blockquote class="border-l-2 border-solid border-divider pl-4 my-6 transition-colors duration-500 blockquote_f1063">
+<p class="my-4 leading-7">齐宣王使人吹竽，必三百人。南郭处士请为王吹竽，宣王说之，廪食以数百人。
+宣王死，湣王立，好一一听之，处士逃。</p>
+<p class="my-4 leading-7">《韩非子·内储说上》</p>
+</blockquote>
+<h2 id="背景" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">背景<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#背景">#</a></h2>
+<p class="my-4 leading-7">某日，突然收到报警，某发现实时异常监控趋势图上，静态资源 404 异常有明显的上升。
+分析详细的异常信息发现是某个发布操作引起某几个系统引起的。</p>
+<hr class="my-12 border-t border-solid border-divider-light"/>
+<p class="my-4 leading-7">找到对应的开发，分析结论是部分配置文件未生效，导致拼接资源文件地址错误。
+按照业务量计算，这个异常量大约是其中一、两台机器有问题。</p>
+<p class="my-4 leading-7">可能发布系统或其他问题，重新发布一次仍没能修复这个异常。</p>
+<p class="my-4 leading-7">我们需要快速定位到这只滥竽，尽快将问题修复。
+但是实际上却没有这么简单，我们最终花费 了 7个多小时，最终是因为这个系统正好有
+其他发布才顺便解决。</p>
+<p class="my-4 leading-7"><img src="https://i.alipayobjects.com/i/localhost/png/201404/2TD6uw5N0n.png" alt="realtile-error-trend"/></p>
+<p class="my-4 leading-7">上图有两个造成异常的发布，分别是『CMS 发布』和『后台系统发布』。</p>
+<p class="my-4 leading-7">橙色是 JavaScript 实时异常，绿色是静态资源 404 异常。</p>
+<h2 id="方案" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">方案<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#方案">#</a></h2>
+<p class="my-4 leading-7">事后我们坐下来讨论如何解决这个问题，避免在以后遇到类似问题时能快速有效的应对。</p>
+<p class="my-4 leading-7"><img src="https://i.alipayobjects.com/i/localhost/png/201404/2Tdj3TmMdR.png" alt="异常过程序列图"/></p>
+<p class="my-4 leading-7">如上图，问题出在某个问题业务应用服务器节点配置文件未生效，拼接出来的 JavaScript
+资源地址不正确导致 CDN 节点未命中而最终回源，源服务器也没有这个文件，最终发生
+404 悲剧。</p>
+<p class="my-4 leading-7">实际的业务系统中，会提供用户访问的节点信息，但是请求静态资源时无法获得这个信息，
+是不是有办法在静态资源源服务器上获得来源页面所在的服务器节点信息呢？</p>
+<ol class="list-decimal pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">方案一：我们首先想到 Cookie。但是应用服务器和静态资源服务器分别在不同的域名
+下，即使在访问应用服务器时写入节点信息到 Cookie 中，这个信息也不会携带到静态
+资源服务器。『失败』。</li>
+<li class="[&amp;:not(:first-child)]:mt-2">方案二：CDN 节点域提供外部写 Cookie 的接口，用户访问应用服务时，同时调用接口
+在 CDN 节点所在域写入用户访问应用服务器节点信息。『放弃』，缺点：</li>
+<li class="[&amp;:not(:first-child)]:mt-2">成本高。</li>
+<li class="[&amp;:not(:first-child)]:mt-2">风险大。</li>
+<li class="[&amp;:not(:first-child)]:mt-2">方案三：然后想到每个应用系统重写静态资源地址，在地址中携带当前应用服务器节点
+信息。『放弃』，缺点：</li>
+<li class="[&amp;:not(:first-child)]:mt-2">成本过高。</li>
+<li class="[&amp;:not(:first-child)]:mt-2">导致 CDN 命中率下降。</li>
+<li class="[&amp;:not(:first-child)]:mt-2">方案四：重写用户访问页面地址，附带应用服务器节点信息。成本过高，『放弃』。</li>
+</ol>
+<p class="my-4 leading-7">从前端角度直接解决这个看似无望，换个思路。</p>
+<ol start="5" class="list-decimal pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">方案五：在网络内部，使用内部代理。如 <code>curl -I -x internal-host:port url</code>
+『可行』，缺点：</li>
+<li class="[&amp;:not(:first-child)]:mt-2">需要在服务器所在内网执行，指定目标服务器内部 IP，因此只有系统管理员可以操作。</li>
+<li class="[&amp;:not(:first-child)]:mt-2">而系统管理员不清楚实际应用业务。</li>
+<li class="[&amp;:not(:first-child)]:mt-2">方案六：如果可以在外部指定服务器节点访问应用，是不是可行呢？</li>
+</ol>
+<p class="my-4 leading-7">这个跟负载均衡规则有关，如果负载均衡服务器支持这个特性，或可一试。</p>
+<p class="my-4 leading-7">跟相关同学沟通后，表示可以做。而且从外网直接访问，清楚业务的开发同学可以自行
+排查。</p>
+<p class="my-4 leading-7">『可行』。需要注意的问题：</p>
+<ol class="list-decimal pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">逐个击破，定向攻击。<!-- -->
+<ol class="list-decimal pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">可以通过拒绝频繁的指定节点访问请求来防范。</li>
+<li class="[&amp;:not(:first-child)]:mt-2">可以通过白名单内部 IP 才可以使用。</li>
+</ol>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">方案七：客户端脚本扫描所有外部资源，并发起请求来确认各个资源状态。『放弃』，
+缺点：</li>
+</ol>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">增加静态资源服务器压力。</li>
+<li class="[&amp;:not(:first-child)]:mt-2">增加网络请求和流量。</li>
+</ul>
+<ol start="8" class="list-decimal pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">方案八：客户端脚本监听静态资源异常事件。HTML5 现在提供了 Performance Timing
+API，可以用来监控网页及其引用的外部资源加载时间，将来提供类似的 API 可以监听
+静态资源的 error 事件也未可知。『期待』</li>
+<li class="[&amp;:not(:first-child)]:mt-2">方案九：Web 服务器端输出时拦截器扫描。尤其目前前端往后端延伸，能做的事情更多
+了。『可行』。</li>
+</ol>
+<h2 id="结论" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">结论<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#结论">#</a></h2>
+<p class="my-4 leading-7">综上所述，在成本、风险、自动化、扩展性等方面来讲，方案九是最优的。</p>
+<h2 id="延伸思考" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">延伸思考<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#延伸思考">#</a></h2>
+<p class="my-4 leading-7">图二所示，这次问题出在业务应用服务器集群的节点 1。</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">如果问题节点是静态资源 CDN 集群的节点 2 呢？</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">问题节点是节点 3？</p>
+</li>
+</ul>
+<hr class="my-12 border-t border-solid border-divider-light"/>
+<p class="my-4 leading-7"><strong class="font-semibold">Tags:</strong> <a href="/blog/tags/CDN"><cite class="tags">CDN</cite></a>, <a href="/blog/tags/每周异常"><cite class="tags">每周异常</cite></a></p>
+<p class="my-4 leading-7"><em>Published on 2014-04-17</em></p>
+<footer><div class="meta-left"><p class="my-4 leading-7">Tags: <a href="/blog/tags/CDN"><cite class="tags">CDN</cite></a>, <a href="/blog/tags/每周异常"><cite class="tags">每周异常</cite></a></p></div><div class="meta-right"><p class="my-4 leading-7">Date: <cite class="date">2014-04-17</cite></p></div></footer><!--/$--></div><div class="rspress-doc-footer"><footer class="mt-8"><div class="xs:flex pb-5 px-2 justify-end items-center"></div><div class="flex flex-col"></div><div class="flex flex-col sm:flex-row sm:justify-around gap-4 pt-6"><div class="prev_c92d1 flex flex-col"></div><div class="next_c11be flex flex-col"></div></div></footer></div></div><div class="aside-container_bc5fa"><div class="flex flex-col"><div id="aside-container" class="relative text-sm font-medium"><div class="leading-7 block text-sm font-semibold pl-3">ON THIS PAGE</div><nav class="mt-1"><ul class="relative"><li><a href="#背景" title="背景" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">背景</span></a></li><li><a href="#方案" title="方案" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">方案</span></a></li><li><a href="#结论" title="结论" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">结论</span></a></li><li><a href="#延伸思考" title="延伸思考" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">延伸思考</span></a></li></ul></nav></div></div></div></div></div></div></section></div>
+    <div id="search-container"></div>
+  </body>
+</html>
