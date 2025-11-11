@@ -4,7 +4,7 @@
         <title>闲耘的博客</title>
         <link>https://hotoo.github.io</link>
         <description>闲耘的个人网站和博客</description>
-        <lastBuildDate>Tue, 11 Nov 2025 09:58:04 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 11 Nov 2025 14:11:15 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -11526,7 +11526,7 @@ color: #666;
         </item>
         <item>
             <title><![CDATA[文章列表]]></title>
-            <link>https://hotoo.github.io/blog/page/3/</link>
+            <link>https://hotoo.github.io/blog/page/2/</link>
             <guid>209</guid>
             <content:encoded><![CDATA[<h1 id="文章列表">文章列表<a aria-hidden="true" href="#文章列表">#</a></h1>
 
@@ -11543,7 +11543,7 @@ color: #666;
         </item>
         <item>
             <title><![CDATA[文章列表]]></title>
-            <link>https://hotoo.github.io/blog/page/2/</link>
+            <link>https://hotoo.github.io/blog/page/3/</link>
             <guid>210</guid>
             <content:encoded><![CDATA[<h1 id="文章列表">文章列表<a aria-hidden="true" href="#文章列表">#</a></h1>
 
@@ -11611,7 +11611,7 @@ color: #666;
         </item>
         <item>
             <title><![CDATA[文章列表]]></title>
-            <link>https://hotoo.github.io/blog/page/7/</link>
+            <link>https://hotoo.github.io/blog/page/8/</link>
             <guid>214</guid>
             <content:encoded><![CDATA[<h1 id="文章列表">文章列表<a aria-hidden="true" href="#文章列表">#</a></h1>
 
@@ -11628,7 +11628,7 @@ color: #666;
         </item>
         <item>
             <title><![CDATA[文章列表]]></title>
-            <link>https://hotoo.github.io/blog/page/8/</link>
+            <link>https://hotoo.github.io/blog/page/7/</link>
             <guid>215</guid>
             <content:encoded><![CDATA[<h1 id="文章列表">文章列表<a aria-hidden="true" href="#文章列表">#</a></h1>
 
@@ -11645,7 +11645,7 @@ color: #666;
         </item>
         <item>
             <title><![CDATA[文章列表]]></title>
-            <link>https://hotoo.github.io/blog/page/9/</link>
+            <link>https://hotoo.github.io/blog/page/10/</link>
             <guid>216</guid>
             <content:encoded><![CDATA[<h1 id="文章列表">文章列表<a aria-hidden="true" href="#文章列表">#</a></h1>
 
@@ -11662,7 +11662,7 @@ color: #666;
         </item>
         <item>
             <title><![CDATA[文章列表]]></title>
-            <link>https://hotoo.github.io/blog/page/10/</link>
+            <link>https://hotoo.github.io/blog/page/9/</link>
             <guid>217</guid>
             <content:encoded><![CDATA[<h1 id="文章列表">文章列表<a aria-hidden="true" href="#文章列表">#</a></h1>
 
@@ -11808,9 +11808,18 @@ color: #666;
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[Categories]]></title>
+            <link>https://hotoo.github.io/blog/categories/</link>
+            <guid>226</guid>
+            <content:encoded><![CDATA[<h1 id="categories">Categories<a aria-hidden="true" href="#categories">#</a></h1>
+<ul>
+<li><a href="/blog/categories/Technology/">Technology</a> (4)</li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[Tags]]></title>
             <link>https://hotoo.github.io/blog/tags/</link>
-            <guid>226</guid>
+            <guid>227</guid>
             <content:encoded><![CDATA[<h1 id="tags">Tags<a aria-hidden="true" href="#tags">#</a></h1>
 
 <ul>
@@ -11908,9 +11917,68 @@ color: #666;
 </ul>]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[文件名：下划线、还是驼峰？]]></title>
+            <link>https://hotoo.github.io/blog/post/underline-file-name-or-camel-case</link>
+            <guid>228</guid>
+            <content:encoded><![CDATA[<h1 id="文件名下划线还是驼峰">文件名：下划线、还是驼峰？<a aria-hidden="true" href="#文件名下划线还是驼峰">#</a></h1>
+
+<p>很久之前写了个 <a href="https://github.com/hotoo/jsgf.vim" target="_blank" rel="noopener noreferrer">jsgf.vim</a> 插件，可以在 js 代码中 <code>gf</code> 两键打开 import 的定义文件。</p>
+<p>后来又针对 eggjs 的特性写了个 Vim 插件，可以 <code>gf</code> 两键打开 controllers, service 定义文件，阅读 eggjs 的代码方便多了，例如</p>
+<pre><code>  const resp = await ctx.service.mode.name.method();
+                     ^---------------------------
+</code></pre>
+<p>光标在箭头上方的任意位置按 <code>gf</code> 键就可以打开对应的代码定义文件。</p>
+<p><img src="https://user-images.githubusercontent.com/143572/134893630-64319acc-e675-4b5e-8f39-df4e20dff0f7.png" alt="image"></img></p>
+<p>但是有个问题，就是 eggjs 针对文件名带有下划线或中划线的，会替换成驼峰形式。即文件名为 <code>app/service/path-name/mode_name.js</code> 的路径，Loader 会转换成驼峰形式，在业务代码中必须以驼峰形式调用：</p>
+<pre><code>  // file path:      app/service/path-name/mode_name.js
+  const resp = await ctx.service.pathName.modeName.method();
+                                 ^------- ^-------
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/143572/134892649-0b06bb64-f4ba-4d73-b6cb-d71dda76604a.png" alt="image"></img></p>
+<p>当时 eggjs 做这个目的，估计也说为了支持和顺应当时的文件名命名规范，当时大多数命名规范要求文件名用小写字母、数字、下划线和中划线。</p>
+<p>但是，这种命名规范真的好吗？</p>
+<p>我的答案是：绝对不好。</p>
+<ol>
+<li>一致性：代码中的名字，和实际文件系统名字不一致。</li>
+<li>确定性：代码中调用的是驼峰的，而实际文件名到底是驼峰，是下划线，还是中划线？这是不确定的。</li>
+<li>唯一性：下划线和中划线都被替换成驼峰，如果同时存在 2 者甚至 3 者，这个定义不是唯一的。</li>
+</ol>
+<p>eggjs Loader 要支持这种文件名，一个正则表达式就搞定了。很简单。</p>
+<p>是的。但是用户要找到定义它的文件，可就苦了。首先需要知道这种（约定俗成的）替换逻辑（程序员的常识？），其次需要 O(3^n) 的时间复杂度和文件系统查询判断才能 <strong>不那么准确的</strong> 找到对应的定义文件。</p>
+<p>eggjs Loader 加的这个功能，当时不觉得有什么不好，甚至觉得很不错。但是现在细想起来，有点画蛇添足，如果当时不做这个替换，开发者可以用下划线和中划线，下划线也可以在代码中直接使用，中划线你就自己难堪点，用 <code>ctx.servcie[&#39;path-name&#39;][&#39;mode-name&#39;].method()</code> 也不是不能用。</p>
+<p>这样一致性、确定性、唯一性的问题都没有了。少即是多，什么都不做，反而是更好的选择。</p>
+<hr></hr>
+<p>随便一提：</p>
+<p>有人说，用 vscode 就没这个困扰，确实，用户输入关键字，vscode 通过模糊算法把所有可能性都列出来，让用户判断和选择，长长的待选列表里确实是有你要的的选项，但更多的是你不要的选项，而且首先你得知道这个黑暗的替换逻辑，其次如果文件系统因为不唯一性，出现 2 个甚至 3 个可能的选项，用户是懵的。</p>
+<p>排除不确定性，Vim 插件可以 <code>gf</code> 两键准确定位并打开对应文件，不可同日而语。</p>
+<hr></hr>
+<p>最后，我不想写个 O(3^n) 复杂度的算法来支持这个东西，然后用了一行命令搞定，业务代码都不用改一行，毫无违和感：</p>
+<pre><code>$ git mv a_b-c aBC
+</code></pre>
+<h2 id="参考">参考<a aria-hidden="true" href="#参考">#</a></h2>
+<ul>
+<li>
+<p><a href="https://github.com/eggjs/egg-core/blob/99ef7541b80f73ec4f616628454afde717495f9f/lib/loader/file_loader.js#L230" target="_blank" rel="noopener noreferrer">https://github.com/eggjs/egg-core/blob/99ef7541b80f73ec4f616628454afde717495f9f/lib/loader/file_loader.js#L230</a></p>
+</li>
+<li>
+<p><a href="https://www.ruanyifeng.com/blog/2017/02/filename-should-be-lowercase.html" target="_blank" rel="noopener noreferrer">为什么文件名要小写？ - 阮一峰的网络日志</a></p>
+</li>
+<li>
+<p><a href="https://github.com/wwpeng520/blog/blob/master/source/_posts/%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83.md" target="_blank" rel="noopener noreferrer">blog/前端项目命名规范.md at master · wwpeng520/blog</a></p>
+</li>
+<li>
+<p><a href="https://segmentfault.com/q/1010000006040818" target="_blank" rel="noopener noreferrer">文件名下划线还是中划线？ - SegmentFault 思否</a></p>
+</li>
+</ul>
+<hr></hr>
+<p><strong>Category:</strong> Technology</p>
+<p><em>Published on 2021-09-27</em></p>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[MacVim 释出 r182 版]]></title>
             <link>https://hotoo.github.io/blog/post/macvim-r182</link>
-            <guid>227</guid>
+            <guid>229</guid>
             <content:encoded><![CDATA[<h1 id="macvim-释出-r182-版">MacVim 释出 r182 版<a aria-hidden="true" href="#macvim-释出-r182-版">#</a></h1>
 <p>MacVim r182 更新到 Vim 9.1.1887</p>
 <p>此更新仍然基于 macOS 15 Sequoia 构建，不包含针对 macOS 26 Tahoe 的任何特定修复或改进。这些将在未来的更新中提供。</p>
@@ -11994,74 +12062,6 @@ color: #666;
 <hr></hr>
 <p><strong>Tags:</strong> </p>
 <p><em>Published on 2025-11-09</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Categories]]></title>
-            <link>https://hotoo.github.io/blog/categories/</link>
-            <guid>228</guid>
-            <content:encoded><![CDATA[<h1 id="categories">Categories<a aria-hidden="true" href="#categories">#</a></h1>
-<ul>
-<li><a href="/blog/categories/Technology/">Technology</a> (4)</li>
-</ul>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[文件名：下划线、还是驼峰？]]></title>
-            <link>https://hotoo.github.io/blog/post/underline-file-name-or-camel-case</link>
-            <guid>229</guid>
-            <content:encoded><![CDATA[<h1 id="文件名下划线还是驼峰">文件名：下划线、还是驼峰？<a aria-hidden="true" href="#文件名下划线还是驼峰">#</a></h1>
-
-<p>很久之前写了个 <a href="https://github.com/hotoo/jsgf.vim" target="_blank" rel="noopener noreferrer">jsgf.vim</a> 插件，可以在 js 代码中 <code>gf</code> 两键打开 import 的定义文件。</p>
-<p>后来又针对 eggjs 的特性写了个 Vim 插件，可以 <code>gf</code> 两键打开 controllers, service 定义文件，阅读 eggjs 的代码方便多了，例如</p>
-<pre><code>  const resp = await ctx.service.mode.name.method();
-                     ^---------------------------
-</code></pre>
-<p>光标在箭头上方的任意位置按 <code>gf</code> 键就可以打开对应的代码定义文件。</p>
-<p><img src="https://user-images.githubusercontent.com/143572/134893630-64319acc-e675-4b5e-8f39-df4e20dff0f7.png" alt="image"></img></p>
-<p>但是有个问题，就是 eggjs 针对文件名带有下划线或中划线的，会替换成驼峰形式。即文件名为 <code>app/service/path-name/mode_name.js</code> 的路径，Loader 会转换成驼峰形式，在业务代码中必须以驼峰形式调用：</p>
-<pre><code>  // file path:      app/service/path-name/mode_name.js
-  const resp = await ctx.service.pathName.modeName.method();
-                                 ^------- ^-------
-</code></pre>
-<p><img src="https://user-images.githubusercontent.com/143572/134892649-0b06bb64-f4ba-4d73-b6cb-d71dda76604a.png" alt="image"></img></p>
-<p>当时 eggjs 做这个目的，估计也说为了支持和顺应当时的文件名命名规范，当时大多数命名规范要求文件名用小写字母、数字、下划线和中划线。</p>
-<p>但是，这种命名规范真的好吗？</p>
-<p>我的答案是：绝对不好。</p>
-<ol>
-<li>一致性：代码中的名字，和实际文件系统名字不一致。</li>
-<li>确定性：代码中调用的是驼峰的，而实际文件名到底是驼峰，是下划线，还是中划线？这是不确定的。</li>
-<li>唯一性：下划线和中划线都被替换成驼峰，如果同时存在 2 者甚至 3 者，这个定义不是唯一的。</li>
-</ol>
-<p>eggjs Loader 要支持这种文件名，一个正则表达式就搞定了。很简单。</p>
-<p>是的。但是用户要找到定义它的文件，可就苦了。首先需要知道这种（约定俗成的）替换逻辑（程序员的常识？），其次需要 O(3^n) 的时间复杂度和文件系统查询判断才能 <strong>不那么准确的</strong> 找到对应的定义文件。</p>
-<p>eggjs Loader 加的这个功能，当时不觉得有什么不好，甚至觉得很不错。但是现在细想起来，有点画蛇添足，如果当时不做这个替换，开发者可以用下划线和中划线，下划线也可以在代码中直接使用，中划线你就自己难堪点，用 <code>ctx.servcie[&#39;path-name&#39;][&#39;mode-name&#39;].method()</code> 也不是不能用。</p>
-<p>这样一致性、确定性、唯一性的问题都没有了。少即是多，什么都不做，反而是更好的选择。</p>
-<hr></hr>
-<p>随便一提：</p>
-<p>有人说，用 vscode 就没这个困扰，确实，用户输入关键字，vscode 通过模糊算法把所有可能性都列出来，让用户判断和选择，长长的待选列表里确实是有你要的的选项，但更多的是你不要的选项，而且首先你得知道这个黑暗的替换逻辑，其次如果文件系统因为不唯一性，出现 2 个甚至 3 个可能的选项，用户是懵的。</p>
-<p>排除不确定性，Vim 插件可以 <code>gf</code> 两键准确定位并打开对应文件，不可同日而语。</p>
-<hr></hr>
-<p>最后，我不想写个 O(3^n) 复杂度的算法来支持这个东西，然后用了一行命令搞定，业务代码都不用改一行，毫无违和感：</p>
-<pre><code>$ git mv a_b-c aBC
-</code></pre>
-<h2 id="参考">参考<a aria-hidden="true" href="#参考">#</a></h2>
-<ul>
-<li>
-<p><a href="https://github.com/eggjs/egg-core/blob/99ef7541b80f73ec4f616628454afde717495f9f/lib/loader/file_loader.js#L230" target="_blank" rel="noopener noreferrer">https://github.com/eggjs/egg-core/blob/99ef7541b80f73ec4f616628454afde717495f9f/lib/loader/file_loader.js#L230</a></p>
-</li>
-<li>
-<p><a href="https://www.ruanyifeng.com/blog/2017/02/filename-should-be-lowercase.html" target="_blank" rel="noopener noreferrer">为什么文件名要小写？ - 阮一峰的网络日志</a></p>
-</li>
-<li>
-<p><a href="https://github.com/wwpeng520/blog/blob/master/source/_posts/%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83.md" target="_blank" rel="noopener noreferrer">blog/前端项目命名规范.md at master · wwpeng520/blog</a></p>
-</li>
-<li>
-<p><a href="https://segmentfault.com/q/1010000006040818" target="_blank" rel="noopener noreferrer">文件名下划线还是中划线？ - SegmentFault 思否</a></p>
-</li>
-</ul>
-<hr></hr>
-<p><strong>Category:</strong> Technology</p>
-<p><em>Published on 2021-09-27</em></p>
 ]]></content:encoded>
         </item>
         <item>
@@ -12499,72 +12499,9 @@ $ gitopen mr
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[HTML Tabs 最佳实践]]></title>
-            <link>https://hotoo.github.io/blog/post/html-tabs</link>
-            <guid>236</guid>
-            <content:encoded><![CDATA[<h1 id="html-tabs-最佳实践">HTML Tabs 最佳实践<a aria-hidden="true" href="#html-tabs-最佳实践">#</a></h1>
-<p>Tabs 面板的显示和隐藏一般以 display 来控制显示和隐藏，但是如果默认未显示的 Tabs 面板中渲染需要知道面板宽高的组件
-（如 Canvas，某些轮播组件等）时，就会因为面板在 display:none 的状态下无法拿到宽高导致渲染组件异常。</p>
-<p>这里建议 Tabs 使用 position:absolute 来将不可见的组件移动到用户不可见的负坐标区域，需要时再将面板移动到可见区域，
-来避免面板不可见时渲染内部组件异常的问题。而且也可以做一些滑动显示的动画效果。</p>
-<p>简单示例代码：</p>
-<p>HTML:</p>
-<pre><code>&lt;div class=&quot;tabs&quot;&gt;
-  &lt;ol class=&quot;tabbar&quot;&gt;
-    &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#tab1&quot;&gt;Tab 1&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#tab2&quot;&gt;Tab 2&lt;/a&gt;&lt;/li&gt;
-  &lt;/ol&gt;
-  &lt;ol class=&quot;tabpanel&quot;&gt;
-    &lt;li class=&quot;active&quot;&gt;
-      Tab Panel 1
-    &lt;/li&gt;
-    &lt;li&gt;
-      Tab Panel 2
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</code></pre>
-<p>LESS:</p>
-<pre><code>.tabs {
-  .tabpanel {
-    position: relative;
-    li {
-      position: absolute;
-      top: -999999px;
-      left: -9999px;
-      width: 100%; /* 避免浮动导致宽度不对 */
-    }
-    li.active {
-      /* 不要使用 position:absolute 并且改变坐标的方式，
-       * 避免 Tabs 脱离文档流，父元素高度为 0，导致下面的其他元素错位。
-       */
-      position: static;
-    }
-  }
-}
-</code></pre>
-<h2 id="切换-tab-时面板所在位置问题">切换 Tab 时，面板所在位置问题<a aria-hidden="true" href="#切换-tab-时面板所在位置问题">#</a></h2>
-<p>无论使用 display 还是 position 方案，切换 tab 的时候，面板的位置会停留在上个显示的面板离开时的同一位置（默认是 0）。</p>
-<p>有两个解决方案：</p>
-<ol>
-<li>
-<p>对于可以固定面板高度的场景（如整个页面都是 Tab），固定面板容器的高度，则 position 方案在切换 Tab 的时候，
-默认就定位在当前面板之前停留的位置，但是需要使用 iScroll 类似的方案来实现上下拉回弹，及刷新、加载更多的功能
-（也可以使用 Native 默认的上下拉回弹功能，但是 Tabbar 会随着整个 webview 一起拉动，体验不是太好）。</p>
-</li>
-<li>
-<p>切换 Tab 时，记录各个面板的所在位置，切换回来时使用 scrollTo(x, y) 的方式来滚动到面板上次的位置。</p>
-</li>
-</ol>
-<hr></hr>
-<p><strong>Tags:</strong> , </p>
-<p><em>Published on 2017-03-21</em></p>
-]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[使用 GPG 签名 Git Commits]]></title>
             <link>https://hotoo.github.io/blog/post/gpg-sign-for-git-comments</link>
-            <guid>237</guid>
+            <guid>236</guid>
             <content:encoded><![CDATA[<h1 id="使用-gpg-签名-git-commits">使用 GPG 签名 Git Commits<a aria-hidden="true" href="#使用-gpg-签名-git-commits">#</a></h1>
 <p>前段时间 GitHub 支持在 Git Commits 中使用 GPG 签名验证，可以避免其他人使用你的
 Email 进行 commit。</p>
@@ -12714,6 +12651,69 @@ Comment: GPGTools - https://gpgtools.org
 <hr></hr>
 <p><strong>Tags:</strong> , </p>
 <p><em>Published on 2016-06-11</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[HTML Tabs 最佳实践]]></title>
+            <link>https://hotoo.github.io/blog/post/html-tabs</link>
+            <guid>237</guid>
+            <content:encoded><![CDATA[<h1 id="html-tabs-最佳实践">HTML Tabs 最佳实践<a aria-hidden="true" href="#html-tabs-最佳实践">#</a></h1>
+<p>Tabs 面板的显示和隐藏一般以 display 来控制显示和隐藏，但是如果默认未显示的 Tabs 面板中渲染需要知道面板宽高的组件
+（如 Canvas，某些轮播组件等）时，就会因为面板在 display:none 的状态下无法拿到宽高导致渲染组件异常。</p>
+<p>这里建议 Tabs 使用 position:absolute 来将不可见的组件移动到用户不可见的负坐标区域，需要时再将面板移动到可见区域，
+来避免面板不可见时渲染内部组件异常的问题。而且也可以做一些滑动显示的动画效果。</p>
+<p>简单示例代码：</p>
+<p>HTML:</p>
+<pre><code>&lt;div class=&quot;tabs&quot;&gt;
+  &lt;ol class=&quot;tabbar&quot;&gt;
+    &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#tab1&quot;&gt;Tab 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#tab2&quot;&gt;Tab 2&lt;/a&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;ol class=&quot;tabpanel&quot;&gt;
+    &lt;li class=&quot;active&quot;&gt;
+      Tab Panel 1
+    &lt;/li&gt;
+    &lt;li&gt;
+      Tab Panel 2
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</code></pre>
+<p>LESS:</p>
+<pre><code>.tabs {
+  .tabpanel {
+    position: relative;
+    li {
+      position: absolute;
+      top: -999999px;
+      left: -9999px;
+      width: 100%; /* 避免浮动导致宽度不对 */
+    }
+    li.active {
+      /* 不要使用 position:absolute 并且改变坐标的方式，
+       * 避免 Tabs 脱离文档流，父元素高度为 0，导致下面的其他元素错位。
+       */
+      position: static;
+    }
+  }
+}
+</code></pre>
+<h2 id="切换-tab-时面板所在位置问题">切换 Tab 时，面板所在位置问题<a aria-hidden="true" href="#切换-tab-时面板所在位置问题">#</a></h2>
+<p>无论使用 display 还是 position 方案，切换 tab 的时候，面板的位置会停留在上个显示的面板离开时的同一位置（默认是 0）。</p>
+<p>有两个解决方案：</p>
+<ol>
+<li>
+<p>对于可以固定面板高度的场景（如整个页面都是 Tab），固定面板容器的高度，则 position 方案在切换 Tab 的时候，
+默认就定位在当前面板之前停留的位置，但是需要使用 iScroll 类似的方案来实现上下拉回弹，及刷新、加载更多的功能
+（也可以使用 Native 默认的上下拉回弹功能，但是 Tabbar 会随着整个 webview 一起拉动，体验不是太好）。</p>
+</li>
+<li>
+<p>切换 Tab 时，记录各个面板的所在位置，切换回来时使用 scrollTo(x, y) 的方式来滚动到面板上次的位置。</p>
+</li>
+</ol>
+<hr></hr>
+<p><strong>Tags:</strong> , </p>
+<p><em>Published on 2017-03-21</em></p>
 ]]></content:encoded>
         </item>
         <item>
@@ -13442,9 +13442,81 @@ Boomerang 是 Philip Tellis 维护的一个非常流行的开源 RUM 包。他�
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[或者说『耗时包含了 Blocking 部分的时间』]]></title>
+            <link>https://hotoo.github.io/blog/post/serious-confusion-with-resource-timing</link>
+            <guid>245</guid>
+            <content:encoded><![CDATA[<h1 id="译严重混乱的-resource-timing">译：严重混乱的 Resource Timing<a aria-hidden="true" href="#译严重混乱的-resource-timing">#</a></h1>
+<h1 id="或者说耗时包含了-blocking-部分的时间">或者说『耗时包含了 Blocking 部分的时间』<a aria-hidden="true" href="#或者说耗时包含了-blocking-部分的时间">#</a></h1>
+<p>用 <a href="http://www.w3.org/TR/resource-timing/" target="_blank" rel="noopener noreferrer">Resource Timing</a> 来同统计资源下载性能
+是非常赞的方式，但不幸的是，几乎所有和我聊过的人都是使用 <a href="http://www.w3.org/TR/resource-timing/#duration-attribute" target="_blank" rel="noopener noreferrer"><code>duration</code> 属性</a>，
+而且他们都没有意识到 <code>duration</code> 包含了 blocking 时间。结果 <code>duration</code> 时间
+比实际的下载时间要长很多，超出了开发者意料之外的结果。这个问题在跨域资源中
+尤为糟糕，<code>duration</code> 是唯一可用的。在这篇博文中我将解释这个问题，并提出解决方案。</p>
+<h2 id="resource-timing-回顾">Resource Timing 回顾<a aria-hidden="true" href="#resource-timing-回顾">#</a></h2>
+<p><a href="http://www.w3.org/TR/resource-timing/" target="_blank" rel="noopener noreferrer">Resource Timing 规范</a> 定义了收集网页中
+所有资源耗时统计的 API。现在可用于 Chrome, Chrome for Android, IE 10-11, 和 Opera。
+可以通过 <code>getEntries()</code>, <code>getEntriesByType()</code> 和 <code>getEntriesByName()</code> 得到一个
+<code>PerformanceEntry</code> 列表，一个 <code>PerformanceEntry</code> 对象包含以下属性：</p>
+<ul>
+<li><code>name</code> – URL 地址</li>
+<li><code>entryType</code> – 通常是 “resource”</li>
+<li><code>startTime</code> – 开始处理这个资源的时间（相对开始导航到页面时的毫秒数）</li>
+<li><code>duration</code> – 处理这个资源的总耗时（毫秒）</li>
+</ul>
+<p>上面的属性在所有的资源中都可用，包括同域和跨域的。而同域的资源拥有另外一些可以
+访问的附加属性，这些属性定义在 <code>PerformanceResourceTiming</code> 接口中。这些属性名称
+很简洁清晰，完全可以见名思意，并且以时间顺序排序：</p>
+<ul>
+<li>redirectStart</li>
+<li>redirectEnd</li>
+<li>fetchStart</li>
+<li>domainLookupStart</li>
+<li>domainLookupEnd</li>
+<li>connectStart</li>
+<li>connectEnd</li>
+<li>secureConnectionStart</li>
+<li>requestStart</li>
+<li>responseStart</li>
+<li>responseEnd</li>
+</ul>
+<p>这里有个权威的 <a href="http://www.w3.org/TR/resource-timing/#processing-model" target="_blank" rel="noopener noreferrer">处理模型(processing model)</a> 图
+显示了这些属性所在的各个不同阶段。备注：<code>duration</code> 相当于 <code>responseEnd - startTime</code>。</p>
+<p><img src="http://www.w3.org/TR/resource-timing/resource-timing-overview.png" alt="processing model graphic"></img></p>
+<p>如何使用 Resource Timing 的详细信息，可以参考我的文章 <a href="http://www.stevesouders.com/blog/2014/08/21/resource-timing-practical-tips/" target="_blank" rel="noopener noreferrer">Resource Timing Practical Tips</a> 『<a href="./resource-timing-practical-tips">译者的中文翻译</a>』</p>
+<h2 id="duration-中出乎意外的-blocking-膨胀"><code>duration</code> 中出乎意外的 blocking 膨胀<a aria-hidden="true" href="#duration-中出乎意外的-blocking-膨胀">#</a></h2>
+<p>出于隐私的考虑，同源资源的 PerformanceResourceTiming 属性是受限的。（备注：
+任何资源可以通过 <code>Timing-Allow-Origin</code> 响应头达到“同源”效果。）现在大约有一半
+的资源是跨域的，因此 <code>duration</code> 是度量加载时间的唯一方式。而且即使是同源资源，
+<code>duration</code> 也是唯一以增量方式提供的属性，大概是因为它度量了最重要的阶段。
+这样一来，所有我见过的 Resource Timing 实现都以 <code>duration</code> 做为主要的性能指标。</p>
+<p>不幸的是，<code>duration</code> 比下载时间要大，它包含了阻塞时间（blocking time）—— 浏览器
+意识到需要下载一个资源，到这个资源实际被下载直接的时间延迟。阻塞会在几种情况时
+发生，最典型的资源数量比 TCP 连接数要多的情况。大多数浏览器为每个主机开放了 6
+个 TCP 连接，IE10（8个连接）和 IE11（12个连接）例外。</p>
+<p>这个 <a href="http://stevesouders.com/tests/rt-blocking.php" target="_blank" rel="noopener noreferrer">Resource Timing 阻塞测试页面</a>
+有 16 个图片，因此无论哪个浏览器都会阻塞一部分图片。每个图片被编程为在服务器
+有 1 秒的延迟，这 16 个图片，每个图片都显示了 <code>startTime</code> 和 <code>duration</code>。
+另外还有这个测试页面在 WebPagetest 中通过 <a href="http://www.webpagetest.org/result/141125_4T_11FT/" target="_blank" rel="noopener noreferrer">Chrome</a>,
+<a href="http://www.webpagetest.org/result/141125_BN_11FY/" target="_blank" rel="noopener noreferrer">IE10</a> 和
+<a href="http://www.webpagetest.org/result/141125_5K_11CB/" target="_blank" rel="noopener noreferrer">IE11</a> 加载的测试结果，
+可以通过查看截屏来分析时序结果。注，为什么所有的图片的 <code>startTime</code> 大致都相同？
+英文这个时间是浏览器解析 IMG 标签并意识到需要下载改资源的时间，由于先下载的图片
+阻塞的原因，但在页面出现后，图片的 <code>duration</code> 值大约步进 1 秒左右。</p>
+<h2 id="译者补充">译者补充<a aria-hidden="true" href="#译者补充">#</a></h2>
+<ul>
+<li>
+<p><a href="http://www.stevesouders.com/blog/2014/11/25/serious-confusion-with-resource-timing/" target="_blank" rel="noopener noreferrer">SERIOUS CONFUSION with Resource Timing</a> - 原文出处。</p>
+</li>
+</ul>
+<hr></hr>
+<p><strong>Tags:</strong> , </p>
+<p><em>Published on 2014-12-30</em></p>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[GitHub, GitLab, or BitBucket?]]></title>
             <link>https://hotoo.github.io/blog/post/github-gitlab-or-bitbucket</link>
-            <guid>245</guid>
+            <guid>246</guid>
             <content:encoded><![CDATA[<h1 id="github-gitlab-or-bitbucket">GitHub, GitLab, or BitBucket?<a aria-hidden="true" href="#github-gitlab-or-bitbucket">#</a></h1>
 <blockquote>
 <p>GitHub 是汇集了众多开源项目的闭源系统，</p>
@@ -13562,78 +13634,6 @@ Boomerang 是 Philip Tellis 维护的一个非常流行的开源 RUM 包。他�
 <hr></hr>
 <p><strong>Tags:</strong> </p>
 <p><em>Published on 2014-08-03</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[或者说『耗时包含了 Blocking 部分的时间』]]></title>
-            <link>https://hotoo.github.io/blog/post/serious-confusion-with-resource-timing</link>
-            <guid>246</guid>
-            <content:encoded><![CDATA[<h1 id="译严重混乱的-resource-timing">译：严重混乱的 Resource Timing<a aria-hidden="true" href="#译严重混乱的-resource-timing">#</a></h1>
-<h1 id="或者说耗时包含了-blocking-部分的时间">或者说『耗时包含了 Blocking 部分的时间』<a aria-hidden="true" href="#或者说耗时包含了-blocking-部分的时间">#</a></h1>
-<p>用 <a href="http://www.w3.org/TR/resource-timing/" target="_blank" rel="noopener noreferrer">Resource Timing</a> 来同统计资源下载性能
-是非常赞的方式，但不幸的是，几乎所有和我聊过的人都是使用 <a href="http://www.w3.org/TR/resource-timing/#duration-attribute" target="_blank" rel="noopener noreferrer"><code>duration</code> 属性</a>，
-而且他们都没有意识到 <code>duration</code> 包含了 blocking 时间。结果 <code>duration</code> 时间
-比实际的下载时间要长很多，超出了开发者意料之外的结果。这个问题在跨域资源中
-尤为糟糕，<code>duration</code> 是唯一可用的。在这篇博文中我将解释这个问题，并提出解决方案。</p>
-<h2 id="resource-timing-回顾">Resource Timing 回顾<a aria-hidden="true" href="#resource-timing-回顾">#</a></h2>
-<p><a href="http://www.w3.org/TR/resource-timing/" target="_blank" rel="noopener noreferrer">Resource Timing 规范</a> 定义了收集网页中
-所有资源耗时统计的 API。现在可用于 Chrome, Chrome for Android, IE 10-11, 和 Opera。
-可以通过 <code>getEntries()</code>, <code>getEntriesByType()</code> 和 <code>getEntriesByName()</code> 得到一个
-<code>PerformanceEntry</code> 列表，一个 <code>PerformanceEntry</code> 对象包含以下属性：</p>
-<ul>
-<li><code>name</code> – URL 地址</li>
-<li><code>entryType</code> – 通常是 “resource”</li>
-<li><code>startTime</code> – 开始处理这个资源的时间（相对开始导航到页面时的毫秒数）</li>
-<li><code>duration</code> – 处理这个资源的总耗时（毫秒）</li>
-</ul>
-<p>上面的属性在所有的资源中都可用，包括同域和跨域的。而同域的资源拥有另外一些可以
-访问的附加属性，这些属性定义在 <code>PerformanceResourceTiming</code> 接口中。这些属性名称
-很简洁清晰，完全可以见名思意，并且以时间顺序排序：</p>
-<ul>
-<li>redirectStart</li>
-<li>redirectEnd</li>
-<li>fetchStart</li>
-<li>domainLookupStart</li>
-<li>domainLookupEnd</li>
-<li>connectStart</li>
-<li>connectEnd</li>
-<li>secureConnectionStart</li>
-<li>requestStart</li>
-<li>responseStart</li>
-<li>responseEnd</li>
-</ul>
-<p>这里有个权威的 <a href="http://www.w3.org/TR/resource-timing/#processing-model" target="_blank" rel="noopener noreferrer">处理模型(processing model)</a> 图
-显示了这些属性所在的各个不同阶段。备注：<code>duration</code> 相当于 <code>responseEnd - startTime</code>。</p>
-<p><img src="http://www.w3.org/TR/resource-timing/resource-timing-overview.png" alt="processing model graphic"></img></p>
-<p>如何使用 Resource Timing 的详细信息，可以参考我的文章 <a href="http://www.stevesouders.com/blog/2014/08/21/resource-timing-practical-tips/" target="_blank" rel="noopener noreferrer">Resource Timing Practical Tips</a> 『<a href="./resource-timing-practical-tips">译者的中文翻译</a>』</p>
-<h2 id="duration-中出乎意外的-blocking-膨胀"><code>duration</code> 中出乎意外的 blocking 膨胀<a aria-hidden="true" href="#duration-中出乎意外的-blocking-膨胀">#</a></h2>
-<p>出于隐私的考虑，同源资源的 PerformanceResourceTiming 属性是受限的。（备注：
-任何资源可以通过 <code>Timing-Allow-Origin</code> 响应头达到“同源”效果。）现在大约有一半
-的资源是跨域的，因此 <code>duration</code> 是度量加载时间的唯一方式。而且即使是同源资源，
-<code>duration</code> 也是唯一以增量方式提供的属性，大概是因为它度量了最重要的阶段。
-这样一来，所有我见过的 Resource Timing 实现都以 <code>duration</code> 做为主要的性能指标。</p>
-<p>不幸的是，<code>duration</code> 比下载时间要大，它包含了阻塞时间（blocking time）—— 浏览器
-意识到需要下载一个资源，到这个资源实际被下载直接的时间延迟。阻塞会在几种情况时
-发生，最典型的资源数量比 TCP 连接数要多的情况。大多数浏览器为每个主机开放了 6
-个 TCP 连接，IE10（8个连接）和 IE11（12个连接）例外。</p>
-<p>这个 <a href="http://stevesouders.com/tests/rt-blocking.php" target="_blank" rel="noopener noreferrer">Resource Timing 阻塞测试页面</a>
-有 16 个图片，因此无论哪个浏览器都会阻塞一部分图片。每个图片被编程为在服务器
-有 1 秒的延迟，这 16 个图片，每个图片都显示了 <code>startTime</code> 和 <code>duration</code>。
-另外还有这个测试页面在 WebPagetest 中通过 <a href="http://www.webpagetest.org/result/141125_4T_11FT/" target="_blank" rel="noopener noreferrer">Chrome</a>,
-<a href="http://www.webpagetest.org/result/141125_BN_11FY/" target="_blank" rel="noopener noreferrer">IE10</a> 和
-<a href="http://www.webpagetest.org/result/141125_5K_11CB/" target="_blank" rel="noopener noreferrer">IE11</a> 加载的测试结果，
-可以通过查看截屏来分析时序结果。注，为什么所有的图片的 <code>startTime</code> 大致都相同？
-英文这个时间是浏览器解析 IMG 标签并意识到需要下载改资源的时间，由于先下载的图片
-阻塞的原因，但在页面出现后，图片的 <code>duration</code> 值大约步进 1 秒左右。</p>
-<h2 id="译者补充">译者补充<a aria-hidden="true" href="#译者补充">#</a></h2>
-<ul>
-<li>
-<p><a href="http://www.stevesouders.com/blog/2014/11/25/serious-confusion-with-resource-timing/" target="_blank" rel="noopener noreferrer">SERIOUS CONFUSION with Resource Timing</a> - 原文出处。</p>
-</li>
-</ul>
-<hr></hr>
-<p><strong>Tags:</strong> , </p>
-<p><em>Published on 2014-12-30</em></p>
 ]]></content:encoded>
         </item>
         <item>
@@ -13875,9 +13875,45 @@ git config --local user.email user@email.com
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[密码与正则]]></title>
+            <link>https://hotoo.github.io/blog/post/regexp-for-password</link>
+            <guid>251</guid>
+            <content:encoded><![CDATA[<h1 id="密码与正则">密码与正则<a aria-hidden="true" href="#密码与正则">#</a></h1>
+<p>通常我们需要校验验证用户输入的密码是否符合强度要求。</p>
+<p>密码字符包括以下几种：</p>
+<ul>
+<li>小写英文字符 <code>[a-z]</code></li>
+<li>大写英文字符 <code>[A-Z]</code></li>
+<li>阿拉伯数字 <code>[0-9]</code></li>
+<li>部分特殊字符 <code>[&amp;#96;~!@#$%^&amp;*()_\-+=|\\\[\]{}:;&#39;&quot;&lt;&gt;,.\/?]</code>，
+简化为 <code>[ -\/:-@\[-&amp;#96;{-~]</code></li>
+</ul>
+<blockquote>
+<p>注，md 的限制，上面特殊字符中 ` 使用 <code>&amp;#96;</code> 代替。</p>
+</blockquote>
+<p>目前常见的密码强度包括以下几种</p>
+<ul>
+<li>普通强度：必须同时包含 2种字符。</li>
+<li>高强度：必须同时包含 3种字符。</li>
+<li>极高强度：必须同时包含 4种密码字符。</li>
+</ul>
+<p>通常情况下，我们可能会基于种种考虑采用字符串方法计算密码强度，或校验密码合法性，
+下面我们更多的考虑使用正则表达式来解决这个问题。</p>
+<pre><code>var normal = /^(?![0-9]+$)(?![a-zA-Z]+$)(?![ -\/:-@\[-`{-~]+$)[0-9A-Za-z -\/:-@\[-`{-~]{6,20}$/;
+
+var high = /^(?![0-9a-zA-Z]+$)(?![a-zA-Z#*@\-\_]+$)(?![0-9#*@\-\_]+$)[0-9A-Za-z#*@\-\_]{6,20}$/;
+
+var highest = &quot;1aa1&quot;.replace(/^(?:([a-z])|([A-Z])|([0-9])|(.)){6,}|(.)+$/, &quot;$1$2$3$4$5&quot;)
+</code></pre>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2013-11-17</em></p>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[中国农历]]></title>
             <link>https://hotoo.github.io/blog/post/lunar-calendar</link>
-            <guid>251</guid>
+            <guid>252</guid>
             <content:encoded><![CDATA[<h1 id="中国农历">中国农历<a aria-hidden="true" href="#中国农历">#</a></h1>
 <p>Google 日历内置了中国农历的支持，但是各种桌面客户端如 Mac iCal, iPhone 默认日历
 都无法正常使用，网上搜索了一遍也没有更好的订阅地址，大都不更新了。</p>
@@ -13961,42 +13997,6 @@ Google Calendar 中可以隐藏这个日历，只是在各个客户端中显示�
 <hr></hr>
 <p><strong>Tags:</strong> </p>
 <p><em>Published on 2013-11-13</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[密码与正则]]></title>
-            <link>https://hotoo.github.io/blog/post/regexp-for-password</link>
-            <guid>252</guid>
-            <content:encoded><![CDATA[<h1 id="密码与正则">密码与正则<a aria-hidden="true" href="#密码与正则">#</a></h1>
-<p>通常我们需要校验验证用户输入的密码是否符合强度要求。</p>
-<p>密码字符包括以下几种：</p>
-<ul>
-<li>小写英文字符 <code>[a-z]</code></li>
-<li>大写英文字符 <code>[A-Z]</code></li>
-<li>阿拉伯数字 <code>[0-9]</code></li>
-<li>部分特殊字符 <code>[&amp;#96;~!@#$%^&amp;*()_\-+=|\\\[\]{}:;&#39;&quot;&lt;&gt;,.\/?]</code>，
-简化为 <code>[ -\/:-@\[-&amp;#96;{-~]</code></li>
-</ul>
-<blockquote>
-<p>注，md 的限制，上面特殊字符中 ` 使用 <code>&amp;#96;</code> 代替。</p>
-</blockquote>
-<p>目前常见的密码强度包括以下几种</p>
-<ul>
-<li>普通强度：必须同时包含 2种字符。</li>
-<li>高强度：必须同时包含 3种字符。</li>
-<li>极高强度：必须同时包含 4种密码字符。</li>
-</ul>
-<p>通常情况下，我们可能会基于种种考虑采用字符串方法计算密码强度，或校验密码合法性，
-下面我们更多的考虑使用正则表达式来解决这个问题。</p>
-<pre><code>var normal = /^(?![0-9]+$)(?![a-zA-Z]+$)(?![ -\/:-@\[-`{-~]+$)[0-9A-Za-z -\/:-@\[-`{-~]{6,20}$/;
-
-var high = /^(?![0-9a-zA-Z]+$)(?![a-zA-Z#*@\-\_]+$)(?![0-9#*@\-\_]+$)[0-9A-Za-z#*@\-\_]{6,20}$/;
-
-var highest = &quot;1aa1&quot;.replace(/^(?:([a-z])|([A-Z])|([0-9])|(.)){6,}|(.)+$/, &quot;$1$2$3$4$5&quot;)
-</code></pre>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2013-11-17</em></p>
 ]]></content:encoded>
         </item>
         <item>
@@ -15559,30 +15559,9 @@ rm -f &quot;$TMPLEFT&quot; &quot;$TMPRIGHT&quot;
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[杭州萧山无人村骑行]]></title>
-            <link>https://hotoo.github.io/blog/post/wurencun</link>
-            <guid>273</guid>
-            <content:encoded><![CDATA[<h1 id="杭州萧山无人村骑行">杭州萧山无人村骑行<a aria-hidden="true" href="#杭州萧山无人村骑行">#</a></h1>
-<p>从驴友哪里知道杭州附近有个无人村，网上看了帖子盘山公路很风景都很吸引人，
-但是地图山就是搜索不到在哪里，后来才知道地图上是狮山村，大概是后来没有人住了
-才被大家称为无人村的。</p>
-<p>骑行路线：</p>
-<p><a href="https://ditu.google.com/maps/ms?msa=0&amp;amp;msid=201867621321994349317.0004ccf3731b6db4167b5&amp;amp;brcurrent=3,0x344bb629439aaa99:0xa7bfd183824de83a,0%3B5,0,0&amp;amp;ie=UTF8&amp;amp;t=h&amp;amp;ll=30.123883,120.152439&amp;amp;spn=0.296055,0.075098&amp;amp;output=embed" target="_blank" rel="noopener noreferrer">https://ditu.google.com/maps/ms?msa=0&amp;msid=201867621321994349317.0004ccf3731b6db4167b5&amp;brcurrent=3,0x344bb629439aaa99:0xa7bfd183824de83a,0%3B5,0,0&amp;ie=UTF8&amp;t=h&amp;ll=30.123883,120.152439&amp;spn=0.296055,0.075098&amp;output=embed</a></p>
-<pre><code>&lt;iframe width=&quot;600&quot; height=&quot;400&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot;
-  src=&quot;https://ditu.google.com/maps/ms?msa=0&amp;amp;msid=201867621321994349317.0004ccf3731b6db4167b5&amp;amp;brcurrent=3,0x344bb629439aaa99:0xa7bfd183824de83a,0%3B5,0,0&amp;amp;ie=UTF8&amp;amp;t=h&amp;amp;ll=30.123883,120.152439&amp;amp;spn=0.296055,0.075098&amp;amp;output=embed&quot;&gt;
-&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;View &lt;a href=&quot;https://ditu.google.com/maps/ms?msa=0&amp;amp;msid=201867621321994349317.0004ccf3731b6db4167b5&amp;amp;brcurrent=3,0x344bb629439aaa99:0xa7bfd183824de83a,0%3B5,0,0&amp;amp;ie=UTF8&amp;amp;t=h&amp;amp;ll=30.123883,120.152439&amp;amp;spn=0.296055,0.075098&amp;amp;source=embed&quot;
-    style=&quot;color:#0000FF;text-align:left&quot;&gt;狮山村（无人村）&lt;/a&gt; in a larger map&lt;/small&gt;
-</code></pre>
-<p>其他同学都有事没能一起，只有一个测试好基友 <a href="http://weibo.com/n/peacefulgoose" target="_blank" rel="noopener noreferrer">@peacefulgoose</a> 一起。</p>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2012-10-27</em></p>
-]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[在 Vim 上安装使用 Tagbar]]></title>
             <link>https://hotoo.github.io/blog/post/vim-install-tagbar</link>
-            <guid>274</guid>
+            <guid>273</guid>
             <content:encoded><![CDATA[<h1 id="在-vim-上安装使用-tagbar">在 Vim 上安装使用 Tagbar<a aria-hidden="true" href="#在-vim-上安装使用-tagbar">#</a></h1>
 <pre><code>git clone https://github.com/mozilla/doctorjs.git –recursive
 cd doctorjs
@@ -15618,6 +15597,27 @@ sudo make install
 <hr></hr>
 <p><strong>Tags:</strong> </p>
 <p><em>Published on 2012-10-28</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[杭州萧山无人村骑行]]></title>
+            <link>https://hotoo.github.io/blog/post/wurencun</link>
+            <guid>274</guid>
+            <content:encoded><![CDATA[<h1 id="杭州萧山无人村骑行">杭州萧山无人村骑行<a aria-hidden="true" href="#杭州萧山无人村骑行">#</a></h1>
+<p>从驴友哪里知道杭州附近有个无人村，网上看了帖子盘山公路很风景都很吸引人，
+但是地图山就是搜索不到在哪里，后来才知道地图上是狮山村，大概是后来没有人住了
+才被大家称为无人村的。</p>
+<p>骑行路线：</p>
+<p><a href="https://ditu.google.com/maps/ms?msa=0&amp;amp;msid=201867621321994349317.0004ccf3731b6db4167b5&amp;amp;brcurrent=3,0x344bb629439aaa99:0xa7bfd183824de83a,0%3B5,0,0&amp;amp;ie=UTF8&amp;amp;t=h&amp;amp;ll=30.123883,120.152439&amp;amp;spn=0.296055,0.075098&amp;amp;output=embed" target="_blank" rel="noopener noreferrer">https://ditu.google.com/maps/ms?msa=0&amp;msid=201867621321994349317.0004ccf3731b6db4167b5&amp;brcurrent=3,0x344bb629439aaa99:0xa7bfd183824de83a,0%3B5,0,0&amp;ie=UTF8&amp;t=h&amp;ll=30.123883,120.152439&amp;spn=0.296055,0.075098&amp;output=embed</a></p>
+<pre><code>&lt;iframe width=&quot;600&quot; height=&quot;400&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot;
+  src=&quot;https://ditu.google.com/maps/ms?msa=0&amp;amp;msid=201867621321994349317.0004ccf3731b6db4167b5&amp;amp;brcurrent=3,0x344bb629439aaa99:0xa7bfd183824de83a,0%3B5,0,0&amp;amp;ie=UTF8&amp;amp;t=h&amp;amp;ll=30.123883,120.152439&amp;amp;spn=0.296055,0.075098&amp;amp;output=embed&quot;&gt;
+&lt;/iframe&gt;&lt;br /&gt;&lt;small&gt;View &lt;a href=&quot;https://ditu.google.com/maps/ms?msa=0&amp;amp;msid=201867621321994349317.0004ccf3731b6db4167b5&amp;amp;brcurrent=3,0x344bb629439aaa99:0xa7bfd183824de83a,0%3B5,0,0&amp;amp;ie=UTF8&amp;amp;t=h&amp;amp;ll=30.123883,120.152439&amp;amp;spn=0.296055,0.075098&amp;amp;source=embed&quot;
+    style=&quot;color:#0000FF;text-align:left&quot;&gt;狮山村（无人村）&lt;/a&gt; in a larger map&lt;/small&gt;
+</code></pre>
+<p>其他同学都有事没能一起，只有一个测试好基友 <a href="http://weibo.com/n/peacefulgoose" target="_blank" rel="noopener noreferrer">@peacefulgoose</a> 一起。</p>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2012-10-27</em></p>
 ]]></content:encoded>
         </item>
         <item>
@@ -15873,9 +15873,56 @@ My Places 的数据，这个支持还不行，会被拉成直线。</li>
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[智能同步滚动条]]></title>
+            <link>https://hotoo.github.io/blog/post/smart-sync-scroll</link>
+            <guid>280</guid>
+            <content:encoded><![CDATA[<h1 id="智能同步滚动条">智能同步滚动条<a aria-hidden="true" href="#智能同步滚动条">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>Browser</th>
+<th>documentElement.scrollTop</th>
+<th>body.scrollTop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IE</td>
+<td>√</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>√</td>
+<td>×</td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>×</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>×</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Opera</td>
+<td>√</td>
+<td>×</td>
+</tr>
+</tbody>
+</table>
+<p>TODO: 其他的 get 方式。尝试智能判断是否设置成功，非通过浏览器性别判断。</p>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2011-09-01</em></p>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[Date.now()]]></title>
             <link>https://hotoo.github.io/blog/post/Date.now</link>
-            <guid>280</guid>
+            <guid>281</guid>
             <content:encoded><![CDATA[<h1 id="datenow">Date.now()<a aria-hidden="true" href="#datenow">#</a></h1>
 <p>以前做过一个 JavaScript 性能测试“框架”，也看过其他人做性能比较的时候，基本上
 也都是使用 <code>new Date()</code> 来记时，会“耍点小花样”的同学会使用 <code>+new Date()</code>。</p>
@@ -15963,53 +16010,6 @@ new Date(undefined);// IE:NaN; Others:Invalid Date.
 <hr></hr>
 <p><strong>Tags:</strong> </p>
 <p><em>Published on 2011-09-18</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[智能同步滚动条]]></title>
-            <link>https://hotoo.github.io/blog/post/smart-sync-scroll</link>
-            <guid>281</guid>
-            <content:encoded><![CDATA[<h1 id="智能同步滚动条">智能同步滚动条<a aria-hidden="true" href="#智能同步滚动条">#</a></h1>
-<table>
-<thead>
-<tr>
-<th>Browser</th>
-<th>documentElement.scrollTop</th>
-<th>body.scrollTop</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>IE</td>
-<td>√</td>
-<td>×</td>
-</tr>
-<tr>
-<td>Firefox</td>
-<td>√</td>
-<td>×</td>
-</tr>
-<tr>
-<td>Chrome</td>
-<td>×</td>
-<td>√</td>
-</tr>
-<tr>
-<td>Safari</td>
-<td>×</td>
-<td>√</td>
-</tr>
-<tr>
-<td>Opera</td>
-<td>√</td>
-<td>×</td>
-</tr>
-</tbody>
-</table>
-<p>TODO: 其他的 get 方式。尝试智能判断是否设置成功，非通过浏览器性别判断。</p>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2011-09-01</em></p>
 ]]></content:encoded>
         </item>
         <item>
@@ -17597,39 +17597,9 @@ alert(0);
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[Vim 神技]]></title>
-            <link>https://hotoo.github.io/blog/post/vim-share-2011</link>
-            <guid>303</guid>
-            <content:encoded><![CDATA[<h1 id="vim-神技">Vim 神技<a aria-hidden="true" href="#vim-神技">#</a></h1>
-<pre><code>&lt;div style=&quot;width:425px&quot; id=&quot;__ss_9693832&quot;&gt;
-  &lt;strong style=&quot;display:block;margin:12px 0 4px&quot;&gt;
-    &lt;a href=&quot;http://www.slideshare.net/hotoo/vim-9693832&quot;
-      title=&quot;Vim 神技&quot; target=&quot;_blank&quot;&gt;Vim 神技&lt;/a&gt;
-  &lt;/strong&gt;
-  &lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/9693832&quot;
-    width=&quot;425&quot; height=&quot;355&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;
-    scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC;border-width:1px 1px 0&quot;
-    allowfullscreen&gt;&lt;/iframe&gt;
-  &lt;div style=&quot;padding:5px 0 12px&quot;&gt; View more PowerPoint from
-    &lt;a href=&quot;http://www.slideshare.net/hotoo&quot; target=&quot;_blank&quot;&gt;hotoo&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<h2 id="see-also">See Also<a aria-hidden="true" href="#see-also">#</a></h2>
-<ol>
-<li>
-<p><a href="http://www.slideshare.net/hotoo/vim-9693832" target="_blank" rel="noopener noreferrer">Vim 神技@slideshare</a></p>
-</li>
-</ol>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2011-04-11</em></p>
-]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[window.close()]]></title>
             <link>https://hotoo.github.io/blog/post/window.close</link>
-            <guid>304</guid>
+            <guid>303</guid>
             <content:encoded><![CDATA[<h1 id="windowclose">window.close()<a aria-hidden="true" href="#windowclose">#</a></h1>
 <pre><code>window.opener=null;
 window.open(&quot;&quot;,&quot;_self&quot;);
@@ -17668,6 +17638,36 @@ return false;</p>
 <hr></hr>
 <p><strong>Tags:</strong> </p>
 <p><em>Published on 2011-04-26</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Vim 神技]]></title>
+            <link>https://hotoo.github.io/blog/post/vim-share-2011</link>
+            <guid>304</guid>
+            <content:encoded><![CDATA[<h1 id="vim-神技">Vim 神技<a aria-hidden="true" href="#vim-神技">#</a></h1>
+<pre><code>&lt;div style=&quot;width:425px&quot; id=&quot;__ss_9693832&quot;&gt;
+  &lt;strong style=&quot;display:block;margin:12px 0 4px&quot;&gt;
+    &lt;a href=&quot;http://www.slideshare.net/hotoo/vim-9693832&quot;
+      title=&quot;Vim 神技&quot; target=&quot;_blank&quot;&gt;Vim 神技&lt;/a&gt;
+  &lt;/strong&gt;
+  &lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/9693832&quot;
+    width=&quot;425&quot; height=&quot;355&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;
+    scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC;border-width:1px 1px 0&quot;
+    allowfullscreen&gt;&lt;/iframe&gt;
+  &lt;div style=&quot;padding:5px 0 12px&quot;&gt; View more PowerPoint from
+    &lt;a href=&quot;http://www.slideshare.net/hotoo&quot; target=&quot;_blank&quot;&gt;hotoo&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="see-also">See Also<a aria-hidden="true" href="#see-also">#</a></h2>
+<ol>
+<li>
+<p><a href="http://www.slideshare.net/hotoo/vim-9693832" target="_blank" rel="noopener noreferrer">Vim 神技@slideshare</a></p>
+</li>
+</ol>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2011-04-11</em></p>
 ]]></content:encoded>
         </item>
         <item>
@@ -18634,9 +18634,38 @@ Tee 可以直接发到每个人手中，考虑到运费，我提议同城的统�
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[用 gvim 比较 git diff]]></title>
+            <link>https://hotoo.github.io/blog/post/gitdiff-with-vim</link>
+            <guid>322</guid>
+            <content:encoded><![CDATA[<h1 id="用-gvim-比较-git-diff">用 gvim 比较 git diff<a aria-hidden="true" href="#用-gvim-比较-git-diff">#</a></h1>
+<h2 id="for-windows">for Windows<a aria-hidden="true" href="#for-windows">#</a></h2>
+<p>参考 [<a href="http://gist.github.com/502217" target="_blank" rel="noopener noreferrer">http://gist.github.com/502217</a> gist:502217]</p>
+<ol>
+<li>
+<p>在用户目录下的 .gitconfig 中加入：</p>
+<p>[diff]
+external = git_diff_wrapper.bat
+[pager]
+diff =</p>
+</li>
+<li>
+<p>创建 git_diff_wrapper.bat 文件放到 $PATH 目录下，内容为：</p>
+<p>path\to\gvim.exe -d "%2" "%5"</p>
+<p>gvim -d "$2" "$5"</p>
+<p>注意其中的 path\to\ 要改为 gvim.exe 所在目录。</p>
+</li>
+</ol>
+<h2 id="for-linux">for Linux<a aria-hidden="true" href="#for-linux">#</a></h2>
+<p>参考 <a href="http://technotales.wordpress.com/2009/05/17/git-diff-with-vimdiff/" target="_blank" rel="noopener noreferrer">Git Diff with Vimdiff</a></p>
+<hr></hr>
+<p><strong>Tags:</strong> , </p>
+<p><em>Published on 2010-08-01</em></p>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[SQL LIKE 查询的一个问题]]></title>
             <link>https://hotoo.github.io/blog/post/about-sql-like</link>
-            <guid>322</guid>
+            <guid>323</guid>
             <content:encoded><![CDATA[<h1 id="sql-like-查询的一个问题">SQL LIKE 查询的一个问题<a aria-hidden="true" href="#sql-like-查询的一个问题">#</a></h1>
 <p>在做用户管理的时候，用户表(users) 有一个字段(dept)用来存储用户所在部门的信息，
 字段的值一般是这样的，各级部门间使用横杠分隔：</p>
@@ -18673,35 +18702,6 @@ OR dept LIKE &quot;XX宝-CEO-%&quot;;
 <hr></hr>
 <p><strong>Tags:</strong> </p>
 <p><em>Published on 2010-08-13</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[用 gvim 比较 git diff]]></title>
-            <link>https://hotoo.github.io/blog/post/gitdiff-with-vim</link>
-            <guid>323</guid>
-            <content:encoded><![CDATA[<h1 id="用-gvim-比较-git-diff">用 gvim 比较 git diff<a aria-hidden="true" href="#用-gvim-比较-git-diff">#</a></h1>
-<h2 id="for-windows">for Windows<a aria-hidden="true" href="#for-windows">#</a></h2>
-<p>参考 [<a href="http://gist.github.com/502217" target="_blank" rel="noopener noreferrer">http://gist.github.com/502217</a> gist:502217]</p>
-<ol>
-<li>
-<p>在用户目录下的 .gitconfig 中加入：</p>
-<p>[diff]
-external = git_diff_wrapper.bat
-[pager]
-diff =</p>
-</li>
-<li>
-<p>创建 git_diff_wrapper.bat 文件放到 $PATH 目录下，内容为：</p>
-<p>path\to\gvim.exe -d "%2" "%5"</p>
-<p>gvim -d "$2" "$5"</p>
-<p>注意其中的 path\to\ 要改为 gvim.exe 所在目录。</p>
-</li>
-</ol>
-<h2 id="for-linux">for Linux<a aria-hidden="true" href="#for-linux">#</a></h2>
-<p>参考 <a href="http://technotales.wordpress.com/2009/05/17/git-diff-with-vimdiff/" target="_blank" rel="noopener noreferrer">Git Diff with Vimdiff</a></p>
-<hr></hr>
-<p><strong>Tags:</strong> , </p>
-<p><em>Published on 2010-08-01</em></p>
 ]]></content:encoded>
         </item>
         <item>
@@ -18749,9 +18749,13 @@ Wiki 项目中无需 diary，diary 无需包含在每个 Wiki 项目里。</p>
 ]]></content:encoded>
         </item>
         <item>
+            <link>https://hotoo.github.io/blog/post/open-files-in-vim-tabs</link>
+            <guid>326</guid>
+        </item>
+        <item>
             <title><![CDATA[Vim 自动补全成对的括号和引号]]></title>
             <link>https://hotoo.github.io/blog/post/vim-autocomplete-pairs</link>
-            <guid>326</guid>
+            <guid>327</guid>
             <content:encoded><![CDATA[<h1 id="vim-自动补全成对的括号和引号">Vim 自动补全成对的括号和引号<a aria-hidden="true" href="#vim-自动补全成对的括号和引号">#</a></h1>
 <p>炫日分享了一个 <a href="http://aoyme.wordpress.com/2010/05/31/%E5%9C%A8vim%E4%B8%AD%E5%B0%86%E6%8B%AC%E5%8F%B7%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%EF%BC%9A/" target="_blank" rel="noopener noreferrer">自动补全成对的括号</a>
 的脚本，【注】：原文代码中引号被转义成了中文引号，下面是修正后的脚本。</p>
@@ -18818,7 +18822,7 @@ endf
         <item>
             <title><![CDATA[在 Google Maps 的街景视图里看实况足球]]></title>
             <link>https://hotoo.github.io/blog/post/3d-game-in-google-maps</link>
-            <guid>327</guid>
+            <guid>328</guid>
             <content:encoded><![CDATA[<h1 id="在-google-maps-的街景视图里看实况足球">在 Google Maps 的街景视图里看实况足球<a aria-hidden="true" href="#在-google-maps-的街景视图里看实况足球">#</a></h1>
 <p>我承认我标题党了，这只是我的一个 idea 而已，并没有实际实现。</p>
 <p>前几天有新闻称日本要申办 2022 年的世界杯，承诺将以 3D 转播赛况，
@@ -18861,7 +18865,7 @@ endf
         <item>
             <title><![CDATA[用 Google Code 管理与发布 Wiki]]></title>
             <link>https://hotoo.github.io/blog/post/vimwiki-google-code</link>
-            <guid>328</guid>
+            <guid>329</guid>
             <content:encoded><![CDATA[<h1 id="用-google-code-管理与发布-wiki">用 Google Code 管理与发布 Wiki<a aria-hidden="true" href="#用-google-code-管理与发布-wiki">#</a></h1>
 <p>由于 <a href="Dropbox-died-in-China.html">Dropbox 的墙掉</a>，https 协议访问 dl 或 dl-web 子域
 的方法也随之失效，虽然可以通过修改 hosts 来继续同步文件，但是 Public 目录再也
@@ -18897,10 +18901,6 @@ Wiki 语法的一个子集，所以基本可以天衣无缝的配合使用。</p
 <p><strong>Tags:</strong> , , </p>
 <p><em>Published on 2010-05-20</em></p>
 ]]></content:encoded>
-        </item>
-        <item>
-            <link>https://hotoo.github.io/blog/post/open-files-in-vim-tabs</link>
-            <guid>329</guid>
         </item>
         <item>
             <title><![CDATA[让 Vim 支持 LOG 文件]]></title>
@@ -19166,9 +19166,64 @@ Vim。</p>
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[有中国特色的社会主义笑话]]></title>
+            <link>https://hotoo.github.io/blog/post/china-joke</link>
+            <guid>335</guid>
+            <content:encoded><![CDATA[<h1 id="有中国特色的社会主义笑话">有中国特色的社会主义笑话<a aria-hidden="true" href="#有中国特色的社会主义笑话">#</a></h1>
+<p>笑料：</p>
+<ul>
+<li><a href="http://ent.qq.com/a/20100407/000164.htm" target="_blank" rel="noopener noreferrer">广电总局禁止电视节目用“NBA”等外语和缩略词</a></li>
+</ul>
+<p>笑点：</p>
+<ul>
+<li>
+<p>三个达不溜点后头没有点卡姆。 <a href="http://www.cnbeta.com/articles/108165.htm" target="_blank" rel="noopener noreferrer">ref</a></p>
+</li>
+<li>
+<p>注：其实根据一项 <a href="http://ent.qq.com/a/20100407/000164.htm" target="_blank" rel="noopener noreferrer">最新指示</a>，
+我们的标题是违规的，正确的写法应该是
+“最受推特微博客网站和脸谱社交网站网友欢迎的美国职业男子篮球联赛球队”。
+<a href="http://www.cnbeta.com/articles/108037.htm?tj=1" target="_blank" rel="noopener noreferrer">最受 Twitter 和 Facebook 网友欢迎的 NBA 球队</a></p>
+</li>
+<li>
+<p>我是用窗牌操作系统第七版回复的</p>
+</li>
+<li>
+<p>我是用因特网探索者第八代浏览器回复的</p>
+</li>
+<li>
+<p>剧院浏览器第十代半用户飘过……</p>
+</li>
+</ul>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2010-04-08</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[表单设计]]></title>
+            <link>https://hotoo.github.io/blog/post/form-design</link>
+            <guid>336</guid>
+            <content:encoded><![CDATA[<h1 id="表单设计">表单设计<a aria-hidden="true" href="#表单设计">#</a></h1>
+<ul>
+<li></li>
+</ul>
+<p>表单元素有新增、修改、删除的状态（新增和修改可以参考 svn 的图标，删除则直接从页面上删除 DOM）</p>
+<h2 id="ref">Ref:<a aria-hidden="true" href="#ref">#</a></h2>
+<ul>
+<li>
+<p><a href="http://ucdchina.com/snap/6284" target="_blank" rel="noopener noreferrer">如何精简用户界面</a></p>
+</li>
+</ul>
+<hr></hr>
+<p><strong>Tags:</strong> , , </p>
+<p><em>Published on 2010-04-08</em></p>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[轉換編碼筆記]]></title>
             <link>https://hotoo.github.io/blog/post/convert-encoding-note</link>
-            <guid>335</guid>
+            <guid>337</guid>
             <content:encoded><![CDATA[<h1 id="轉換編碼筆記">轉換編碼筆記<a aria-hidden="true" href="#轉換編碼筆記">#</a></h1>
 <p>今天發現一個顯示為亂碼的 html 頁面，發現是當前頁面和 reference 頁面編碼
 不一致造成的，reference 編碼為 gbk，當前頁面編碼是 utf8。</p>
@@ -19191,13 +19246,9 @@ Vim。</p>
 ]]></content:encoded>
         </item>
         <item>
-            <link>https://hotoo.github.io/blog/post/use-vimwiki-for-blog</link>
-            <guid>336</guid>
-        </item>
-        <item>
             <title><![CDATA[周数(Week Number, WeekNum)计算]]></title>
             <link>https://hotoo.github.io/blog/post/weeknumber</link>
-            <guid>337</guid>
+            <guid>338</guid>
             <content:encoded><![CDATA[<h1 id="周数week-number-weeknum计算">周数(Week Number, WeekNum)计算<a aria-hidden="true" href="#周数week-number-weeknum计算">#</a></h1>
 <p>jQuery UI v1.8rc 版的日历控件已经非常完善，比之 v1.7.1 已经支持显示周数(WeekNum)，
 而且计算 WeekNum 的算法可以自定义；而 <a href="http://www.my97.net/dp/demo/index.htm" target="_blank" rel="noopener noreferrer">My97DatePicker</a>
@@ -19234,9 +19285,13 @@ calculateWeek:function(date){
 ]]></content:encoded>
         </item>
         <item>
+            <link>https://hotoo.github.io/blog/post/use-vimwiki-for-blog</link>
+            <guid>339</guid>
+        </item>
+        <item>
             <title><![CDATA[Vim 中文帮助文档]]></title>
             <link>https://hotoo.github.io/blog/post/vim-chinese-doc</link>
-            <guid>338</guid>
+            <guid>340</guid>
             <content:encoded><![CDATA[<h1 id="vim-中文帮助文档">Vim 中文帮助文档<a aria-hidden="true" href="#vim-中文帮助文档">#</a></h1>
 <p>前两天不知道为什么，帮助文档又跑会英文了（隐约是用 Vimball 安装了 Vimwiki
 或者 <em>重复</em>安装了 TwitVim 的缘故）。</p>
@@ -19287,7 +19342,7 @@ calculateWeek:function(date){
         <item>
             <title><![CDATA[CSS 实现有限不确定背景]]></title>
             <link>https://hotoo.github.io/blog/post/css-limit-bg</link>
-            <guid>339</guid>
+            <guid>341</guid>
             <content:encoded><![CDATA[<h1 id="css-实现有限不确定背景">CSS 实现有限不确定背景<a aria-hidden="true" href="#css-实现有限不确定背景">#</a></h1>
 <p>2 个嵌套的 html 元素，分别用个两个背景图交替叠加，
 形成固定高度，有限、不确定宽度的元件，
@@ -19301,27 +19356,9 @@ calculateWeek:function(date){
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[“正则表达式”分享资料]]></title>
-            <link>https://hotoo.github.io/blog/post/regex-share</link>
-            <guid>340</guid>
-            <content:encoded><![CDATA[<h1 id="正则表达式分享资料">“正则表达式”分享资料<a aria-hidden="true" href="#正则表达式分享资料">#</a></h1>
-<p>这周三做了一次内部“正则表达式”分享活动，本来是针对小组成员的分享，
-结果部门很多高手也来捧场，非常荣幸。</p>
-<p>有兴趣的朋友可以下载 <a href="http://hotoo.googlecode.com/svn/trunk/share/RegExp.zip" target="_blank" rel="noopener noreferrer">RegExp.zip</a> 这个资料。
-我使用 XMind 做的一个分享大纲，从简介，基础、高级语法，一些经典的案例和有趣的用法。
-另外还附有一些有用或有趣的资料。</p>
-<p>这是我生平第一次较正式的分享（上次是项目启动，没有什么实质的分享内容），
-由于没有什么经验，所以准备的相对比较充分，不过分享过程中的演说和演示的比提纲中的更丰满，
-同事参与的探讨也非常热情。</p>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2010-01-31</em></p>
-]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[禁用CNNIC的所谓安全证书]]></title>
             <link>https://hotoo.github.io/blog/post/forbid-cnnic</link>
-            <guid>341</guid>
+            <guid>342</guid>
             <content:encoded><![CDATA[<h1 id="禁用cnnic的所谓安全证书">禁用CNNIC的所谓安全证书<a aria-hidden="true" href="#禁用cnnic的所谓安全证书">#</a></h1>
 <p>我个人是不信任 CNNIC 的，这里只是记录一下自己的学习过程，对 CNNIC 仍抱有幻想的同学可以无视。</p>
 <p>我都是在他人的教学指导下学习实践的，有兴趣的可以参考下面的链接：</p>
@@ -19363,13 +19400,31 @@ calculateWeek:function(date){
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[“正则表达式”分享资料]]></title>
+            <link>https://hotoo.github.io/blog/post/regex-share</link>
+            <guid>343</guid>
+            <content:encoded><![CDATA[<h1 id="正则表达式分享资料">“正则表达式”分享资料<a aria-hidden="true" href="#正则表达式分享资料">#</a></h1>
+<p>这周三做了一次内部“正则表达式”分享活动，本来是针对小组成员的分享，
+结果部门很多高手也来捧场，非常荣幸。</p>
+<p>有兴趣的朋友可以下载 <a href="http://hotoo.googlecode.com/svn/trunk/share/RegExp.zip" target="_blank" rel="noopener noreferrer">RegExp.zip</a> 这个资料。
+我使用 XMind 做的一个分享大纲，从简介，基础、高级语法，一些经典的案例和有趣的用法。
+另外还附有一些有用或有趣的资料。</p>
+<p>这是我生平第一次较正式的分享（上次是项目启动，没有什么实质的分享内容），
+由于没有什么经验，所以准备的相对比较充分，不过分享过程中的演说和演示的比提纲中的更丰满，
+同事参与的探讨也非常热情。</p>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2010-01-31</em></p>
+]]></content:encoded>
+        </item>
+        <item>
             <link>https://hotoo.github.io/blog/post/editplus-and-everything</link>
-            <guid>342</guid>
+            <guid>344</guid>
         </item>
         <item>
             <title><![CDATA[正则表达式重复子模式前、后倾的性能比较]]></title>
             <link>https://hotoo.github.io/blog/post/performance-for-regex-repeat-sub-pattern</link>
-            <guid>343</guid>
+            <guid>345</guid>
             <content:encoded><![CDATA[<h1 id="正则表达式重复子模式前后倾的性能比较">正则表达式重复子模式前、后倾的性能比较<a aria-hidden="true" href="#正则表达式重复子模式前后倾的性能比较">#</a></h1>
 <p>在准备内部的正则表达式 (Regular Expression)分享的过程中，
 注意到一个细节问题：重复的子模式，是应该前倾还是后倾，这两者在性能上有什么差异？</p>
@@ -19402,7 +19457,7 @@ calculateWeek:function(date){
         <item>
             <title><![CDATA[arguments to Array 之效率]]></title>
             <link>https://hotoo.github.io/blog/post/performance-of-arguments-to-array</link>
-            <guid>344</guid>
+            <guid>346</guid>
             <content:encoded><![CDATA[<h1 id="arguments-to-array-之效率">arguments to Array 之效率<a aria-hidden="true" href="#arguments-to-array-之效率">#</a></h1>
 <p>怿飞昨天发有一篇《<a href="http://www.planabc.net/2010/01/06/arguments_to_array/" target="_blank" rel="noopener noreferrer">如何将函数的实际参数转换成数组</a>》
 的日志，其实核心不是讲“如何如何”，而是比较了几种算法/语法的效率。
@@ -19452,7 +19507,7 @@ Safari 4, Opera 10）下一一测试。也欢迎各位参与测试并将结果�
         <item>
             <title><![CDATA[电梯楼层选项板的位置]]></title>
             <link>https://hotoo.github.io/blog/post/place-of-lift-floor-control-panel</link>
-            <guid>345</guid>
+            <guid>347</guid>
             <content:encoded><![CDATA[<h1 id="电梯楼层选项板的位置">电梯楼层选项板的位置<a aria-hidden="true" href="#电梯楼层选项板的位置">#</a></h1>
 <p>每天电梯使用的高峰期，相信许多人都体验，甚至主演过，许多人进门就堵在门口找自己要去的楼层。
 由于中国人勤劳自主的缘故，选楼层一般都倾向于自己来做，不过这不如尽快的让大家进电梯，
@@ -19467,16 +19522,16 @@ Safari 4, Opera 10）下一一测试。也欢迎各位参与测试并将结果�
         </item>
         <item>
             <link>https://hotoo.github.io/blog/post/safari-4-select-bug</link>
-            <guid>346</guid>
+            <guid>348</guid>
         </item>
         <item>
             <link>https://hotoo.github.io/blog/post/cpp-check-type</link>
-            <guid>347</guid>
+            <guid>349</guid>
         </item>
         <item>
             <title><![CDATA[反向搜索的设计]]></title>
             <link>https://hotoo.github.io/blog/post/reverse-search</link>
-            <guid>348</guid>
+            <guid>350</guid>
             <content:encoded><![CDATA[<h1 id="反向搜索的设计">反向搜索的设计<a aria-hidden="true" href="#反向搜索的设计">#</a></h1>
 <p>文本搜索是一项非常常用的功能，在文本编辑器中更是一个不可或缺的功能。</p>
 <p>而反向搜索（搜索光标之前的文本）的设计，最初也非常原始：</p>
@@ -19510,12 +19565,12 @@ Safari 4, Opera 10）下一一测试。也欢迎各位参与测试并将结果�
         </item>
         <item>
             <link>https://hotoo.github.io/blog/post/impoved-fold-for-vim</link>
-            <guid>349</guid>
+            <guid>351</guid>
         </item>
         <item>
             <title><![CDATA[让 Vim 支持 CSS3]]></title>
             <link>https://hotoo.github.io/blog/post/vim-css3</link>
-            <guid>350</guid>
+            <guid>352</guid>
             <content:encoded><![CDATA[<h1 id="让-vim-支持-css3">让 Vim 支持 CSS3<a aria-hidden="true" href="#让-vim-支持-css3">#</a></h1>
 <p>和 <a href="http://www.w3.org/TR/html5/" target="_blank" rel="noopener noreferrer">HTML5</a> 一样，<a href="http://www.w3.org/TR/css3-roadmap/" target="_blank" rel="noopener noreferrer">CSS3</a>
 也是目前热门的技术，为了在 Vim 中更舒适的编辑 CSS ，我整理补充了 CSS3
@@ -19548,7 +19603,7 @@ Safari 4, Opera 10）下一一测试。也欢迎各位参与测试并将结果�
         <item>
             <title><![CDATA[让 Vim 支持 cue]]></title>
             <link>https://hotoo.github.io/blog/post/vim-cue</link>
-            <guid>351</guid>
+            <guid>353</guid>
             <content:encoded><![CDATA[<h1 id="让-vim-支持-cue">让 Vim 支持 cue<a aria-hidden="true" href="#让-vim-支持-cue">#</a></h1>
 <h2 id="自动识别文件类型">自动识别文件类型<a aria-hidden="true" href="#自动识别文件类型">#</a></h2>
 <p>在 $VIM/vim72/filetype.vim 中加入以下代码：</p>
@@ -19569,7 +19624,7 @@ Safari 4, Opera 10）下一一测试。也欢迎各位参与测试并将结果�
         <item>
             <title><![CDATA[让Vim支持html5]]></title>
             <link>https://hotoo.github.io/blog/post/vim-html5</link>
-            <guid>352</guid>
+            <guid>354</guid>
             <content:encoded><![CDATA[<h1 id="让vim支持html5">让Vim支持html5<a aria-hidden="true" href="#让vim支持html5">#</a></h1>
 <p><a href="http://www.w3.org/TR/html5/" target="_blank" rel="noopener noreferrer">html5</a> 呼之已出，众多的现代浏览器也已支持其大半新特性。</p>
 <h2 id="html5-语法高亮">HTML5 语法高亮<a aria-hidden="true" href="#html5-语法高亮">#</a></h2>
@@ -19601,16 +19656,16 @@ HTML5 标记和属性。</p>
         </item>
         <item>
             <link>https://hotoo.github.io/blog/post/validator-for-vim</link>
-            <guid>353</guid>
+            <guid>355</guid>
         </item>
         <item>
             <link>https://hotoo.github.io/blog/post/fuck-gfw-with-tor</link>
-            <guid>354</guid>
+            <guid>356</guid>
         </item>
         <item>
             <title><![CDATA[Firefox Profile 及多实例运行]]></title>
             <link>https://hotoo.github.io/blog/post/firefox-profile-and-multi-instance</link>
-            <guid>355</guid>
+            <guid>357</guid>
             <content:encoded><![CDATA[<h1 id="firefox-profile-及多实例运行">Firefox Profile 及多实例运行<a aria-hidden="true" href="#firefox-profile-及多实例运行">#</a></h1>
 <ul>
 <li></li>
@@ -19670,7 +19725,7 @@ autocmd FileType dosbatch nmap &lt;F5&gt; :exe &#39;!&quot;&#39;.expand(&quot;%&
         <item>
             <title><![CDATA[Vim映射Home键到首个非空字符]]></title>
             <link>https://hotoo.github.io/blog/post/map-home-key-for-vim</link>
-            <guid>356</guid>
+            <guid>358</guid>
             <content:encoded><![CDATA[<h1 id="vim映射home键到首个非空字符">Vim映射Home键到首个非空字符<a aria-hidden="true" href="#vim映射home键到首个非空字符">#</a></h1>
 <p>许多编辑器有相关选项，可以直接设置让 <code>&lt;Home&gt;</code> 键在首个非空字符和行首之间跳转。</p>
 <p>Vim 也有快捷键，normal 模式下：</p>
@@ -19744,7 +19799,7 @@ vmap &lt;silent&gt; &lt;End&gt; :call EndBind(0)&lt;cr&gt;
         <item>
             <title><![CDATA[asx snippets for vim]]></title>
             <link>https://hotoo.github.io/blog/post/asx-snippets-for-vim</link>
-            <guid>357</guid>
+            <guid>359</guid>
             <content:encoded><![CDATA[<h1 id="asx-snippets-for-vim">asx snippets for vim<a aria-hidden="true" href="#asx-snippets-for-vim">#</a></h1>
 <p>前段时间写了个 asx (Windows Media Player 的播放列表格式) 的
 <a href="http://www.vim.org/scripts/script.php?script_id=2540" target="_blank" rel="noopener noreferrer">snipMate</a> 的模板语法文件。</p>
@@ -19767,7 +19822,7 @@ vmap &lt;silent&gt; &lt;End&gt; :call EndBind(0)&lt;cr&gt;
         <item>
             <title><![CDATA[配置 Vim 作为 C++ 开发环境初步]]></title>
             <link>https://hotoo.github.io/blog/post/vim-for-cpp-dev</link>
-            <guid>358</guid>
+            <guid>360</guid>
             <content:encoded><![CDATA[<h1 id="配置-vim-作为-c-开发环境初步">配置 Vim 作为 C++ 开发环境初步<a aria-hidden="true" href="#配置-vim-作为-c-开发环境初步">#</a></h1>
 <p>一般来说，如果你使用 Vim 开发完整的项目，使用 Makefile 并直接 <code>:make</code> 就可以了。</p>
 <p>将下面的代码写入到 vimrc 中， Vim 会捕获编译过程中出现的消息并显示在 Quickfix 窗口。</p>
@@ -19808,7 +19863,7 @@ map &lt;F7&gt; :cp&lt;CR&gt;
         <item>
             <title><![CDATA[Vim 字体设置]]></title>
             <link>https://hotoo.github.io/blog/post/vim-fonts</link>
-            <guid>359</guid>
+            <guid>361</guid>
             <content:encoded><![CDATA[<h1 id="vim-字体设置">Vim 字体设置<a aria-hidden="true" href="#vim-字体设置">#</a></h1>
 <p>明城有 “<a href="http://www.gracecode.com/archives/1545/" target="_blank" rel="noopener noreferrer">苹果的 Courier 字体不错</a>”
 和“<a href="http://www.gracecode.com/archives/2402/" target="_blank" rel="noopener noreferrer">Windows 下 gVim 的雅黑字体配置</a>”
@@ -19877,9 +19932,65 @@ map &lt;F7&gt; :cp&lt;CR&gt;
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[让 gvim 访问网络资源]]></title>
+            <link>https://hotoo.github.io/blog/post/let-vim-to-access-remove-resources</link>
+            <guid>362</guid>
+            <content:encoded><![CDATA[<h1 id="让-gvim-访问网络资源">让 gvim 访问网络资源<a aria-hidden="true" href="#让-gvim-访问网络资源">#</a></h1>
+<p>当我还是 Vim 超级菜鸟的时候，我就知道 Vim 可以和 Editplus、UltraEdit 一样，
+访问网络资源，操作方式也很类似：</p>
+<ul>
+<li>使用菜单栏的“文件”->“打开”命令；</li>
+<li>或者使用工具栏的“打开”按钮；</li>
+<li>会打开“编辑文件”对话框，此时在默认光标获焦的“文件名”文本框中输入网络资源定位符；</li>
+<li>回车，或点击“打开”按钮；</li>
+<li>Vim 就会加载网站资源文件的内容。</li>
+</ul>
+<p>没有错，作为超级菜鸟，我们就是这样被当作什么都不懂，什么都不会的小孩一样来教导的。</p>
+<p>本来这样已经可以了，我们还有强求什么呢？真是得寸进尺啊，我发现 gvim 使用命令
+是无法正常访问网络资源的。</p>
+<pre><code>:vi http://www.xianyun.org/
+:vim http://www.xianyun.org/
+:gvim http://www.xianyun.org/
+:e http://www.xianyun.org/
+:sp http://www.xianyun.org/
+:tabnew http://www.xianyun.org/
+:Nread http://www.xianyun.org/
+</code></pre>
+<p>虽说 Vim 从 7.0 就已经默认集成安装了 netrw. Vim 了，支持网络资源访问，
+但是如果使用上面的命令，gvim 会告诉你说：</p>
+<blockquote>
+<p><strong>error</strong> (netrw) neither the wget nor the fetch command is available
+——————————————————————————————–
+“NetrwMessage” –缓冲区无内容–</p>
+</blockquote>
+<p>向人请教得到解答：
+这是因为缺少访问网络资源的程序（wget）
+Windows下需要下载 <a href="http://users.ugent.be/~bpuype/wget/" target="_blank" rel="noopener noreferrer">WGET for Windows (win32)</a>，
+将 wget.exe 放到某个系统环境变量 Path 包含的位置（如 c:\windows）即可。
+如果是Linux，直接安装wget即可。</p>
+<p>现在还有一点问题，gvim使用上面的某个命令访问网络资源时，会打开命令行窗口：</p>
+<pre><code>C:\WINDOWS\system32\cmd.exe /c wget -q -O &quot;C:\DOCUME~1\WB-TIA~1\LOCALS~1\Temp\VICC3E.tmp&quot; &quot;http://www.vim.org/&quot;
+Hit any key to close this window...
+</code></pre>
+<p>需要再敲一个键，才能关闭这个命令行窗口（Windows 7因为安全的原因，还有更多一步麻烦），
+并将网络资源的内容读到 Vim，目前不知有什么完美的方法，不需要打开，或者能够自动关闭这个窗口？
+而使用菜单或功能按钮等 gui 操作方式，是没有这些东西的，只是在同步加载远程资源时，
+不能进行其他操作。</p>
+<h2 id="参考讨论">参考讨论<a aria-hidden="true" href="#参考讨论">#</a></h2>
+<ul>
+<li>
+<p><a href="http://groups.google.com/group/vim-cn/browse_thread/thread/ca34e99e9d02d25d" target="_blank" rel="noopener noreferrer">Vim 网络读写功能的问题</a></p>
+</li>
+</ul>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2009-09-12</em></p>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[谦逊]]></title>
             <link>https://hotoo.github.io/blog/post/humility</link>
-            <guid>360</guid>
+            <guid>363</guid>
             <content:encoded><![CDATA[<h1 id="谦逊">谦逊<a aria-hidden="true" href="#谦逊">#</a></h1>
 <p>谦逊，刚回家路上想起这个词。</p>
 <p>前段时间，公司包车组织出游，大客车在及其陡峭的山路上行驶，在每个转弯处都会事先鸣笛示意，
@@ -19950,52 +20061,343 @@ map &lt;F7&gt; :cp&lt;CR&gt;
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[老家的粳米茶]]></title>
-            <link>https://hotoo.github.io/blog/post/jingmi-tea</link>
-            <guid>361</guid>
-            <content:encoded><![CDATA[<h1 id="老家的粳米茶">老家的粳米茶<a aria-hidden="true" href="#老家的粳米茶">#</a></h1>
+            <title><![CDATA[博客日(blogday)2009]]></title>
+            <link>https://hotoo.github.io/blog/post/blogday-2009</link>
+            <guid>364</guid>
+            <content:encoded><![CDATA[<h1 id="博客日blogday2009">博客日(blogday)2009<a aria-hidden="true" href="#博客日blogday2009">#</a></h1>
+<p>今天(每年8月31日)是 <a href="http://www.blogday.org/cn.htm" target="_blank" rel="noopener noreferrer">博客日</a>，
+照例是要分享/推荐5个博客的。</p>
+<ul>
+<li>
+<p><a href="http://www.162cm.com/" target="_blank" rel="noopener noreferrer">互联网，请记住我</a>
+我也俨然快要成为vim重度爱好者了，今天搜索vim的相关知识时发现了
+这个博主分享的vimrc，这个博客好像主要涉及php, c, vim等方面，
+我也不算太熟悉，对我来说是新的，基本符合博客日推荐精神，特此推荐。</p>
+</li>
+<li>
+<p><a href="http://www.gmtaz.com/" target="_blank" rel="noopener noreferrer">GMATZ – The “official” blog of Gustava Tandeciorz</a>
+这个是Twitter上推友分享的jQuery壁纸时看到的,博客好像涉及Window 7,
+jQuery, Apple, Game,涉猎广泛.</p>
+</li>
+<li>
+<p><a href="http://www.matrix67.com/blog/" target="_blank" rel="noopener noreferrer">Matrix67</a>
+我是这个博客的订阅者,博主读文科,但是精通数学,发布了很多的数学经典证明,
+算法和数学趣题.</p>
+</li>
+<li>
+<p><a href="http://www.drunkpiano-liuyu.net/" target="_blank" rel="noopener noreferrer">情书</a>
+我是通过和菜头的[情书]书评才知道此博的, 博客主要涉及政治, 民主, 自由方面.</p>
+</li>
+<li>
+<p><a href="http://yyfrankyy.com/blog/" target="_blank" rel="noopener noreferrer">阿阳的个人博客</a>
+博主貌似是应届毕业生,但是前端开发阅历不浅, 大概属于很有前途的那种.
+通过淘宝小马 Twitter 分享知道此博.</p>
+</li>
+</ul>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2009-08-31</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[疯狂的性能]]></title>
+            <link>https://hotoo.github.io/blog/post/crazy-performance</link>
+            <guid>365</guid>
+            <content:encoded><![CDATA[<h1 id="疯狂的性能">疯狂的性能<a aria-hidden="true" href="#疯狂的性能">#</a></h1>
+<blockquote>
+<p>Performance is Everything.
+工作中最重要的是提高效率。– 约·艾迪生</p>
+</blockquote>
+<p>单元测试是开发人员必做的功课之一，而精益求精的开发人员又会为性能而癫狂。</p>
+<p>目前很少有发现 JavaScript 的性能测试工具，程序员在比较几段为同一目标，
+但实现方式不同的代码效率时，总需要一行行的写new Date()和document.write()。
+应该说，这不是什么大不了的事，因为 JavaScript 的性能测试本身就很简单，代码量也不算多。</p>
+<p>不过，如果我们可以做的更好，更简单，更直观的话，那就动手吧。</p>
+<p>这里我初步写了一个
+<a href="http://hotoo.googlecode.com/svn/trunk/labs/js/crazy/Crazy.html" target="_blank" rel="noopener noreferrer">性能测试的框架</a>，
+实话实说，是抛砖引玉，因为这个本身没有什么值得骄傲的，
+请大家多提意见和建议，来共建一个更好的性能测试框架。</p>
+<h2 id="延伸阅读">延伸阅读：<a aria-hidden="true" href="#延伸阅读">#</a></h2>
+<ul>
+<li>
+<p><a href="http://bdn.backbase.com/blog/sjoerd/performance-is-everything" target="_blank" rel="noopener noreferrer">Performance is Everything</a></p>
+</li>
+<li>
+<p><a href="http://wd-testnet.world-direct.at/mozilla/dhtml/funo/jsTimeTest.htm" target="_blank" rel="noopener noreferrer">Javascript performance test</a></p>
+</li>
+<li>
+<p><a href="http://www.wangchao.net.cn/bbsdetail_1883293.html" target="_blank" rel="noopener noreferrer">Chrome称王 五款浏览器性能大比拼－软件评测</a></p>
+</li>
+<li>
+<p><a href="http://www.ie92.com/thread-29531-1-2.html" target="_blank" rel="noopener noreferrer">浏览器 JavaScript 大比拼，Opera 9.5胜出！</a></p>
+</li>
+<li>
+<p><a href="http://www.javaeye.com/news/1416-js-mainstream-browser-performance-competition" target="_blank" rel="noopener noreferrer">主流浏览器JS性能大比拼</a></p>
+</li>
+</ul>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2009-08-23</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[菜单项图标]]></title>
+            <link>https://hotoo.github.io/blog/post/menu-item-icons</link>
+            <guid>366</guid>
+            <content:encoded><![CDATA[<h1 id="菜单项图标">菜单项图标<a aria-hidden="true" href="#菜单项图标">#</a></h1>
+<p>新装的Windows 7总有一些因为暂时不习惯或无知而遇到的问题，例如网络链接就经常出问题，
+右键一个网络适配器，我们大概可以看到这样的菜单。</p>
+<p><img src="http://farm3.static.flickr.com/2542/3823174909_96506164e3_o.png" alt="Window 7 network right menu"></img></p>
+<p>看到这一连串代表着安全的图标你作何感想？</p>
+<p>图标可以增强视觉效果，加深记忆印象；合理的图标可以到底一目了然的功效，
+而不用看后面的介绍性文本；但是糟糕或者不合理的图标，只会适得其反。</p>
+<p>所以说，这几个图标，用的确实让人雷到，（几乎？）没有一个能确切表达对应菜单项功能的。</p>
+<p>如果没有合适的图标用来表达菜单项的功能，就不要使用图标。</p>
+<p>当然Windows 7的右键菜单图标并不是都用的这么烂。</p>
+<p><img src="http://farm3.static.flickr.com/2519/3823285153_2263e62985_o.png" alt="Windows 7 right menu"></img></p>
+<p>之前的Windows系统也做的很好，选用的图标都很恰当，留白也留的很性感。</p>
+<p><img src="http://farm3.static.flickr.com/2658/3824047930_290df98c05_o.gif" alt="Windows 98 right menu"></img></p>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2009-08-16</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[CSS字体中文、英文、Unicode名对照表]]></title>
+            <link>https://hotoo.github.io/blog/post/css-names-with-cn-en-unicode</link>
+            <guid>367</guid>
+            <content:encoded><![CDATA[<h1 id="css字体中文英文unicode名对照表">CSS字体中文、英文、Unicode名对照表<a aria-hidden="true" href="#css字体中文英文unicode名对照表">#</a></h1>
 <ul>
 <li></li>
 </ul>
-<p>我的老家在<a href="http://baike.baidu.com/view/743717.htm" target="_blank" rel="noopener noreferrer">江西九江瑞昌市南义镇</a>，
-有非常多独特的乡村美食，大多只能用老家土话叫名字，普通话都不知道该怎么说，
-汉字也不知道该怎么写才正确。</p>
-<p>比如说粳(Jing)米茶，老家土话的发音应该是“箭米茶”，箭米其实就是粳米，
-粳米茶是老家的习惯叫法，因为大都是在炎热的夏日中午，咕嘟咕嘟炖几个钟头，
-然后让它自然凉掉，到下午的时候当晚餐，或下午茶喝。实际上我想应该属于粳米粥。</p>
-<p>我搜了一下粳米茶，大都是九江的做法，用粳米和绿茶煮成，这完全不同于我老家的材料和做法。</p>
-<p>西祠胡同有一篇《辉婶学艺–粳米茶》的做法和老家的非常相似：</p>
+<p>css字体名可以使用2种Unicode格式来书写，以“微软雅黑”为例:
+微软雅黑 和 \5FAE\8F6F\96C5\9ED1都可以。
+如果未找到需要的字体名称，可以到
+<a href="http://www.rocklv.net/free/free_goodys_unicode.php" target="_blank" rel="noopener noreferrer">这里</a>
+把简体中文转换为Unicode编码。</p>
+<p>另外注意：繁体中文字体名，在简体中文系统中是不能被识别的。</p>
+<p>查看 <a href="http://hotoo.googlecode.com/svn/trunk/labs/css/css-fonts.html" target="_blank" rel="noopener noreferrer">详细的字体名称对照表</a>。</p>
+<h2 id="参考阅读">参考阅读：<a aria-hidden="true" href="#参考阅读">#</a></h2>
 <ul>
 <li>
-<p>先要有炒熟的粳米。这是整个过程中最为关键的一步， 我没有专门学，
-当然不会，熟粳米是从老家带过来的，老妈很辛苦。</p>
-<p><img src="http://farm4.static.flickr.com/3428/3895028061_903075509b_o.jpg" alt="喷香的熟粳米"></img></p>
+<p><a href="http://hi.baidu.com/1212u/blog/item/976a132cdede13e98a1399a5.html" target="_blank" rel="noopener noreferrer">CSS中 常见中文字体的英文名称</a></p>
 </li>
 <li>
-<p>还要有晒熟的红薯，或白薯粒。这个也很关键，过程有点漫长，大概几天吧，
-一般是夏天把挖回来的红、白薯洗净切成正方体颗粒，放在外面让太阳暴晒，
-晒干之后可以存储很久。老家还有纯粹煮红、白薯，或薯粒的做法，
-叫薯茶或薯粒茶，当早茶或下午茶都可以。
-<img src="http://farm3.static.flickr.com/2502/3895027971_3e37708813_o.jpg" alt="甘甜的薯粒"></img></p>
+<p><a href="http://lifesinger.org/blog/2009/08/font-family-in-css/" target="_blank" rel="noopener noreferrer">中文字体在 CSS 中的写法</a></p>
 </li>
 <li>
-<p>白砂糖，红糖也可以。</p>
+<p><a href="http://www.cnblogs.com/ruxpinsp1/tag/font-family/" target="_blank" rel="noopener noreferrer">谈谈网页设计中的字体应用（系列）</a></p>
+</li>
+<li>
+<p><a href="http://www.rocklv.net/free/free_goodys_unicode.php" target="_blank" rel="noopener noreferrer">中文转Unicode</a></p>
 </li>
 </ul>
-<p>如果上面的原材料都具备了的话，煮法就没什么好说的了，直接放到锅里煮就行了，
-先用猛火煮开，然后用文火慢慢炖，到薯粒变软和，粳米煮开花就可以了。</p>
-<p><img src="http://farm3.static.flickr.com/2620/3895811614_7f0856628e_o.jpg" alt="粳米茶"></img></p>
-<p>干薯粒本身就很甜，不过如果喜欢，加糖后味道会更佳。</p>
-<p><img src="http://farm3.static.flickr.com/2470/3895027803_bb63391431_o.jpg" alt="粳米茶"></img></p>
 <hr></hr>
 <p><strong>Tags:</strong> </p>
-<p><em>Published on 2009-09-05</em></p>
+<p><em>Published on 2009-08-14</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[重复的书签]]></title>
+            <link>https://hotoo.github.io/blog/post/duplicate-bookmarks</link>
+            <guid>368</guid>
+            <content:encoded><![CDATA[<h1 id="重复的书签">重复的书签<a aria-hidden="true" href="#重复的书签">#</a></h1>
+<p>项目需求要做一个收藏夹，供用户收藏项目中的功能点。开发人员先给了个初步的设计文稿，
+基本上是参考IE的设计方案（当然其他浏览器的方案也差不离），后来在讨论如何对待
+用户收藏重复的功能点这个细节问题时，也没有经过太多的争论，照例抄袭了IE的处理方式：</p>
+<ul>
+<li>同一文件夹下不允许收藏重复的功能点，只将新的信息（如名称）覆盖到旧有的信息上；</li>
+<li>不同文件夹下可以收藏同一个已收藏的功能点。</li>
+</ul>
+<p>但是经过讨论，后来摒弃了这个方案，因为我们看到了Firefox的优秀设计：</p>
+<ul>
+<li>同一账户不允许重复收藏同一书签；</li>
+<li>当用户收藏一个已收藏的书签时，覆盖已有信息（如名称）；</li>
+<li>如果被收藏到另一个不同的文件夹时，则将旧的收藏移动到新文件夹。</li>
+</ul>
+<p><a href="http://www.flickr.com/photos/hotoo/3820043578/" target="_blank" rel="noopener noreferrer"><img src="http://farm4.static.flickr.com/3534/3820043578_f8831c9265_o.png" alt="pic"></img></a></p>
+<p>Chrome包括智能地址栏和收藏夹都吸收了Firefox的优秀设计。</p>
+<p><a href="http://www.flickr.com/photos/hotoo/3819237321/" target="_blank" rel="noopener noreferrer"><img src="http://farm3.static.flickr.com/2537/3819237321_47e6bb1abe_o.png" alt="pic"></img></a></p>
+<p>Safari则表现的不同凡响：</p>
+<ul>
+<li>用户可以收藏重复的书签；</li>
+<li>甚至在同一个文件夹中，以相同的名称存放。</li>
+</ul>
+<p><a href="http://www.flickr.com/photos/hotoo/3820043592/" target="_blank" rel="noopener noreferrer"><img src="http://farm3.static.flickr.com/2549/3820043592_a4788c3f80_o.png" alt="pic"></img></a></p>
+<p>Opera和Safari表现完全一致，或许他们认为，这是用户的自由。</p>
+<p><a href="http://www.flickr.com/photos/hotoo/3820043604/" target="_blank" rel="noopener noreferrer"><img src="http://farm4.static.flickr.com/3445/3820043604_ec7d0cd7d5_o.png" alt="pic"></img></a></p>
+<p>IE7和我们所熟悉的一样：</p>
+<ul>
+<li>用户可以重复收藏已有的书签；</li>
+<li>仅当这两个书签放在不同的文件夹；</li>
+<li>或者以不同名称，放在同一个文件夹中。</li>
+</ul>
+<p><a href="http://www.flickr.com/photos/hotoo/3819237355/" target="_blank" rel="noopener noreferrer"><img src="http://farm4.static.flickr.com/3437/3819237355_0bef9cb98c_o.png" alt="pic"></img></a></p>
+<p>Maxthon最初是从IE学习并扩展而来，可想而知，并且实际上也是，
+它们在对待重复的书签上，也是一致的。
+<a href="http://www.flickr.com/photos/hotoo/3820043628/" target="_blank" rel="noopener noreferrer"><img src="http://farm3.static.flickr.com/2439/3820043628_f621cc76a5_o.png" alt="pic"></img></a></p>
+<p>面对这些主流浏览器对待重复书签的态度，像Safari和Opera这样给用户充分的自由，
+或Firefox和Chrome这样“所谓”的智能，以及IE及Mathon取两者（自由或相对不自由）
+之中庸，作为经常使用书签的普通用户，你觉得哪种设计更合理？</p>
+<p>这里我表达一点自己的想法：</p>
+<ul>
+<li>不受约束的自由，不是什么好自由；过分的灵活，只会给用户带来迷茫。</li>
+<li>书签本身的作用，就是给用户一个记录、并能够快速打开常用或优秀的网址的地方。
+如果收藏夹，甚至同一个文件夹中存在（看起来）相同的书签，
+用户就需要停下来思考自己要的是哪一个。</li>
+<li>书签一般都需要记录用户使用的次数，并根据算法排序提供给智能地址栏，
+收藏夹存在多个副本也会存在歧义。</li>
+</ul>
+<p>从这个角度来讲，Opera和Safari是做的最烂的，IE和Maxthon则做的一般。
+很幸运，这个想法也博得了我们项目组开发人员和PM的赞同，并应用与项目设计中。</p>
+<h2 id="关键字">关键字：<a aria-hidden="true" href="#关键字">#</a></h2>
+<ul>
+<li>
+<p>收藏夹(Favorite)：指浏览器用来管理书签集合的工具。</p>
+</li>
+<li>
+<p>书签(Bookmark)：指单个被收藏的网址信息。</p>
+</li>
+</ul>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2009-08-14</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[未来的前端设计]]></title>
+            <link>https://hotoo.github.io/blog/post/web-design-for-feature</link>
+            <guid>369</guid>
+            <content:encoded><![CDATA[<h1 id="未来的前端设计">未来的前端设计<a aria-hidden="true" href="#未来的前端设计">#</a></h1>
+<p>今天基本完成了用户首页，用户可以拖放管理自定义布局
+（类似 <a href="http://www.google.com/ig?hl=en" target="_blank" rel="noopener noreferrer">igoogle</a>）。</p>
+<p>在PM试体验的时候，发现他的拖放方式都（跟部门主管一样）是“丢放式”的，
+鼠标抓起一个模块，带有速度的往某个位置一扔，有时在没有到达目标区域就放手了，
+导致实际上没有被扔到目标区域。不仅仅是拖放模块，甚至连拖放改变边侧栏宽度也是使用这种手法。
+可以想象他们使用桌面应用程序（比如改变窗口大小）也是这样操作的。^1^</p>
+<p>我当时指出这两种拖放手法的不同，然后我们就短暂的畅想了关于“丢放式”的前端设计。</p>
+<p>如果你看过微软未来操作系统的视频^2^，或者腾讯未来QQ的演示视频^3^，大概能了解这是怎样的一种情形。</p>
+<p>这种模拟现实，并超越现实的操作体验，比目前任何的3D游戏都要精致、逼真得多，
+它是如此的流畅（非性能），以至于让人感觉不到操作系统和软件的存在，仿佛在摆弄实物一般。</p>
+<p>目前的大多数web前端设计，还只是初步模拟操作系统或桌面应用程序2D时代的作品，
+受浏览器的约束，也有一些做出了还不错的3D及流畅的动态效果，然而即使是flash也做的很不够。
+就3D效果本身来说，这只不过是未来设计中很基本的一种特性，另外包括手势动作及趋势，
+操作的速度及方向，还有现实世界中力学，人体工程学，甚至心理学等等众多科学的渗入，
+辅助以多点触摸屏，声控等，展现层的设计会越来越逼真，操作方式跟现实世界会越来越无差异。</p>
+<p>更进一步的，我曾经似乎看过，也传播过这样一句话：最好的界面，就是没有界面。
+我虽然只是随便说说，但是心里还是蛮认真的。当然这里说的没有，只是说对操作用户来说几乎透明，
+几乎感觉不到，而当用户希望有感觉时，他可以自己拼出符合自己期望的界面来。</p>
+<h2 id="参考与延伸欣赏">参考与延伸欣赏：<a aria-hidden="true" href="#参考与延伸欣赏">#</a></h2>
+<ul>
+<li>
+<p><a href="https://twitter.com/hotoo/statuses/3241383666" target="_blank" rel="noopener noreferrer">Twitter@hotoo:3241383666</a>
+发现部门两个老大的拖放手法都是“丢放式”，
+未来操作系统在触摸屏的辅助下，已经有这样的抽象设计。
+我想，web前端也可以尝试这样的抽象设计。^1^</p>
+</li>
+<li>
+<p><a href="http://v.youku.com/v_show/id_XMzQ0Njc1MzI=.html" target="_blank" rel="noopener noreferrer">视频: 超酷的微软操作系统</a> ^2^</p>
+</li>
+<li>
+<p><a href="http://www.iqshw.com/post/308.html" target="_blank" rel="noopener noreferrer">超炫的未来QQ版本（视频集合）</a> ^3^</p>
+</li>
+<li>
+<p><a href="http://tech.163.com/07/0601/09/3FT3PNA7000926PT.html" target="_blank" rel="noopener noreferrer">未来的操作系统将采用3D用户界面和触摸操作</a></p>
+</li>
+</ul>
+<hr></hr>
+<p><strong>Tags:</strong> , </p>
+<p><em>Published on 2009-08-12</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[论广告窗口的弹出]]></title>
+            <link>https://hotoo.github.io/blog/post/talk-about-popup-window</link>
+            <guid>370</guid>
+            <content:encoded><![CDATA[<h1 id="论广告窗口的弹出">论广告窗口的弹出<a aria-hidden="true" href="#论广告窗口的弹出">#</a></h1>
+<p>弹窗广告，这（和页面漂浮广告）是上个世纪用的最频繁的广告方式，这种广告之所以“流行”，
+是因为它引人注目的特性，广告商也正是看中这一点。而这也是最讨人厌的一种广告方式，
+因为它未经用户同意，擅自弹出新窗口，一来每次都要手动关闭窗口很烦，二来它不尊重用户的意愿。</p>
+<p>既然服务商不尊重用户，用户当然说服务商很讨厌。</p>
+<p>后来通过服务商，广告商，开发人员和用户等大众的共同努力，这种弹窗方式逐渐受到质疑：</p>
+<ol>
+<li>这种广告方式真的很有效吗？</li>
+<li>有更好更受欢迎的广告模式吗，为什么(Google) <em>内联的</em> ，
+精确匹配的广告模式会受广告商和普通用户的一致好评？</li>
+</ol>
+<p>同时这（两）种广告模式逐渐退出广告历史的舞台，只有非常小众的网站才偶尔，
+或非常恶劣的网站才频繁出现。</p>
+<p>并且，即使链接本身是否在新窗口弹出都成了讨论的热点话题。w3c 已经不建议使用 target 属性了，
+是否在新窗口、新页签中打开，这应该是用户可控的，属于用户的偏好问题，应该尊重用户的选择。</p>
+<p>不过，用过淘宝的人应该都知道，<a href="http://www.taobao.com/" target="_blank" rel="noopener noreferrer">淘宝首页</a> 是会弹出广告窗口的，
+即使默认情况下被浏览器自动屏蔽掉，在用户点击页面时还是会被弹出，此时因为带有用户行为，
+浏览器较难判断是否应该屏蔽。</p>
+<p>真是令人发指，淘宝这样出色的公司，居然做出这么卑劣的事情，而且还费尽心机。</p>
+<p>前些时候我发现淘宝首页的拼音索引和商品详细信息等都不可用了，于是在 Twitter 上对
+<a href="https://twitter.com/taobaoued" target="_blank" rel="noopener noreferrer">@TaobaoUED</a> 发了句牢骚，然后
+<a href="https://twitter.com/macji" target="_blank" rel="noopener noreferrer">@Macji</a> 很主动的跟我联系了解情况。
+后来发现问题出在 <a href="https://addons.mozilla.org/zh-CN/firefox/addon/1865" target="_blank" rel="noopener noreferrer">Adblock plus</a>
+<a href="http://adblockplus.org/en/" target="_blank" rel="noopener noreferrer">2</a> 的 ChinaList 直接将淘宝用的 tbra 框架屏蔽了，
+然后我和 Macji 进行了“深入的激辩”，大致情况如下：</p>
+<blockquote>
+<p>Macji: 对于 china list 这种不负责的乱禁用 js 框架, 而不是只是禁用广告. 所以我们也无办法
+闲耘: 我觉得在弹窗这一点上，chinalist 是负责任的，是淘宝不负责任
+Macji: chinalist 应该专业点的,  只是禁用弹出广告
+闲耘: 也许淘宝应该专业点，不要用弹窗广告
+...
+Macji: 弹出广告 严重邮箱用户体验, 其实我们一直再争取, 但我们不是高层
+Macji: 我会写信给 chinalist 给出禁用弹窗的解决方案</p>
+</blockquote>
+<p>最后想说：淘宝是个很有责任感的公司，这个弹窗广告除外；淘宝是个很注重用户体验的公司，
+这个弹窗广告除外；淘宝是个很尊重用户的公司，这个弹窗广告除外。淘宝是个很注重细节的公司，
+包括这个弹窗在内；淘宝是个很注重技术的团队，包括这个弹窗在内。</p>
+<hr></hr>
+<p><em>更新：可喜的是，经过努力，新版淘宝已经戒掉了这个恶习。</em></p>
+<h2 id="延伸阅读">延伸阅读：<a aria-hidden="true" href="#延伸阅读">#</a></h2>
+<ul>
+<li>
+<p><a href="http://shawphy.com/2009/01/window-open-is-evil.html" target="_blank" rel="noopener noreferrer">万恶的弹窗广告</a></p>
+</li>
+<li>
+<p><a href="http://www.om19.cn/2008/08/16/%E7%AC%A6%E5%90%88%E5%9B%BD%E6%83%85%E7%9A%84%E9%93%BE%E6%8E%A5%E6%96%B0%E7%AA%97%E5%8F%A3%E6%89%93%E5%BC%80/" target="_blank" rel="noopener noreferrer">符合国情的链接新窗口打开</a></p>
+</li>
+<li>
+<p><a href="http://shawphy.com/2009/01/window-open-is-evil.html" target="_blank" rel="noopener noreferrer">在新窗口打开链接是流氓行为</a></p>
+</li>
+</ul>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2009-08-07</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[搜索的体验]]></title>
+            <link>https://hotoo.github.io/blog/post/search-expreience</link>
+            <guid>371</guid>
+            <content:encoded><![CDATA[<h1 id="搜索的体验">搜索的体验<a aria-hidden="true" href="#搜索的体验">#</a></h1>
+<p>准备升级博客模板，用js提供高级特性，比如和vim类似的键盘命令模式，和内联搜索模式。
+主要提高搜索的体验，包括一下几点。</p>
+<ul>
+<li>检查来自Google,Baidu等搜索引擎和本地搜索的搜索关键字，并高亮之。</li>
+<li>内联搜索模式，在底部fixed搜索框，并支持快捷键，最好能支持正则匹配模式，参考vim。</li>
+<li>使用搜索框附近fixed工具按钮，提供下一个、上一个搜索关键字的跳转，参考Eclipse。</li>
+<li>在滚动条附近使用(fixed)条纹，标识每个搜索结果在整屏中对应的大概位置，
+点击条纹可以跳转到对应结果项，拖放滚动条到对应的条纹处，
+页面也正好滚动到对应的结果项，参考Eclipse, Chrome。</li>
+</ul>
+<p>这里只是初步想法，受我“[[the-god-of-editor|编辑器之神]]”的想法发散而来，
+目前已经初步模拟了滚动条附近的搜索大纲，和命令模式的命令列表(完全模仿vim)。</p>
+<p><a href="http://www.flickr.com/photos/hotoo/3768956114/" target="_blank" rel="noopener noreferrer"><a href="http://farm4.static.flickr.com/3475/3768956114_2562cf5b10_o.png" target="_blank" rel="noopener noreferrer">http://farm4.static.flickr.com/3475/3768956114_2562cf5b10_o.png</a></a></p>
+<p><a href="http://www.flickr.com/photos/hotoo/3768173303/" target="_blank" rel="noopener noreferrer"><a href="http://farm4.static.flickr.com/3470/3768173303_ffbf2028cb_o.png" target="_blank" rel="noopener noreferrer">http://farm4.static.flickr.com/3470/3768173303_ffbf2028cb_o.png</a></a></p>
+<hr></hr>
+<p><strong>Tags:</strong> , </p>
+<p><em>Published on 2009-07-29</em></p>
 ]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[使用 Vim 查看 HTML 源码]]></title>
             <link>https://hotoo.github.io/blog/post/use-vim-view-html-src</link>
-            <guid>362</guid>
+            <guid>372</guid>
             <content:encoded><![CDATA[<h1 id="使用-vim-查看-html-源码">使用 Vim 查看 HTML 源码<a aria-hidden="true" href="#使用-vim-查看-html-源码">#</a></h1>
 <p>收集到一些修改浏览器 html编辑器，用vim从浏览器查看源代码的方法，其中有一些是较佳的解决方法，
 这里将相关技巧一并整理于此。</p>
@@ -20094,434 +20496,52 @@ map &lt;F7&gt; :cp&lt;CR&gt;
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[博客日(blogday)2009]]></title>
-            <link>https://hotoo.github.io/blog/post/blogday-2009</link>
-            <guid>363</guid>
-            <content:encoded><![CDATA[<h1 id="博客日blogday2009">博客日(blogday)2009<a aria-hidden="true" href="#博客日blogday2009">#</a></h1>
-<p>今天(每年8月31日)是 <a href="http://www.blogday.org/cn.htm" target="_blank" rel="noopener noreferrer">博客日</a>，
-照例是要分享/推荐5个博客的。</p>
-<ul>
-<li>
-<p><a href="http://www.162cm.com/" target="_blank" rel="noopener noreferrer">互联网，请记住我</a>
-我也俨然快要成为vim重度爱好者了，今天搜索vim的相关知识时发现了
-这个博主分享的vimrc，这个博客好像主要涉及php, c, vim等方面，
-我也不算太熟悉，对我来说是新的，基本符合博客日推荐精神，特此推荐。</p>
-</li>
-<li>
-<p><a href="http://www.gmtaz.com/" target="_blank" rel="noopener noreferrer">GMATZ – The “official” blog of Gustava Tandeciorz</a>
-这个是Twitter上推友分享的jQuery壁纸时看到的,博客好像涉及Window 7,
-jQuery, Apple, Game,涉猎广泛.</p>
-</li>
-<li>
-<p><a href="http://www.matrix67.com/blog/" target="_blank" rel="noopener noreferrer">Matrix67</a>
-我是这个博客的订阅者,博主读文科,但是精通数学,发布了很多的数学经典证明,
-算法和数学趣题.</p>
-</li>
-<li>
-<p><a href="http://www.drunkpiano-liuyu.net/" target="_blank" rel="noopener noreferrer">情书</a>
-我是通过和菜头的[情书]书评才知道此博的, 博客主要涉及政治, 民主, 自由方面.</p>
-</li>
-<li>
-<p><a href="http://yyfrankyy.com/blog/" target="_blank" rel="noopener noreferrer">阿阳的个人博客</a>
-博主貌似是应届毕业生,但是前端开发阅历不浅, 大概属于很有前途的那种.
-通过淘宝小马 Twitter 分享知道此博.</p>
-</li>
-</ul>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2009-08-31</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[疯狂的性能]]></title>
-            <link>https://hotoo.github.io/blog/post/crazy-performance</link>
-            <guid>364</guid>
-            <content:encoded><![CDATA[<h1 id="疯狂的性能">疯狂的性能<a aria-hidden="true" href="#疯狂的性能">#</a></h1>
-<blockquote>
-<p>Performance is Everything.
-工作中最重要的是提高效率。– 约·艾迪生</p>
-</blockquote>
-<p>单元测试是开发人员必做的功课之一，而精益求精的开发人员又会为性能而癫狂。</p>
-<p>目前很少有发现 JavaScript 的性能测试工具，程序员在比较几段为同一目标，
-但实现方式不同的代码效率时，总需要一行行的写new Date()和document.write()。
-应该说，这不是什么大不了的事，因为 JavaScript 的性能测试本身就很简单，代码量也不算多。</p>
-<p>不过，如果我们可以做的更好，更简单，更直观的话，那就动手吧。</p>
-<p>这里我初步写了一个
-<a href="http://hotoo.googlecode.com/svn/trunk/labs/js/crazy/Crazy.html" target="_blank" rel="noopener noreferrer">性能测试的框架</a>，
-实话实说，是抛砖引玉，因为这个本身没有什么值得骄傲的，
-请大家多提意见和建议，来共建一个更好的性能测试框架。</p>
-<h2 id="延伸阅读">延伸阅读：<a aria-hidden="true" href="#延伸阅读">#</a></h2>
-<ul>
-<li>
-<p><a href="http://bdn.backbase.com/blog/sjoerd/performance-is-everything" target="_blank" rel="noopener noreferrer">Performance is Everything</a></p>
-</li>
-<li>
-<p><a href="http://wd-testnet.world-direct.at/mozilla/dhtml/funo/jsTimeTest.htm" target="_blank" rel="noopener noreferrer">Javascript performance test</a></p>
-</li>
-<li>
-<p><a href="http://www.wangchao.net.cn/bbsdetail_1883293.html" target="_blank" rel="noopener noreferrer">Chrome称王 五款浏览器性能大比拼－软件评测</a></p>
-</li>
-<li>
-<p><a href="http://www.ie92.com/thread-29531-1-2.html" target="_blank" rel="noopener noreferrer">浏览器 JavaScript 大比拼，Opera 9.5胜出！</a></p>
-</li>
-<li>
-<p><a href="http://www.javaeye.com/news/1416-js-mainstream-browser-performance-competition" target="_blank" rel="noopener noreferrer">主流浏览器JS性能大比拼</a></p>
-</li>
-</ul>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2009-08-23</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[让 gvim 访问网络资源]]></title>
-            <link>https://hotoo.github.io/blog/post/let-vim-to-access-remove-resources</link>
-            <guid>365</guid>
-            <content:encoded><![CDATA[<h1 id="让-gvim-访问网络资源">让 gvim 访问网络资源<a aria-hidden="true" href="#让-gvim-访问网络资源">#</a></h1>
-<p>当我还是 Vim 超级菜鸟的时候，我就知道 Vim 可以和 Editplus、UltraEdit 一样，
-访问网络资源，操作方式也很类似：</p>
-<ul>
-<li>使用菜单栏的“文件”->“打开”命令；</li>
-<li>或者使用工具栏的“打开”按钮；</li>
-<li>会打开“编辑文件”对话框，此时在默认光标获焦的“文件名”文本框中输入网络资源定位符；</li>
-<li>回车，或点击“打开”按钮；</li>
-<li>Vim 就会加载网站资源文件的内容。</li>
-</ul>
-<p>没有错，作为超级菜鸟，我们就是这样被当作什么都不懂，什么都不会的小孩一样来教导的。</p>
-<p>本来这样已经可以了，我们还有强求什么呢？真是得寸进尺啊，我发现 gvim 使用命令
-是无法正常访问网络资源的。</p>
-<pre><code>:vi http://www.xianyun.org/
-:vim http://www.xianyun.org/
-:gvim http://www.xianyun.org/
-:e http://www.xianyun.org/
-:sp http://www.xianyun.org/
-:tabnew http://www.xianyun.org/
-:Nread http://www.xianyun.org/
-</code></pre>
-<p>虽说 Vim 从 7.0 就已经默认集成安装了 netrw. Vim 了，支持网络资源访问，
-但是如果使用上面的命令，gvim 会告诉你说：</p>
-<blockquote>
-<p><strong>error</strong> (netrw) neither the wget nor the fetch command is available
-——————————————————————————————–
-“NetrwMessage” –缓冲区无内容–</p>
-</blockquote>
-<p>向人请教得到解答：
-这是因为缺少访问网络资源的程序（wget）
-Windows下需要下载 <a href="http://users.ugent.be/~bpuype/wget/" target="_blank" rel="noopener noreferrer">WGET for Windows (win32)</a>，
-将 wget.exe 放到某个系统环境变量 Path 包含的位置（如 c:\windows）即可。
-如果是Linux，直接安装wget即可。</p>
-<p>现在还有一点问题，gvim使用上面的某个命令访问网络资源时，会打开命令行窗口：</p>
-<pre><code>C:\WINDOWS\system32\cmd.exe /c wget -q -O &quot;C:\DOCUME~1\WB-TIA~1\LOCALS~1\Temp\VICC3E.tmp&quot; &quot;http://www.vim.org/&quot;
-Hit any key to close this window...
-</code></pre>
-<p>需要再敲一个键，才能关闭这个命令行窗口（Windows 7因为安全的原因，还有更多一步麻烦），
-并将网络资源的内容读到 Vim，目前不知有什么完美的方法，不需要打开，或者能够自动关闭这个窗口？
-而使用菜单或功能按钮等 gui 操作方式，是没有这些东西的，只是在同步加载远程资源时，
-不能进行其他操作。</p>
-<h2 id="参考讨论">参考讨论<a aria-hidden="true" href="#参考讨论">#</a></h2>
-<ul>
-<li>
-<p><a href="http://groups.google.com/group/vim-cn/browse_thread/thread/ca34e99e9d02d25d" target="_blank" rel="noopener noreferrer">Vim 网络读写功能的问题</a></p>
-</li>
-</ul>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2009-09-12</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[菜单项图标]]></title>
-            <link>https://hotoo.github.io/blog/post/menu-item-icons</link>
-            <guid>366</guid>
-            <content:encoded><![CDATA[<h1 id="菜单项图标">菜单项图标<a aria-hidden="true" href="#菜单项图标">#</a></h1>
-<p>新装的Windows 7总有一些因为暂时不习惯或无知而遇到的问题，例如网络链接就经常出问题，
-右键一个网络适配器，我们大概可以看到这样的菜单。</p>
-<p><img src="http://farm3.static.flickr.com/2542/3823174909_96506164e3_o.png" alt="Window 7 network right menu"></img></p>
-<p>看到这一连串代表着安全的图标你作何感想？</p>
-<p>图标可以增强视觉效果，加深记忆印象；合理的图标可以到底一目了然的功效，
-而不用看后面的介绍性文本；但是糟糕或者不合理的图标，只会适得其反。</p>
-<p>所以说，这几个图标，用的确实让人雷到，（几乎？）没有一个能确切表达对应菜单项功能的。</p>
-<p>如果没有合适的图标用来表达菜单项的功能，就不要使用图标。</p>
-<p>当然Windows 7的右键菜单图标并不是都用的这么烂。</p>
-<p><img src="http://farm3.static.flickr.com/2519/3823285153_2263e62985_o.png" alt="Windows 7 right menu"></img></p>
-<p>之前的Windows系统也做的很好，选用的图标都很恰当，留白也留的很性感。</p>
-<p><img src="http://farm3.static.flickr.com/2658/3824047930_290df98c05_o.gif" alt="Windows 98 right menu"></img></p>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2009-08-16</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[CSS字体中文、英文、Unicode名对照表]]></title>
-            <link>https://hotoo.github.io/blog/post/css-names-with-cn-en-unicode</link>
-            <guid>367</guid>
-            <content:encoded><![CDATA[<h1 id="css字体中文英文unicode名对照表">CSS字体中文、英文、Unicode名对照表<a aria-hidden="true" href="#css字体中文英文unicode名对照表">#</a></h1>
+            <title><![CDATA[老家的粳米茶]]></title>
+            <link>https://hotoo.github.io/blog/post/jingmi-tea</link>
+            <guid>373</guid>
+            <content:encoded><![CDATA[<h1 id="老家的粳米茶">老家的粳米茶<a aria-hidden="true" href="#老家的粳米茶">#</a></h1>
 <ul>
 <li></li>
 </ul>
-<p>css字体名可以使用2种Unicode格式来书写，以“微软雅黑”为例:
-微软雅黑 和 \5FAE\8F6F\96C5\9ED1都可以。
-如果未找到需要的字体名称，可以到
-<a href="http://www.rocklv.net/free/free_goodys_unicode.php" target="_blank" rel="noopener noreferrer">这里</a>
-把简体中文转换为Unicode编码。</p>
-<p>另外注意：繁体中文字体名，在简体中文系统中是不能被识别的。</p>
-<p>查看 <a href="http://hotoo.googlecode.com/svn/trunk/labs/css/css-fonts.html" target="_blank" rel="noopener noreferrer">详细的字体名称对照表</a>。</p>
-<h2 id="参考阅读">参考阅读：<a aria-hidden="true" href="#参考阅读">#</a></h2>
+<p>我的老家在<a href="http://baike.baidu.com/view/743717.htm" target="_blank" rel="noopener noreferrer">江西九江瑞昌市南义镇</a>，
+有非常多独特的乡村美食，大多只能用老家土话叫名字，普通话都不知道该怎么说，
+汉字也不知道该怎么写才正确。</p>
+<p>比如说粳(Jing)米茶，老家土话的发音应该是“箭米茶”，箭米其实就是粳米，
+粳米茶是老家的习惯叫法，因为大都是在炎热的夏日中午，咕嘟咕嘟炖几个钟头，
+然后让它自然凉掉，到下午的时候当晚餐，或下午茶喝。实际上我想应该属于粳米粥。</p>
+<p>我搜了一下粳米茶，大都是九江的做法，用粳米和绿茶煮成，这完全不同于我老家的材料和做法。</p>
+<p>西祠胡同有一篇《辉婶学艺–粳米茶》的做法和老家的非常相似：</p>
 <ul>
 <li>
-<p><a href="http://hi.baidu.com/1212u/blog/item/976a132cdede13e98a1399a5.html" target="_blank" rel="noopener noreferrer">CSS中 常见中文字体的英文名称</a></p>
+<p>先要有炒熟的粳米。这是整个过程中最为关键的一步， 我没有专门学，
+当然不会，熟粳米是从老家带过来的，老妈很辛苦。</p>
+<p><img src="http://farm4.static.flickr.com/3428/3895028061_903075509b_o.jpg" alt="喷香的熟粳米"></img></p>
 </li>
 <li>
-<p><a href="http://lifesinger.org/blog/2009/08/font-family-in-css/" target="_blank" rel="noopener noreferrer">中文字体在 CSS 中的写法</a></p>
+<p>还要有晒熟的红薯，或白薯粒。这个也很关键，过程有点漫长，大概几天吧，
+一般是夏天把挖回来的红、白薯洗净切成正方体颗粒，放在外面让太阳暴晒，
+晒干之后可以存储很久。老家还有纯粹煮红、白薯，或薯粒的做法，
+叫薯茶或薯粒茶，当早茶或下午茶都可以。
+<img src="http://farm3.static.flickr.com/2502/3895027971_3e37708813_o.jpg" alt="甘甜的薯粒"></img></p>
 </li>
 <li>
-<p><a href="http://www.cnblogs.com/ruxpinsp1/tag/font-family/" target="_blank" rel="noopener noreferrer">谈谈网页设计中的字体应用（系列）</a></p>
-</li>
-<li>
-<p><a href="http://www.rocklv.net/free/free_goodys_unicode.php" target="_blank" rel="noopener noreferrer">中文转Unicode</a></p>
+<p>白砂糖，红糖也可以。</p>
 </li>
 </ul>
+<p>如果上面的原材料都具备了的话，煮法就没什么好说的了，直接放到锅里煮就行了，
+先用猛火煮开，然后用文火慢慢炖，到薯粒变软和，粳米煮开花就可以了。</p>
+<p><img src="http://farm3.static.flickr.com/2620/3895811614_7f0856628e_o.jpg" alt="粳米茶"></img></p>
+<p>干薯粒本身就很甜，不过如果喜欢，加糖后味道会更佳。</p>
+<p><img src="http://farm3.static.flickr.com/2470/3895027803_bb63391431_o.jpg" alt="粳米茶"></img></p>
 <hr></hr>
 <p><strong>Tags:</strong> </p>
-<p><em>Published on 2009-08-14</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[未来的前端设计]]></title>
-            <link>https://hotoo.github.io/blog/post/web-design-for-feature</link>
-            <guid>368</guid>
-            <content:encoded><![CDATA[<h1 id="未来的前端设计">未来的前端设计<a aria-hidden="true" href="#未来的前端设计">#</a></h1>
-<p>今天基本完成了用户首页，用户可以拖放管理自定义布局
-（类似 <a href="http://www.google.com/ig?hl=en" target="_blank" rel="noopener noreferrer">igoogle</a>）。</p>
-<p>在PM试体验的时候，发现他的拖放方式都（跟部门主管一样）是“丢放式”的，
-鼠标抓起一个模块，带有速度的往某个位置一扔，有时在没有到达目标区域就放手了，
-导致实际上没有被扔到目标区域。不仅仅是拖放模块，甚至连拖放改变边侧栏宽度也是使用这种手法。
-可以想象他们使用桌面应用程序（比如改变窗口大小）也是这样操作的。^1^</p>
-<p>我当时指出这两种拖放手法的不同，然后我们就短暂的畅想了关于“丢放式”的前端设计。</p>
-<p>如果你看过微软未来操作系统的视频^2^，或者腾讯未来QQ的演示视频^3^，大概能了解这是怎样的一种情形。</p>
-<p>这种模拟现实，并超越现实的操作体验，比目前任何的3D游戏都要精致、逼真得多，
-它是如此的流畅（非性能），以至于让人感觉不到操作系统和软件的存在，仿佛在摆弄实物一般。</p>
-<p>目前的大多数web前端设计，还只是初步模拟操作系统或桌面应用程序2D时代的作品，
-受浏览器的约束，也有一些做出了还不错的3D及流畅的动态效果，然而即使是flash也做的很不够。
-就3D效果本身来说，这只不过是未来设计中很基本的一种特性，另外包括手势动作及趋势，
-操作的速度及方向，还有现实世界中力学，人体工程学，甚至心理学等等众多科学的渗入，
-辅助以多点触摸屏，声控等，展现层的设计会越来越逼真，操作方式跟现实世界会越来越无差异。</p>
-<p>更进一步的，我曾经似乎看过，也传播过这样一句话：最好的界面，就是没有界面。
-我虽然只是随便说说，但是心里还是蛮认真的。当然这里说的没有，只是说对操作用户来说几乎透明，
-几乎感觉不到，而当用户希望有感觉时，他可以自己拼出符合自己期望的界面来。</p>
-<h2 id="参考与延伸欣赏">参考与延伸欣赏：<a aria-hidden="true" href="#参考与延伸欣赏">#</a></h2>
-<ul>
-<li>
-<p><a href="https://twitter.com/hotoo/statuses/3241383666" target="_blank" rel="noopener noreferrer">Twitter@hotoo:3241383666</a>
-发现部门两个老大的拖放手法都是“丢放式”，
-未来操作系统在触摸屏的辅助下，已经有这样的抽象设计。
-我想，web前端也可以尝试这样的抽象设计。^1^</p>
-</li>
-<li>
-<p><a href="http://v.youku.com/v_show/id_XMzQ0Njc1MzI=.html" target="_blank" rel="noopener noreferrer">视频: 超酷的微软操作系统</a> ^2^</p>
-</li>
-<li>
-<p><a href="http://www.iqshw.com/post/308.html" target="_blank" rel="noopener noreferrer">超炫的未来QQ版本（视频集合）</a> ^3^</p>
-</li>
-<li>
-<p><a href="http://tech.163.com/07/0601/09/3FT3PNA7000926PT.html" target="_blank" rel="noopener noreferrer">未来的操作系统将采用3D用户界面和触摸操作</a></p>
-</li>
-</ul>
-<hr></hr>
-<p><strong>Tags:</strong> , </p>
-<p><em>Published on 2009-08-12</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[重复的书签]]></title>
-            <link>https://hotoo.github.io/blog/post/duplicate-bookmarks</link>
-            <guid>369</guid>
-            <content:encoded><![CDATA[<h1 id="重复的书签">重复的书签<a aria-hidden="true" href="#重复的书签">#</a></h1>
-<p>项目需求要做一个收藏夹，供用户收藏项目中的功能点。开发人员先给了个初步的设计文稿，
-基本上是参考IE的设计方案（当然其他浏览器的方案也差不离），后来在讨论如何对待
-用户收藏重复的功能点这个细节问题时，也没有经过太多的争论，照例抄袭了IE的处理方式：</p>
-<ul>
-<li>同一文件夹下不允许收藏重复的功能点，只将新的信息（如名称）覆盖到旧有的信息上；</li>
-<li>不同文件夹下可以收藏同一个已收藏的功能点。</li>
-</ul>
-<p>但是经过讨论，后来摒弃了这个方案，因为我们看到了Firefox的优秀设计：</p>
-<ul>
-<li>同一账户不允许重复收藏同一书签；</li>
-<li>当用户收藏一个已收藏的书签时，覆盖已有信息（如名称）；</li>
-<li>如果被收藏到另一个不同的文件夹时，则将旧的收藏移动到新文件夹。</li>
-</ul>
-<p><a href="http://www.flickr.com/photos/hotoo/3820043578/" target="_blank" rel="noopener noreferrer"><img src="http://farm4.static.flickr.com/3534/3820043578_f8831c9265_o.png" alt="pic"></img></a></p>
-<p>Chrome包括智能地址栏和收藏夹都吸收了Firefox的优秀设计。</p>
-<p><a href="http://www.flickr.com/photos/hotoo/3819237321/" target="_blank" rel="noopener noreferrer"><img src="http://farm3.static.flickr.com/2537/3819237321_47e6bb1abe_o.png" alt="pic"></img></a></p>
-<p>Safari则表现的不同凡响：</p>
-<ul>
-<li>用户可以收藏重复的书签；</li>
-<li>甚至在同一个文件夹中，以相同的名称存放。</li>
-</ul>
-<p><a href="http://www.flickr.com/photos/hotoo/3820043592/" target="_blank" rel="noopener noreferrer"><img src="http://farm3.static.flickr.com/2549/3820043592_a4788c3f80_o.png" alt="pic"></img></a></p>
-<p>Opera和Safari表现完全一致，或许他们认为，这是用户的自由。</p>
-<p><a href="http://www.flickr.com/photos/hotoo/3820043604/" target="_blank" rel="noopener noreferrer"><img src="http://farm4.static.flickr.com/3445/3820043604_ec7d0cd7d5_o.png" alt="pic"></img></a></p>
-<p>IE7和我们所熟悉的一样：</p>
-<ul>
-<li>用户可以重复收藏已有的书签；</li>
-<li>仅当这两个书签放在不同的文件夹；</li>
-<li>或者以不同名称，放在同一个文件夹中。</li>
-</ul>
-<p><a href="http://www.flickr.com/photos/hotoo/3819237355/" target="_blank" rel="noopener noreferrer"><img src="http://farm4.static.flickr.com/3437/3819237355_0bef9cb98c_o.png" alt="pic"></img></a></p>
-<p>Maxthon最初是从IE学习并扩展而来，可想而知，并且实际上也是，
-它们在对待重复的书签上，也是一致的。
-<a href="http://www.flickr.com/photos/hotoo/3820043628/" target="_blank" rel="noopener noreferrer"><img src="http://farm3.static.flickr.com/2439/3820043628_f621cc76a5_o.png" alt="pic"></img></a></p>
-<p>面对这些主流浏览器对待重复书签的态度，像Safari和Opera这样给用户充分的自由，
-或Firefox和Chrome这样“所谓”的智能，以及IE及Mathon取两者（自由或相对不自由）
-之中庸，作为经常使用书签的普通用户，你觉得哪种设计更合理？</p>
-<p>这里我表达一点自己的想法：</p>
-<ul>
-<li>不受约束的自由，不是什么好自由；过分的灵活，只会给用户带来迷茫。</li>
-<li>书签本身的作用，就是给用户一个记录、并能够快速打开常用或优秀的网址的地方。
-如果收藏夹，甚至同一个文件夹中存在（看起来）相同的书签，
-用户就需要停下来思考自己要的是哪一个。</li>
-<li>书签一般都需要记录用户使用的次数，并根据算法排序提供给智能地址栏，
-收藏夹存在多个副本也会存在歧义。</li>
-</ul>
-<p>从这个角度来讲，Opera和Safari是做的最烂的，IE和Maxthon则做的一般。
-很幸运，这个想法也博得了我们项目组开发人员和PM的赞同，并应用与项目设计中。</p>
-<h2 id="关键字">关键字：<a aria-hidden="true" href="#关键字">#</a></h2>
-<ul>
-<li>
-<p>收藏夹(Favorite)：指浏览器用来管理书签集合的工具。</p>
-</li>
-<li>
-<p>书签(Bookmark)：指单个被收藏的网址信息。</p>
-</li>
-</ul>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2009-08-14</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[论广告窗口的弹出]]></title>
-            <link>https://hotoo.github.io/blog/post/talk-about-popup-window</link>
-            <guid>370</guid>
-            <content:encoded><![CDATA[<h1 id="论广告窗口的弹出">论广告窗口的弹出<a aria-hidden="true" href="#论广告窗口的弹出">#</a></h1>
-<p>弹窗广告，这（和页面漂浮广告）是上个世纪用的最频繁的广告方式，这种广告之所以“流行”，
-是因为它引人注目的特性，广告商也正是看中这一点。而这也是最讨人厌的一种广告方式，
-因为它未经用户同意，擅自弹出新窗口，一来每次都要手动关闭窗口很烦，二来它不尊重用户的意愿。</p>
-<p>既然服务商不尊重用户，用户当然说服务商很讨厌。</p>
-<p>后来通过服务商，广告商，开发人员和用户等大众的共同努力，这种弹窗方式逐渐受到质疑：</p>
-<ol>
-<li>这种广告方式真的很有效吗？</li>
-<li>有更好更受欢迎的广告模式吗，为什么(Google) <em>内联的</em> ，
-精确匹配的广告模式会受广告商和普通用户的一致好评？</li>
-</ol>
-<p>同时这（两）种广告模式逐渐退出广告历史的舞台，只有非常小众的网站才偶尔，
-或非常恶劣的网站才频繁出现。</p>
-<p>并且，即使链接本身是否在新窗口弹出都成了讨论的热点话题。w3c 已经不建议使用 target 属性了，
-是否在新窗口、新页签中打开，这应该是用户可控的，属于用户的偏好问题，应该尊重用户的选择。</p>
-<p>不过，用过淘宝的人应该都知道，<a href="http://www.taobao.com/" target="_blank" rel="noopener noreferrer">淘宝首页</a> 是会弹出广告窗口的，
-即使默认情况下被浏览器自动屏蔽掉，在用户点击页面时还是会被弹出，此时因为带有用户行为，
-浏览器较难判断是否应该屏蔽。</p>
-<p>真是令人发指，淘宝这样出色的公司，居然做出这么卑劣的事情，而且还费尽心机。</p>
-<p>前些时候我发现淘宝首页的拼音索引和商品详细信息等都不可用了，于是在 Twitter 上对
-<a href="https://twitter.com/taobaoued" target="_blank" rel="noopener noreferrer">@TaobaoUED</a> 发了句牢骚，然后
-<a href="https://twitter.com/macji" target="_blank" rel="noopener noreferrer">@Macji</a> 很主动的跟我联系了解情况。
-后来发现问题出在 <a href="https://addons.mozilla.org/zh-CN/firefox/addon/1865" target="_blank" rel="noopener noreferrer">Adblock plus</a>
-<a href="http://adblockplus.org/en/" target="_blank" rel="noopener noreferrer">2</a> 的 ChinaList 直接将淘宝用的 tbra 框架屏蔽了，
-然后我和 Macji 进行了“深入的激辩”，大致情况如下：</p>
-<blockquote>
-<p>Macji: 对于 china list 这种不负责的乱禁用 js 框架, 而不是只是禁用广告. 所以我们也无办法
-闲耘: 我觉得在弹窗这一点上，chinalist 是负责任的，是淘宝不负责任
-Macji: chinalist 应该专业点的,  只是禁用弹出广告
-闲耘: 也许淘宝应该专业点，不要用弹窗广告
-...
-Macji: 弹出广告 严重邮箱用户体验, 其实我们一直再争取, 但我们不是高层
-Macji: 我会写信给 chinalist 给出禁用弹窗的解决方案</p>
-</blockquote>
-<p>最后想说：淘宝是个很有责任感的公司，这个弹窗广告除外；淘宝是个很注重用户体验的公司，
-这个弹窗广告除外；淘宝是个很尊重用户的公司，这个弹窗广告除外。淘宝是个很注重细节的公司，
-包括这个弹窗在内；淘宝是个很注重技术的团队，包括这个弹窗在内。</p>
-<hr></hr>
-<p><em>更新：可喜的是，经过努力，新版淘宝已经戒掉了这个恶习。</em></p>
-<h2 id="延伸阅读">延伸阅读：<a aria-hidden="true" href="#延伸阅读">#</a></h2>
-<ul>
-<li>
-<p><a href="http://shawphy.com/2009/01/window-open-is-evil.html" target="_blank" rel="noopener noreferrer">万恶的弹窗广告</a></p>
-</li>
-<li>
-<p><a href="http://www.om19.cn/2008/08/16/%E7%AC%A6%E5%90%88%E5%9B%BD%E6%83%85%E7%9A%84%E9%93%BE%E6%8E%A5%E6%96%B0%E7%AA%97%E5%8F%A3%E6%89%93%E5%BC%80/" target="_blank" rel="noopener noreferrer">符合国情的链接新窗口打开</a></p>
-</li>
-<li>
-<p><a href="http://shawphy.com/2009/01/window-open-is-evil.html" target="_blank" rel="noopener noreferrer">在新窗口打开链接是流氓行为</a></p>
-</li>
-</ul>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2009-08-07</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[搜索的体验]]></title>
-            <link>https://hotoo.github.io/blog/post/search-expreience</link>
-            <guid>371</guid>
-            <content:encoded><![CDATA[<h1 id="搜索的体验">搜索的体验<a aria-hidden="true" href="#搜索的体验">#</a></h1>
-<p>准备升级博客模板，用js提供高级特性，比如和vim类似的键盘命令模式，和内联搜索模式。
-主要提高搜索的体验，包括一下几点。</p>
-<ul>
-<li>检查来自Google,Baidu等搜索引擎和本地搜索的搜索关键字，并高亮之。</li>
-<li>内联搜索模式，在底部fixed搜索框，并支持快捷键，最好能支持正则匹配模式，参考vim。</li>
-<li>使用搜索框附近fixed工具按钮，提供下一个、上一个搜索关键字的跳转，参考Eclipse。</li>
-<li>在滚动条附近使用(fixed)条纹，标识每个搜索结果在整屏中对应的大概位置，
-点击条纹可以跳转到对应结果项，拖放滚动条到对应的条纹处，
-页面也正好滚动到对应的结果项，参考Eclipse, Chrome。</li>
-</ul>
-<p>这里只是初步想法，受我“[[the-god-of-editor|编辑器之神]]”的想法发散而来，
-目前已经初步模拟了滚动条附近的搜索大纲，和命令模式的命令列表(完全模仿vim)。</p>
-<p><a href="http://www.flickr.com/photos/hotoo/3768956114/" target="_blank" rel="noopener noreferrer"><a href="http://farm4.static.flickr.com/3475/3768956114_2562cf5b10_o.png" target="_blank" rel="noopener noreferrer">http://farm4.static.flickr.com/3475/3768956114_2562cf5b10_o.png</a></a></p>
-<p><a href="http://www.flickr.com/photos/hotoo/3768173303/" target="_blank" rel="noopener noreferrer"><a href="http://farm4.static.flickr.com/3470/3768173303_ffbf2028cb_o.png" target="_blank" rel="noopener noreferrer">http://farm4.static.flickr.com/3470/3768173303_ffbf2028cb_o.png</a></a></p>
-<hr></hr>
-<p><strong>Tags:</strong> , </p>
-<p><em>Published on 2009-07-29</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[有中国特色的社会主义笑话]]></title>
-            <link>https://hotoo.github.io/blog/post/china-joke</link>
-            <guid>372</guid>
-            <content:encoded><![CDATA[<h1 id="有中国特色的社会主义笑话">有中国特色的社会主义笑话<a aria-hidden="true" href="#有中国特色的社会主义笑话">#</a></h1>
-<p>笑料：</p>
-<ul>
-<li><a href="http://ent.qq.com/a/20100407/000164.htm" target="_blank" rel="noopener noreferrer">广电总局禁止电视节目用“NBA”等外语和缩略词</a></li>
-</ul>
-<p>笑点：</p>
-<ul>
-<li>
-<p>三个达不溜点后头没有点卡姆。 <a href="http://www.cnbeta.com/articles/108165.htm" target="_blank" rel="noopener noreferrer">ref</a></p>
-</li>
-<li>
-<p>注：其实根据一项 <a href="http://ent.qq.com/a/20100407/000164.htm" target="_blank" rel="noopener noreferrer">最新指示</a>，
-我们的标题是违规的，正确的写法应该是
-“最受推特微博客网站和脸谱社交网站网友欢迎的美国职业男子篮球联赛球队”。
-<a href="http://www.cnbeta.com/articles/108037.htm?tj=1" target="_blank" rel="noopener noreferrer">最受 Twitter 和 Facebook 网友欢迎的 NBA 球队</a></p>
-</li>
-<li>
-<p>我是用窗牌操作系统第七版回复的</p>
-</li>
-<li>
-<p>我是用因特网探索者第八代浏览器回复的</p>
-</li>
-<li>
-<p>剧院浏览器第十代半用户飘过……</p>
-</li>
-</ul>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2010-04-08</em></p>
+<p><em>Published on 2009-09-05</em></p>
 ]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[右键菜单的细节]]></title>
             <link>https://hotoo.github.io/blog/post/particulars-of-right-click-menu</link>
-            <guid>373</guid>
+            <guid>374</guid>
             <content:encoded><![CDATA[<h1 id="右键菜单的细节">右键菜单的细节<a aria-hidden="true" href="#右键菜单的细节">#</a></h1>
 <p>在 Web 客户端编程中，绑定 JavaScript 的 contextmenu 事件来驱动触发自定义右键菜单，
 并通过停止事件冒泡来阻止Windows默认菜单，是一种比较常见的自定义菜单实现方式，
@@ -20555,26 +20575,6 @@ Macji: 我会写信给 chinalist 给出禁用弹窗的解决方案</p>
 <hr></hr>
 <p><strong>Tags:</strong> </p>
 <p><em>Published on 2009-07-27</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[表单设计]]></title>
-            <link>https://hotoo.github.io/blog/post/form-design</link>
-            <guid>374</guid>
-            <content:encoded><![CDATA[<h1 id="表单设计">表单设计<a aria-hidden="true" href="#表单设计">#</a></h1>
-<ul>
-<li></li>
-</ul>
-<p>表单元素有新增、修改、删除的状态（新增和修改可以参考 svn 的图标，删除则直接从页面上删除 DOM）</p>
-<h2 id="ref">Ref:<a aria-hidden="true" href="#ref">#</a></h2>
-<ul>
-<li>
-<p><a href="http://ucdchina.com/snap/6284" target="_blank" rel="noopener noreferrer">如何精简用户界面</a></p>
-</li>
-</ul>
-<hr></hr>
-<p><strong>Tags:</strong> , , </p>
-<p><em>Published on 2010-04-08</em></p>
 ]]></content:encoded>
         </item>
         <item>
@@ -20889,9 +20889,52 @@ Smartphone上有各种“情景模式”，如普通，静音，会议，室外�
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[如何削铅笔]]></title>
+            <link>https://hotoo.github.io/blog/post/how-to-peel-pencil</link>
+            <guid>382</guid>
+            <content:encoded><![CDATA[<h1 id="如何削铅笔">如何削铅笔<a aria-hidden="true" href="#如何削铅笔">#</a></h1>
+<p>看了 <a href="http://www.junchenwu.com/" target="_blank" rel="noopener noreferrer">JunChen</a> 翻译的
+<a href="http://www.junchenwu.com/2009/04/our_favorite_tools_for_sketching.html" target="_blank" rel="noopener noreferrer">Adaptive Path：我们最爱的草图工具</a>，
+我很受启发。之前也有让公司买彩色铅笔用，但现在已经离开用不着了。
+而且一直都很想买个 GTD 记事本以及其他文具，今天抽空就把装备给差不多备齐了。</p>
+<p>回来削铅笔的时候，想起自己以前的经历：小时候用过转笔刀和小刀，都会把笔尖削的很尖锐，
+跟书本上的引导、同学的同化、以及思维定势都有关，而且也 基本适合那时候的使用场景。
+后来高考使用2B铅笔，也受一些美术专业朋友的影响，学会了把笔尖削得平板愚钝一点
+（有点返璞归真，大智若愚的感觉），这种削 法也一直 使用到现在。</p>
+<p>这里要讲的就是这种削法。</p>
+<ul>
+<li>
+<p>削表面木头时，先不要削炭芯，倾斜度建议平滑一点，大概15°，也就是圆锥体切面角度大概为30°。
+大概完成的时候，被削的表皮为2cm长，露出的笔芯部分0.5cm。</p>
+<p><img src="http://3.bp.blogspot.com/_POl6bUDELqY/SeQYzaIDvHI/AAAAAAAAH-w/BMxhZ7QLgz4/s320/pencil_0.GIF" alt="图"></img></p>
+</li>
+<li>
+<p>然后是削笔芯，先在圆柱体的两边削出平行（渐进微斜）的两个平面，尖端厚度大概为0.15cm (1.5mm)。</p>
+<p><img src="http://3.bp.blogspot.com/_POl6bUDELqY/SeQZa_o1x9I/AAAAAAAAH-4/JWnbaXCX2QE/s320/pencil_1.GIF" alt="图"></img></p>
+</li>
+<li>
+<p>再把笔尖顶端的一侧削（刮）出一点弧度，以便于书写和素描。</p>
+<p><img src="http://4.bp.blogspot.com/_POl6bUDELqY/SeQZ23fOCMI/AAAAAAAAH_A/L5qqNshtEEs/s320/pencil_2.GIF" alt="图"></img></p>
+</li>
+<li>
+<p>最后在稿纸上试笔，顺便打磨一下笔尖两侧，使之更便于使用就可以了。
+笔尖平时一般不用削，用的时候就可以把笔尖磨成舒适的形状，直到笔尖变短。</p>
+<p><img src="http://3.bp.blogspot.com/_POl6bUDELqY/SeQ6eRCn8aI/AAAAAAAAH_I/P1GGYKmZR4Y/s400/90414-151043.jpg" alt="图"></img></p>
+</li>
+</ul>
+<p>p.s. 1. 不知道白色笔芯的铅笔用来华什么，一般都用白纸，而且她也不能遮盖掉其他颜色，
+不然用做橡皮功能也不错。
+p.s. 2. 文具店的阿姨也在讲求用户体验呢，正准备装修外面的广告招牌，
+对店里放笔的盒子的设计细节也有研究。</p>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2009-04-14</em></p>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[电梯按钮设计]]></title>
             <link>https://hotoo.github.io/blog/post/lift-button-design</link>
-            <guid>382</guid>
+            <guid>383</guid>
             <content:encoded><![CDATA[<h1 id="电梯按钮设计">电梯按钮设计<a aria-hidden="true" href="#电梯按钮设计">#</a></h1>
 <ul>
 <li>
@@ -20917,9 +20960,79 @@ Smartphone上有各种“情景模式”，如普通，静音，会议，室外�
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[笔试后双方最好能当面讨论题解]]></title>
+            <link>https://hotoo.github.io/blog/post/after-written-examination</link>
+            <guid>384</guid>
+            <content:encoded><![CDATA[<h1 id="笔试后双方最好能当面讨论题解">笔试后双方最好能当面讨论题解<a aria-hidden="true" href="#笔试后双方最好能当面讨论题解">#</a></h1>
+<p>最近有好几次进阿里集团的笔试经验，有一个小体会：笔试后招聘方和应聘方最好能一起交流讨论题解
+（记得学校考试的时候，对题目有疑问时可以举手提问，老师也有出错题的时候，但是考场上发现后会立即处理。
+不过由于笔试时间短，出现意外再改的话时间会很仓促，所以建议在笔试后讨论，题可以先按照“常理”解答）。</p>
+<p>前两次分别在 <a href="http://ued.taobao.com/" target="_blank" rel="noopener noreferrer">淘宝UED</a> 和 <a href="http://www.alimama.com/" target="_blank" rel="noopener noreferrer">阿里妈妈</a>
+的笔试题里，有一道很相似的题：给数值对象（Number）扩展一个原型方法，
+将数值格式化为指定长度的字符串（另外还有一个条件，淘宝UED给的是“能指定格式最好”，
+阿里妈妈则是“能指定进制最好”）。</p>
+<p>淘宝UED：
+想到数值可能是小数，但题目没有知道小数保留长度等条件，这里只考虑整数位。</p>
+<pre><code>Number.prototype.format = function(len, format){
+  var a=this.toString().split(&quot;.&quot;), l=a[0].length;
+  if(l&gt;=len) return a.join(&quot;.&quot;);
+  return new Array(len-l+1).join(&quot;0&quot;)+a[0] + (a[1]?&quot;.&quot;+a[1]:&quot;&quot;);
+};
+</code></pre>
+<p>阿里妈妈：
+同样有小数问题，而且小数转进制的话也有特殊的地方，这里忽略小数。</p>
+<pre><code>Number.prototype.format = function(len, dem){
+  var s = this.toString(dem), l=s.length;
+  if(l&gt;=len) return s;
+  return new Array(l-len+1).join(&quot;0&quot;) + s;
+};
+</code></pre>
+<p>好在两个部门笔试后都有相关讨论，对这一问题做了及时的初步探讨。</p>
+<p>今天又去参加了 <a href="http://china.alibaba.com/" target="_blank" rel="noopener noreferrer">阿里巴巴</a> 的笔试，这次的题没有重复的，
+但是也有一个问题压轴题。</p>
+<p>大意是用CSS控制3个DIV，布局如下图（图是随手画的，不计较大小比例）：</p>
+<p><img src="http://3.bp.blogspot.com/_POl6bUDELqY/ScpP_IbKQOI/AAAAAAAAH94/2CpARReFJww/s320/Alibaba-CSS.jpg" alt="图"></img></p>
+<p>当时解答的时候，在我看来，似乎是只给3个兄弟关系的div，没有辅助标记，让写css控制布局。</p>
+<p>css虽不是我所最擅长，但是这个布局还是可以做出来的，但是难点只在于不使用辅助标记，哪怕是div。
+当时我的解法如下（这里是调试后正确的代码，当时思想相同，但代码没有写完整，也没有经过调试验证）：</p>
+<pre><code>#box0{border:1px solid #f00;width:200px;height:400px;margin-bottom:10px;}
+#box1{border:1px solid #0f0;width:200px;height:250px;}
+#box2{border:1px solid #00f;width:600px;height:650px;position:relative;top:-664px;left:210px;}
+</code></pre>
+<pre><code>&lt;div id=&quot;box0&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;box1&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;box2&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>虽然效果基本相同，而且没有使用辅助标签，但总觉得有点ugly，因为这里的区域尺寸都是固定像素的，
+所以较好控制，当遇到未知高度时，#box2的top就不知道要设置为多少了，还是加一个辅助标签简单灵活。</p>
+<p>如果可以使用辅助标记，我的题解如下：</p>
+<pre><code>#box{float:left;width:200px;border:0px solid #000;}
+#space0{width:200px;height:400px;border:1px solid #f00;margin-bottom:10px;}
+#space1{width:200px;height:250px;border:1px solid #0f0;}
+#space2{width:600px;height:650px;float:left;border:1px solid #00f;margin-left:10px;}
+</code></pre>
+<pre><code>&lt;div id=&quot;box&quot;&gt;
+  &lt;div id=&quot;space0&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;space1&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;space2&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>还有一个问题是，因为有边框和间隔的关系，左右两个区域是无法上下对齐的。
+另外实际应用中还要考虑到清除浮动，父级元素等情况。</p>
+<p>当时有想过打破（可能是自己臆想的）规则，用辅助div实现，但是由于尝试在规则之中实现，
+结果用了过多的时间，还答的一塌糊涂。</p>
+<p>由于这次有多人一同笔试，而且时间很晚（预约18:30分），无法安排讨论，我对这道题也耿耿于怀，
+回来请教我那 <a href="http://www.hxblog.net/" target="_blank" rel="noopener noreferrer">牛逼的朋友</a>，第一选择也是使用辅助div。
+不知道阿里巴巴这道题的作者是怎么想的，难道是故意的？</p>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2009-03-26</em></p>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[由邮件排序想到的]]></title>
             <link>https://hotoo.github.io/blog/post/idea-from-email-srot</link>
-            <guid>383</guid>
+            <guid>385</guid>
             <content:encoded><![CDATA[<h1 id="由邮件排序想到的">由邮件排序想到的<a aria-hidden="true" href="#由邮件排序想到的">#</a></h1>
 <p>目前的电子邮件系统，均是使用倒序列出邮件列表，最新的邮件总是在第一封。
 这样做也并没有什么不好，不过这是最好的排列方式吗？</p>
@@ -20963,52 +21076,9 @@ Smartphone上有各种“情景模式”，如普通，静音，会议，室外�
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[如何削铅笔]]></title>
-            <link>https://hotoo.github.io/blog/post/how-to-peel-pencil</link>
-            <guid>384</guid>
-            <content:encoded><![CDATA[<h1 id="如何削铅笔">如何削铅笔<a aria-hidden="true" href="#如何削铅笔">#</a></h1>
-<p>看了 <a href="http://www.junchenwu.com/" target="_blank" rel="noopener noreferrer">JunChen</a> 翻译的
-<a href="http://www.junchenwu.com/2009/04/our_favorite_tools_for_sketching.html" target="_blank" rel="noopener noreferrer">Adaptive Path：我们最爱的草图工具</a>，
-我很受启发。之前也有让公司买彩色铅笔用，但现在已经离开用不着了。
-而且一直都很想买个 GTD 记事本以及其他文具，今天抽空就把装备给差不多备齐了。</p>
-<p>回来削铅笔的时候，想起自己以前的经历：小时候用过转笔刀和小刀，都会把笔尖削的很尖锐，
-跟书本上的引导、同学的同化、以及思维定势都有关，而且也 基本适合那时候的使用场景。
-后来高考使用2B铅笔，也受一些美术专业朋友的影响，学会了把笔尖削得平板愚钝一点
-（有点返璞归真，大智若愚的感觉），这种削 法也一直 使用到现在。</p>
-<p>这里要讲的就是这种削法。</p>
-<ul>
-<li>
-<p>削表面木头时，先不要削炭芯，倾斜度建议平滑一点，大概15°，也就是圆锥体切面角度大概为30°。
-大概完成的时候，被削的表皮为2cm长，露出的笔芯部分0.5cm。</p>
-<p><img src="http://3.bp.blogspot.com/_POl6bUDELqY/SeQYzaIDvHI/AAAAAAAAH-w/BMxhZ7QLgz4/s320/pencil_0.GIF" alt="图"></img></p>
-</li>
-<li>
-<p>然后是削笔芯，先在圆柱体的两边削出平行（渐进微斜）的两个平面，尖端厚度大概为0.15cm (1.5mm)。</p>
-<p><img src="http://3.bp.blogspot.com/_POl6bUDELqY/SeQZa_o1x9I/AAAAAAAAH-4/JWnbaXCX2QE/s320/pencil_1.GIF" alt="图"></img></p>
-</li>
-<li>
-<p>再把笔尖顶端的一侧削（刮）出一点弧度，以便于书写和素描。</p>
-<p><img src="http://4.bp.blogspot.com/_POl6bUDELqY/SeQZ23fOCMI/AAAAAAAAH_A/L5qqNshtEEs/s320/pencil_2.GIF" alt="图"></img></p>
-</li>
-<li>
-<p>最后在稿纸上试笔，顺便打磨一下笔尖两侧，使之更便于使用就可以了。
-笔尖平时一般不用削，用的时候就可以把笔尖磨成舒适的形状，直到笔尖变短。</p>
-<p><img src="http://3.bp.blogspot.com/_POl6bUDELqY/SeQ6eRCn8aI/AAAAAAAAH_I/P1GGYKmZR4Y/s400/90414-151043.jpg" alt="图"></img></p>
-</li>
-</ul>
-<p>p.s. 1. 不知道白色笔芯的铅笔用来华什么，一般都用白纸，而且她也不能遮盖掉其他颜色，
-不然用做橡皮功能也不错。
-p.s. 2. 文具店的阿姨也在讲求用户体验呢，正准备装修外面的广告招牌，
-对店里放笔的盒子的设计细节也有研究。</p>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2009-04-14</em></p>
-]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[让对方介绍一下工作的情况，对方对现在的工作有什么看法。]]></title>
             <link>https://hotoo.github.io/blog/post/after-nterview</link>
-            <guid>385</guid>
+            <guid>386</guid>
             <content:encoded><![CDATA[<h1 id="淘宝应聘后记">淘宝应聘后记<a aria-hidden="true" href="#淘宝应聘后记">#</a></h1>
 <p>前段时间在北京做项目，期间看到一篇关于
 "<a href="http://dancewithnet.com/2009/02/17/how-to-make-a-resume-of-f2e/" target="_blank" rel="noopener noreferrer">如何做好一份前端工程师的简历？</a>"，
@@ -21065,7 +21135,7 @@ Sent from: Hangzhou 33 China.</p>
         <item>
             <title><![CDATA[JavaScript 无块级作用域]]></title>
             <link>https://hotoo.github.io/blog/post/javascript-vars-scope</link>
-            <guid>386</guid>
+            <guid>387</guid>
             <content:encoded><![CDATA[<h1 id="javascript-无块级作用域">JavaScript 无块级作用域<a aria-hidden="true" href="#javascript-无块级作用域">#</a></h1>
 <p>最近在做一系列JavaScript压缩工具，语法压缩，语义压缩，字符串压缩均有涉及（p.s.有趣的是，
 压缩变量名之类的“有损压缩”不影响代码执行，但是字符串压缩这样的“无损压缩”却总是需要解压消耗）。</p>
@@ -21299,7 +21369,7 @@ try{alert(v0b);}catch(e){document.write((e.message||e)+&quot;&lt;br /&gt;&quot;)
         <item>
             <title><![CDATA[尊严]]></title>
             <link>https://hotoo.github.io/blog/post/dignity</link>
-            <guid>387</guid>
+            <guid>388</guid>
             <content:encoded><![CDATA[<h1 id="尊严">尊严<a aria-hidden="true" href="#尊严">#</a></h1>
 <ul>
 <li></li>
@@ -21324,7 +21394,7 @@ try{alert(v0b);}catch(e){document.write((e.message||e)+&quot;&lt;br /&gt;&quot;)
         <item>
             <title><![CDATA[开放篮球场地.地标工程]]></title>
             <link>https://hotoo.github.io/blog/post/open-basketball-field</link>
-            <guid>388</guid>
+            <guid>389</guid>
             <content:encoded><![CDATA[<h1 id="开放篮球场地地标工程">开放篮球场地.地标工程<a aria-hidden="true" href="#开放篮球场地地标工程">#</a></h1>
 <p>作为业余篮球爱好者，作为他乡游子，每到一个陌生的地方，都想尽快找到一个能施展球技、
 或者仅是活动一下筋骨的场地。就地解决当然也可以，但是如果有自由开放的美好世界，为什么不加入进去呢？</p>
@@ -21361,76 +21431,6 @@ try{alert(v0b);}catch(e){document.write((e.message||e)+&quot;&lt;br /&gt;&quot;)
 <hr></hr>
 <p><strong>Tags:</strong> </p>
 <p><em>Published on 2009-01-02</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[笔试后双方最好能当面讨论题解]]></title>
-            <link>https://hotoo.github.io/blog/post/after-written-examination</link>
-            <guid>389</guid>
-            <content:encoded><![CDATA[<h1 id="笔试后双方最好能当面讨论题解">笔试后双方最好能当面讨论题解<a aria-hidden="true" href="#笔试后双方最好能当面讨论题解">#</a></h1>
-<p>最近有好几次进阿里集团的笔试经验，有一个小体会：笔试后招聘方和应聘方最好能一起交流讨论题解
-（记得学校考试的时候，对题目有疑问时可以举手提问，老师也有出错题的时候，但是考场上发现后会立即处理。
-不过由于笔试时间短，出现意外再改的话时间会很仓促，所以建议在笔试后讨论，题可以先按照“常理”解答）。</p>
-<p>前两次分别在 <a href="http://ued.taobao.com/" target="_blank" rel="noopener noreferrer">淘宝UED</a> 和 <a href="http://www.alimama.com/" target="_blank" rel="noopener noreferrer">阿里妈妈</a>
-的笔试题里，有一道很相似的题：给数值对象（Number）扩展一个原型方法，
-将数值格式化为指定长度的字符串（另外还有一个条件，淘宝UED给的是“能指定格式最好”，
-阿里妈妈则是“能指定进制最好”）。</p>
-<p>淘宝UED：
-想到数值可能是小数，但题目没有知道小数保留长度等条件，这里只考虑整数位。</p>
-<pre><code>Number.prototype.format = function(len, format){
-  var a=this.toString().split(&quot;.&quot;), l=a[0].length;
-  if(l&gt;=len) return a.join(&quot;.&quot;);
-  return new Array(len-l+1).join(&quot;0&quot;)+a[0] + (a[1]?&quot;.&quot;+a[1]:&quot;&quot;);
-};
-</code></pre>
-<p>阿里妈妈：
-同样有小数问题，而且小数转进制的话也有特殊的地方，这里忽略小数。</p>
-<pre><code>Number.prototype.format = function(len, dem){
-  var s = this.toString(dem), l=s.length;
-  if(l&gt;=len) return s;
-  return new Array(l-len+1).join(&quot;0&quot;) + s;
-};
-</code></pre>
-<p>好在两个部门笔试后都有相关讨论，对这一问题做了及时的初步探讨。</p>
-<p>今天又去参加了 <a href="http://china.alibaba.com/" target="_blank" rel="noopener noreferrer">阿里巴巴</a> 的笔试，这次的题没有重复的，
-但是也有一个问题压轴题。</p>
-<p>大意是用CSS控制3个DIV，布局如下图（图是随手画的，不计较大小比例）：</p>
-<p><img src="http://3.bp.blogspot.com/_POl6bUDELqY/ScpP_IbKQOI/AAAAAAAAH94/2CpARReFJww/s320/Alibaba-CSS.jpg" alt="图"></img></p>
-<p>当时解答的时候，在我看来，似乎是只给3个兄弟关系的div，没有辅助标记，让写css控制布局。</p>
-<p>css虽不是我所最擅长，但是这个布局还是可以做出来的，但是难点只在于不使用辅助标记，哪怕是div。
-当时我的解法如下（这里是调试后正确的代码，当时思想相同，但代码没有写完整，也没有经过调试验证）：</p>
-<pre><code>#box0{border:1px solid #f00;width:200px;height:400px;margin-bottom:10px;}
-#box1{border:1px solid #0f0;width:200px;height:250px;}
-#box2{border:1px solid #00f;width:600px;height:650px;position:relative;top:-664px;left:210px;}
-</code></pre>
-<pre><code>&lt;div id=&quot;box0&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;box1&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;box2&quot;&gt;&lt;/div&gt;
-</code></pre>
-<p>虽然效果基本相同，而且没有使用辅助标签，但总觉得有点ugly，因为这里的区域尺寸都是固定像素的，
-所以较好控制，当遇到未知高度时，#box2的top就不知道要设置为多少了，还是加一个辅助标签简单灵活。</p>
-<p>如果可以使用辅助标记，我的题解如下：</p>
-<pre><code>#box{float:left;width:200px;border:0px solid #000;}
-#space0{width:200px;height:400px;border:1px solid #f00;margin-bottom:10px;}
-#space1{width:200px;height:250px;border:1px solid #0f0;}
-#space2{width:600px;height:650px;float:left;border:1px solid #00f;margin-left:10px;}
-</code></pre>
-<pre><code>&lt;div id=&quot;box&quot;&gt;
-  &lt;div id=&quot;space0&quot;&gt;&lt;/div&gt;
-  &lt;div id=&quot;space1&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&quot;space2&quot;&gt;&lt;/div&gt;
-</code></pre>
-<p>还有一个问题是，因为有边框和间隔的关系，左右两个区域是无法上下对齐的。
-另外实际应用中还要考虑到清除浮动，父级元素等情况。</p>
-<p>当时有想过打破（可能是自己臆想的）规则，用辅助div实现，但是由于尝试在规则之中实现，
-结果用了过多的时间，还答的一塌糊涂。</p>
-<p>由于这次有多人一同笔试，而且时间很晚（预约18:30分），无法安排讨论，我对这道题也耿耿于怀，
-回来请教我那 <a href="http://www.hxblog.net/" target="_blank" rel="noopener noreferrer">牛逼的朋友</a>，第一选择也是使用辅助div。
-不知道阿里巴巴这道题的作者是怎么想的，难道是故意的？</p>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2009-03-26</em></p>
 ]]></content:encoded>
         </item>
         <item>
