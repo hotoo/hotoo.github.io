@@ -4,7 +4,7 @@
         <title>闲耘的博客</title>
         <link>https://hotoo.github.io</link>
         <description>闲耘的个人网站和博客</description>
-        <lastBuildDate>Thu, 13 Nov 2025 15:58:33 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 14 Nov 2025 02:38:41 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -11823,108 +11823,9 @@ color: #666;
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[MacVim 释出 r182 版]]></title>
-            <link>https://hotoo.github.io/blog/post/macvim-r182</link>
-            <guid>228</guid>
-            <content:encoded><![CDATA[<h1 id="macvim-释出-r182-版">MacVim 释出 r182 版<a aria-hidden="true" href="#macvim-释出-r182-版">#</a></h1>
-<p>MacVim r182 更新到 Vim 9.1.1887</p>
-<p>此更新仍然基于 macOS 15 Sequoia 构建，不包含针对 macOS 26 Tahoe 的任何特定修复或改进。这些将在未来的更新中提供。</p>
-<h2 id="将-macos-1013---1015-支持移至遗留版本">将 macOS 10.13 - 10.15 支持移至遗留版本<a aria-hidden="true" href="#将-macos-1013---1015-支持移至遗留版本">#</a></h2>
-<p>目前，MacVim 二进制发布版本分为两个版本：标准版本（macOS 10.13 或更高版本）和遗留版本（macOS 10.9 或更高版本）。从下一个发布版本（r183）开始，标准版本将要求 macOS 11.0 Big Sur（由于 Xcode 26 的要求），而 macOS 10.13-10.15 用户将需要使用遗留版本。这将基本上是一个透明的变更，更新器将自动更新到正确的版本。遗留版本对用户来说应该几乎相同，因为他们使用的是较旧的 macOS 版本，这些版本从一开始就无法利用新的操作系统功能。</p>
-<p>未来我们可能会移除对 macOS 10.9-10.12 的支持，但目前它们仍然受支持。</p>
-<h2 id="特性更好的鼠标支持">特性：更好的鼠标支持<a aria-hidden="true" href="#特性更好的鼠标支持">#</a></h2>
-<p>在 MacVim 中，滚轮的使用体验应该会更好。现在，小幅度滚动保证至少滚动一行，并且水平滚动（Shift 滚动）现在可以正常工作。你还可以在“输入”设置面板中关闭 macOS 的滚轮加速，以滚动固定数量的行。</p>
-<p>鼠标的第四和第五个按钮现在可以绑定到 Vim 映射中的 <code>&lt;X1Mouse&gt;</code> 和 <code>&lt;X2Mouse&gt;</code> （ :h X1Mouse ）。</p>
-<h2 id="vim-新特性">Vim 新特性<a aria-hidden="true" href="#vim-新特性">#</a></h2>
-<ul>
-<li>Diff 差异模式改进
-<ul>
-<li>Vim diff 现在可以高亮显示行内每个字符或每个单词的差异。默认情况下使用每个字符的高亮显示。参见 "inline" 下的 <code>:h &#39;diffopt&#39;</code> 。v9.1.1243
-<img src="/images/blog/2025/macvim-diff.png" alt="vim diff"></img></li>
-<li>Diff 锚点允许对 diff 算法跨文件对齐文本的方式和位置进行更明确的控制 ( <code>:h diff-anchors</code> )。v9.1.1557</li>
-</ul>
-</li>
-<li>许多自动补全的改进。以下是一些高亮显示：
-<ul>
-<li>新选项： <code>autocomplete</code> 。在输入时获取补全建议。参见 <code>:h ins-autocompletion</code> 。v9.1.1590</li>
-<li>模糊匹配现在使用 fzf 算法。v9.1.1627</li>
-<li>弹出菜单边框现在可以设置样式（ <code>:h &#39;pumborder&#39;</code> / <code>:h &#39;completepopup&#39;</code> ）。v9.1.1835 / v9.1.1856</li>
-<li>在使用插入模式补全时，现在可以指定自定义补全源（ <code>:h &#39;complete&#39;</code> ）。v9.1.1301</li>
-<li><code>set completeopt+=nearest</code> 将根据光标附近的距离对补全项进行排序。v9.1.1308</li>
-<li>命令行补全
-<ul>
-<li>搜索命令如 <code>/</code> 和 <code>:g</code> 现在可以 Tab 补全。 v9.1.1490 v9.1.1526</li>
-<li>命令如 <code>:filetype</code> 和 <code>:highlight</code> 具有更好的自动补全。 v9.1.1340 / v9.1.1138</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>新的垂直标签面板（ <code>:h tabpanel</code> ）。 v9.1.1391
-<ul>
-<li>新增可选捆绑插件（使用 <code>packadd</code> 启用它们）：</li>
-<li>hlyank ( <code>:h package-hlyank</code> ): 简要高亮上次复制命令的区域</li>
-</ul>
-</li>
-<li>新增命令：
-<ul>
-<li><code>:uniq</code> ( <code>:h :uniq</code> ): 删除相邻重复行 v9.1.1477</li>
-</ul>
-</li>
-</ul>
-<h2 id="综合">综合<a aria-hidden="true" href="#综合">#</a></h2>
-<ul>
-<li>Sparkle（MacVim 的更新器）现已更新至 2.8.0 版本。 #1605</li>
-</ul>
-<h2 id="安全修复">安全修复<a aria-hidden="true" href="#安全修复">#</a></h2>
-<ul>
-<li>修复了 MacVim 错误地设置 get-task-allow 权限的问题，这可能导致其他用户安装的应用程序检查该权限。 #1585</li>
-</ul>
-<h2 id="修复">修复<a aria-hidden="true" href="#修复">#</a></h2>
-<ul>
-<li>解决了在非视觉模式下，macOS 服务（可在"服务"菜单中找到）无法插入文本的问题。 #1571 #1569</li>
-<li>修复了 guifont 不接受带下划线的 PostScript 名称（例如"CascadiaMono-Regular_Light"）的问题。 #1600</li>
-<li>MacVim 现在使用标准的 v:colornames 变量来选择高亮颜色。 #1568</li>
-<li>Vim 语法现在支持 MacVim 特定的函数 showdefinition() 。 #1601</li>
-</ul>
-<h2 id="兼容性">兼容性<a aria-hidden="true" href="#兼容性">#</a></h2>
-<p>需要 macOS 10.9 或更高版本。（10.9 - 10.12 需要下载单独的旧版本构建）</p>
-<p>脚本接口与这些版本兼容：</p>
-<ul>
-<li>
-<p>Lua 5.4</p>
-</li>
-<li>
-<p>Perl 5.34</p>
-</li>
-<li>
-<p>Python2 2.7</p>
-</li>
-<li>
-<p>Python3 3.9 或更高版本</p>
-</li>
-<li>
-<p>Ruby 3.4</p>
-</li>
-</ul>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2025-11-09</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Categories]]></title>
-            <link>https://hotoo.github.io/blog/categories/</link>
-            <guid>229</guid>
-            <content:encoded><![CDATA[<h1 id="categories">Categories<a aria-hidden="true" href="#categories">#</a></h1>
-<ul>
-<li><a href="/blog/categories/%E5%B0%8F%E8%AF%B4/">小说</a> (1)</li>
-<li><a href="/blog/categories/Technology/">Technology</a> (4)</li>
-</ul>]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[Tags]]></title>
             <link>https://hotoo.github.io/blog/tags/</link>
-            <guid>230</guid>
+            <guid>228</guid>
             <content:encoded><![CDATA[<h1 id="tags">Tags<a aria-hidden="true" href="#tags">#</a></h1>
 
 <ul>
@@ -12021,6 +11922,105 @@ color: #666;
 <li><a href="/blog/tags/Mac/">Mac</a> (1)</li>
 <li><a href="/blog/tags/Terminal/">Terminal</a> (1)</li>
 </ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Categories]]></title>
+            <link>https://hotoo.github.io/blog/categories/</link>
+            <guid>229</guid>
+            <content:encoded><![CDATA[<h1 id="categories">Categories<a aria-hidden="true" href="#categories">#</a></h1>
+<ul>
+<li><a href="/blog/categories/%E5%B0%8F%E8%AF%B4/">小说</a> (1)</li>
+<li><a href="/blog/categories/Technology/">Technology</a> (4)</li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[MacVim 释出 r182 版]]></title>
+            <link>https://hotoo.github.io/blog/post/macvim-r182</link>
+            <guid>230</guid>
+            <content:encoded><![CDATA[<h1 id="macvim-释出-r182-版">MacVim 释出 r182 版<a aria-hidden="true" href="#macvim-释出-r182-版">#</a></h1>
+<p>MacVim r182 更新到 Vim 9.1.1887</p>
+<p>此更新仍然基于 macOS 15 Sequoia 构建，不包含针对 macOS 26 Tahoe 的任何特定修复或改进。这些将在未来的更新中提供。</p>
+<h2 id="将-macos-1013---1015-支持移至遗留版本">将 macOS 10.13 - 10.15 支持移至遗留版本<a aria-hidden="true" href="#将-macos-1013---1015-支持移至遗留版本">#</a></h2>
+<p>目前，MacVim 二进制发布版本分为两个版本：标准版本（macOS 10.13 或更高版本）和遗留版本（macOS 10.9 或更高版本）。从下一个发布版本（r183）开始，标准版本将要求 macOS 11.0 Big Sur（由于 Xcode 26 的要求），而 macOS 10.13-10.15 用户将需要使用遗留版本。这将基本上是一个透明的变更，更新器将自动更新到正确的版本。遗留版本对用户来说应该几乎相同，因为他们使用的是较旧的 macOS 版本，这些版本从一开始就无法利用新的操作系统功能。</p>
+<p>未来我们可能会移除对 macOS 10.9-10.12 的支持，但目前它们仍然受支持。</p>
+<h2 id="特性更好的鼠标支持">特性：更好的鼠标支持<a aria-hidden="true" href="#特性更好的鼠标支持">#</a></h2>
+<p>在 MacVim 中，滚轮的使用体验应该会更好。现在，小幅度滚动保证至少滚动一行，并且水平滚动（Shift 滚动）现在可以正常工作。你还可以在“输入”设置面板中关闭 macOS 的滚轮加速，以滚动固定数量的行。</p>
+<p>鼠标的第四和第五个按钮现在可以绑定到 Vim 映射中的 <code>&lt;X1Mouse&gt;</code> 和 <code>&lt;X2Mouse&gt;</code> （ :h X1Mouse ）。</p>
+<h2 id="vim-新特性">Vim 新特性<a aria-hidden="true" href="#vim-新特性">#</a></h2>
+<ul>
+<li>Diff 差异模式改进
+<ul>
+<li>Vim diff 现在可以高亮显示行内每个字符或每个单词的差异。默认情况下使用每个字符的高亮显示。参见 "inline" 下的 <code>:h &#39;diffopt&#39;</code> 。v9.1.1243
+<img src="/images/blog/2025/macvim-diff.png" alt="vim diff"></img></li>
+<li>Diff 锚点允许对 diff 算法跨文件对齐文本的方式和位置进行更明确的控制 ( <code>:h diff-anchors</code> )。v9.1.1557</li>
+</ul>
+</li>
+<li>许多自动补全的改进。以下是一些高亮显示：
+<ul>
+<li>新选项： <code>autocomplete</code> 。在输入时获取补全建议。参见 <code>:h ins-autocompletion</code> 。v9.1.1590</li>
+<li>模糊匹配现在使用 fzf 算法。v9.1.1627</li>
+<li>弹出菜单边框现在可以设置样式（ <code>:h &#39;pumborder&#39;</code> / <code>:h &#39;completepopup&#39;</code> ）。v9.1.1835 / v9.1.1856</li>
+<li>在使用插入模式补全时，现在可以指定自定义补全源（ <code>:h &#39;complete&#39;</code> ）。v9.1.1301</li>
+<li><code>set completeopt+=nearest</code> 将根据光标附近的距离对补全项进行排序。v9.1.1308</li>
+<li>命令行补全
+<ul>
+<li>搜索命令如 <code>/</code> 和 <code>:g</code> 现在可以 Tab 补全。 v9.1.1490 v9.1.1526</li>
+<li>命令如 <code>:filetype</code> 和 <code>:highlight</code> 具有更好的自动补全。 v9.1.1340 / v9.1.1138</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>新的垂直标签面板（ <code>:h tabpanel</code> ）。 v9.1.1391
+<ul>
+<li>新增可选捆绑插件（使用 <code>packadd</code> 启用它们）：</li>
+<li>hlyank ( <code>:h package-hlyank</code> ): 简要高亮上次复制命令的区域</li>
+</ul>
+</li>
+<li>新增命令：
+<ul>
+<li><code>:uniq</code> ( <code>:h :uniq</code> ): 删除相邻重复行 v9.1.1477</li>
+</ul>
+</li>
+</ul>
+<h2 id="综合">综合<a aria-hidden="true" href="#综合">#</a></h2>
+<ul>
+<li>Sparkle（MacVim 的更新器）现已更新至 2.8.0 版本。 #1605</li>
+</ul>
+<h2 id="安全修复">安全修复<a aria-hidden="true" href="#安全修复">#</a></h2>
+<ul>
+<li>修复了 MacVim 错误地设置 get-task-allow 权限的问题，这可能导致其他用户安装的应用程序检查该权限。 #1585</li>
+</ul>
+<h2 id="修复">修复<a aria-hidden="true" href="#修复">#</a></h2>
+<ul>
+<li>解决了在非视觉模式下，macOS 服务（可在"服务"菜单中找到）无法插入文本的问题。 #1571 #1569</li>
+<li>修复了 guifont 不接受带下划线的 PostScript 名称（例如"CascadiaMono-Regular_Light"）的问题。 #1600</li>
+<li>MacVim 现在使用标准的 v:colornames 变量来选择高亮颜色。 #1568</li>
+<li>Vim 语法现在支持 MacVim 特定的函数 showdefinition() 。 #1601</li>
+</ul>
+<h2 id="兼容性">兼容性<a aria-hidden="true" href="#兼容性">#</a></h2>
+<p>需要 macOS 10.9 或更高版本。（10.9 - 10.12 需要下载单独的旧版本构建）</p>
+<p>脚本接口与这些版本兼容：</p>
+<ul>
+<li>
+<p>Lua 5.4</p>
+</li>
+<li>
+<p>Perl 5.34</p>
+</li>
+<li>
+<p>Python2 2.7</p>
+</li>
+<li>
+<p>Python3 3.9 或更高版本</p>
+</li>
+<li>
+<p>Ruby 3.4</p>
+</li>
+</ul>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2025-11-09</em></p>
+]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[文件名：下划线、还是驼峰？]]></title>
@@ -12806,206 +12806,9 @@ location.href = getUrl(...args);
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[末尾的逗号]]></title>
-            <link>https://hotoo.github.io/blog/post/trailing-commas</link>
-            <guid>241</guid>
-            <content:encoded><![CDATA[<h1 id="末尾的逗号">末尾的逗号<a aria-hidden="true" href="#末尾的逗号">#</a></h1>
-<p><img src="/images/blog/trailing-commas.png" alt="trailing commas"></img></p>
-<p>早期的 JavaScript 运行环境大都不支持末尾多出来的逗号，或者会抛出异常，或者不符合期望。</p>
-<p>比如：</p>
-<pre><code>var obj = {
-  a: 0, // 抛出异常。
-};
-
-var arr = [
-  0, // arr.length === 2
-];
-</code></pre>
-<p>由于不支持尾逗号，我们以前写代码都需要手动去除尾逗号（工具最多提示你这里多了个逗号）。
-因此我们增加、删除一个属性、数组项时，总是需要担心相邻项的逗号问题。</p>
-<p>比如增加一项：</p>
-<ul>
-<li>如果被增加项是列表的最后一项，则需要给前一项（原最后一项）添加一个逗号，但被添加项本身不添加逗号。
-<ul>
-<li>新增一项本来并不需要修改前一项，但是在非尾逗号情况下则必须做这个无本质意义的修改。</li>
-<li>这很麻烦，也很容易导致错误。</li>
-<li>实际你只是增加了一项，但你在 diff 中会看到又是删除项，又是增加项。review 时你就需要关注这些无谓的变更。</li>
-</ul>
-</li>
-<li>如果被添加项不是列表的最后一项，则被添加项要加上逗号。</li>
-</ul>
-<pre><code> var obj = {
--  a: 0
-+  a: 0,
-+  b: 1
- };
-
- var arr = [
--  0
-+  0,
-+  1
- ];
-</code></pre>
-<p>删除一项也是：</p>
-<ul>
-<li>你本来只是要删除了最后一项，但你不得不修改前一项。麻烦，容易出问题。</li>
-<li>你本来只是删除了一项，但在 diff 中也是看到又是删除，又是增加。</li>
-</ul>
-<pre><code> var obj = {
--  a: 0,
--  b: 1
-+  a: 0
- };
-
- var arr = [
--  0,
--  1
-+  0
- ];
-</code></pre>
-<p>值得高兴的是，现在的 JavaScript 运行环境、预编译工具、语法检查工具都支持了尾逗号。
-一旦我们统一使用尾逗号风格：</p>
-<ul>
-<li>我们在增加或删除一项时，再也不需要关心相邻项了。</li>
-<li>diff 看起来也更直观清爽。</li>
-</ul>
-<p>新增一项：</p>
-<pre><code> var obj = {
-   a: 0,
-+  b: 1,
- };
-
- var arr = [
-   0,
-+  1,
- ];
-</code></pre>
-<p>删除一项：</p>
-<pre><code> var obj = {
-   a: 0,
--  b: 1,
- };
-
- var arr = [
-   0,
--  1,
- ];
-</code></pre>
-<p>另外也有些语言是不需要逗号的，每一项都不需要。比如 Markdown 的列表，yml，yaml，
-xml，html 等。</p>
-<p>全要逗号，或者全不要逗号，他们的共同点就是<strong>一致性</strong>。这种一致性让书写和阅读都非常简洁清晰。
-可维护性也更好。</p>
-<p>你觉得呢？</p>
-<hr></hr>
-<p><strong>Tags:</strong> , </p>
-<p><em>Published on 2015-08-10</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[gitopen, Smart partner of git, hg and svn.]]></title>
-            <link>https://hotoo.github.io/blog/post/gitopen</link>
-            <guid>242</guid>
-            <content:encoded><![CDATA[<h1 id="gitopen-smart-partner-of-git-hg-and-svn">gitopen, Smart partner of git, hg and svn.<a aria-hidden="true" href="#gitopen-smart-partner-of-git-hg-and-svn">#</a></h1>
-<p>使用 Git 的你，想必会更喜欢在终端（命令行）中使用 Git。在终端中，可以将 Git
-的特性发挥的淋漓尽致。</p>
-<pre><code>$ git co -b feat-sample
-$ git add .
-$ git ci -m &quot;feat(sample): Add sample commit.&quot;
-$ git push origin feat-sample
-</code></pre>
-<p>咦，我想立即提交一个 Pull/Merge Request 怎么办，还要打开浏览器，输入 Git
-仓库的 URL 地址，点击进入 PR 列表，再点击新建 PR，选择 feat-sample 分支，
-点击确认按钮，balabala...</p>
-<p>嗯，好麻烦。</p>
-<p>于是 Git 的最佳伴侣 <a href="https://github.com/hotoo/gitopen" target="_blank" rel="noopener noreferrer">gitopen</a> 横空出世了。</p>
-<p>push 了新分支，想立即提交 PR/MR，So simple.</p>
-<pre><code>$ gitopen pr
-</code></pre>
-<p>她会把当前分支提交一个新的 PR。</p>
-<p>如果你是使用的 GitHub，在发布了新版时可能还想写个 Release Note：</p>
-<pre><code>$ git tag 1.0.0
-$ git push origin 1.0.0
-$ gitopen release new 1.0.0
-</code></pre>
-<p>咦，有个新的想法，提交个 Issue 先：</p>
-<pre><code>$ gitopen issue 我有个好想法
-</code></pre>
-<p>再来个 milestone 尝尝：</p>
-<pre><code>$ gitopen milestone
-</code></pre>
-<p>这货支持：</p>
-<ul>
-<li>git, hg, svn.</li>
-<li>Mac OS X, Linux, Windows.</li>
-<li>GitHub (Enterprise), GitLab (CE, EE), BitBucket (Atlassian Stash), GitCafe (Enterprise) ...</li>
-</ul>
-<p>更多功能参考：</p>
-<pre><code>$ npm install gitopen -g
-$ gitopen @hotoo/gitopen
-</code></pre>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2015-07-24</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[git+, a hack of git, smart for you.]]></title>
-            <link>https://hotoo.github.io/blog/post/gitplus</link>
-            <guid>243</guid>
-            <content:encoded><![CDATA[<h1 id="git-a-hack-of-git-smart-for-you">git+, a hack of git, smart for you.<a aria-hidden="true" href="#git-a-hack-of-git-smart-for-you">#</a></h1>
-<p>为了信息安全，公司搭建了 gitlab.company.com 管理代码，同时限制了必须使用工作邮箱
-<a href="mailto:hotoo@company.com">hotoo@company.com</a> 进行提交。</p>
-<p>公司 gitlab 有大大小小很多仓库，不时的需要 clone 代码下来，有时忘记设置就开始提交，
-提交了几次开始 push 到 gitlab 并准备提交 MR 时发现，push 被拒绝，或者 MR 无法
-自动合并，因为没有使用公司的邮箱进行提交。只好取消之前的提交操作，修改邮箱配置
-之后重新提交。</p>
-<p>虽然 clone 下来配置一次就可以了，但是每个仓库都需要配置，每次 clone 都需要配置，
-忘记设置了需要取消之前的提交并再来一次。</p>
-<p>有没有办法自动进行配置呢？</p>
-<p>于是 <a href="https://github.com/hotoo/gitplus" target="_blank" rel="noopener noreferrer">gitplus</a> 出现了，它可以根据 git
-的子操作命令，及其所在的仓库信息，自动的执行指定命令，帮助你完成一些自动化任务。
-例如：</p>
-<pre><code>post-clone:
-  gitlab.company.com:
-    - git config user.name hotoo
-    - git config user.email hotoo@company.com
-pre-commit:
-  &#39;*&#39;:
-    - jshint .
-</code></pre>
-<ul>
-<li>
-<p>有了 gitplus，你再也不会忘记设置公司邮箱。因此也不需要取消提交再重复提交了。</p>
-</li>
-<li>
-<p>还可以在提交前自动做校验工作。没有 gitplus 之前你只能给每个仓库设置 pre-commit hooks。</p>
-</li>
-<li>
-<p>你也可以发挥自己的想象力，做更多其他的事情。</p>
-</li>
-</ul>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2015-05-27</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[集团开源星人奖和 IKBC POKER II 机械键盘]]></title>
-            <link>https://hotoo.github.io/blog/post/ikbc-poker-ii</link>
-            <guid>244</guid>
-            <content:encoded><![CDATA[<h1 id="集团开源星人奖和-ikbc-poker-ii-机械键盘">集团开源星人奖和 IKBC POKER II 机械键盘<a aria-hidden="true" href="#集团开源星人奖和-ikbc-poker-ii-机械键盘">#</a></h1>
-<p>很幸运获得了集团开源星人奖：最活跃个人奖，奖品是 IKBC POKER II 机械键盘，同时
-还有一件 Tee。</p>
-<p>获得这个奖，主要得益于前端天然的开源</p>
-<hr></hr>
-<p><strong>Tags:</strong> , , </p>
-<p><em>Published on 2015-05-27</em></p>
-]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[杭州购车记]]></title>
             <link>https://hotoo.github.io/blog/post/buying-a-car-in-hangzhou</link>
-            <guid>245</guid>
+            <guid>241</guid>
             <content:encoded><![CDATA[<h1 id="杭州购车记">杭州购车记<a aria-hidden="true" href="#杭州购车记">#</a></h1>
 <p>终于在年前把车的事情搞定了，这是 2015 年做成的唯一一件大事，经历了不少坎坷，一路摸索过来，很多都是懵懂，
 因此想通过这篇流水记录，帮助到一点大家，如果有写的不好不对的地方，大家可以给我提出，我尽力改进。</p>
@@ -13238,6 +13041,203 @@ pre-commit:
 <hr></hr>
 <p><strong>Tags:</strong> </p>
 <p><em>Published on 2016-01-27</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[末尾的逗号]]></title>
+            <link>https://hotoo.github.io/blog/post/trailing-commas</link>
+            <guid>242</guid>
+            <content:encoded><![CDATA[<h1 id="末尾的逗号">末尾的逗号<a aria-hidden="true" href="#末尾的逗号">#</a></h1>
+<p><img src="/images/blog/trailing-commas.png" alt="trailing commas"></img></p>
+<p>早期的 JavaScript 运行环境大都不支持末尾多出来的逗号，或者会抛出异常，或者不符合期望。</p>
+<p>比如：</p>
+<pre><code>var obj = {
+  a: 0, // 抛出异常。
+};
+
+var arr = [
+  0, // arr.length === 2
+];
+</code></pre>
+<p>由于不支持尾逗号，我们以前写代码都需要手动去除尾逗号（工具最多提示你这里多了个逗号）。
+因此我们增加、删除一个属性、数组项时，总是需要担心相邻项的逗号问题。</p>
+<p>比如增加一项：</p>
+<ul>
+<li>如果被增加项是列表的最后一项，则需要给前一项（原最后一项）添加一个逗号，但被添加项本身不添加逗号。
+<ul>
+<li>新增一项本来并不需要修改前一项，但是在非尾逗号情况下则必须做这个无本质意义的修改。</li>
+<li>这很麻烦，也很容易导致错误。</li>
+<li>实际你只是增加了一项，但你在 diff 中会看到又是删除项，又是增加项。review 时你就需要关注这些无谓的变更。</li>
+</ul>
+</li>
+<li>如果被添加项不是列表的最后一项，则被添加项要加上逗号。</li>
+</ul>
+<pre><code> var obj = {
+-  a: 0
++  a: 0,
++  b: 1
+ };
+
+ var arr = [
+-  0
++  0,
++  1
+ ];
+</code></pre>
+<p>删除一项也是：</p>
+<ul>
+<li>你本来只是要删除了最后一项，但你不得不修改前一项。麻烦，容易出问题。</li>
+<li>你本来只是删除了一项，但在 diff 中也是看到又是删除，又是增加。</li>
+</ul>
+<pre><code> var obj = {
+-  a: 0,
+-  b: 1
++  a: 0
+ };
+
+ var arr = [
+-  0,
+-  1
++  0
+ ];
+</code></pre>
+<p>值得高兴的是，现在的 JavaScript 运行环境、预编译工具、语法检查工具都支持了尾逗号。
+一旦我们统一使用尾逗号风格：</p>
+<ul>
+<li>我们在增加或删除一项时，再也不需要关心相邻项了。</li>
+<li>diff 看起来也更直观清爽。</li>
+</ul>
+<p>新增一项：</p>
+<pre><code> var obj = {
+   a: 0,
++  b: 1,
+ };
+
+ var arr = [
+   0,
++  1,
+ ];
+</code></pre>
+<p>删除一项：</p>
+<pre><code> var obj = {
+   a: 0,
+-  b: 1,
+ };
+
+ var arr = [
+   0,
+-  1,
+ ];
+</code></pre>
+<p>另外也有些语言是不需要逗号的，每一项都不需要。比如 Markdown 的列表，yml，yaml，
+xml，html 等。</p>
+<p>全要逗号，或者全不要逗号，他们的共同点就是<strong>一致性</strong>。这种一致性让书写和阅读都非常简洁清晰。
+可维护性也更好。</p>
+<p>你觉得呢？</p>
+<hr></hr>
+<p><strong>Tags:</strong> , </p>
+<p><em>Published on 2015-08-10</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[gitopen, Smart partner of git, hg and svn.]]></title>
+            <link>https://hotoo.github.io/blog/post/gitopen</link>
+            <guid>243</guid>
+            <content:encoded><![CDATA[<h1 id="gitopen-smart-partner-of-git-hg-and-svn">gitopen, Smart partner of git, hg and svn.<a aria-hidden="true" href="#gitopen-smart-partner-of-git-hg-and-svn">#</a></h1>
+<p>使用 Git 的你，想必会更喜欢在终端（命令行）中使用 Git。在终端中，可以将 Git
+的特性发挥的淋漓尽致。</p>
+<pre><code>$ git co -b feat-sample
+$ git add .
+$ git ci -m &quot;feat(sample): Add sample commit.&quot;
+$ git push origin feat-sample
+</code></pre>
+<p>咦，我想立即提交一个 Pull/Merge Request 怎么办，还要打开浏览器，输入 Git
+仓库的 URL 地址，点击进入 PR 列表，再点击新建 PR，选择 feat-sample 分支，
+点击确认按钮，balabala...</p>
+<p>嗯，好麻烦。</p>
+<p>于是 Git 的最佳伴侣 <a href="https://github.com/hotoo/gitopen" target="_blank" rel="noopener noreferrer">gitopen</a> 横空出世了。</p>
+<p>push 了新分支，想立即提交 PR/MR，So simple.</p>
+<pre><code>$ gitopen pr
+</code></pre>
+<p>她会把当前分支提交一个新的 PR。</p>
+<p>如果你是使用的 GitHub，在发布了新版时可能还想写个 Release Note：</p>
+<pre><code>$ git tag 1.0.0
+$ git push origin 1.0.0
+$ gitopen release new 1.0.0
+</code></pre>
+<p>咦，有个新的想法，提交个 Issue 先：</p>
+<pre><code>$ gitopen issue 我有个好想法
+</code></pre>
+<p>再来个 milestone 尝尝：</p>
+<pre><code>$ gitopen milestone
+</code></pre>
+<p>这货支持：</p>
+<ul>
+<li>git, hg, svn.</li>
+<li>Mac OS X, Linux, Windows.</li>
+<li>GitHub (Enterprise), GitLab (CE, EE), BitBucket (Atlassian Stash), GitCafe (Enterprise) ...</li>
+</ul>
+<p>更多功能参考：</p>
+<pre><code>$ npm install gitopen -g
+$ gitopen @hotoo/gitopen
+</code></pre>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2015-07-24</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[git+, a hack of git, smart for you.]]></title>
+            <link>https://hotoo.github.io/blog/post/gitplus</link>
+            <guid>244</guid>
+            <content:encoded><![CDATA[<h1 id="git-a-hack-of-git-smart-for-you">git+, a hack of git, smart for you.<a aria-hidden="true" href="#git-a-hack-of-git-smart-for-you">#</a></h1>
+<p>为了信息安全，公司搭建了 gitlab.company.com 管理代码，同时限制了必须使用工作邮箱
+<a href="mailto:hotoo@company.com">hotoo@company.com</a> 进行提交。</p>
+<p>公司 gitlab 有大大小小很多仓库，不时的需要 clone 代码下来，有时忘记设置就开始提交，
+提交了几次开始 push 到 gitlab 并准备提交 MR 时发现，push 被拒绝，或者 MR 无法
+自动合并，因为没有使用公司的邮箱进行提交。只好取消之前的提交操作，修改邮箱配置
+之后重新提交。</p>
+<p>虽然 clone 下来配置一次就可以了，但是每个仓库都需要配置，每次 clone 都需要配置，
+忘记设置了需要取消之前的提交并再来一次。</p>
+<p>有没有办法自动进行配置呢？</p>
+<p>于是 <a href="https://github.com/hotoo/gitplus" target="_blank" rel="noopener noreferrer">gitplus</a> 出现了，它可以根据 git
+的子操作命令，及其所在的仓库信息，自动的执行指定命令，帮助你完成一些自动化任务。
+例如：</p>
+<pre><code>post-clone:
+  gitlab.company.com:
+    - git config user.name hotoo
+    - git config user.email hotoo@company.com
+pre-commit:
+  &#39;*&#39;:
+    - jshint .
+</code></pre>
+<ul>
+<li>
+<p>有了 gitplus，你再也不会忘记设置公司邮箱。因此也不需要取消提交再重复提交了。</p>
+</li>
+<li>
+<p>还可以在提交前自动做校验工作。没有 gitplus 之前你只能给每个仓库设置 pre-commit hooks。</p>
+</li>
+<li>
+<p>你也可以发挥自己的想象力，做更多其他的事情。</p>
+</li>
+</ul>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2015-05-27</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[集团开源星人奖和 IKBC POKER II 机械键盘]]></title>
+            <link>https://hotoo.github.io/blog/post/ikbc-poker-ii</link>
+            <guid>245</guid>
+            <content:encoded><![CDATA[<h1 id="集团开源星人奖和-ikbc-poker-ii-机械键盘">集团开源星人奖和 IKBC POKER II 机械键盘<a aria-hidden="true" href="#集团开源星人奖和-ikbc-poker-ii-机械键盘">#</a></h1>
+<p>很幸运获得了集团开源星人奖：最活跃个人奖，奖品是 IKBC POKER II 机械键盘，同时
+还有一件 Tee。</p>
+<p>获得这个奖，主要得益于前端天然的开源</p>
+<hr></hr>
+<p><strong>Tags:</strong> , , </p>
+<p><em>Published on 2015-05-27</em></p>
 ]]></content:encoded>
         </item>
         <item>
@@ -15080,9 +15080,186 @@ VIM - Vi IMproved 7.4 (2013 Aug 10)
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[就近原则：JavaScript 块级作用域的变量定义]]></title>
+            <link>https://hotoo.github.io/blog/post/block-scope-variable-defined</link>
+            <guid>269</guid>
+            <content:encoded><![CDATA[<h1 id="就近原则javascript-块级作用域的变量定义">就近原则：JavaScript 块级作用域的变量定义<a aria-hidden="true" href="#就近原则javascript-块级作用域的变量定义">#</a></h1>
+<blockquote>
+<p>代码是写给人看的，顺便给机器执行。[1]</p>
+</blockquote>
+<h2 id="引子">引子<a aria-hidden="true" href="#引子">#</a></h2>
+<p>上周有位前端同学周报里分享了段 for 循环的『好代码』：</p>
+<pre><code>
+for (var i = 0, item; item = list[i]; i++) {
+  // 将 ltem = list[i]当做条件判断语句，当i下标溢出时，返回undefined，循环结束
+  // 居然省了一个变量呢～
+}
+</code></pre>
+<p>这位同学是看了 jQuery 里类似下面这种用法之后做的这个分享：</p>
+<pre><code>// If no nodeType, this is expected to be an array
+for ( ; (node = elem[i]); i++ ) {
+    // Do not traverse comment nodes
+    ret += getText( node );
+}
+</code></pre>
+<p>jQuery 还有不少地方使用这种用法，也有不少地方是传统的使用 length 方法。
+但是 jQuery 这样用有其特定场景，需要正视。我回复说：</p>
+<ol>
+<li>如果数组项中有 0, false, null, undefined, ""，代码就出 bug 了。</li>
+<li>好像没看到少了变量，一定要少的话，典型的 for 写法也可以少（但是不推荐）。</li>
+<li>代码是写给人读的，顺便给机器执行。</li>
+<li>另外，对 list 本身有操作，尤其是长度有影响的操作要特别注意。</li>
+</ol>
+<p>我个人推荐下面这种写法：</p>
+<pre><code>for(var i = 0, l = list.length; i &lt; l; i++){
+    list[i]
+}
+</code></pre>
+<p>p.s. 使用 Vim snipMate 的同学可以参考
+<a href="https://github.com/hotoo/snipmate.vim/blob/master/snippets/javascript.snippets#L56" target="_blank" rel="noopener noreferrer">javascript.snippet</a>
+这个代码片段模板。</p>
+<p>好了，使用溢出判断数组循环结束的讨论到此就结束了，但是好戏还在后头。</p>
+<p>由于 JavaScript 作用域的问题，有同学建议说将 <code>i</code>, <code>l</code> 变量定义在 <code>for</code> 循环之外。
+于是进入另一个变量定义的话题。</p>
+<h2 id="如何定义块级作用域中使用的变量">如何定义块级作用域中使用的变量？<a aria-hidden="true" href="#如何定义块级作用域中使用的变量">#</a></h2>
+<p>持有变量应前置定义观点的同学，估计有不少是受了《JavaScript 权威指南》或其他权威著作的影响。</p>
+<p>《JavaScript 权威指南》第 4 章 4.3.1 小节 [2] 详细分析了块级作用域中变量定义的问题。</p>
+<p>由于 JavaScript 只有函数作用域，没有块级作用域，因此在 <code>for</code>, <code>if/else</code>,
+<code>do/while</code>, <code>switch/case</code>, <code>try/catch</code> 这些块中定义的变量，实际在块之外也可以使用。</p>
+<pre><code>function functionScope(){
+    for(var i=0,l=5; i&lt;l; i++){
+        var blockVariable = i;
+    }
+    alert(i); // 5
+    alert(blockVariable); // 4
+}
+</code></pre>
+<p>例如上面的代码，在 for 这个块之中定义的变量，在 for 之外也可以使用。
+这在其他支持块级作用域(如C/C++ [3], Java)的编程语言中是无法理解，甚至不可接受的。</p>
+<p>这是 JavaScript 设计的 BUG，书中作者建议将所有变量声明集中放置在函数开头，
+说这是个好习惯。</p>
+<blockquote>
+<p>This example illustrates why it is good programming practice to place all of
+your variable declarations together at the start of any function.</p>
+</blockquote>
+<p>JavaScript 传教士老道也有
+[类似的教诲](<a href="http://javascript.crockford.com/code.html#variable" target="_blank" rel="noopener noreferrer">http://javascript.crockford.com/code.html#variable</a> declarations)：</p>
+<blockquote>
+<p>The var statements should be the first statements in the function body.</p>
+<p>...</p>
+<p>JavaScript does not have block scope, so defining variables in blocks can
+confuse programmers who are experienced with other C family languages.
+Define all variables at the top of the function.</p>
+</blockquote>
+<p>他们的理由是，既然在块级作用域之内定义的变量可以被块级作用域之外使用，
+那么就应该把变量定义在块级作用域之外，让它们看起来和它们实际的作用域表现一致。</p>
+<pre><code>function functionScope(){
+    var i, l=5, blockVariable;
+
+    // more codes ...
+
+    for(i=0; i&lt;l; i++){
+        blockVariable = i;
+    }
+}
+</code></pre>
+<hr></hr>
+<p>但是这个我稍微持不同的观点 ：）</p>
+<p>实际上我们定义 <code>i</code>, <code>l</code> 是为了给 <code>for</code> 用的，JavaScript 解释器在执行的时候可以
+给块级作用域外面用，不代表就应该定义在外面。
+定义在外面给人的暗示是这个变量是给整个 function 用的，而不只是 for 循环，
+就会给人『在外面用也没关系』的错觉。但这其实不是我们定义 <code>i</code>, <code>l</code> 的本意。</p>
+<p>另外变量前置声明，会导致变量声明、定义和使用之间分离，变量含义自我解释性被削弱，
+而且容易造成误清理、或遗漏清理变量的问题。</p>
+<p>对于 JavaScript 的这个糟粕，让人来适应机器的问题而修改代码，甚至改变本性习惯，
+和另一个使用逗号连续定义变量的话题是何其的相似。
+为什么不让机器来适应人，在编辑器中编辑、或在编译器中编译 JavaScript 代码时，
+发现块级作用域之外有使用块级作用域内部定义的变量时，给予恰当的警告。
+这是否更合理呢。</p>
+<p>如果遵循权威的教诲，把变量定义在函数前面，编辑器和编译器都没有办法帮我们了。</p>
+<p>我认为：</p>
+<ol>
+<li>定义在块级作用域之内的变量不应该被块级作用域之外使用。</li>
+<li>如果被块级作用域之外使用了：
+<ol>
+<li>
+<p>要么这是一个错误的用法，会带来隐患。
+<em>人、编辑器、编译器、甚至将来的解释器可以发现这个问题并给出警告。</em></p>
+</li>
+<li>
+<p>或者确实有这样的使用需求，那么这个变量应该被声明在块级作用域之外。</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>所以我比较认同 <code>就近原则</code> [4] 这种更合理、更人性的风格。</p>
+<ul>
+<li>
+<p>文档、注释应尽可能的靠近代码。</p>
+</li>
+<li>
+<p>变量声明应尽可能的靠近变量使用。</p>
+</li>
+<li>
+<p>应尽量限制变量的作用域。</p>
+</li>
+</ul>
+<h2 id="那么">那么<a aria-hidden="true" href="#那么">#</a></h2>
+<p>请问你持什么样的观点呢？</p>
+<hr></hr>
+<h3 id="注">注<a aria-hidden="true" href="#注">#</a></h3>
+<ol>
+<li>
+<p>出自《Structure and Interpretation of Computer Programs》，中文版《计算机程序的构造和解释》</p>
+<blockquote>
+<p>Thus, programs must be written for people to read, and only incidentally
+for machines to execute.</p>
+<p>-- by Harold Abelson and Gerald Jay Sussman with Julie Sussman</p>
+</blockquote>
+</li>
+<li>
+<p>《JavaScript 权威指南》第六版章节和标题有所变更。第六版对应章节在第 3 章
+第 3.10.1 小节：函数作用域和声明提前。
+第六版中，关于变量声明提前的结束语中相对中立了很多。</p>
+<blockquote>
+<p>In programming languages with block scope, it is generally good programming
+practice to declare variables as close as possible to where they are used and
+with the narrowest possible scope. Since JavaScript does not have block scope,
+some programmers make a point of declaring all their variables at the top of
+the function, rather than trying to declare them closer to the point at which
+they are used. This technique makes their source code accurately reflect the
+true scope of the variables.</p>
+</blockquote>
+<p>大意是说：
+在支持块级作用域的编程语言中，变量就近定义是一个非常好的编程实践。
+变量定义尽量靠近变量使用，变量尽量限制在最小的作用域之内。
+由于 JavaScript 没有块级作用域，一些程序员提出将变量定义在函数的顶部，
+而不是靠近使用变量的地方。这使得源码准确反映了其真正的作用域范围。</p>
+</li>
+<li>
+<p>早在 <a href="http://flash-gordon.me.uk/ansi.c.txt" target="_blank" rel="noopener noreferrer">C89 规范</a> 中，规定了变量必须声明在作用域的最前面，
+但是 <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1336.pdf" target="_blank" rel="noopener noreferrer">C99</a>
+和 C++ 取消了这个限制，支持就近声明变量。</p>
+<p>由于就近声明可以让变量作用于恰当的作用域之中，而且变量声明更靠近变量的使用，
+因此也更容易理解。<code>就近原则</code> 在很多编程语言当中都是最佳实践，JavaScript 也不例外。</p>
+</li>
+<li>
+<p><a href="http://en.wikipedia.org/wiki/The_Proximity_Principle" target="_blank" rel="noopener noreferrer">就近原则(The Principle of Proximity)</a> 是一项社会心理学
+的理论，实际在 <a href="http://www.approxion.com/?p=120" target="_blank" rel="noopener noreferrer">计算机编程</a> 、
+<a href="http://desktoppub.about.com/od/designprinciples/tp/Principles_of_Design.htm" target="_blank" rel="noopener noreferrer">视觉设计</a> 、
+<a href="http://www.webdesignerdepot.com/2010/01/the-principle-of-proximity-in-web-design/" target="_blank" rel="noopener noreferrer">网页设计</a>
+领域也有很多的延伸与实践。</p>
+</li>
+</ol>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2013-04-25</em></p>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[Github 的 404 页面是个好路由]]></title>
             <link>https://hotoo.github.io/blog/post/github-404-is-a-good-route</link>
-            <guid>269</guid>
+            <guid>270</guid>
             <content:encoded><![CDATA[<h1 id="github-的-404-页面是个好路由">Github 的 404 页面是个好路由<a aria-hidden="true" href="#github-的-404-页面是个好路由">#</a></h1>
 <p>上周五周会上 @玉伯 做了个微分享：由于新浪微博的 BUG，不会将 https 的 URL 自动
 转成可点击的链接，于是玉伯给 lifesinger.github.com Project 做了个 index.html
@@ -15112,9 +15289,59 @@ VIM - Vi IMproved 7.4 (2013 Aug 10)
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[个人资金管理软件]]></title>
+            <link>https://hotoo.github.io/blog/post/personal-financial-manage-soft</link>
+            <guid>271</guid>
+            <content:encoded><![CDATA[<h1 id="个人资金管理软件">个人资金管理软件<a aria-hidden="true" href="#个人资金管理软件">#</a></h1>
+<p>过年花掉不少钱，而其中有一部分是喜酒之类的礼金，按照礼尚往来的习俗，这些礼金
+早晚都是要被送回来的，而被送回来的途径，则是喜酒回请。</p>
+<p>这些俗礼，即使不是为了收回礼金，回请对方也是必须的。</p>
+<p>为了避免忘记吃过的酒席（前几年的都忘记差不多了），也为了对自己的资金有更清晰
+的掌握，于是开始记账。</p>
+<p>我现在用上了 Macbook Pro 和 iPhone，于是想找一个可以运行于 Mac OSX 和 iOS 平台
+的软件，两者同步数据是必须的要求。毕竟移动设备记账有很多的便利优势，而 PC 做
+更细致的管理与分析则更为方便和强大。</p>
+<h2 id="gnucash">GNUCash<a aria-hidden="true" href="#gnucash">#</a></h2>
+<p><a href="http://www.gnucash.org/" target="_blank" rel="noopener noreferrer">GNUCash</a> 非常有名，也是我最早知道的开源金融管理软件
+之一，复式记账一直是我觉得很厉害但是又不明白的概念。后来看了一些金融相关不入门
+的信息，才有所了解。</p>
+<p>以前也在 Windows 下使用过 GNUCash，本身还是很不错的，但是当时我没有坚持下来。</p>
+<p>这次下载最新版回来在 Mac 上安装好之后发现，除了菜单之外，界面上中文全部是乱码，
+一行中文被缩挤到第一列。新建账户或者其他任何操作都是不知所以，完全没法用。
+最奇怪的是，网络上各个搜索引擎居然都搜索不到 GNUCash 乱码的内容，偶尔有一篇，
+还是将数据库的。原来 GNUCash 使用的是 MySQL 存储数据？</p>
+<p>GNUCash 目前支持 Windows, Mac, Linux, 和 Android 平台。</p>
+<h2 id="icash">iCash<a aria-hidden="true" href="#icash">#</a></h2>
+<p>后来看到有人推荐使用 <a href="http://www.maxprog.com/site/software/personal-finance/icash_sheet_us.php" target="_blank" rel="noopener noreferrer">iCash</a>，
+Mac 下 <code>i</code> 系列的好像都不错，于是尝试了下。</p>
+<p>iCash 支持 Windows, Mac 平台，也有中文支持。</p>
+<p>但就是觉得操作不算便利，一大堆莫名其妙的表单，有些会自动根据后面的表单自动适配，
+不需要显示但居然安排在最前面，后来我才知道可以不填。</p>
+<p>界面有点点土，用户体验也不好。概览里管理资金账户，如果需要更新交易，则需要
+切换到『交易』页签，然后选择是哪个账户的交易。表单恐惧症~</p>
+<p>填了不到 50条左右（存储的 .icash 文件有 23.8M 这么大）就烦了，
+于是继续寻找其他软件。</p>
+<h2 id="money">Money<a aria-hidden="true" href="#money">#</a></h2>
+<p>最后才找到 <a href="http://www.jumsoft.com/money/" target="_blank" rel="noopener noreferrer">Money by jumsoft</a> 界面设计非常赞，
+大部分使用体验也很棒，有部分瑕疵，而最要命的启动速度非常慢，导入从 iCash
+导出的 QIF 格式数据(.money 文件 500+KB) 启动时间大概需要 10秒。</p>
+<p>另外如果上次退出 Money 的时候没有打开的文档（每个 .money 文件是一个文档）的话，
+下次启动会要求创建新文档，只好打开最近的文档，再等 10秒钟。所以建议直接
+<code>&lt;Command-q&gt;</code> 退出文档 & 程序，不要使用 <code>&lt;Command-w</code> 之类的关闭文档。</p>
+<p>另外还有 iOS(iPhone, iPad)版本，收费也不贵。可以通过 Wi-Fi 或 iCloud 同步数据。
+虽然呼声很高，目前还不支持 Dropbox 同步。不过像其他重要资料一样，我的 .money
+文件存储在 Dropbox 中。</p>
+<p>总之是很赞啦，如果解决了性能问题就更好了，还有就是缺少中文本地化，另外 Mac 版
+显示全部交易也不好，还有那啥~</p>
+<hr></hr>
+<p><strong>Tags:</strong> , , , </p>
+<p><em>Published on 2013-02-17</em></p>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[迁移博客到 Jekyll]]></title>
             <link>https://hotoo.github.io/blog/post/start-jekyll-for-blog</link>
-            <guid>270</guid>
+            <guid>272</guid>
             <content:encoded><![CDATA[<h1 id="迁移博客到-jekyll">迁移博客到 Jekyll<a aria-hidden="true" href="#迁移博客到-jekyll">#</a></h1>
 <h2 id="_posts-文件结构">_posts 文件结构<a aria-hidden="true" href="#_posts-文件结构">#</a></h2>
 <p>Jekyll 支持两种结构：</p>
@@ -15187,7 +15414,7 @@ VIM - Vi IMproved 7.4 (2013 Aug 10)
         <item>
             <title><![CDATA[使用 Space 还是 Tab 缩进代码？]]></title>
             <link>https://hotoo.github.io/blog/post/format-by-spaces-or-tabs</link>
-            <guid>271</guid>
+            <guid>273</guid>
             <content:encoded><![CDATA[<h1 id="使用-space-还是-tab-缩进代码">使用 Space 还是 Tab 缩进代码？<a aria-hidden="true" href="#使用-space-还是-tab-缩进代码">#</a></h1>
 <p><img src="/images/blog/tabs-or-spaces.jpg" alt="tabs or spaces"></img></p>
 <p>这也是一个经典的问题吧。很长一段时间以来我都是被影响为使用空格，而且似乎大多数
@@ -15274,7 +15501,7 @@ VIM - Vi IMproved 7.4 (2013 Aug 10)
         <item>
             <title><![CDATA[使用 MacVim 做 svn diff]]></title>
             <link>https://hotoo.github.io/blog/post/macvim-svndiff</link>
-            <guid>272</guid>
+            <guid>274</guid>
             <content:encoded><![CDATA[<h1 id="使用-macvim-做-svn-diff">使用 MacVim 做 svn diff<a aria-hidden="true" href="#使用-macvim-做-svn-diff">#</a></h1>
 <h2 id="对于终端的-vim">对于终端的 vim<a aria-hidden="true" href="#对于终端的-vim">#</a></h2>
 <ol>
@@ -15351,7 +15578,7 @@ rm -f &quot;$TMPLEFT&quot; &quot;$TMPRIGHT&quot;
         <item>
             <title><![CDATA[在 Vim 上安装使用 Tagbar]]></title>
             <link>https://hotoo.github.io/blog/post/vim-install-tagbar</link>
-            <guid>273</guid>
+            <guid>275</guid>
             <content:encoded><![CDATA[<h1 id="在-vim-上安装使用-tagbar">在 Vim 上安装使用 Tagbar<a aria-hidden="true" href="#在-vim-上安装使用-tagbar">#</a></h1>
 <pre><code>git clone https://github.com/mozilla/doctorjs.git –recursive
 cd doctorjs
@@ -15392,7 +15619,7 @@ sudo make install
         <item>
             <title><![CDATA[杭州萧山无人村骑行]]></title>
             <link>https://hotoo.github.io/blog/post/wurencun</link>
-            <guid>274</guid>
+            <guid>276</guid>
             <content:encoded><![CDATA[<h1 id="杭州萧山无人村骑行">杭州萧山无人村骑行<a aria-hidden="true" href="#杭州萧山无人村骑行">#</a></h1>
 <p>从驴友哪里知道杭州附近有个无人村，网上看了帖子盘山公路很风景都很吸引人，
 但是地图山就是搜索不到在哪里，后来才知道地图上是狮山村，大概是后来没有人住了
@@ -15413,7 +15640,7 @@ sudo make install
         <item>
             <title><![CDATA[『逻辑与』是个好东西]]></title>
             <link>https://hotoo.github.io/blog/post/logical-conjunction</link>
-            <guid>275</guid>
+            <guid>277</guid>
             <content:encoded><![CDATA[<h1 id="逻辑与是个好东西">『逻辑与』是个好东西<a aria-hidden="true" href="#逻辑与是个好东西">#</a></h1>
 <p>一直很想实现 WebForms2 的语义化表单验证，最近才开始动手，执行力真差啊。</p>
 <p>一个表单元素可以同时存在多种校验方案，比如：</p>
@@ -15552,7 +15779,7 @@ function verifyForm(form){
         <item>
             <title><![CDATA[千里走单骑]]></title>
             <link>https://hotoo.github.io/blog/post/bicycle-travel</link>
-            <guid>276</guid>
+            <guid>278</guid>
             <content:encoded><![CDATA[<h1 id="千里走单骑">千里走单骑<a aria-hidden="true" href="#千里走单骑">#</a></h1>
 <p>今天和 5 个同事一起从公司出发，骑车去径山寺。</p>
 <h2 id="路线定位">路线&定位<a aria-hidden="true" href="#路线定位">#</a></h2>
@@ -15587,7 +15814,7 @@ My Places 的数据，这个支持还不行，会被拉成直线。</li>
         <item>
             <title><![CDATA[计算主域名]]></title>
             <link>https://hotoo.github.io/blog/post/primary-domain</link>
-            <guid>277</guid>
+            <guid>279</guid>
             <content:encoded><![CDATA[<h1 id="计算主域名">计算主域名<a aria-hidden="true" href="#计算主域名">#</a></h1>
 <pre><code>document.domain = document.domain.split(&quot;.&quot;).slice(-2).join(&quot;.&quot;);
 </code></pre>
@@ -15599,7 +15826,7 @@ My Places 的数据，这个支持还不行，会被拉成直线。</li>
         <item>
             <title><![CDATA[Confluence Wiki for Vi]]></title>
             <link>https://hotoo.github.io/blog/post/confluencewiki.vim</link>
-            <guid>278</guid>
+            <guid>280</guid>
             <content:encoded><![CDATA[<h1 id="confluence-wiki-for-vi">Confluence Wiki for Vi<a aria-hidden="true" href="#confluence-wiki-for-vi">#</a></h1>
 <p>.ctags / ctags.cnf</p>
 <pre><code>--langdef=confluencewiki
@@ -15629,7 +15856,7 @@ My Places 的数据，这个支持还不行，会被拉成直线。</li>
         <item>
             <title><![CDATA[文本宽度 及 文本框滚动偏移量(scrollLeft)]]></title>
             <link>https://hotoo.github.io/blog/post/text-width-and-input-scrollleft</link>
-            <guid>279</guid>
+            <guid>281</guid>
             <content:encoded><![CDATA[<h1 id="文本宽度-及-文本框滚动偏移量scrollleft">文本宽度 及 文本框滚动偏移量(scrollLeft)<a aria-hidden="true" href="#文本宽度-及-文本框滚动偏移量scrollleft">#</a></h1>
 <h2 id="背景">背景<a aria-hidden="true" href="#背景">#</a></h2>
 <p>最近将多标签输入框进行修改，把原来随光标(caret)移动的自动建议浮动条改为根据当前标签相对左对齐。</p>
@@ -15665,7 +15892,7 @@ My Places 的数据，这个支持还不行，会被拉成直线。</li>
         <item>
             <title><![CDATA[Date.now()]]></title>
             <link>https://hotoo.github.io/blog/post/Date.now</link>
-            <guid>280</guid>
+            <guid>282</guid>
             <content:encoded><![CDATA[<h1 id="datenow">Date.now()<a aria-hidden="true" href="#datenow">#</a></h1>
 <p>以前做过一个 JavaScript 性能测试“框架”，也看过其他人做性能比较的时候，基本上
 也都是使用 <code>new Date()</code> 来记时，会“耍点小花样”的同学会使用 <code>+new Date()</code>。</p>
@@ -15758,7 +15985,7 @@ new Date(undefined);// IE:NaN; Others:Invalid Date.
         <item>
             <title><![CDATA[智能同步滚动条]]></title>
             <link>https://hotoo.github.io/blog/post/smart-sync-scroll</link>
-            <guid>281</guid>
+            <guid>283</guid>
             <content:encoded><![CDATA[<h1 id="智能同步滚动条">智能同步滚动条<a aria-hidden="true" href="#智能同步滚动条">#</a></h1>
 <table>
 <thead>
@@ -15805,7 +16032,7 @@ new Date(undefined);// IE:NaN; Others:Invalid Date.
         <item>
             <title><![CDATA[面积分割算法]]></title>
             <link>https://hotoo.github.io/blog/post/area-split</link>
-            <guid>282</guid>
+            <guid>284</guid>
             <content:encoded><![CDATA[<h1 id="面积分割算法">面积分割算法<a aria-hidden="true" href="#面积分割算法">#</a></h1>
 <p>做用户点击行为分析的展现时，用了一个透明的层覆盖在页面上，然后覆盖一层 canvas
 画布，使用稀疏矩阵算法绘制热点分布图。</p>
@@ -15833,7 +16060,7 @@ new Date(undefined);// IE:NaN; Others:Invalid Date.
         <item>
             <title><![CDATA[计算高度的时机]]></title>
             <link>https://hotoo.github.io/blog/post/iframe-highly-adaptive</link>
-            <guid>283</guid>
+            <guid>285</guid>
             <content:encoded><![CDATA[<h1 id="深入-iframe-自适应高度">深入 Iframe 自适应高度<a aria-hidden="true" href="#深入-iframe-自适应高度">#</a></h1>
 <p>DOCTYPE(CSS1Compat): HTML5, HTML4.01 Strict, HTML4.01 Transitional,
 XHTML1.0 Frameset, XHTML1.0 Strict, XHTML1.0 Transitional, XHTML1.1.</p>
@@ -16017,7 +16244,7 @@ function getParentFrame(){
         <item>
             <title><![CDATA[获取元素所绑定的事件列表]]></title>
             <link>https://hotoo.github.io/blog/post/eventlistenerlist</link>
-            <guid>284</guid>
+            <guid>286</guid>
             <content:encoded><![CDATA[<h1 id="获取元素所绑定的事件列表">获取元素所绑定的事件列表<a aria-hidden="true" href="#获取元素所绑定的事件列表">#</a></h1>
 <p>技术上有什么办法获得指定 HTMLElement 上有绑定那些 #JavaScript 函数事件，及其处理函数么？</p>
 <p>比如我有一个按钮，想知道他绑定了那些事件？ click 事件的处理函数是什么？</p>
@@ -16046,7 +16273,7 @@ function getParentFrame(){
         <item>
             <title><![CDATA[宏伟的 Vimlike.js 计划]]></title>
             <link>https://hotoo.github.io/blog/post/vimlike-project</link>
-            <guid>285</guid>
+            <guid>287</guid>
             <content:encoded><![CDATA[<h1 id="宏伟的-vimlikejs-计划">宏伟的 Vimlike.js 计划<a aria-hidden="true" href="#宏伟的-vimlikejs-计划">#</a></h1>
 <p>一直在想：网站本身提供的快捷键支持（如 Gmail, GReader, Gplus, Twitter），
 和浏览器插件提供的通用快捷键支持（Vimperator, Vimium, ...），两者如何共存，
@@ -16069,7 +16296,7 @@ function getParentFrame(){
         <item>
             <title><![CDATA[Abort HTTP 请求]]></title>
             <link>https://hotoo.github.io/blog/post/abort-http-request</link>
-            <guid>286</guid>
+            <guid>288</guid>
             <content:encoded><![CDATA[<h1 id="abort-http-请求">Abort HTTP 请求<a aria-hidden="true" href="#abort-http-请求">#</a></h1>
 <ul>
 <li></li>
@@ -16110,7 +16337,7 @@ function getParentFrame(){
         <item>
             <title><![CDATA[日期时间型控件的体验]]></title>
             <link>https://hotoo.github.io/blog/post/datatime-picker</link>
-            <guid>287</guid>
+            <guid>289</guid>
             <content:encoded><![CDATA[<h1 id="日期时间型控件的体验">日期时间型控件的体验<a aria-hidden="true" href="#日期时间型控件的体验">#</a></h1>
 <p>目前支持精确到时分秒输入/选择的日历控件，我总觉得用起来很不爽，
 却又想不出更舒适的交互方式。</p>
@@ -16157,7 +16384,7 @@ function getParentFrame(){
         <item>
             <title><![CDATA[鼠标事件研究(Mouse Event)]]></title>
             <link>https://hotoo.github.io/blog/post/mouse-event</link>
-            <guid>288</guid>
+            <guid>290</guid>
             <content:encoded><![CDATA[<h1 id="鼠标事件研究mouse-event">鼠标事件研究(Mouse Event)<a aria-hidden="true" href="#鼠标事件研究mouse-event">#</a></h1>
 <p>| Event       | type   | IE       | >         | FF     | >     | Chrome   | >     | Safari   | >     | Opera    | >     |</p>
 <table>
@@ -16340,7 +16567,7 @@ IE8, FF5, Chrome12, Safari5, Opera11.</p>
         <item>
             <title><![CDATA[吐槽]]></title>
             <link>https://hotoo.github.io/blog/post/tucao</link>
-            <guid>289</guid>
+            <guid>291</guid>
             <content:encoded><![CDATA[<h1 id="吐槽">吐槽<a aria-hidden="true" href="#吐槽">#</a></h1>
 <p>上次监控系统计算得分有些非常离谱的结果，然后我就质疑后端的算法，
 结果师傅兼小组长突然莫名其妙的说我“怎么老是怀疑别人，我最看不惯这种人了，
@@ -16385,7 +16612,7 @@ IE8, FF5, Chrome12, Safari5, Opera11.</p>
         <item>
             <title><![CDATA[豆瓣电台，我忍你很久了！]]></title>
             <link>https://hotoo.github.io/blog/post/douban.fm</link>
-            <guid>290</guid>
+            <guid>292</guid>
             <content:encoded><![CDATA[<h1 id="豆瓣电台我忍你很久了">豆瓣电台，我忍你很久了！<a aria-hidden="true" href="#豆瓣电台我忍你很久了">#</a></h1>
 <p>豆瓣电台做的太烂，估计算法是一个有怀旧情节的家伙设计的。</p>
 <p>听的越多， +1 的歌曲越多，重复播放的可能性越高，
@@ -16414,7 +16641,7 @@ IE8, FF5, Chrome12, Safari5, Opera11.</p>
         <item>
             <title><![CDATA[非递归遍历 DOM 结构]]></title>
             <link>https://hotoo.github.io/blog/post/non-recursion-walk-the-dom</link>
-            <guid>291</guid>
+            <guid>293</guid>
             <content:encoded><![CDATA[<h1 id="非递归遍历-dom-结构">非递归遍历 DOM 结构<a aria-hidden="true" href="#非递归遍历-dom-结构">#</a></h1>
 <p>上次在Google+ 上说 <a href="https://plus.google.com/108314985261981078822/posts/ithY3w7tEWR" target="_blank" rel="noopener noreferrer">实现了非递归遍历 DOM 结构</a>，
 有朋友想让分享，我当然很高兴，但是很遗憾这本身没有什么值得分享的，大致如下，
@@ -16486,7 +16713,7 @@ for(var i=0,l=elems.length; i&lt;l; i++){
         <item>
             <title><![CDATA[说说渐进加载]]></title>
             <link>https://hotoo.github.io/blog/post/about-lazy-load</link>
-            <guid>292</guid>
+            <guid>294</guid>
             <content:encoded><![CDATA[<h1 id="说说渐进加载">说说渐进加载<a aria-hidden="true" href="#说说渐进加载">#</a></h1>
 <ol>
 <li>google+, quora, twitter... 这些网站都使用渐进加载数据的方式，
@@ -16525,7 +16752,7 @@ hasMore = datas.length == 11;
         <item>
             <title><![CDATA[Vimlike.js]]></title>
             <link>https://hotoo.github.io/blog/post/vimlike.js</link>
-            <guid>293</guid>
+            <guid>295</guid>
             <content:encoded><![CDATA[<h1 id="vimlikejs">Vimlike.js<a aria-hidden="true" href="#vimlikejs">#</a></h1>
 <p>很久之前做了一个 <a href="https://github.com/hotoo/Vimlide" target="_blank" rel="noopener noreferrer">Vimlike 的 HTML(5) Slide</a>，
 很小的一个玩意，但是很好玩。里面支持 normal, search, command, help 等模式，
@@ -16561,7 +16788,7 @@ map("m[a-zA-Z0-9]", function()) 这样的模糊映射支持了。</p>
         <item>
             <title><![CDATA[说说支付宝爱心捐助]]></title>
             <link>https://hotoo.github.io/blog/post/love.alipay.com</link>
-            <guid>294</guid>
+            <guid>296</guid>
             <content:encoded><![CDATA[<h1 id="说说支付宝爱心捐助">说说支付宝爱心捐助<a aria-hidden="true" href="#说说支付宝爱心捐助">#</a></h1>
 <p>以前我还持续捐助，但是我觉得支付宝爱心捐助
 我是越来越没法持续捐助下去了，那该死的 KPI 要求项目达到 XX 数量，
@@ -16632,7 +16859,7 @@ map("m[a-zA-Z0-9]", function()) 这样的模糊映射支持了。</p>
         <item>
             <title><![CDATA[“盗梦空间”]]></title>
             <link>https://hotoo.github.io/blog/post/dream-the-thief</link>
-            <guid>295</guid>
+            <guid>297</guid>
             <content:encoded><![CDATA[<h1 id="盗梦空间">“盗梦空间”<a aria-hidden="true" href="#盗梦空间">#</a></h1>
 <p>前段时间公司发生了好几次盗窃案，虽然很快破案了，但总还是感觉不太安全。
 前几天有同事跟我说不要把自己本本放在公司，但是我却不以为然，公司座位那么多，
@@ -16663,7 +16890,7 @@ IT 给我一台谁谁用过的小白，然后我就出来了。</p>
         <item>
             <title><![CDATA[丢弃图片的 HTTP 请求]]></title>
             <link>https://hotoo.github.io/blog/post/abort-image-request</link>
-            <guid>296</guid>
+            <guid>298</guid>
             <content:encoded><![CDATA[<h1 id="丢弃图片的-http-请求">丢弃图片的 HTTP 请求<a aria-hidden="true" href="#丢弃图片的-http-请求">#</a></h1>
 <ul>
 <li></li>
@@ -16954,7 +17181,7 @@ appendChild 到 DOM 中会去请求指定资源，可以到底向日志服务器
         <item>
             <title><![CDATA[如何取 URL 中第一个单独的问号(?) 位置]]></title>
             <link>https://hotoo.github.io/blog/post/how-to-get-the-first-single-question-mark</link>
-            <guid>297</guid>
+            <guid>299</guid>
             <content:encoded><![CDATA[<h1 id="如何取-url-中第一个单独的问号-位置">如何取 URL 中第一个单独的问号(?) 位置<a aria-hidden="true" href="#如何取-url-中第一个单独的问号-位置">#</a></h1>
 <p>新版 Arale 通过 nginx 服务支持使用双问号的访问方式：</p>
 <pre><code>https://www.example.com/??module.js
@@ -17008,7 +17235,7 @@ var index = temp ? temp + 1 : temp; // index的就想要的索引值
         <item>
             <title><![CDATA[使用 Vimwiki 还是 Jekyll 作为博客系统？]]></title>
             <link>https://hotoo.github.io/blog/post/blog-system-vimwiki-or-jekyll</link>
-            <guid>298</guid>
+            <guid>300</guid>
             <content:encoded><![CDATA[<h1 id="使用-vimwiki-还是-jekyll-作为博客系统">使用 Vimwiki 还是 Jekyll 作为博客系统？<a aria-hidden="true" href="#使用-vimwiki-还是-jekyll-作为博客系统">#</a></h1>
 <p>一直使用 Vimwiki 作为个人博客系统，今天非常荣幸收到加入
 <a href="http://planet.vim-cn.com/" target="_blank" rel="noopener noreferrer">Vim 中文星</a> 的邀请，需要我的提供 RSS/Atom 输出。</p>
@@ -17076,7 +17303,7 @@ var index = temp ? temp + 1 : temp; // index的就想要的索引值
         <item>
             <title><![CDATA[多种不同结果的返回模式]]></title>
             <link>https://hotoo.github.io/blog/post/parser-return-pattern</link>
-            <guid>299</guid>
+            <guid>301</guid>
             <content:encoded><![CDATA[<h1 id="多种不同结果的返回模式">多种不同结果的返回模式<a aria-hidden="true" href="#多种不同结果的返回模式">#</a></h1>
 <p>探讨个问题哈，我现在再做一个 HTML 校验工具，先将 HMTL 源码解析成 DOM 树，
 其间可能遇到语法错误，为了发现更多的错误，会跳到下一个分界点继续解析；
@@ -17186,7 +17413,7 @@ err1 = parseError1 + lintError1;
         <item>
             <title><![CDATA[closure-compiler.vim]]></title>
             <link>https://hotoo.github.io/blog/post/closure-compile.vim</link>
-            <guid>300</guid>
+            <guid>302</guid>
             <content:encoded><![CDATA[<h1 id="closure-compilervim">closure-compiler.vim<a aria-hidden="true" href="#closure-compilervim">#</a></h1>
 <p><a href="https://github.com/hotoo/vimrc/blob/master/plugin/ClosureCompiler.vim" target="_blank" rel="noopener noreferrer">ClosureCompiler.vim</a></p>
 <h2 id="see-also">See Also<a aria-hidden="true" href="#see-also">#</a></h2>
@@ -17230,7 +17457,7 @@ err1 = parseError1 + lintError1;
         <item>
             <title><![CDATA[【结束】~~趣味 Vim Tee~~]]></title>
             <link>https://hotoo.github.io/blog/post/vim-tee-2</link>
-            <guid>301</guid>
+            <guid>303</guid>
             <content:encoded><![CDATA[<h1 id="结束趣味-vim-tee">【结束】<del>趣味 Vim Tee</del><a aria-hidden="true" href="#结束趣味-vim-tee">#</a></h1>
 <p>去年 [[vim73-tee|【已结束】团购庆祝 Vim 7.3 正式发布的 Tee]] 真是热闹的说，今年刚入夏，
 就有 Vim 爱好者提出团购 Tee 的事了，我本来没准备印 Vim 的 Tee 的，倒是刚印了
@@ -17287,7 +17514,7 @@ err1 = parseError1 + lintError1;
         <item>
             <title><![CDATA[深入 hasAttribute]]></title>
             <link>https://hotoo.github.io/blog/post/hasattribute</link>
-            <guid>302</guid>
+            <guid>304</guid>
             <content:encoded><![CDATA[<h1 id="深入-hasattribute">深入 hasAttribute<a aria-hidden="true" href="#深入-hasattribute">#</a></h1>
 <p>众所周知，IE 的 HTMLElement 对象不支持 hasAttribute 方法，于是有了如下实现：
 它针对不支持 hasAttribute 方法的浏览器，检查 getAttribute 得到的是否等于 null，
@@ -17389,7 +17616,7 @@ alert(0);
         <item>
             <title><![CDATA[window.close()]]></title>
             <link>https://hotoo.github.io/blog/post/window.close</link>
-            <guid>303</guid>
+            <guid>305</guid>
             <content:encoded><![CDATA[<h1 id="windowclose">window.close()<a aria-hidden="true" href="#windowclose">#</a></h1>
 <pre><code>window.opener=null;
 window.open(&quot;&quot;,&quot;_self&quot;);
@@ -17433,7 +17660,7 @@ return false;</p>
         <item>
             <title><![CDATA[Vim 神技]]></title>
             <link>https://hotoo.github.io/blog/post/vim-share-2011</link>
-            <guid>304</guid>
+            <guid>306</guid>
             <content:encoded><![CDATA[<h1 id="vim-神技">Vim 神技<a aria-hidden="true" href="#vim-神技">#</a></h1>
 <pre><code>&lt;div style=&quot;width:425px&quot; id=&quot;__ss_9693832&quot;&gt;
   &lt;strong style=&quot;display:block;margin:12px 0 4px&quot;&gt;
@@ -17463,7 +17690,7 @@ return false;</p>
         <item>
             <title><![CDATA[JavaScript 异常初步]]></title>
             <link>https://hotoo.github.io/blog/post/javascript-exceptions</link>
-            <guid>305</guid>
+            <guid>307</guid>
             <content:encoded><![CDATA[<h1 id="javascript-异常初步">JavaScript 异常初步<a aria-hidden="true" href="#javascript-异常初步">#</a></h1>
 <ul>
 <li>Error, TypeError, ReferenceError</li>
@@ -17680,7 +17907,7 @@ IE 浏览器能得到 4 个参数（比 onerror 多一个），但有效的还�
         <item>
             <title><![CDATA[JavaScript 分时加载]]></title>
             <link>https://hotoo.github.io/blog/post/timed-array-processing</link>
-            <guid>306</guid>
+            <guid>308</guid>
             <content:encoded><![CDATA[<h1 id="javascript-分时加载">JavaScript 分时加载<a aria-hidden="true" href="#javascript-分时加载">#</a></h1>
 <p>使用原始数据（非副本）和索引访问（非shift()），在IE中性能大幅度提高，
 其他浏览器对 concat()，尤其是 shift() 方法进行了优化，性能差别不大。</p>
@@ -17721,7 +17948,7 @@ IE 浏览器能得到 4 个参数（比 onerror 多一个），但有效的还�
         <item>
             <title><![CDATA[树形控件的分时装载]]></title>
             <link>https://hotoo.github.io/blog/post/timed-tree-processing</link>
-            <guid>307</guid>
+            <guid>309</guid>
             <content:encoded><![CDATA[<h1 id="树形控件的分时装载">树形控件的分时装载<a aria-hidden="true" href="#树形控件的分时装载">#</a></h1>
 <p>异步装载树形控件节点的时机：</p>
 <ol>
@@ -17741,7 +17968,7 @@ IE 浏览器能得到 4 个参数（比 onerror 多一个），但有效的还�
         <item>
             <title><![CDATA[JavaScript 千分位算法]]></title>
             <link>https://hotoo.github.io/blog/post/javascript-commfy</link>
-            <guid>308</guid>
+            <guid>310</guid>
             <content:encoded><![CDATA[<h1 id="javascript-千分位算法">JavaScript 千分位算法<a aria-hidden="true" href="#javascript-千分位算法">#</a></h1>
 <p><a href="https://gist.github.com/748249" target="_blank" rel="noopener noreferrer">https://gist.github.com/748249</a></p>
 <p>v1:</p>
@@ -17796,7 +18023,7 @@ IE 浏览器能得到 4 个参数（比 onerror 多一个），但有效的还�
         <item>
             <title><![CDATA[placeholder 最佳实践]]></title>
             <link>https://hotoo.github.io/blog/post/placeholder-in-action</link>
-            <guid>309</guid>
+            <guid>311</guid>
             <content:encoded><![CDATA[<h1 id="placeholder-最佳实践">placeholder 最佳实践<a aria-hidden="true" href="#placeholder-最佳实践">#</a></h1>
 <p><a href="http://dev.w3.org/html5/spec/Overview.html#the-placeholder-attribute" target="_blank" rel="noopener noreferrer">placeholder</a>
 <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute" target="_blank" rel="noopener noreferrer">2</a>
@@ -17873,7 +18100,7 @@ IE 浏览器能得到 4 个参数（比 onerror 多一个），但有效的还�
         <item>
             <title><![CDATA[水平表单的错误消息方式]]></title>
             <link>https://hotoo.github.io/blog/post/err-msg-for-horizontal-forms</link>
-            <guid>310</guid>
+            <guid>312</guid>
             <content:encoded><![CDATA[<h1 id="水平表单的错误消息方式">水平表单的错误消息方式<a aria-hidden="true" href="#水平表单的错误消息方式">#</a></h1>
 <p>垂直方向的表单，错误消息有很多种呈现方式，放在输入框后面，下面，或上面都挺好，
 因为垂直表单本身可用空间较大，而且向下或向右挤也不是什么问题，布局也没什么影响。</p>
@@ -17900,7 +18127,7 @@ IE 浏览器能得到 4 个参数（比 onerror 多一个），但有效的还�
         <item>
             <title><![CDATA[联动的设计]]></title>
             <link>https://hotoo.github.io/blog/post/linkage</link>
-            <guid>311</guid>
+            <guid>313</guid>
             <content:encoded><![CDATA[<h1 id="联动的设计">联动的设计<a aria-hidden="true" href="#联动的设计">#</a></h1>
 <p>联动控件一般用于下拉列表，例如省市县的联动。</p>
 <p>很早的时候有些初级的实现只做到了固定级别（比如二级、三级）的联动，它们传入固定
@@ -17928,7 +18155,7 @@ IE 浏览器能得到 4 个参数（比 onerror 多一个），但有效的还�
         <item>
             <title><![CDATA[同步客户端时间(续)]]></title>
             <link>https://hotoo.github.io/blog/post/sync-client-time</link>
-            <guid>312</guid>
+            <guid>314</guid>
             <content:encoded><![CDATA[<h1 id="同步客户端时间续">同步客户端时间(续)<a aria-hidden="true" href="#同步客户端时间续">#</a></h1>
 <p>08 年我就有了这样的 <a href="correct-web-client-datetime.html">想法</a>，却到今天才开始实践。</p>
 <p>公司电脑时间错了好多，但我的账户没有 Internet 同步的权限，遂手动校准。</p>
@@ -17956,7 +18183,7 @@ IE 浏览器能得到 4 个参数（比 onerror 多一个），但有效的还�
         <item>
             <title><![CDATA[用 Dropbox 做私有 Git 服务器]]></title>
             <link>https://hotoo.github.io/blog/post/git-on-dropbox</link>
-            <guid>313</guid>
+            <guid>315</guid>
             <content:encoded><![CDATA[<h1 id="用-dropbox-做私有-git-服务器">用 Dropbox 做私有 Git 服务器<a aria-hidden="true" href="#用-dropbox-做私有-git-服务器">#</a></h1>
 <p>这几记录一下如何做一个本地版本库，关键命令是：<code>git clone --bare test test.git</code></p>
 <pre><code>mkdir test
@@ -18015,16 +18242,16 @@ git push origin master
         </item>
         <item>
             <link>https://hotoo.github.io/blog/post/form-in-action</link>
-            <guid>314</guid>
+            <guid>316</guid>
         </item>
         <item>
             <link>https://hotoo.github.io/blog/post/the-duplicate-element</link>
-            <guid>315</guid>
+            <guid>317</guid>
         </item>
         <item>
             <title><![CDATA[Vim 爱好者联系资料收集]]></title>
             <link>https://hotoo.github.io/blog/post/vimmer-contact</link>
-            <guid>316</guid>
+            <guid>318</guid>
             <content:encoded><![CDATA[<h1 id="vim-爱好者联系资料收集">Vim 爱好者联系资料收集<a aria-hidden="true" href="#vim-爱好者联系资料收集">#</a></h1>
 <p>希望通过一些形式让 Vim 爱好者联系更紧密，于是收集 Vim 爱好者的联系资料，并通过
 较好的形式展现出来。</p>
@@ -18082,7 +18309,7 @@ git push origin master
         <item>
             <title><![CDATA[IE6 的 CSS:hover 伪类]]></title>
             <link>https://hotoo.github.io/blog/post/css-hover-for-ie6</link>
-            <guid>317</guid>
+            <guid>319</guid>
             <content:encoded><![CDATA[<h1 id="ie6-的-csshover-伪类">IE6 的 CSS:hover 伪类<a aria-hidden="true" href="#ie6-的-csshover-伪类">#</a></h1>
 <p>众所周知，IE6 不支持 a:hover 以外的 CSS 伪类，解决办法一般有 3 种方案：</p>
 <h2 id="使用-javascript-事件">使用 JavaScript 事件<a aria-hidden="true" href="#使用-javascript-事件">#</a></h2>
@@ -18121,7 +18348,7 @@ table tr.hover td</p>
         <item>
             <title><![CDATA[实现文本转语音]]></title>
             <link>https://hotoo.github.io/blog/post/tts</link>
-            <guid>318</guid>
+            <guid>320</guid>
             <content:encoded><![CDATA[<h1 id="实现文本转语音">实现文本转语音<a aria-hidden="true" href="#实现文本转语音">#</a></h1>
 <p>又是心血来潮，想把文本转为语音朗读，通过听书的方式来多重利用时间。分心听书有效
 吗，未可知也。不过还是想折腾下，心血来潮嘛。</p>
@@ -18215,7 +18442,7 @@ End Sub</p>
         <item>
             <title><![CDATA[Diff 模式下，让光标直接跳转到被修改的文本处]]></title>
             <link>https://hotoo.github.io/blog/post/jump-to-difftext</link>
-            <guid>319</guid>
+            <guid>321</guid>
             <content:encoded><![CDATA[<h1 id="diff-模式下让光标直接跳转到被修改的文本处">Diff 模式下，让光标直接跳转到被修改的文本处<a aria-hidden="true" href="#diff-模式下让光标直接跳转到被修改的文本处">#</a></h1>
 <p>Vim 的 Diff 功能非常优秀。有一个我非常喜欢的特性是：完全相同的地方，
 会被折叠隐藏起来(上下文除外)。还可以很方便的在各个差异点之间做出修改合并和快速跳转。</p>
@@ -18253,7 +18480,7 @@ End Sub</p>
         <item>
             <title><![CDATA[隐私权]]></title>
             <link>https://hotoo.github.io/blog/post/about-privacy</link>
-            <guid>320</guid>
+            <guid>322</guid>
             <content:encoded><![CDATA[<h1 id="隐私权">隐私权<a aria-hidden="true" href="#隐私权">#</a></h1>
 <p>团购的时候我在邮件和 Google Docs 向所有参与团购的团友公布了各自的详细信息
 （包括联系信息）。</p>
@@ -18301,7 +18528,7 @@ End Sub</p>
         <item>
             <title><![CDATA[【已结束】 ~~关于团购庆祝 Vim 7.3 正式发布的 Tee~~]]></title>
             <link>https://hotoo.github.io/blog/post/vim73-tee</link>
-            <guid>321</guid>
+            <guid>323</guid>
             <content:encoded><![CDATA[<h1 id="已结束-关于团购庆祝-vim-73-正式发布的-tee">【已结束】 <del>关于团购庆祝 Vim 7.3 正式发布的 Tee</del><a aria-hidden="true" href="#已结束-关于团购庆祝-vim-73-正式发布的-tee">#</a></h1>
 <p>我在 Twitter 上随意说了句相关的 <a href="https://twitter.com/hotoo/status/21126325142" target="_blank" rel="noopener noreferrer">意向</a>，
 便有不少回应表示也愿意加入，我本想最好由某个懂行或者牛人来发起活动，我参加就好了，
@@ -18426,7 +18653,7 @@ Tee 可以直接发到每个人手中，考虑到运费，我提议同城的统�
         <item>
             <title><![CDATA[SQL LIKE 查询的一个问题]]></title>
             <link>https://hotoo.github.io/blog/post/about-sql-like</link>
-            <guid>322</guid>
+            <guid>324</guid>
             <content:encoded><![CDATA[<h1 id="sql-like-查询的一个问题">SQL LIKE 查询的一个问题<a aria-hidden="true" href="#sql-like-查询的一个问题">#</a></h1>
 <p>在做用户管理的时候，用户表(users) 有一个字段(dept)用来存储用户所在部门的信息，
 字段的值一般是这样的，各级部门间使用横杠分隔：</p>
@@ -18468,7 +18695,7 @@ OR dept LIKE &quot;XX宝-CEO-%&quot;;
         <item>
             <title><![CDATA[用 gvim 比较 git diff]]></title>
             <link>https://hotoo.github.io/blog/post/gitdiff-with-vim</link>
-            <guid>323</guid>
+            <guid>325</guid>
             <content:encoded><![CDATA[<h1 id="用-gvim-比较-git-diff">用 gvim 比较 git diff<a aria-hidden="true" href="#用-gvim-比较-git-diff">#</a></h1>
 <h2 id="for-windows">for Windows<a aria-hidden="true" href="#for-windows">#</a></h2>
 <p>参考 [<a href="http://gist.github.com/502217" target="_blank" rel="noopener noreferrer">http://gist.github.com/502217</a> gist:502217]</p>
@@ -18495,26 +18722,9 @@ diff =</p>
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[整合状态按钮和导向按钮]]></title>
-            <link>https://hotoo.github.io/blog/post/integrate-guide-button-and-status-button</link>
-            <guid>324</guid>
-            <content:encoded><![CDATA[<h1 id="整合状态按钮和导向按钮">整合状态按钮和导向按钮<a aria-hidden="true" href="#整合状态按钮和导向按钮">#</a></h1>
-<p><a href="http://hotoo.github.com/labs/integrate-guide-button-and-status-button.html" target="_blank" rel="noopener noreferrer">Demo</a></p>
-<h2 id="延伸阅读">延伸阅读<a aria-hidden="true" href="#延伸阅读">#</a></h2>
-<ul>
-<li>
-<p><a href="http://www.uesee.com/?p=143" target="_blank" rel="noopener noreferrer">状态按钮和导向按钮</a></p>
-</li>
-</ul>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2010-07-31</em></p>
-]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[使用 calendar.vim]]></title>
             <link>https://hotoo.github.io/blog/post/use-vim-calendar</link>
-            <guid>325</guid>
+            <guid>326</guid>
             <content:encoded><![CDATA[<h1 id="使用-calendarvim">使用 calendar.vim<a aria-hidden="true" href="#使用-calendarvim">#</a></h1>
 <p>最初看到明城 <a href="http://www.gracecode.com/archives/674/" target="_blank" rel="noopener noreferrer">推荐使用 Vim Calendar 插件</a>，
 于是很小白的尝试了一下，然后就没有了然后。</p>
@@ -18539,13 +18749,30 @@ Wiki 项目中无需 diary，diary 无需包含在每个 Wiki 项目里。</p>
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[整合状态按钮和导向按钮]]></title>
+            <link>https://hotoo.github.io/blog/post/integrate-guide-button-and-status-button</link>
+            <guid>327</guid>
+            <content:encoded><![CDATA[<h1 id="整合状态按钮和导向按钮">整合状态按钮和导向按钮<a aria-hidden="true" href="#整合状态按钮和导向按钮">#</a></h1>
+<p><a href="http://hotoo.github.com/labs/integrate-guide-button-and-status-button.html" target="_blank" rel="noopener noreferrer">Demo</a></p>
+<h2 id="延伸阅读">延伸阅读<a aria-hidden="true" href="#延伸阅读">#</a></h2>
+<ul>
+<li>
+<p><a href="http://www.uesee.com/?p=143" target="_blank" rel="noopener noreferrer">状态按钮和导向按钮</a></p>
+</li>
+</ul>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2010-07-31</em></p>
+]]></content:encoded>
+        </item>
+        <item>
             <link>https://hotoo.github.io/blog/post/open-files-in-vim-tabs</link>
-            <guid>326</guid>
+            <guid>328</guid>
         </item>
         <item>
             <title><![CDATA[Vim 自动补全成对的括号和引号]]></title>
             <link>https://hotoo.github.io/blog/post/vim-autocomplete-pairs</link>
-            <guid>327</guid>
+            <guid>329</guid>
             <content:encoded><![CDATA[<h1 id="vim-自动补全成对的括号和引号">Vim 自动补全成对的括号和引号<a aria-hidden="true" href="#vim-自动补全成对的括号和引号">#</a></h1>
 <p>炫日分享了一个 <a href="http://aoyme.wordpress.com/2010/05/31/%E5%9C%A8vim%E4%B8%AD%E5%B0%86%E6%8B%AC%E5%8F%B7%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%EF%BC%9A/" target="_blank" rel="noopener noreferrer">自动补全成对的括号</a>
 的脚本，【注】：原文代码中引号被转义成了中文引号，下面是修正后的脚本。</p>
@@ -18612,7 +18839,7 @@ endf
         <item>
             <title><![CDATA[在 Google Maps 的街景视图里看实况足球]]></title>
             <link>https://hotoo.github.io/blog/post/3d-game-in-google-maps</link>
-            <guid>328</guid>
+            <guid>330</guid>
             <content:encoded><![CDATA[<h1 id="在-google-maps-的街景视图里看实况足球">在 Google Maps 的街景视图里看实况足球<a aria-hidden="true" href="#在-google-maps-的街景视图里看实况足球">#</a></h1>
 <p>我承认我标题党了，这只是我的一个 idea 而已，并没有实际实现。</p>
 <p>前几天有新闻称日本要申办 2022 年的世界杯，承诺将以 3D 转播赛况，
@@ -18655,7 +18882,7 @@ endf
         <item>
             <title><![CDATA[用 Google Code 管理与发布 Wiki]]></title>
             <link>https://hotoo.github.io/blog/post/vimwiki-google-code</link>
-            <guid>329</guid>
+            <guid>331</guid>
             <content:encoded><![CDATA[<h1 id="用-google-code-管理与发布-wiki">用 Google Code 管理与发布 Wiki<a aria-hidden="true" href="#用-google-code-管理与发布-wiki">#</a></h1>
 <p>由于 <a href="Dropbox-died-in-China.html">Dropbox 的墙掉</a>，https 协议访问 dl 或 dl-web 子域
 的方法也随之失效，虽然可以通过修改 hosts 来继续同步文件，但是 Public 目录再也
@@ -18695,7 +18922,7 @@ Wiki 语法的一个子集，所以基本可以天衣无缝的配合使用。</p
         <item>
             <title><![CDATA[让 Vim 支持 LOG 文件]]></title>
             <link>https://hotoo.github.io/blog/post/log-syntax-4-vim</link>
-            <guid>330</guid>
+            <guid>332</guid>
             <content:encoded><![CDATA[<h1 id="让-vim-支持-log-文件">让 Vim 支持 LOG 文件<a aria-hidden="true" href="#让-vim-支持-log-文件">#</a></h1>
 <p>日志(.LOG)文件的基本上无章可循，各成风格。所以一般都是在纯文本模式下查看。
 以普通文本的方式显示日志，基本没有清晰度和阅读舒适感。</p>
@@ -18717,7 +18944,7 @@ Wiki 语法的一个子集，所以基本可以天衣无缝的配合使用。</p
         <item>
             <title><![CDATA[Dropbox 的墙掉]]></title>
             <link>https://hotoo.github.io/blog/post/dropbox-died-in-china</link>
-            <guid>331</guid>
+            <guid>333</guid>
             <content:encoded><![CDATA[<h1 id="dropbox-的墙掉">Dropbox 的墙掉<a aria-hidden="true" href="#dropbox-的墙掉">#</a></h1>
 <p>其他的都不想说，只希望 Dropbox 的开放性能更强大，比如 API 或者分布式
 的云技术再上台阶，第三方服务风起云涌，像 Twitter 那样。我深信：</p>
@@ -18734,7 +18961,7 @@ Wiki 语法的一个子集，所以基本可以天衣无缝的配合使用。</p
         <item>
             <title><![CDATA[天目山拓展活动]]></title>
             <link>https://hotoo.github.io/blog/post/outreach-activities-2010-04</link>
-            <guid>332</guid>
+            <guid>334</guid>
             <content:encoded><![CDATA[<h1 id="天目山拓展活动">天目山拓展活动<a aria-hidden="true" href="#天目山拓展活动">#</a></h1>
 <p>公司组织了一次天目山野外拓展活动，收益良多，这里稍事记录。</p>
 <p>“信任背摔”：如果信任队友，笔直倒下，这无论对自己，对队友都是最佳选择。
@@ -18776,7 +19003,7 @@ Wiki 语法的一个子集，所以基本可以天衣无缝的配合使用。</p
         <item>
             <title><![CDATA[Vim 学习路线]]></title>
             <link>https://hotoo.github.io/blog/post/vim-tutor</link>
-            <guid>333</guid>
+            <guid>335</guid>
             <content:encoded><![CDATA[<h1 id="vim-学习路线">Vim 学习路线<a aria-hidden="true" href="#vim-学习路线">#</a></h1>
 <p>因为是完全自学，身边没有这方面的导师，所以在真正入门之前，我是完全不理解 Vim
 是个什么玩意的，其中最大的障碍，遇到的第一个问题就是：“我怎么输入文字？”</p>
@@ -18812,7 +19039,7 @@ Vim。</p>
         <item>
             <title><![CDATA[欢迎加入 Vim 的 Gtalk 群]]></title>
             <link>https://hotoo.github.io/blog/post/gtalk-group-for-vim</link>
-            <guid>334</guid>
+            <guid>336</guid>
             <content:encoded><![CDATA[<h1 id="欢迎加入-vim-的-gtalk-群">欢迎加入 Vim 的 Gtalk 群<a aria-hidden="true" href="#欢迎加入-vim-的-gtalk-群">#</a></h1>
 <blockquote>
 <p><em>声明：</em> 由于能力&精力有限，我已不再是 <a href="mailto:vim-cn@appspot.com">vim-cn@appspot.com</a> 群管理员。
@@ -18958,7 +19185,7 @@ Vim。</p>
         <item>
             <title><![CDATA[有中国特色的社会主义笑话]]></title>
             <link>https://hotoo.github.io/blog/post/china-joke</link>
-            <guid>335</guid>
+            <guid>337</guid>
             <content:encoded><![CDATA[<h1 id="有中国特色的社会主义笑话">有中国特色的社会主义笑话<a aria-hidden="true" href="#有中国特色的社会主义笑话">#</a></h1>
 <p>笑料：</p>
 <ul>
@@ -18993,7 +19220,7 @@ Vim。</p>
         <item>
             <title><![CDATA[表单设计]]></title>
             <link>https://hotoo.github.io/blog/post/form-design</link>
-            <guid>336</guid>
+            <guid>338</guid>
             <content:encoded><![CDATA[<h1 id="表单设计">表单设计<a aria-hidden="true" href="#表单设计">#</a></h1>
 <ul>
 <li></li>
@@ -19013,7 +19240,7 @@ Vim。</p>
         <item>
             <title><![CDATA[轉換編碼筆記]]></title>
             <link>https://hotoo.github.io/blog/post/convert-encoding-note</link>
-            <guid>337</guid>
+            <guid>339</guid>
             <content:encoded><![CDATA[<h1 id="轉換編碼筆記">轉換編碼筆記<a aria-hidden="true" href="#轉換編碼筆記">#</a></h1>
 <p>今天發現一個顯示為亂碼的 html 頁面，發現是當前頁面和 reference 頁面編碼
 不一致造成的，reference 編碼為 gbk，當前頁面編碼是 utf8。</p>
@@ -19037,62 +19264,51 @@ Vim。</p>
         </item>
         <item>
             <link>https://hotoo.github.io/blog/post/use-vimwiki-for-blog</link>
-            <guid>338</guid>
+            <guid>340</guid>
         </item>
         <item>
-            <title><![CDATA[个人资金管理软件]]></title>
-            <link>https://hotoo.github.io/blog/post/personal-financial-manage-soft</link>
-            <guid>339</guid>
-            <content:encoded><![CDATA[<h1 id="个人资金管理软件">个人资金管理软件<a aria-hidden="true" href="#个人资金管理软件">#</a></h1>
-<p>过年花掉不少钱，而其中有一部分是喜酒之类的礼金，按照礼尚往来的习俗，这些礼金
-早晚都是要被送回来的，而被送回来的途径，则是喜酒回请。</p>
-<p>这些俗礼，即使不是为了收回礼金，回请对方也是必须的。</p>
-<p>为了避免忘记吃过的酒席（前几年的都忘记差不多了），也为了对自己的资金有更清晰
-的掌握，于是开始记账。</p>
-<p>我现在用上了 Macbook Pro 和 iPhone，于是想找一个可以运行于 Mac OSX 和 iOS 平台
-的软件，两者同步数据是必须的要求。毕竟移动设备记账有很多的便利优势，而 PC 做
-更细致的管理与分析则更为方便和强大。</p>
-<h2 id="gnucash">GNUCash<a aria-hidden="true" href="#gnucash">#</a></h2>
-<p><a href="http://www.gnucash.org/" target="_blank" rel="noopener noreferrer">GNUCash</a> 非常有名，也是我最早知道的开源金融管理软件
-之一，复式记账一直是我觉得很厉害但是又不明白的概念。后来看了一些金融相关不入门
-的信息，才有所了解。</p>
-<p>以前也在 Windows 下使用过 GNUCash，本身还是很不错的，但是当时我没有坚持下来。</p>
-<p>这次下载最新版回来在 Mac 上安装好之后发现，除了菜单之外，界面上中文全部是乱码，
-一行中文被缩挤到第一列。新建账户或者其他任何操作都是不知所以，完全没法用。
-最奇怪的是，网络上各个搜索引擎居然都搜索不到 GNUCash 乱码的内容，偶尔有一篇，
-还是将数据库的。原来 GNUCash 使用的是 MySQL 存储数据？</p>
-<p>GNUCash 目前支持 Windows, Mac, Linux, 和 Android 平台。</p>
-<h2 id="icash">iCash<a aria-hidden="true" href="#icash">#</a></h2>
-<p>后来看到有人推荐使用 <a href="http://www.maxprog.com/site/software/personal-finance/icash_sheet_us.php" target="_blank" rel="noopener noreferrer">iCash</a>，
-Mac 下 <code>i</code> 系列的好像都不错，于是尝试了下。</p>
-<p>iCash 支持 Windows, Mac 平台，也有中文支持。</p>
-<p>但就是觉得操作不算便利，一大堆莫名其妙的表单，有些会自动根据后面的表单自动适配，
-不需要显示但居然安排在最前面，后来我才知道可以不填。</p>
-<p>界面有点点土，用户体验也不好。概览里管理资金账户，如果需要更新交易，则需要
-切换到『交易』页签，然后选择是哪个账户的交易。表单恐惧症~</p>
-<p>填了不到 50条左右（存储的 .icash 文件有 23.8M 这么大）就烦了，
-于是继续寻找其他软件。</p>
-<h2 id="money">Money<a aria-hidden="true" href="#money">#</a></h2>
-<p>最后才找到 <a href="http://www.jumsoft.com/money/" target="_blank" rel="noopener noreferrer">Money by jumsoft</a> 界面设计非常赞，
-大部分使用体验也很棒，有部分瑕疵，而最要命的启动速度非常慢，导入从 iCash
-导出的 QIF 格式数据(.money 文件 500+KB) 启动时间大概需要 10秒。</p>
-<p>另外如果上次退出 Money 的时候没有打开的文档（每个 .money 文件是一个文档）的话，
-下次启动会要求创建新文档，只好打开最近的文档，再等 10秒钟。所以建议直接
-<code>&lt;Command-q&gt;</code> 退出文档 & 程序，不要使用 <code>&lt;Command-w</code> 之类的关闭文档。</p>
-<p>另外还有 iOS(iPhone, iPad)版本，收费也不贵。可以通过 Wi-Fi 或 iCloud 同步数据。
-虽然呼声很高，目前还不支持 Dropbox 同步。不过像其他重要资料一样，我的 .money
-文件存储在 Dropbox 中。</p>
-<p>总之是很赞啦，如果解决了性能问题就更好了，还有就是缺少中文本地化，另外 Mac 版
-显示全部交易也不好，还有那啥~</p>
+            <title><![CDATA[周数(Week Number, WeekNum)计算]]></title>
+            <link>https://hotoo.github.io/blog/post/weeknumber</link>
+            <guid>341</guid>
+            <content:encoded><![CDATA[<h1 id="周数week-number-weeknum计算">周数(Week Number, WeekNum)计算<a aria-hidden="true" href="#周数week-number-weeknum计算">#</a></h1>
+<p>jQuery UI v1.8rc 版的日历控件已经非常完善，比之 v1.7.1 已经支持显示周数(WeekNum)，
+而且计算 WeekNum 的算法可以自定义；而 <a href="http://www.my97.net/dp/demo/index.htm" target="_blank" rel="noopener noreferrer">My97DatePicker</a>
+的算法又有Bug。对于两年交接的周，有两种常见的算法：</p>
+<p>每年 1月 1日所在的周均为该年的第 1周（如MS Excel的WeekNum()函数和 jQuery 实现）；</p>
+<pre><code>/* Set as calculateWeek to determine the week of the year based on the ISO 8601 definition.
+   @param  date  Date - the date to get the week for
+   @return  number - the number of the week within the year that contains this date */
+iso8601Week: function(date) {
+    var checkDate = new Date(date.getTime());
+    // Find Thursday of this week starting on Monday
+    checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
+    var time = checkDate.getTime();
+    checkDate.setMonth(0); // Compare with Jan 1
+    checkDate.setDate(1);
+    return Math.floor(Math.round((time - checkDate) / 86400000) / 7) + 1;
+},
+</code></pre>
+<p>每年最后 1天所在的周</p>
+<pre><code>/**
+ * @param date {Date} 每周第 1天。
+ * @return {Number}
+ */
+calculateWeek:function(date){
+    var d = new Date(date.getTime()+(6*86400000)), t=d.getTime();
+    var start = new Date(d.getTime()); start.setMonth(0); start.setDate(1);
+    return Math.floor((t - start.getTime())/86400000/7)+1;
+}
+</code></pre>
+<p>而从自然语言中来说，这交接的一周即可以是头一年的最后一周，也可以是后一年的第 1周。</p>
 <hr></hr>
-<p><strong>Tags:</strong> , , , </p>
-<p><em>Published on 2013-02-17</em></p>
+<p><strong>Tags:</strong> , </p>
+<p><em>Published on 2010-03-16</em></p>
 ]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Vim 中文帮助文档]]></title>
             <link>https://hotoo.github.io/blog/post/vim-chinese-doc</link>
-            <guid>340</guid>
+            <guid>342</guid>
             <content:encoded><![CDATA[<h1 id="vim-中文帮助文档">Vim 中文帮助文档<a aria-hidden="true" href="#vim-中文帮助文档">#</a></h1>
 <p>前两天不知道为什么，帮助文档又跑会英文了（隐约是用 Vimball 安装了 Vimwiki
 或者 <em>重复</em>安装了 TwitVim 的缘故）。</p>
@@ -19143,7 +19359,7 @@ Mac 下 <code>i</code> 系列的好像都不错，于是尝试了下。</p>
         <item>
             <title><![CDATA[CSS 实现有限不确定背景]]></title>
             <link>https://hotoo.github.io/blog/post/css-limit-bg</link>
-            <guid>341</guid>
+            <guid>343</guid>
             <content:encoded><![CDATA[<h1 id="css-实现有限不确定背景">CSS 实现有限不确定背景<a aria-hidden="true" href="#css-实现有限不确定背景">#</a></h1>
 <p>2 个嵌套的 html 元素，分别用个两个背景图交替叠加，
 形成固定高度，有限、不确定宽度的元件，
@@ -19159,7 +19375,7 @@ Mac 下 <code>i</code> 系列的好像都不错，于是尝试了下。</p>
         <item>
             <title><![CDATA[禁用CNNIC的所谓安全证书]]></title>
             <link>https://hotoo.github.io/blog/post/forbid-cnnic</link>
-            <guid>342</guid>
+            <guid>344</guid>
             <content:encoded><![CDATA[<h1 id="禁用cnnic的所谓安全证书">禁用CNNIC的所谓安全证书<a aria-hidden="true" href="#禁用cnnic的所谓安全证书">#</a></h1>
 <p>我个人是不信任 CNNIC 的，这里只是记录一下自己的学习过程，对 CNNIC 仍抱有幻想的同学可以无视。</p>
 <p>我都是在他人的教学指导下学习实践的，有兴趣的可以参考下面的链接：</p>
@@ -19203,7 +19419,7 @@ Mac 下 <code>i</code> 系列的好像都不错，于是尝试了下。</p>
         <item>
             <title><![CDATA[“正则表达式”分享资料]]></title>
             <link>https://hotoo.github.io/blog/post/regex-share</link>
-            <guid>343</guid>
+            <guid>345</guid>
             <content:encoded><![CDATA[<h1 id="正则表达式分享资料">“正则表达式”分享资料<a aria-hidden="true" href="#正则表达式分享资料">#</a></h1>
 <p>这周三做了一次内部“正则表达式”分享活动，本来是针对小组成员的分享，
 结果部门很多高手也来捧场，非常荣幸。</p>
@@ -19220,12 +19436,12 @@ Mac 下 <code>i</code> 系列的好像都不错，于是尝试了下。</p>
         </item>
         <item>
             <link>https://hotoo.github.io/blog/post/editplus-and-everything</link>
-            <guid>344</guid>
+            <guid>346</guid>
         </item>
         <item>
             <title><![CDATA[正则表达式重复子模式前、后倾的性能比较]]></title>
             <link>https://hotoo.github.io/blog/post/performance-for-regex-repeat-sub-pattern</link>
-            <guid>345</guid>
+            <guid>347</guid>
             <content:encoded><![CDATA[<h1 id="正则表达式重复子模式前后倾的性能比较">正则表达式重复子模式前、后倾的性能比较<a aria-hidden="true" href="#正则表达式重复子模式前后倾的性能比较">#</a></h1>
 <p>在准备内部的正则表达式 (Regular Expression)分享的过程中，
 注意到一个细节问题：重复的子模式，是应该前倾还是后倾，这两者在性能上有什么差异？</p>
@@ -19258,7 +19474,7 @@ Mac 下 <code>i</code> 系列的好像都不错，于是尝试了下。</p>
         <item>
             <title><![CDATA[arguments to Array 之效率]]></title>
             <link>https://hotoo.github.io/blog/post/performance-of-arguments-to-array</link>
-            <guid>346</guid>
+            <guid>348</guid>
             <content:encoded><![CDATA[<h1 id="arguments-to-array-之效率">arguments to Array 之效率<a aria-hidden="true" href="#arguments-to-array-之效率">#</a></h1>
 <p>怿飞昨天发有一篇《<a href="http://www.planabc.net/2010/01/06/arguments_to_array/" target="_blank" rel="noopener noreferrer">如何将函数的实际参数转换成数组</a>》
 的日志，其实核心不是讲“如何如何”，而是比较了几种算法/语法的效率。
@@ -19308,7 +19524,7 @@ Safari 4, Opera 10）下一一测试。也欢迎各位参与测试并将结果�
         <item>
             <title><![CDATA[电梯楼层选项板的位置]]></title>
             <link>https://hotoo.github.io/blog/post/place-of-lift-floor-control-panel</link>
-            <guid>347</guid>
+            <guid>349</guid>
             <content:encoded><![CDATA[<h1 id="电梯楼层选项板的位置">电梯楼层选项板的位置<a aria-hidden="true" href="#电梯楼层选项板的位置">#</a></h1>
 <p>每天电梯使用的高峰期，相信许多人都体验，甚至主演过，许多人进门就堵在门口找自己要去的楼层。
 由于中国人勤劳自主的缘故，选楼层一般都倾向于自己来做，不过这不如尽快的让大家进电梯，
@@ -19322,13 +19538,17 @@ Safari 4, Opera 10）下一一测试。也欢迎各位参与测试并将结果�
 ]]></content:encoded>
         </item>
         <item>
+            <link>https://hotoo.github.io/blog/post/safari-4-select-bug</link>
+            <guid>350</guid>
+        </item>
+        <item>
             <link>https://hotoo.github.io/blog/post/cpp-check-type</link>
-            <guid>348</guid>
+            <guid>351</guid>
         </item>
         <item>
             <title><![CDATA[反向搜索的设计]]></title>
             <link>https://hotoo.github.io/blog/post/reverse-search</link>
-            <guid>349</guid>
+            <guid>352</guid>
             <content:encoded><![CDATA[<h1 id="反向搜索的设计">反向搜索的设计<a aria-hidden="true" href="#反向搜索的设计">#</a></h1>
 <p>文本搜索是一项非常常用的功能，在文本编辑器中更是一个不可或缺的功能。</p>
 <p>而反向搜索（搜索光标之前的文本）的设计，最初也非常原始：</p>
@@ -19362,12 +19582,12 @@ Safari 4, Opera 10）下一一测试。也欢迎各位参与测试并将结果�
         </item>
         <item>
             <link>https://hotoo.github.io/blog/post/impoved-fold-for-vim</link>
-            <guid>350</guid>
+            <guid>353</guid>
         </item>
         <item>
             <title><![CDATA[让 Vim 支持 CSS3]]></title>
             <link>https://hotoo.github.io/blog/post/vim-css3</link>
-            <guid>351</guid>
+            <guid>354</guid>
             <content:encoded><![CDATA[<h1 id="让-vim-支持-css3">让 Vim 支持 CSS3<a aria-hidden="true" href="#让-vim-支持-css3">#</a></h1>
 <p>和 <a href="http://www.w3.org/TR/html5/" target="_blank" rel="noopener noreferrer">HTML5</a> 一样，<a href="http://www.w3.org/TR/css3-roadmap/" target="_blank" rel="noopener noreferrer">CSS3</a>
 也是目前热门的技术，为了在 Vim 中更舒适的编辑 CSS ，我整理补充了 CSS3
@@ -19400,7 +19620,7 @@ Safari 4, Opera 10）下一一测试。也欢迎各位参与测试并将结果�
         <item>
             <title><![CDATA[让 Vim 支持 cue]]></title>
             <link>https://hotoo.github.io/blog/post/vim-cue</link>
-            <guid>352</guid>
+            <guid>355</guid>
             <content:encoded><![CDATA[<h1 id="让-vim-支持-cue">让 Vim 支持 cue<a aria-hidden="true" href="#让-vim-支持-cue">#</a></h1>
 <h2 id="自动识别文件类型">自动识别文件类型<a aria-hidden="true" href="#自动识别文件类型">#</a></h2>
 <p>在 $VIM/vim72/filetype.vim 中加入以下代码：</p>
@@ -19421,7 +19641,7 @@ Safari 4, Opera 10）下一一测试。也欢迎各位参与测试并将结果�
         <item>
             <title><![CDATA[让Vim支持html5]]></title>
             <link>https://hotoo.github.io/blog/post/vim-html5</link>
-            <guid>353</guid>
+            <guid>356</guid>
             <content:encoded><![CDATA[<h1 id="让vim支持html5">让Vim支持html5<a aria-hidden="true" href="#让vim支持html5">#</a></h1>
 <p><a href="http://www.w3.org/TR/html5/" target="_blank" rel="noopener noreferrer">html5</a> 呼之已出，众多的现代浏览器也已支持其大半新特性。</p>
 <h2 id="html5-语法高亮">HTML5 语法高亮<a aria-hidden="true" href="#html5-语法高亮">#</a></h2>
@@ -19453,16 +19673,16 @@ HTML5 标记和属性。</p>
         </item>
         <item>
             <link>https://hotoo.github.io/blog/post/validator-for-vim</link>
-            <guid>354</guid>
+            <guid>357</guid>
         </item>
         <item>
             <link>https://hotoo.github.io/blog/post/fuck-gfw-with-tor</link>
-            <guid>355</guid>
+            <guid>358</guid>
         </item>
         <item>
             <title><![CDATA[Firefox Profile 及多实例运行]]></title>
             <link>https://hotoo.github.io/blog/post/firefox-profile-and-multi-instance</link>
-            <guid>356</guid>
+            <guid>359</guid>
             <content:encoded><![CDATA[<h1 id="firefox-profile-及多实例运行">Firefox Profile 及多实例运行<a aria-hidden="true" href="#firefox-profile-及多实例运行">#</a></h1>
 <ul>
 <li></li>
@@ -19522,7 +19742,7 @@ autocmd FileType dosbatch nmap &lt;F5&gt; :exe &#39;!&quot;&#39;.expand(&quot;%&
         <item>
             <title><![CDATA[Vim映射Home键到首个非空字符]]></title>
             <link>https://hotoo.github.io/blog/post/map-home-key-for-vim</link>
-            <guid>357</guid>
+            <guid>360</guid>
             <content:encoded><![CDATA[<h1 id="vim映射home键到首个非空字符">Vim映射Home键到首个非空字符<a aria-hidden="true" href="#vim映射home键到首个非空字符">#</a></h1>
 <p>许多编辑器有相关选项，可以直接设置让 <code>&lt;Home&gt;</code> 键在首个非空字符和行首之间跳转。</p>
 <p>Vim 也有快捷键，normal 模式下：</p>
@@ -19596,7 +19816,7 @@ vmap &lt;silent&gt; &lt;End&gt; :call EndBind(0)&lt;cr&gt;
         <item>
             <title><![CDATA[asx snippets for vim]]></title>
             <link>https://hotoo.github.io/blog/post/asx-snippets-for-vim</link>
-            <guid>358</guid>
+            <guid>361</guid>
             <content:encoded><![CDATA[<h1 id="asx-snippets-for-vim">asx snippets for vim<a aria-hidden="true" href="#asx-snippets-for-vim">#</a></h1>
 <p>前段时间写了个 asx (Windows Media Player 的播放列表格式) 的
 <a href="http://www.vim.org/scripts/script.php?script_id=2540" target="_blank" rel="noopener noreferrer">snipMate</a> 的模板语法文件。</p>
@@ -19619,7 +19839,7 @@ vmap &lt;silent&gt; &lt;End&gt; :call EndBind(0)&lt;cr&gt;
         <item>
             <title><![CDATA[配置 Vim 作为 C++ 开发环境初步]]></title>
             <link>https://hotoo.github.io/blog/post/vim-for-cpp-dev</link>
-            <guid>359</guid>
+            <guid>362</guid>
             <content:encoded><![CDATA[<h1 id="配置-vim-作为-c-开发环境初步">配置 Vim 作为 C++ 开发环境初步<a aria-hidden="true" href="#配置-vim-作为-c-开发环境初步">#</a></h1>
 <p>一般来说，如果你使用 Vim 开发完整的项目，使用 Makefile 并直接 <code>:make</code> 就可以了。</p>
 <p>将下面的代码写入到 vimrc 中， Vim 会捕获编译过程中出现的消息并显示在 Quickfix 窗口。</p>
@@ -19660,7 +19880,7 @@ map &lt;F7&gt; :cp&lt;CR&gt;
         <item>
             <title><![CDATA[Vim 字体设置]]></title>
             <link>https://hotoo.github.io/blog/post/vim-fonts</link>
-            <guid>360</guid>
+            <guid>363</guid>
             <content:encoded><![CDATA[<h1 id="vim-字体设置">Vim 字体设置<a aria-hidden="true" href="#vim-字体设置">#</a></h1>
 <p>明城有 “<a href="http://www.gracecode.com/archives/1545/" target="_blank" rel="noopener noreferrer">苹果的 Courier 字体不错</a>”
 和“<a href="http://www.gracecode.com/archives/2402/" target="_blank" rel="noopener noreferrer">Windows 下 gVim 的雅黑字体配置</a>”
@@ -19731,7 +19951,7 @@ map &lt;F7&gt; :cp&lt;CR&gt;
         <item>
             <title><![CDATA[让 gvim 访问网络资源]]></title>
             <link>https://hotoo.github.io/blog/post/let-vim-to-access-remove-resources</link>
-            <guid>361</guid>
+            <guid>364</guid>
             <content:encoded><![CDATA[<h1 id="让-gvim-访问网络资源">让 gvim 访问网络资源<a aria-hidden="true" href="#让-gvim-访问网络资源">#</a></h1>
 <p>当我还是 Vim 超级菜鸟的时候，我就知道 Vim 可以和 Editplus、UltraEdit 一样，
 访问网络资源，操作方式也很类似：</p>
@@ -19787,7 +20007,7 @@ Hit any key to close this window...
         <item>
             <title><![CDATA[谦逊]]></title>
             <link>https://hotoo.github.io/blog/post/humility</link>
-            <guid>362</guid>
+            <guid>365</guid>
             <content:encoded><![CDATA[<h1 id="谦逊">谦逊<a aria-hidden="true" href="#谦逊">#</a></h1>
 <p>谦逊，刚回家路上想起这个词。</p>
 <p>前段时间，公司包车组织出游，大客车在及其陡峭的山路上行驶，在每个转弯处都会事先鸣笛示意，
@@ -19860,7 +20080,7 @@ Hit any key to close this window...
         <item>
             <title><![CDATA[老家的粳米茶]]></title>
             <link>https://hotoo.github.io/blog/post/jingmi-tea</link>
-            <guid>363</guid>
+            <guid>366</guid>
             <content:encoded><![CDATA[<h1 id="老家的粳米茶">老家的粳米茶<a aria-hidden="true" href="#老家的粳米茶">#</a></h1>
 <ul>
 <li></li>
@@ -19903,7 +20123,7 @@ Hit any key to close this window...
         <item>
             <title><![CDATA[使用 Vim 查看 HTML 源码]]></title>
             <link>https://hotoo.github.io/blog/post/use-vim-view-html-src</link>
-            <guid>364</guid>
+            <guid>367</guid>
             <content:encoded><![CDATA[<h1 id="使用-vim-查看-html-源码">使用 Vim 查看 HTML 源码<a aria-hidden="true" href="#使用-vim-查看-html-源码">#</a></h1>
 <p>收集到一些修改浏览器 html编辑器，用vim从浏览器查看源代码的方法，其中有一些是较佳的解决方法，
 这里将相关技巧一并整理于此。</p>
@@ -20004,7 +20224,7 @@ Hit any key to close this window...
         <item>
             <title><![CDATA[博客日(blogday)2009]]></title>
             <link>https://hotoo.github.io/blog/post/blogday-2009</link>
-            <guid>365</guid>
+            <guid>368</guid>
             <content:encoded><![CDATA[<h1 id="博客日blogday2009">博客日(blogday)2009<a aria-hidden="true" href="#博客日blogday2009">#</a></h1>
 <p>今天(每年8月31日)是 <a href="http://www.blogday.org/cn.htm" target="_blank" rel="noopener noreferrer">博客日</a>，
 照例是要分享/推荐5个博客的。</p>
@@ -20043,7 +20263,7 @@ jQuery, Apple, Game,涉猎广泛.</p>
         <item>
             <title><![CDATA[疯狂的性能]]></title>
             <link>https://hotoo.github.io/blog/post/crazy-performance</link>
-            <guid>366</guid>
+            <guid>369</guid>
             <content:encoded><![CDATA[<h1 id="疯狂的性能">疯狂的性能<a aria-hidden="true" href="#疯狂的性能">#</a></h1>
 <blockquote>
 <p>Performance is Everything.
@@ -20084,7 +20304,7 @@ jQuery, Apple, Game,涉猎广泛.</p>
         <item>
             <title><![CDATA[菜单项图标]]></title>
             <link>https://hotoo.github.io/blog/post/menu-item-icons</link>
-            <guid>367</guid>
+            <guid>370</guid>
             <content:encoded><![CDATA[<h1 id="菜单项图标">菜单项图标<a aria-hidden="true" href="#菜单项图标">#</a></h1>
 <p>新装的Windows 7总有一些因为暂时不习惯或无知而遇到的问题，例如网络链接就经常出问题，
 右键一个网络适配器，我们大概可以看到这样的菜单。</p>
@@ -20106,7 +20326,7 @@ jQuery, Apple, Game,涉猎广泛.</p>
         <item>
             <title><![CDATA[CSS字体中文、英文、Unicode名对照表]]></title>
             <link>https://hotoo.github.io/blog/post/css-names-with-cn-en-unicode</link>
-            <guid>368</guid>
+            <guid>371</guid>
             <content:encoded><![CDATA[<h1 id="css字体中文英文unicode名对照表">CSS字体中文、英文、Unicode名对照表<a aria-hidden="true" href="#css字体中文英文unicode名对照表">#</a></h1>
 <ul>
 <li></li>
@@ -20141,7 +20361,7 @@ jQuery, Apple, Game,涉猎广泛.</p>
         <item>
             <title><![CDATA[重复的书签]]></title>
             <link>https://hotoo.github.io/blog/post/duplicate-bookmarks</link>
-            <guid>369</guid>
+            <guid>372</guid>
             <content:encoded><![CDATA[<h1 id="重复的书签">重复的书签<a aria-hidden="true" href="#重复的书签">#</a></h1>
 <p>项目需求要做一个收藏夹，供用户收藏项目中的功能点。开发人员先给了个初步的设计文稿，
 基本上是参考IE的设计方案（当然其他浏览器的方案也差不离），后来在讨论如何对待
@@ -20208,7 +20428,7 @@ jQuery, Apple, Game,涉猎广泛.</p>
         <item>
             <title><![CDATA[未来的前端设计]]></title>
             <link>https://hotoo.github.io/blog/post/web-design-for-feature</link>
-            <guid>370</guid>
+            <guid>373</guid>
             <content:encoded><![CDATA[<h1 id="未来的前端设计">未来的前端设计<a aria-hidden="true" href="#未来的前端设计">#</a></h1>
 <p>今天基本完成了用户首页，用户可以拖放管理自定义布局
 （类似 <a href="http://www.google.com/ig?hl=en" target="_blank" rel="noopener noreferrer">igoogle</a>）。</p>
@@ -20254,7 +20474,7 @@ jQuery, Apple, Game,涉猎广泛.</p>
         <item>
             <title><![CDATA[论广告窗口的弹出]]></title>
             <link>https://hotoo.github.io/blog/post/talk-about-popup-window</link>
-            <guid>371</guid>
+            <guid>374</guid>
             <content:encoded><![CDATA[<h1 id="论广告窗口的弹出">论广告窗口的弹出<a aria-hidden="true" href="#论广告窗口的弹出">#</a></h1>
 <p>弹窗广告，这（和页面漂浮广告）是上个世纪用的最频繁的广告方式，这种广告之所以“流行”，
 是因为它引人注目的特性，广告商也正是看中这一点。而这也是最讨人厌的一种广告方式，
@@ -20314,7 +20534,7 @@ Macji: 我会写信给 chinalist 给出禁用弹窗的解决方案</p>
         <item>
             <title><![CDATA[搜索的体验]]></title>
             <link>https://hotoo.github.io/blog/post/search-expreience</link>
-            <guid>372</guid>
+            <guid>375</guid>
             <content:encoded><![CDATA[<h1 id="搜索的体验">搜索的体验<a aria-hidden="true" href="#搜索的体验">#</a></h1>
 <p>准备升级博客模板，用js提供高级特性，比如和vim类似的键盘命令模式，和内联搜索模式。
 主要提高搜索的体验，包括一下几点。</p>
@@ -20338,7 +20558,7 @@ Macji: 我会写信给 chinalist 给出禁用弹窗的解决方案</p>
         <item>
             <title><![CDATA[右键菜单的细节]]></title>
             <link>https://hotoo.github.io/blog/post/particulars-of-right-click-menu</link>
-            <guid>373</guid>
+            <guid>376</guid>
             <content:encoded><![CDATA[<h1 id="右键菜单的细节">右键菜单的细节<a aria-hidden="true" href="#右键菜单的细节">#</a></h1>
 <p>在 Web 客户端编程中，绑定 JavaScript 的 contextmenu 事件来驱动触发自定义右键菜单，
 并通过停止事件冒泡来阻止Windows默认菜单，是一种比较常见的自定义菜单实现方式，
@@ -20377,7 +20597,7 @@ Macji: 我会写信给 chinalist 给出禁用弹窗的解决方案</p>
         <item>
             <title><![CDATA[引导用户升级/切换浏览器]]></title>
             <link>https://hotoo.github.io/blog/post/upgrad-your-browser</link>
-            <guid>374</guid>
+            <guid>377</guid>
             <content:encoded><![CDATA[<h1 id="引导用户升级切换浏览器">引导用户升级/切换浏览器<a aria-hidden="true" href="#引导用户升级切换浏览器">#</a></h1>
 <ul>
 <li></li>
@@ -20435,7 +20655,7 @@ Macji: 我会写信给 chinalist 给出禁用弹窗的解决方案</p>
         <item>
             <title><![CDATA[編輯器之神]]></title>
             <link>https://hotoo.github.io/blog/post/the-god-of-editor</link>
-            <guid>375</guid>
+            <guid>378</guid>
             <content:encoded><![CDATA[<h1 id="編輯器之神">編輯器之神<a aria-hidden="true" href="#編輯器之神">#</a></h1>
 <p>最初的时候我一直使用 <a href="http://www.editplus.com/" target="_blank" rel="noopener noreferrer">Editplus</a>，这是一款轻量级，
 效率极高，可配置性稍强的编辑器，而且有内嵌的(IE6)浏览器内核，
@@ -20520,7 +20740,7 @@ Eclipse 和 Vim 的扩展性较强。</li>
         <item>
             <title><![CDATA[未知选项的表单设计]]></title>
             <link>https://hotoo.github.io/blog/post/form-design-for-unknow-options</link>
-            <guid>376</guid>
+            <guid>379</guid>
             <content:encoded><![CDATA[<h1 id="未知选项的表单设计">未知选项的表单设计<a aria-hidden="true" href="#未知选项的表单设计">#</a></h1>
 <p>发现许多的注册表单设计中，性别部分的设计大都这样：使用单选按钮（radio）
 并默认选中一个（大都为男性，某些女性频道为主的可能为女性）。例如：</p>
@@ -20547,7 +20767,7 @@ yummy有一篇文章《<a href="http://www.yummyux.com/?p=366" target="_blank" r
         <item>
             <title><![CDATA[状态模式]]></title>
             <link>https://hotoo.github.io/blog/post/status-pattern</link>
-            <guid>377</guid>
+            <guid>380</guid>
             <content:encoded><![CDATA[<h1 id="状态模式">状态模式<a aria-hidden="true" href="#状态模式">#</a></h1>
 <p>现有的IM软件都有状态设置功能，常见的默认状态有：在线，忙碌，离开，隐身，离线，
 但是这些状态对应的选项是不可设置的，例如TM/QQ，选择在线或者忙碌，对应的通知铃声，
@@ -20584,7 +20804,7 @@ Smartphone上有各种“情景模式”，如普通，静音，会议，室外�
         <item>
             <title><![CDATA[标签模式]]></title>
             <link>https://hotoo.github.io/blog/post/tags-pattern</link>
-            <guid>378</guid>
+            <guid>381</guid>
             <content:encoded><![CDATA[<h1 id="标签模式">标签模式<a aria-hidden="true" href="#标签模式">#</a></h1>
 <p>目前的标签有以下几种模式(形式)：</p>
 <h2 id="手动外联标签模式">手动外联标签模式。<a aria-hidden="true" href="#手动外联标签模式">#</a></h2>
@@ -20640,7 +20860,7 @@ Smartphone上有各种“情景模式”，如普通，静音，会议，室外�
         <item>
             <title><![CDATA[关于面包屑导航]]></title>
             <link>https://hotoo.github.io/blog/post/crumb-navigation</link>
-            <guid>379</guid>
+            <guid>382</guid>
             <content:encoded><![CDATA[<h1 id="关于面包屑导航">关于面包屑导航<a aria-hidden="true" href="#关于面包屑导航">#</a></h1>
 <p>一直都很喜欢 <a href="http://blog.rexsong.com/" target="_blank" rel="noopener noreferrer">千鸟志</a> 的标题面包屑导航方式，
 我准备在自己的博客主题中使用这种导航。</p>
@@ -20662,7 +20882,7 @@ Smartphone上有各种“情景模式”，如普通，静音，会议，室外�
         <item>
             <title><![CDATA[改进的菜单按钮]]></title>
             <link>https://hotoo.github.io/blog/post/menu-button-improved</link>
-            <guid>380</guid>
+            <guid>383</guid>
             <content:encoded><![CDATA[<h1 id="改进的菜单按钮">改进的菜单按钮<a aria-hidden="true" href="#改进的菜单按钮">#</a></h1>
 <p>一直想写关于菜单按钮的设计，但是太懒惰的原因，老是拖着不做。当然今天也没勤快到哪里去，
 下面第二个改进图是用 <a href="http://www.evolus.vn/Pencil/" target="_blank" rel="noopener noreferrer">Pencil</a> 画的，并没有用脚本实现，哎，懒啊。</p>
@@ -20688,7 +20908,7 @@ Smartphone上有各种“情景模式”，如普通，静音，会议，室外�
         <item>
             <title><![CDATA[如何削铅笔]]></title>
             <link>https://hotoo.github.io/blog/post/how-to-peel-pencil</link>
-            <guid>381</guid>
+            <guid>384</guid>
             <content:encoded><![CDATA[<h1 id="如何削铅笔">如何削铅笔<a aria-hidden="true" href="#如何削铅笔">#</a></h1>
 <p>看了 <a href="http://www.junchenwu.com/" target="_blank" rel="noopener noreferrer">JunChen</a> 翻译的
 <a href="http://www.junchenwu.com/2009/04/our_favorite_tools_for_sketching.html" target="_blank" rel="noopener noreferrer">Adaptive Path：我们最爱的草图工具</a>，
@@ -20731,7 +20951,7 @@ p.s. 2. 文具店的阿姨也在讲求用户体验呢，正准备装修外面的
         <item>
             <title><![CDATA[电梯按钮设计]]></title>
             <link>https://hotoo.github.io/blog/post/lift-button-design</link>
-            <guid>382</guid>
+            <guid>385</guid>
             <content:encoded><![CDATA[<h1 id="电梯按钮设计">电梯按钮设计<a aria-hidden="true" href="#电梯按钮设计">#</a></h1>
 <ul>
 <li>
@@ -20759,7 +20979,7 @@ p.s. 2. 文具店的阿姨也在讲求用户体验呢，正准备装修外面的
         <item>
             <title><![CDATA[笔试后双方最好能当面讨论题解]]></title>
             <link>https://hotoo.github.io/blog/post/after-written-examination</link>
-            <guid>383</guid>
+            <guid>386</guid>
             <content:encoded><![CDATA[<h1 id="笔试后双方最好能当面讨论题解">笔试后双方最好能当面讨论题解<a aria-hidden="true" href="#笔试后双方最好能当面讨论题解">#</a></h1>
 <p>最近有好几次进阿里集团的笔试经验，有一个小体会：笔试后招聘方和应聘方最好能一起交流讨论题解
 （记得学校考试的时候，对题目有疑问时可以举手提问，老师也有出错题的时候，但是考场上发现后会立即处理。
@@ -20829,7 +21049,7 @@ p.s. 2. 文具店的阿姨也在讲求用户体验呢，正准备装修外面的
         <item>
             <title><![CDATA[由邮件排序想到的]]></title>
             <link>https://hotoo.github.io/blog/post/idea-from-email-srot</link>
-            <guid>384</guid>
+            <guid>387</guid>
             <content:encoded><![CDATA[<h1 id="由邮件排序想到的">由邮件排序想到的<a aria-hidden="true" href="#由邮件排序想到的">#</a></h1>
 <p>目前的电子邮件系统，均是使用倒序列出邮件列表，最新的邮件总是在第一封。
 这样做也并没有什么不好，不过这是最好的排列方式吗？</p>
@@ -20875,7 +21095,7 @@ p.s. 2. 文具店的阿姨也在讲求用户体验呢，正准备装修外面的
         <item>
             <title><![CDATA[让对方介绍一下工作的情况，对方对现在的工作有什么看法。]]></title>
             <link>https://hotoo.github.io/blog/post/after-nterview</link>
-            <guid>385</guid>
+            <guid>388</guid>
             <content:encoded><![CDATA[<h1 id="淘宝应聘后记">淘宝应聘后记<a aria-hidden="true" href="#淘宝应聘后记">#</a></h1>
 <p>前段时间在北京做项目，期间看到一篇关于
 "<a href="http://dancewithnet.com/2009/02/17/how-to-make-a-resume-of-f2e/" target="_blank" rel="noopener noreferrer">如何做好一份前端工程师的简历？</a>"，
@@ -20932,7 +21152,7 @@ Sent from: Hangzhou 33 China.</p>
         <item>
             <title><![CDATA[JavaScript 无块级作用域]]></title>
             <link>https://hotoo.github.io/blog/post/javascript-vars-scope</link>
-            <guid>386</guid>
+            <guid>389</guid>
             <content:encoded><![CDATA[<h1 id="javascript-无块级作用域">JavaScript 无块级作用域<a aria-hidden="true" href="#javascript-无块级作用域">#</a></h1>
 <p>最近在做一系列JavaScript压缩工具，语法压缩，语义压缩，字符串压缩均有涉及（p.s.有趣的是，
 压缩变量名之类的“有损压缩”不影响代码执行，但是字符串压缩这样的“无损压缩”却总是需要解压消耗）。</p>
@@ -21164,225 +21384,34 @@ try{alert(v0b);}catch(e){document.write((e.message||e)+&quot;&lt;br /&gt;&quot;)
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[就近原则：JavaScript 块级作用域的变量定义]]></title>
-            <link>https://hotoo.github.io/blog/post/block-scope-variable-defined</link>
-            <guid>387</guid>
-            <content:encoded><![CDATA[<h1 id="就近原则javascript-块级作用域的变量定义">就近原则：JavaScript 块级作用域的变量定义<a aria-hidden="true" href="#就近原则javascript-块级作用域的变量定义">#</a></h1>
-<blockquote>
-<p>代码是写给人看的，顺便给机器执行。[1]</p>
-</blockquote>
-<h2 id="引子">引子<a aria-hidden="true" href="#引子">#</a></h2>
-<p>上周有位前端同学周报里分享了段 for 循环的『好代码』：</p>
-<pre><code>
-for (var i = 0, item; item = list[i]; i++) {
-  // 将 ltem = list[i]当做条件判断语句，当i下标溢出时，返回undefined，循环结束
-  // 居然省了一个变量呢～
-}
-</code></pre>
-<p>这位同学是看了 jQuery 里类似下面这种用法之后做的这个分享：</p>
-<pre><code>// If no nodeType, this is expected to be an array
-for ( ; (node = elem[i]); i++ ) {
-    // Do not traverse comment nodes
-    ret += getText( node );
-}
-</code></pre>
-<p>jQuery 还有不少地方使用这种用法，也有不少地方是传统的使用 length 方法。
-但是 jQuery 这样用有其特定场景，需要正视。我回复说：</p>
-<ol>
-<li>如果数组项中有 0, false, null, undefined, ""，代码就出 bug 了。</li>
-<li>好像没看到少了变量，一定要少的话，典型的 for 写法也可以少（但是不推荐）。</li>
-<li>代码是写给人读的，顺便给机器执行。</li>
-<li>另外，对 list 本身有操作，尤其是长度有影响的操作要特别注意。</li>
-</ol>
-<p>我个人推荐下面这种写法：</p>
-<pre><code>for(var i = 0, l = list.length; i &lt; l; i++){
-    list[i]
-}
-</code></pre>
-<p>p.s. 使用 Vim snipMate 的同学可以参考
-<a href="https://github.com/hotoo/snipmate.vim/blob/master/snippets/javascript.snippets#L56" target="_blank" rel="noopener noreferrer">javascript.snippet</a>
-这个代码片段模板。</p>
-<p>好了，使用溢出判断数组循环结束的讨论到此就结束了，但是好戏还在后头。</p>
-<p>由于 JavaScript 作用域的问题，有同学建议说将 <code>i</code>, <code>l</code> 变量定义在 <code>for</code> 循环之外。
-于是进入另一个变量定义的话题。</p>
-<h2 id="如何定义块级作用域中使用的变量">如何定义块级作用域中使用的变量？<a aria-hidden="true" href="#如何定义块级作用域中使用的变量">#</a></h2>
-<p>持有变量应前置定义观点的同学，估计有不少是受了《JavaScript 权威指南》或其他权威著作的影响。</p>
-<p>《JavaScript 权威指南》第 4 章 4.3.1 小节 [2] 详细分析了块级作用域中变量定义的问题。</p>
-<p>由于 JavaScript 只有函数作用域，没有块级作用域，因此在 <code>for</code>, <code>if/else</code>,
-<code>do/while</code>, <code>switch/case</code>, <code>try/catch</code> 这些块中定义的变量，实际在块之外也可以使用。</p>
-<pre><code>function functionScope(){
-    for(var i=0,l=5; i&lt;l; i++){
-        var blockVariable = i;
-    }
-    alert(i); // 5
-    alert(blockVariable); // 4
-}
-</code></pre>
-<p>例如上面的代码，在 for 这个块之中定义的变量，在 for 之外也可以使用。
-这在其他支持块级作用域(如C/C++ [3], Java)的编程语言中是无法理解，甚至不可接受的。</p>
-<p>这是 JavaScript 设计的 BUG，书中作者建议将所有变量声明集中放置在函数开头，
-说这是个好习惯。</p>
-<blockquote>
-<p>This example illustrates why it is good programming practice to place all of
-your variable declarations together at the start of any function.</p>
-</blockquote>
-<p>JavaScript 传教士老道也有
-[类似的教诲](<a href="http://javascript.crockford.com/code.html#variable" target="_blank" rel="noopener noreferrer">http://javascript.crockford.com/code.html#variable</a> declarations)：</p>
-<blockquote>
-<p>The var statements should be the first statements in the function body.</p>
-<p>...</p>
-<p>JavaScript does not have block scope, so defining variables in blocks can
-confuse programmers who are experienced with other C family languages.
-Define all variables at the top of the function.</p>
-</blockquote>
-<p>他们的理由是，既然在块级作用域之内定义的变量可以被块级作用域之外使用，
-那么就应该把变量定义在块级作用域之外，让它们看起来和它们实际的作用域表现一致。</p>
-<pre><code>function functionScope(){
-    var i, l=5, blockVariable;
-
-    // more codes ...
-
-    for(i=0; i&lt;l; i++){
-        blockVariable = i;
-    }
-}
-</code></pre>
-<hr></hr>
-<p>但是这个我稍微持不同的观点 ：）</p>
-<p>实际上我们定义 <code>i</code>, <code>l</code> 是为了给 <code>for</code> 用的，JavaScript 解释器在执行的时候可以
-给块级作用域外面用，不代表就应该定义在外面。
-定义在外面给人的暗示是这个变量是给整个 function 用的，而不只是 for 循环，
-就会给人『在外面用也没关系』的错觉。但这其实不是我们定义 <code>i</code>, <code>l</code> 的本意。</p>
-<p>另外变量前置声明，会导致变量声明、定义和使用之间分离，变量含义自我解释性被削弱，
-而且容易造成误清理、或遗漏清理变量的问题。</p>
-<p>对于 JavaScript 的这个糟粕，让人来适应机器的问题而修改代码，甚至改变本性习惯，
-和另一个使用逗号连续定义变量的话题是何其的相似。
-为什么不让机器来适应人，在编辑器中编辑、或在编译器中编译 JavaScript 代码时，
-发现块级作用域之外有使用块级作用域内部定义的变量时，给予恰当的警告。
-这是否更合理呢。</p>
-<p>如果遵循权威的教诲，把变量定义在函数前面，编辑器和编译器都没有办法帮我们了。</p>
-<p>我认为：</p>
-<ol>
-<li>定义在块级作用域之内的变量不应该被块级作用域之外使用。</li>
-<li>如果被块级作用域之外使用了：
-<ol>
-<li>
-<p>要么这是一个错误的用法，会带来隐患。
-<em>人、编辑器、编译器、甚至将来的解释器可以发现这个问题并给出警告。</em></p>
-</li>
-<li>
-<p>或者确实有这样的使用需求，那么这个变量应该被声明在块级作用域之外。</p>
-</li>
-</ol>
-</li>
-</ol>
-<p>所以我比较认同 <code>就近原则</code> [4] 这种更合理、更人性的风格。</p>
+            <title><![CDATA[尊严]]></title>
+            <link>https://hotoo.github.io/blog/post/dignity</link>
+            <guid>390</guid>
+            <content:encoded><![CDATA[<h1 id="尊严">尊严<a aria-hidden="true" href="#尊严">#</a></h1>
 <ul>
-<li>
-<p>文档、注释应尽可能的靠近代码。</p>
-</li>
-<li>
-<p>变量声明应尽可能的靠近变量使用。</p>
-</li>
-<li>
-<p>应尽量限制变量的作用域。</p>
-</li>
+<li></li>
 </ul>
-<h2 id="那么">那么<a aria-hidden="true" href="#那么">#</a></h2>
-<p>请问你持什么样的观点呢？</p>
-<hr></hr>
-<h3 id="注">注<a aria-hidden="true" href="#注">#</a></h3>
-<ol>
-<li>
-<p>出自《Structure and Interpretation of Computer Programs》，中文版《计算机程序的构造和解释》</p>
-<blockquote>
-<p>Thus, programs must be written for people to read, and only incidentally
-for machines to execute.</p>
-<p>-- by Harold Abelson and Gerald Jay Sussman with Julie Sussman</p>
-</blockquote>
-</li>
-<li>
-<p>《JavaScript 权威指南》第六版章节和标题有所变更。第六版对应章节在第 3 章
-第 3.10.1 小节：函数作用域和声明提前。
-第六版中，关于变量声明提前的结束语中相对中立了很多。</p>
-<blockquote>
-<p>In programming languages with block scope, it is generally good programming
-practice to declare variables as close as possible to where they are used and
-with the narrowest possible scope. Since JavaScript does not have block scope,
-some programmers make a point of declaring all their variables at the top of
-the function, rather than trying to declare them closer to the point at which
-they are used. This technique makes their source code accurately reflect the
-true scope of the variables.</p>
-</blockquote>
-<p>大意是说：
-在支持块级作用域的编程语言中，变量就近定义是一个非常好的编程实践。
-变量定义尽量靠近变量使用，变量尽量限制在最小的作用域之内。
-由于 JavaScript 没有块级作用域，一些程序员提出将变量定义在函数的顶部，
-而不是靠近使用变量的地方。这使得源码准确反映了其真正的作用域范围。</p>
-</li>
-<li>
-<p>早在 <a href="http://flash-gordon.me.uk/ansi.c.txt" target="_blank" rel="noopener noreferrer">C89 规范</a> 中，规定了变量必须声明在作用域的最前面，
-但是 <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1336.pdf" target="_blank" rel="noopener noreferrer">C99</a>
-和 C++ 取消了这个限制，支持就近声明变量。</p>
-<p>由于就近声明可以让变量作用于恰当的作用域之中，而且变量声明更靠近变量的使用，
-因此也更容易理解。<code>就近原则</code> 在很多编程语言当中都是最佳实践，JavaScript 也不例外。</p>
-</li>
-<li>
-<p><a href="http://en.wikipedia.org/wiki/The_Proximity_Principle" target="_blank" rel="noopener noreferrer">就近原则(The Principle of Proximity)</a> 是一项社会心理学
-的理论，实际在 <a href="http://www.approxion.com/?p=120" target="_blank" rel="noopener noreferrer">计算机编程</a> 、
-<a href="http://desktoppub.about.com/od/designprinciples/tp/Principles_of_Design.htm" target="_blank" rel="noopener noreferrer">视觉设计</a> 、
-<a href="http://www.webdesignerdepot.com/2010/01/the-principle-of-proximity-in-web-design/" target="_blank" rel="noopener noreferrer">网页设计</a>
-领域也有很多的延伸与实践。</p>
-</li>
-</ol>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2013-04-25</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[周数(Week Number, WeekNum)计算]]></title>
-            <link>https://hotoo.github.io/blog/post/weeknumber</link>
-            <guid>388</guid>
-            <content:encoded><![CDATA[<h1 id="周数week-number-weeknum计算">周数(Week Number, WeekNum)计算<a aria-hidden="true" href="#周数week-number-weeknum计算">#</a></h1>
-<p>jQuery UI v1.8rc 版的日历控件已经非常完善，比之 v1.7.1 已经支持显示周数(WeekNum)，
-而且计算 WeekNum 的算法可以自定义；而 <a href="http://www.my97.net/dp/demo/index.htm" target="_blank" rel="noopener noreferrer">My97DatePicker</a>
-的算法又有Bug。对于两年交接的周，有两种常见的算法：</p>
-<p>每年 1月 1日所在的周均为该年的第 1周（如MS Excel的WeekNum()函数和 jQuery 实现）；</p>
-<pre><code>/* Set as calculateWeek to determine the week of the year based on the ISO 8601 definition.
-   @param  date  Date - the date to get the week for
-   @return  number - the number of the week within the year that contains this date */
-iso8601Week: function(date) {
-    var checkDate = new Date(date.getTime());
-    // Find Thursday of this week starting on Monday
-    checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
-    var time = checkDate.getTime();
-    checkDate.setMonth(0); // Compare with Jan 1
-    checkDate.setDate(1);
-    return Math.floor(Math.round((time - checkDate) / 86400000) / 7) + 1;
-},
-</code></pre>
-<p>每年最后 1天所在的周</p>
-<pre><code>/**
- * @param date {Date} 每周第 1天。
- * @return {Number}
- */
-calculateWeek:function(date){
-    var d = new Date(date.getTime()+(6*86400000)), t=d.getTime();
-    var start = new Date(d.getTime()); start.setMonth(0); start.setDate(1);
-    return Math.floor((t - start.getTime())/86400000/7)+1;
-}
-</code></pre>
-<p>而从自然语言中来说，这交接的一周即可以是头一年的最后一周，也可以是后一年的第 1周。</p>
+<p>看了Twitter上有推李普曼的《<a href="http://www.my1510.cn/article.php?557d98abd63d8e1a" target="_blank" rel="noopener noreferrer">没有感到的尊严</a>》
+一文，想起自己也有类似的经历。</p>
+<p>高中时在外面读书，和一个在我看来很赖皮很讨厌的同学关系不合，一天他挑衅被我回击，
+晚上他叫了一个人过来跟我“讲道理”，寝室恰巧没电，没看清对方的面容，但是身体不比我弱。
+当他们把我逼到墙角时，我借助墙壁的力量将对方踢了出去，不知道对方是不是本身就没什么底气，
+叫了一声“不要这么嚣张”之后就再也没有回来。如果对方狠一点，我可能就要吃亏，
+但是如果当时我软一点，我在这个讨厌鬼面前就永远都抬不起头。</p>
+<p>当然我并不总是那么“英勇”，学校当地有一个死胖子同学老挑衅我，我就回敬了一句，
+并且不礼貌的骂了对方。死胖子好像抓到把柄了一样，老要我道歉，在寝室里我们还打了一架，
+当时我被打的很惨，不过没有道歉，上课的时候他总坐到我旁边捣乱影响我学习。
+终于有一节课上我再也容受不了，向他低了头。到现在我还对这事耿耿于怀，想当时如果不低头会怎么样？</p>
+<p>为什么老是想到打架呢？当对方无理取闹时，暴力确实是直接有效的解决办法呢，如果能比对方更暴力的话。</p>
 <hr></hr>
 <p><strong>Tags:</strong> , </p>
-<p><em>Published on 2010-03-16</em></p>
+<p><em>Published on 2009-01-02</em></p>
 ]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[开放篮球场地.地标工程]]></title>
             <link>https://hotoo.github.io/blog/post/open-basketball-field</link>
-            <guid>389</guid>
+            <guid>391</guid>
             <content:encoded><![CDATA[<h1 id="开放篮球场地地标工程">开放篮球场地.地标工程<a aria-hidden="true" href="#开放篮球场地地标工程">#</a></h1>
 <p>作为业余篮球爱好者，作为他乡游子，每到一个陌生的地方，都想尽快找到一个能施展球技、
 或者仅是活动一下筋骨的场地。就地解决当然也可以，但是如果有自由开放的美好世界，为什么不加入进去呢？</p>
@@ -21422,510 +21451,9 @@ calculateWeek:function(date){
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[Family Tree Builder:理想的族谱/家谱软件]]></title>
-            <link>https://hotoo.github.io/blog/post/family-tree-builder-professional-genealgy-software</link>
-            <guid>390</guid>
-            <content:encoded><![CDATA[<h1 id="family-tree-builder理想的族谱家谱软件">Family Tree Builder:理想的族谱/家谱软件<a aria-hidden="true" href="#family-tree-builder理想的族谱家谱软件">#</a></h1>
-<p>去年春节回家，老爸让我把家谱（族谱）放到电脑上，但当时家里不能上网，
-手头又没有理想的家谱软件，只能把一些文本输入到电脑上。</p>
-<p>后来又尝试使用树型结构（当时使用梅花雪树）临时模拟，但是族谱是一种双亲（甚至多亲：
-[古代可同时]结婚多次）树型结构，使用普通的单亲树型结构就显得很别扭，
-最后使用纯文本拼成一个简易版本。</p>
-<pre><code>爷爷 + 奶奶        外公 + 外婆
-     |                  |
-  ---+----+       +-----+---
-          |       |
-         老爸 + 老妈
-              |
-        +-----+-----+
-        |           |
-     大儿子       二儿子
-</code></pre>
-<p>这个版本也算理想，但是涉及到详细资料，尤其是当这棵树变得更大而复杂，盘根错节时，
-这个纯文本拼凑起来的双亲树就显得力不从心。</p>
-<p>后来回杭州工作时，找了一些软件试用，大都不怎么理想（大概是我崇洋媚外的缘故，
-国内确实还没看到什么让我觉得有脸拿出来使用的族谱作品），只是找到一个仅支持
-联机使用的Flash版本：<a href="http://www.treemily.com/" target="_blank" rel="noopener noreferrer">中国传家宝</a>，
-只能联机使用让我觉得很不方便，而更不方便的是
-设计上有一些（大概）不合理，操作不便，并且速度也不行，让我满意的大概只有显示效果不错。</p>
-<p>过了很长时间，零星的找找也没得到什么结果。</p>
-<p>后来无意在VeryCD上看到一下族谱软件，是外国专业公司制作的产品，不过给人的感觉有点
-太强而大的样子，而且收费挺贵。顺手又上Google搜寻一番，收获不小，这个市场貌似现在很活跃的样子。</p>
-<p>于是就发现了这个相当理想的免费软件：<a href="http://www.myheritage.cn/" target="_blank" rel="noopener noreferrer">Family Tree Builder</a>
-（这是它的 <a href="http://www.myheritage.com/" target="_blank" rel="noopener noreferrer">英文网站</a>），号称支持29中本地化语言（事实上也是如此）。
-不过遗憾的是，虽然它有中文网站，但是软件本身却没有中文本地化版本，刚安装在Windows Server 2008
-上时崩溃了好几次（大概是我没有摸清它的脾性），而且更糟糕的是程序左侧的List成员列表视图显示中文乱码。
-不过它的优点也相当可观，免费，启动速度快，自动备份（崩溃后可以恢复），支持多国语言，视觉效果好，
-操作方便，功能齐全，而且可以导入导出标准系谱数据格式gedcom，这里是它的
-<a href="http://www.myheritage.cn/family-tree-builder" target="_blank" rel="noopener noreferrer">中文官方介绍</a>，
-传说是族谱学家级别的人士和专业软件设计专家创造出来的（事实上看起来应该也是如此），
-适用于管理大型及小型的族谱。</p>
-<p><img src="http://www.myheritage.cn/FP/Images/Screenshots/Screenshot7Small_320_258.JPG" alt="pic"></img></p>
-<hr></hr>
-<p><strong>Tags:</strong> , </p>
-<p><em>Published on 2008-11-15</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Firefox本地化及其切换]]></title>
-            <link>https://hotoo.github.io/blog/post/firefox-localization</link>
-            <guid>391</guid>
-            <content:encoded><![CDATA[<h1 id="firefox本地化及其切换">Firefox本地化及其切换<a aria-hidden="true" href="#firefox本地化及其切换">#</a></h1>
-<p>昨天用Firefox内置的下载管理器下载一个较大的文件，而且新搬来这边的网速慢到让我想起
-令人怀念的大学时期（那时候的校园网，不是一般人能够忍受的），无意中我看到下载管理器里
-当前下载的文件下显示着“第x小时，剩余x分钟”的提示（不超过一小时时，只显示“剩余x分钟”）。
-看到这个提示，我当时有两种想法：</p>
-<ul>
-<li>
-<p>Firefox下载管理器的剩余时间计算方法比较有趣，将每小时的下载分段，
-所以就有了第1小时，剩余20分钟的说法；</p>
-</li>
-<li>
-<p>翻译问题，实际应该是剩余1小时又20分钟的意思。</p>
-</li>
-</ul>
-<p>这两种理解方式都有其道理，而且在我最初看来，是各占 50% 的。</p>
-<p>为了打消疑问，我Google，Baidu试了个遍，但是没有找到一条符合的记录，
-于是又尝试问一些对Firefox有/无兴趣的朋友，以及mozine的Gtalk群友，
-但是大伙都没有注意到这个，只能给个猜测的结果。</p>
-<p>为了找到答案，就需要知道Firefox英文版是怎么说的，但是我还不想为此再装一个英文版Firefox，
-那么怎么切换本地化语言呢，又是大肆搜罗一番，找到一些近似的，这里整理如下：</p>
-<h2 id="切换方法-i">切换方法 I:<a aria-hidden="true" href="#切换方法-i">#</a></h2>
-<ul>
-<li>about:config</li>
-<li>general.useragent.locale由zh-CN改为en-US。
-（前提：Firefox/chrome/目录下有en-US.jar和en-US.manifest）</li>
-</ul>
-<h2 id="切换方法-ii">切换方法 II:<a aria-hidden="true" href="#切换方法-ii">#</a></h2>
-<ul>
-<li><a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%AF%B9%E5%BA%94%E7%9A%84%E8%AF%AD%E8%A8%80%E5%8C%85(.xpi)%E3%80%82" target="_blank" rel="noopener noreferrer">http://releases.mozilla.org/pub/mozilla.org/firefox/releases/下载安装对应的语言包(.xpi)。</a></li>
-<li>启用该语言包（安装后默认启用）并重启Firefox。</li>
-</ul>
-<p>例如我的Firefox版本3.0.3，Windows，则语言包文件地址为：
-<a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.0.3/win32/xpi/en-GB.xpi" target="_blank" rel="noopener noreferrer">http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.0.3/win32/xpi/en-GB.xpi</a>
-（粗体为Firefox对应的版本号）。</p>
-<p>注意：<a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/" target="_blank" rel="noopener noreferrer">http://releases.mozilla.org/pub/mozilla.org/firefox/releases/</a>
-下的目录并不会列出xpi文件，将正确的版本号替换粗体部分，直接拷贝到地址栏回车即可。</p>
-<p>安装并重启之后，可以看到Add-ons - 语言页签下会列出刚安装的English(GB) Language Pack语言包，想撤回中文时，禁用此语言包，重启Firefox即可。</p>
-<h2 id="iii">III:<a aria-hidden="true" href="#iii">#</a></h2>
-<p>另外还有几个用来切换本地化语言的扩展，<a href="https://addons.mozilla.org/en-US/firefox/addon/356" target="_blank" rel="noopener noreferrer">Locale Switcher</a> 和
-<a href="https://addons.mozilla.org/zh-CN/firefox/addon/1333" target="_blank" rel="noopener noreferrer">Quick Locale Switcher</a>，
-它们可以让Firefox直接在菜单栏切换语言。</p>
-<p>言归正传，话说回来，切换为英文语言后，尝试大文件下载发现原文是类似于
-<code>2 hours, 8 minutes remaining</code> 这样的提示，意思是剩余2小时8分钟。</p>
-<p>Firefox 中文版的这个翻译确实不怎么样。</p>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2008-11-14</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[PANDA-glGo，完美的围棋软件]]></title>
-            <link>https://hotoo.github.io/blog/post/panda-glgo-the-perfect-igo</link>
-            <guid>392</guid>
-            <content:encoded><![CDATA[<h1 id="panda-glgo完美的围棋软件">PANDA-glGo，完美的围棋软件<a aria-hidden="true" href="#panda-glgo完美的围棋软件">#</a></h1>
-<p>我的围棋水平虽然很差，但是这一点也不影响我对围棋的喜爱程度。
-而今天意外的发现一款让我满意度达到100%的围棋软件，它就是
-<a href="http://www.pandanet.co.jp/English/glgo/index.html" target="_blank" rel="noopener noreferrer">PANDA-glGo</a>，
-（这是它在 <a href="http://www.gnu.org/software/gnugo/gnugo.html" target="_blank" rel="noopener noreferrer">GNU</a> 和
-<a href="http://ggo.sourceforge.net/" target="_blank" rel="noopener noreferrer">SourceForge</a> 上的地址，不过 sf 上已经过期）。</p>
-<p><a href="http://www.pandanet.co.jp/English/glgo/images/glgoshot15_thumb.jpg" target="_blank" rel="noopener noreferrer">http://www.pandanet.co.jp/English/glgo/images/glgoshot15_thumb.jpg</a></p>
-<p>PANDA-glGo是一个GUN自由软件，支持Windows，Linux和Macintosh平台，不论外观，还是内涵，
-无一不是完美绝伦。PANDA-glGo支持2D和3D的风格，界面简洁大方，操作方便。
-可以设置棋盘背景图和更换棋子，支持多语种，包括中文。</p>
-<p>PANDA-glGo默认没有机器人，如果想要人机对战，需要另外下载GNU Go（解压至PANDA-glGo安装目录即可，
-也可以放在其他位置）。机器人跑起来一点都感觉不到慢，即使设置棋力为最高级别（机机对战除外），
-至于算法是否高明，机器人棋力能达到什么程度，我不（需要）知道，目前我还没赢过。
-可以设置机器人的棋力级别，棋盘大小（纵横数目）和对战让子目数。另外 PANDA-glGo还支持网络对战，
-或者观看他人对战。联机时，可以查看棋手级别等资料，正在进行的棋局。
-可以这么说，PANDA-glGo 不仅仅是一款围棋软件，更是一个围棋平台。</p>
-<p><a href="http://www.pandanet.co.jp/English/glgo/manual/index.html" target="_blank" rel="noopener noreferrer">帮助文档</a> 很完整，只是缺少中文文档。</p>
-<p>如果你也是围棋爱好者，这是不容错过的一款软件。好想找一份和这类似的中国象棋软件，
-因为我的象棋水平比围棋稍好，可以坚持久一点。</p>
-<hr></hr>
-<p><strong>Tags:</strong> , </p>
-<p><em>Published on 2008-10-24</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[电子图书管理软件幻想]]></title>
-            <link>https://hotoo.github.io/blog/post/dream-for-ebooks-manager</link>
-            <guid>393</guid>
-            <content:encoded><![CDATA[<h1 id="电子图书管理软件幻想">电子图书管理软件幻想<a aria-hidden="true" href="#电子图书管理软件幻想">#</a></h1>
-<p>一直以来，稍微好点的电子图书管理软件是特别的少，而做很不错的更是少之又少，
-要说真正让用户喜欢，或者至少还满意的，到目前为止，没有。</p>
-<p>而与之功能相似，状态却截然相反的是，图片和音乐文件的管理软件却如此兴旺发达。</p>
-<p>下面先介绍一下图片管理软件，它们大致有以下几个特点（这里以个人最偏爱的
-<a href="http://picasa.google.com/" target="_blank" rel="noopener noreferrer">Picasa 3 Beta</a> 作参照）：</p>
-<ul>
-<li>
-<p>看图。图片管理软件最好能（方便快捷的）阅读各种格式的图片。（Picasa 3的看图模块很炫很优秀，
-半透明状态悬浮在窗口上，附有一些播放，翻转，标星，打开在Picasa中编辑等快捷功能。
-不过Picasa对GIF动画支持很烂，甚至会毁掉动画的动态特性）</p>
-</li>
-<li>
-<p>管图。每一张图片都不是独立存在的，它们存在于一些相关/无关的相册中。
-对于一个图片管理软件来说，对相册的管理能力尤为重要。
-（Picasa可以动态扫描整个磁盘/指定目录的所以支持的图片，
-还可以建立独立于存放目录物理路径之外的虚拟相簿功能，感觉就像管理你的家庭相册一样）</p>
-</li>
-<li>
-<p>搜图。搜索功能对于任何一个信息系统来说都必不可少，而对于图片搜索，还有一些有待探索的领域。
-（以搜索著称的Google生产的Picasa自然有这个功能，虽然还有待提高）</p>
-</li>
-<li>
-<p>写图。这是对单张/多张图片进行微量/智能调整的高级特性。
-这个可以交给专业的图片处理软件，对图片管理软件来说非必要，但是一定要提供快速定位到系统资源、
-直接由这些专业的处理软件打开的特性。（Picasa有一些像改变色相，去除“红眼”这样的简单功能，
-另外，和Google搜索的“手气不错”一样，Picasa也有这样自作主张的功能）</p>
-</li>
-</ul>
-<p>而我所期待的图书管理软件，就像上面列出来的这些特性一致：</p>
-<ul>
-<li>看书。软件最好能支持多种图书格式，因为现在的图书格式繁多，一一支持不太现实，
-也没有必要，让管理者做好管理的事情就够了，当然还需要能够方便的定位资源，
-并能与其他专业的看书软件配合。另外最重要的，是有一些读书计划方面的规划系统
-（可以结合一些读书技巧/理论）。</li>
-<li>管书。每个人都会有自己的个人图书库，当这个库越来越多时，管理则是势必施行，
-在管理方面，图书有它和图片的不同之处，比如分类（可以参考但不拘泥于图书馆的管理方式），
-加一些现流行使用的小标签，图书的名称，ISBN，缩略图，作者等，软件最好，或者说最起码能像
-Picasa 一样支持动态扫描指定位置的所有支持/指定格式的图书。</li>
-<li>搜书。并不是每个人都能够/需要看并记住所有收集的电子图书的，
-在需要时快速定位的指定位置，或者至少找到匹配的书。</li>
-<li>写书。编辑书名，作者，缩略图，分类，标签，ISBN，给喜欢的书标星等，
-另外像编辑PDF的书签或添加评语/附注，非必须，有专业的编辑软件支持就可以了。</li>
-</ul>
-<p>目前发现最好的有 Foxit Library，它支持静态扫描和书架归类，并能够使用自己的
-<a href="http://foxitsoftware.com/" target="_blank" rel="noopener noreferrer">Fixit Reader</a> 打开PDF文件，但是在使用它管理图书时，
-操作不便到简直不可用的地步，而且速度很慢（可能是因为我的书太多，
-但是Picasa管理我更多的 图片时，一点都不显胖），并且不支持搜索（有一个索引功能）。</p>
-<p>另外 <a href="http://www.ssreader.com/" target="_blank" rel="noopener noreferrer">SSReader</a> 也有一个“本地图书馆”，可以导入本地目录。
-它会按照目录结构生成默认归类（跟系统资源管理器差不多，建议还是用资源管理器比较好）。</p>
-<p>不知道为什么现行的图书格式都不支持（像音乐文件一样）将书名，作者，缩略图，
-ISBN等信息存储在图书属性中，这方面难道没有对应的规范，还是牛仔太多了？</p>
-<p>这样的软件是一个梦吗。</p>
-<hr></hr>
-<p><strong>Tags:</strong> , </p>
-<p><em>Published on 2008-10-15</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[同步Web客户端的时间]]></title>
-            <link>https://hotoo.github.io/blog/post/correct-web-client-datetime</link>
-            <guid>394</guid>
-            <content:encoded><![CDATA[<h1 id="同步web客户端的时间">同步Web客户端的时间<a aria-hidden="true" href="#同步web客户端的时间">#</a></h1>
-<p>富客户端应用的普遍流行，许多操作直接在客户端完成，而一些跟时间相关的操作，
-客户端时间的正确性就显得尤为重要，一个和标准时间相差得离谱的时间，
-可能会带来滑稽甚至严重的错误。</p>
-<p>在C/S构架下，对时间有要求的应用程序一般解决方法是同步客户端和服务器端的时间，
-一些要求较高的应用甚至需要专门的时间戳技术。</p>
-<p>普通的B/S应用程序一般没有权限同步客户端的时间（也不一定有这个必要），
-这个问题也有一些解决办法。</p>
-<ol>
-<li>响应用户请求时返回服务器时间，并使用计时器（如：window.setInterval）做一个虚拟时钟。
-但是考虑到浏览器消耗和脚本计时器本身并不精准，长时间运行后时钟会出现较大的误差，予以忽略。</li>
-<li>响应用户请求时返回服务器时间，并计算服务器与客户端之间的时间差，
-每次时间操作均以该差值进行修正（可以专门做一个接口）。或者考虑只有在
-差值较大的情况下才进行修正（并提醒用户修正客户机时间）。</li>
-</ol>
-<p>另外还要考虑用户所在不同时区的情况（Date.getTimezoneOffset）。</p>
-<p>但是对于较精准的时间需求，这样仍然有一个问题，即从服务器端响应到客户端返回过程中
-的网络传输时间。这是一个随机数，根据网络情况和其他偶然因素有关，从几十毫秒到几十秒不等，
-有时达数分钟之久，最惨的是整个页面超时，当然同步也就没有必要了：）</p>
-<p><img src="http://4.bp.blogspot.com/_POl6bUDELqY/SLvPzIEGEmI/AAAAAAAAD7k/OGNAGnITYaE/s320-R/syncWebDateTime.jpg" alt="pic"></img></p>
-<p>如上图，客户端从客户机的t0时刻发送请求到服务端，然后服务端在T0时刻得到请求，
-经过连接数据、计算等操作，最终在T1时刻响应完成，客户端最后在t1时刻加载完成。</p>
-<p>此时我们最关心的是服务器返回到客户端加载完成这段时间的网络传输耗时，
-但是暂时无法精确求得，只有一个相当不凑和方法：客户端发生请求时，
-带上当时的客户机时间（t0，浏览器请求头信息里一般带有，也可以通过客户端脚本
-<code>new Date()</code>，此时则需要通过异步请求），服务器计算所耗时间也可以得到，
-响应时返回服务器计算耗时（T1-T0）以及浏览器请求的时刻（t0）以及服务器时间，
-客户端加载完成时刻（t1）计算网络传输总共耗时为：(t1-t1)-(T1-T0)，
-之后以一定比例（如1:1）计算响应的网络传输耗时。</p>
-<p>结果相当不凑和，而过程又相当麻烦，所以只作为抛砖引玉之篇。</p>
-<p><img src="http://2.bp.blogspot.com/_POl6bUDELqY/SLu9R80pfRI/AAAAAAAAD7c/ybEW9mu15Ac/s320-R/datetime.jpg" alt="pic"></img></p>
-<p>图片来自 <a href="http://image.baidu.com/i?ct=201326592&amp;cl=2&amp;lm=-1&amp;tn=baiduimage&amp;pv=&amp;word=%CA%B1%BC%E4&amp;z=0" target="_blank" rel="noopener noreferrer">Baidu图片</a> 搜索。</p>
-<hr></hr>
-<p><strong>Tags:</strong> , </p>
-<p><em>Published on 2008-09-01</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Rating for Foobar2000 columns UI]]></title>
-            <link>https://hotoo.github.io/blog/post/rating-for-foobar2000-columns-ui</link>
-            <guid>395</guid>
-            <content:encoded><![CDATA[<h1 id="rating-for-foobar2000-columns-ui">Rating for Foobar2000 columns UI<a aria-hidden="true" href="#rating-for-foobar2000-columns-ui">#</a></h1>
-<p>给 Foobar2000 的 Columns UI 设置标星功能：</p>
-<h2 id="i-显示歌曲标星级别">I. 显示歌曲标星级别。<a aria-hidden="true" href="#i-显示歌曲标星级别">#</a></h2>
-<ul>
-<li>文件 -> 参数设置。</li>
-<li>显示 -> Columns UI -> Playlist view。</li>
-<li>切换到Columns页签，新建（New）一个列。</li>
-</ul>
-<p><img src="http://4.bp.blogspot.com/_POl6bUDELqY/SJ6_G0igVlI/AAAAAAAAD20/IMyH4NToL1c/s1600-h/viewRating.jpg" alt="pic"></img></p>
-<p>如图，Display里的代码是：</p>
-<pre><code>$if(%rating%,
-$select(%rating%,
-*,
-**,
-***,
-****,
-*****),
-)
-)
-</code></pre>
-<p>其实也可以简单是输入：<code>%rating%</code>。</p>
-<h2 id="ii-设置标星级别功能">II. 设置标星级别功能。<a aria-hidden="true" href="#ii-设置标星级别功能">#</a></h2>
-<ul>
-<li>
-<p>右键播放列表某首歌曲 -> 标签 -> 管理脚本。
-<img src="http://3.bp.blogspot.com/_POl6bUDELqY/SKKI6GFCmTI/AAAAAAAAD3g/8mBCeRyB4k8/s320/0.right+menu.GIF" alt=""></img></p>
-</li>
-<li>
-<p>打开“批量标签”窗口。
-<img src="http://4.bp.blogspot.com/_POl6bUDELqY/SKKPQ-kgaBI/AAAAAAAAD3o/9a8J60zWdRM/s320/1.tags.GIF" alt=""></img></p>
-</li>
-<li>
-<p>点击“准备的任务”中的“添加”按钮，选择动作类型为“从另一个字段格式化值...”，确定。
-<img src="http://1.bp.blogspot.com/_POl6bUDELqY/SKKPbKbESKI/AAAAAAAAD3w/5FbcHoTmX68/s320/2.select+action.GIF" alt=""></img></p>
-</li>
-<li>
-<p>目标字段名：RATING 
-格式化原型：<code>$if($greater(6,$add(%RATING%,1)),$add(%RATING%,1),5)</code> 
-<img src="http://2.bp.blogspot.com/_POl6bUDELqY/SKKPrZHkhrI/AAAAAAAAD34/yPDpKB5d3gA/s320/3.0.format+add+value.GIF" alt=""></img></p>
-</li>
-<li>
-<p>保存为rating++，名称可以自定，点击“运行”按钮。
-<img src="http://3.bp.blogspot.com/_POl6bUDELqY/SKKPrqTAO5I/AAAAAAAAD4I/h9QuR4fIlow/s320/3.2.run.jpg" alt=""></img></p>
-</li>
-<li>
-<p>重复第3步。</p>
-</li>
-<li>
-<p>重复第4步，目标字段名：RATING 
-格式化原型： <code>$if($greater(%RATING%,0),$sub(%RATING%,1),0)</code> 
-保存为：rating-- 
-点击“运行”按钮。</p>
-</li>
-</ul>
-<h2 id="iii-设置标星界面操作按钮">III. 设置标星界面（操作按钮）：<a aria-hidden="true" href="#iii-设置标星界面操作按钮">#</a></h2>
-<ul>
-<li>右键工具栏，点击 Customise...
-<img src="http://2.bp.blogspot.com/_POl6bUDELqY/SKKgVMPR42I/AAAAAAAAD4Q/x3tqs58BTf4/s320/customise.JPG" alt=""></img></li>
-<li>添加(Add)一个按钮(button)，并点击Change...按钮。
-<img src="http://2.bp.blogspot.com/_POl6bUDELqY/SKKgVKCZ3zI/AAAAAAAAD4Y/8rHQn7SXnq4/s320/custonise+buttons.jpg" alt=""></img></li>
-<li>Command group中选择“Context menu items”，Item group中选择“Now Playing item”，
-Command中选择“标签/脚本/rating++”。OK保存后回到Command picker窗口，设置按钮图片什么。
-注：支持bmp和png格式的图片，但是png图片如果有透明的部分，则可能不会显示。
-<img src="http://4.bp.blogspot.com/_POl6bUDELqY/SKKgVeJuaXI/AAAAAAAAD4g/ToVomGPvQSA/s320/command+picker.jpg" alt=""></img></li>
-<li>重复第2步。Command中选择“标签/脚本/rating--”其他雷同。</li>
-<li>最后OK保存就可以了，下面是配置完成的界面，两个带星星的按钮功能分别是标星自减和自增。</li>
-</ul>
-<p><img src="http://4.bp.blogspot.com/_POl6bUDELqY/SKRIW4GiHEI/AAAAAAAAD4o/fN-UJ17Kp1Q/s320/foobar200.jpg" alt="pic"></img></p>
-<hr></hr>
-<p><strong>Tags:</strong> , , </p>
-<p><em>Published on 2008-08-14</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[IM 软件互联畅想]]></title>
-            <link>https://hotoo.github.io/blog/post/dream-for-im</link>
-            <guid>396</guid>
-            <content:encoded><![CDATA[<h1 id="im-软件互联畅想">IM 软件互联畅想<a aria-hidden="true" href="#im-软件互联畅想">#</a></h1>
-<p>现在的IM软件（如QQ, MSN, Gtalk...）都有各种支持的新邮件，日志/博客更新及
-好友联系资料更新的检查功能，它们各自为政，互不相干，每个IM服务商都只支持自己提供的服务。</p>
-<p>而现在的IM领域愈来愈趋向于互联互通，相互开放。这也是众心所向，大势所趋。</p>
-<p>在这个时候，IM软件的检查用户更新的功能也应该相互开放，相互支持。</p>
-<p>就拿新邮件检查来说，其实 <a href="http://www.google.com/search?hl=en&amp;q=mail+notify&amp;btnG=Google+Search" target="_blank" rel="noopener noreferrer">mail notify</a>
-的相关软件相当多，它们有的具有针对性，只对某些邮件服务商服务
-（如 <a href="http://mail.google.com/mail/help/notifier/" target="_blank" rel="noopener noreferrer">gnotify</a> (仅支持单个帐号)，
-<a href="https://addons.mozilla.org/zh-CN/firefox/addon/1320" target="_blank" rel="noopener noreferrer">Gmail Manager</a> (Firefox插件，支持多个Gmail帐号)），
-有的具有开放性，同时支持若干个不同服务商和多个不同帐号。当然最好是能同时支持多个服务商和多个帐号了。
-由于不同邮件服务商（为不同用户）提供的服务不同，获取新邮件的方式不一而足，一般服务商只提供pop服务
-（如126，163邮箱。另外某些服务商该功能需要收费），而Google同时提供Atom格式（gnotify支持该格式）。
-以pop方式实现的检查新邮件功能总觉着不那么舒服（但至少能实现），Atom 格式比较合适（但其他服务商不支持）。
-如果IM软件能提供多邮件帐号、多服务商的新邮件检查支持，这将是相当棒的了。
-（注：Pidgin，原Gaim，支持检查登录帐号各自新邮件的功能。）</p>
-<p>再就是日志/博客（以下简称博客）更新，现在的博客都支持RSS/Atom输出，检查更新应该没有技术难度。</p>
-<p>用户资料更新的话，可能还需要出新标准才行，最好能支持第三方应用
-（比如我在某个专业提供个人联系资料服务的服务商那里公开某部分资料给某些好友，
-这些有权限的用户就可以得到相关更新）。</p>
-<p>最后关于IM本身的互联互通，希望有一天能做的真正的互联，就像我有Gmail可以发邮件到163一样，
-之间只有通信标准，没有其他阻碍。</p>
-<hr></hr>
-<p><strong>Tags:</strong> , </p>
-<p><em>Published on 2008-08-03</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[参考]]></title>
-            <link>https://hotoo.github.io/blog/post/factorial-recursion</link>
-            <guid>397</guid>
-            <content:encoded><![CDATA[<h1 id="阶乘factorial--尾递归tail-recursion">阶乘(factorial) & 尾递归(Tail Recursion)<a aria-hidden="true" href="#阶乘factorial--尾递归tail-recursion">#</a></h1>
-<ul>
-<li></li>
-</ul>
-<p>今天看了dennis的《<a href="http://www.blogjava.net/killme2008/archive/2008/03/18/187071.html" target="_blank" rel="noopener noreferrer">用递归计算阶乘咋不行呢？</a>》
-受益良多，这里做下小结。</p>
-<p>传统的递归算法写起来很漂亮，代码很简洁，但是每递归一次就需要更深一层的堆栈支持，
-可能会造成内存溢出而失败，所以递归和goto语句一样声名狼藉。</p>
-<blockquote>
-<p>甚至《代码大全》的作者有这样一句话：如果为我工作的程序员用递归去计算阶乘，那么我宁愿换人。
-作者对递归的态度相当谨慎，这在静态命令式语言中显然是正确的，但是在函数式语言中，
-由于有尾递归优化的存在，递归反而是最自然的形式，况且我打心里认为递归更符合人类思维。
-(by dennis)</p>
-</blockquote>
-<p>尾递归就是从最后开始计算，每递归一次就算出相应的结果，
-也就是说，函数调用出现在调用者函数的尾部，因为是尾部，
-所以根本没有必要去保存任何局部变量，直接让被调用的函数返回时越过调用者，
-返回到调用者的调用者去。举例说明。</p>
-<p>线性递归（传统递归方式）：</p>
-<pre><code>function recursion(n){
-    return n==1?1:n*recursion(n-1);
-}
-</code></pre>
-<p>尾递归：</p>
-<pre><code>function tailRecursion(n, a){
-    a = a||1; // 尾递归之尾，即上次递归结果。
-    return n==1?a:tailRecursion(n-1, a*n);
-}
-</code></pre>
-<p>这里将基于尾递归的求数值阶乘算法贴下：</p>
-<pre><code>Math.factorial_III = function(n){
-    var a = arguments[1]||1;
-    return n&lt;=1?a:Math.factorial_III(n-1, a*n);
-};
-</code></pre>
-<p>效率上和循环迭代、<a href="http://blog.xianyun.org/2007/12/26/improved-factorial/" target="_blank" rel="noopener noreferrer">阶乘改进算法</a>
-相当甚至稍胜出（ie6,firefox2,safari3），普通递归的效率最为底下，且需要深入堆栈。</p>
-<h1 id="参考">参考<a aria-hidden="true" href="#参考">#</a></h1>
-<ul>
-<li>
-<p>《<a href="http://baike.baidu.com/view/1439396.htm" target="_blank" rel="noopener noreferrer">尾递归</a>》-百度百科</p>
-</li>
-<li>
-<p>《<a href="http://www.blogjava.net/killme2008/archive/2008/03/18/187071.html" target="_blank" rel="noopener noreferrer">用递归计算阶乘咋不行呢？</a>》-dennis</p>
-</li>
-</ul>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2008-04-08</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[正则表达式拼接和构建零长度对象]]></title>
-            <link>https://hotoo.github.io/blog/post/regexp-and-zero-width-object</link>
-            <guid>398</guid>
-            <content:encoded><![CDATA[<h1 id="正则表达式拼接和构建零长度对象">正则表达式拼接和构建零长度对象<a aria-hidden="true" href="#正则表达式拼接和构建零长度对象">#</a></h1>
-<p>之前在网上收集到一个正则表达式拼接的方法/函数，一直没有注意，直到昨天用 jsdoc
-生成 api 文档时才看到。
-心里想这样的方法实际应用中大概没什么意义，但是出于好奇就拿出来玩了一下，
-这一玩不要紧啊，这么精炼的东西差点成垃圾。</p>
-<p>可能是网络编辑器的原因，原始代码有bug，经过修正和测试，现在的代码如下：代码I</p>
-<pre><code>/**
- * 连接两个正则表达式。
- * 题外话：获得字符串常量&quot;&quot;的长度，比构建空数组再求其长度效率高（忽略构建过程，求长度消耗时间相同）。
- * @param {RegExp} r 指定被连接的正则表达式对象。
- * @param {String} p 连接后的表达式使用的选项，由&quot;i&quot;,&quot;g&quot;,&quot;m&quot;组合而成。
- * @return {RegExp} 返回连接后的正则表达式。
- */
-RegExp.prototype.concat = function(r, p){
-  var i=(this.source.match(/\((?!\?:)/g) || &quot;&quot;).length; // 正向预搜索。
-  return new RegExp(this.source+r.source.replace(/\\(\d)/g, function($0, $1){
-    return &quot;\\&quot; + (i+($1 | 0)); // 修正第二个表达式中的反向引用。注意这里的位运算。
-  }), p);
-};
-</code></pre>
-<p>原方法名是contact，现在为了和字符串类的一致，换为concat，至于bug/不足这里不做解读。
-这个实际应用意义不大的小程式却有值得称道的几点：</p>
-<ul>
-<li>正向预搜索匹配第一个表达式里左括号（不包括非捕获组(?:)）的个数。</li>
-<li>当第一个表达式没有匹配时返回 0 长度对象（再求其长度），
-可以构建空数组（[]）和空字符串（""），这里使用空字符串，理由下面再解释。</li>
-<li>修正反向引用时用的位运算（），这里将匹配到的数值字符串与0位或没有其他意义，
-只是将数值字符串转型为数值，相当于 <code>parseInt()</code> 函数。</li>
-</ul>
-<p>下面介绍为什么使用空字符串而不是空数组构建0长度对象。代码II</p>
-<pre><code>var I = 10000;
-
-var d = new Date();
-for (var i=0; i&lt;I; i++){
-&quot;&quot;.length;
-}
-d = new Date()-d;
-
-var d2 = new Date();
-for (var i=0; i&lt;I; i++){
-[].length;
-}
-d2 = new Date()-d2;
-
-document.write(d+&quot;:&quot;+d2);
-</code></pre>
-<p>一万次循环叠加可以发现构建空字符串比构建空数组求长度快1到3倍。</p>
-<p>再将代码改为：代码III</p>
-<pre><code>var I = 10000;
-var s=&quot;&quot;;
-var d = new Date();
-for (var i=0; i&lt;I; i++){
-s.length;
-}
-d = new Date()-d;
-
-var a=[];
-var d2 = new Date();
-for (var i=0; i&lt;I; i++){
-a.length;
-}
-d2 = new Date()-d2;
-
-document.write(d+&quot;:&quot;+d2);
-</code></pre>
-<p>可以发现，求空字符串长度与空数组长度的过程效率相当。可见，代码 II 处空数组效率
-多余的消耗主要在构建空数组对象上。</p>
-<hr></hr>
-<p><strong>Tags:</strong> , </p>
-<p><em>Published on 2008-03-31</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[手机卡的自白]]></title>
-            <link>https://hotoo.github.io/blog/post/the-card-in-mobile-phone</link>
-            <guid>399</guid>
-            <content:encoded><![CDATA[<h1 id="手机卡的自白">手机卡的自白<a aria-hidden="true" href="#手机卡的自白">#</a></h1>
-<p>唉！老天何其不公！身为一张移动手机卡生在这个时代何错之有？！
-我宁愿变成一辆普普通通的单车，也能驮着人无拘无束的快乐游玩。
-可残酷的现实是：我只能被固定在铁箱子里收发信息，不见天日，
-唯一作伴的只有同样被固定在我身旁的 SD 卡。</p>
-<p>现在好了，停机了，整个世界清净了。我终于可以泡杯热茶、吃块饼干，
-悠闲的等着机主注意到我了。</p>
-<p>别担心，一旦这事引发混乱，机主会手脚麻利的尽快充值。所以等一会儿你再来看，
-就会发现我又开始自得其乐的工作了。</p>
-<hr></hr>
-<p><strong>Category:</strong> 小说</p>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2007-05-29</em></p>
-]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[陀螺]]></title>
-            <link>https://hotoo.github.io/blog/post/top</link>
-            <guid>400</guid>
-            <content:encoded><![CDATA[<h1 id="陀螺">陀螺<a aria-hidden="true" href="#陀螺">#</a></h1>
-<p>在被抽打中不羁执着，<br></br>
-在痛苦里继续发现快乐。<br></br>
-信仰唯有围绕我心，<br></br>
-才能实现不倒的自我。</p>
-<p>-- 闲耘</p>
-<hr></hr>
-<p><strong>Tags:</strong> </p>
-<p><em>Published on 2004-02-01</em></p>
-]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[Javascript String 方法效率大比拼]]></title>
             <link>https://hotoo.github.io/blog/post/javascript-string</link>
-            <guid>401</guid>
+            <guid>392</guid>
             <content:encoded><![CDATA[<h1 id="javascript-string-方法效率大比拼">Javascript String 方法效率大比拼<a aria-hidden="true" href="#javascript-string-方法效率大比拼">#</a></h1>
 <p>最初是通过 <a href="http://blog.csdn.net/meizz" target="_blank" rel="noopener noreferrer">梅子</a>（<a href="http://www.meizz.com/" target="_blank" rel="noopener noreferrer">梅花雪</a>）
 关于大型字符串拼接效率（<a href="http://blog.csdn.net/meizz/archive/2005/12/14/552260.aspx" target="_blank" rel="noopener noreferrer">1</a>，
@@ -22102,13 +21630,9 @@ replace方法（II）快，而使用正则表达式match方法（IV）又比repl
 ]]></content:encoded>
         </item>
         <item>
-            <link>https://hotoo.github.io/blog/post/safari-4-select-bug</link>
-            <guid>402</guid>
-        </item>
-        <item>
             <title><![CDATA[汉化Family Tree Builder]]></title>
             <link>https://hotoo.github.io/blog/post/chinese-localization-family-tree</link>
-            <guid>403</guid>
+            <guid>393</guid>
             <content:encoded><![CDATA[<h1 id="汉化family-tree-builder">汉化Family Tree Builder<a aria-hidden="true" href="#汉化family-tree-builder">#</a></h1>
 <p>前文有言 <a href="family-tree-builder-professional-genealgy-software.md">理想的族谱软件Family Tree Builder</a> 说虽有中文站，
 但是软件本身没有中文化，因为很喜欢并且很需要这款软件，就自己动手汉化了过来。</p>
@@ -22137,28 +21661,504 @@ replace方法（II）快，而使用正则表达式match方法（IV）又比repl
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[尊严]]></title>
-            <link>https://hotoo.github.io/blog/post/dignity</link>
-            <guid>404</guid>
-            <content:encoded><![CDATA[<h1 id="尊严">尊严<a aria-hidden="true" href="#尊严">#</a></h1>
+            <title><![CDATA[Family Tree Builder:理想的族谱/家谱软件]]></title>
+            <link>https://hotoo.github.io/blog/post/family-tree-builder-professional-genealgy-software</link>
+            <guid>394</guid>
+            <content:encoded><![CDATA[<h1 id="family-tree-builder理想的族谱家谱软件">Family Tree Builder:理想的族谱/家谱软件<a aria-hidden="true" href="#family-tree-builder理想的族谱家谱软件">#</a></h1>
+<p>去年春节回家，老爸让我把家谱（族谱）放到电脑上，但当时家里不能上网，
+手头又没有理想的家谱软件，只能把一些文本输入到电脑上。</p>
+<p>后来又尝试使用树型结构（当时使用梅花雪树）临时模拟，但是族谱是一种双亲（甚至多亲：
+[古代可同时]结婚多次）树型结构，使用普通的单亲树型结构就显得很别扭，
+最后使用纯文本拼成一个简易版本。</p>
+<pre><code>爷爷 + 奶奶        外公 + 外婆
+     |                  |
+  ---+----+       +-----+---
+          |       |
+         老爸 + 老妈
+              |
+        +-----+-----+
+        |           |
+     大儿子       二儿子
+</code></pre>
+<p>这个版本也算理想，但是涉及到详细资料，尤其是当这棵树变得更大而复杂，盘根错节时，
+这个纯文本拼凑起来的双亲树就显得力不从心。</p>
+<p>后来回杭州工作时，找了一些软件试用，大都不怎么理想（大概是我崇洋媚外的缘故，
+国内确实还没看到什么让我觉得有脸拿出来使用的族谱作品），只是找到一个仅支持
+联机使用的Flash版本：<a href="http://www.treemily.com/" target="_blank" rel="noopener noreferrer">中国传家宝</a>，
+只能联机使用让我觉得很不方便，而更不方便的是
+设计上有一些（大概）不合理，操作不便，并且速度也不行，让我满意的大概只有显示效果不错。</p>
+<p>过了很长时间，零星的找找也没得到什么结果。</p>
+<p>后来无意在VeryCD上看到一下族谱软件，是外国专业公司制作的产品，不过给人的感觉有点
+太强而大的样子，而且收费挺贵。顺手又上Google搜寻一番，收获不小，这个市场貌似现在很活跃的样子。</p>
+<p>于是就发现了这个相当理想的免费软件：<a href="http://www.myheritage.cn/" target="_blank" rel="noopener noreferrer">Family Tree Builder</a>
+（这是它的 <a href="http://www.myheritage.com/" target="_blank" rel="noopener noreferrer">英文网站</a>），号称支持29中本地化语言（事实上也是如此）。
+不过遗憾的是，虽然它有中文网站，但是软件本身却没有中文本地化版本，刚安装在Windows Server 2008
+上时崩溃了好几次（大概是我没有摸清它的脾性），而且更糟糕的是程序左侧的List成员列表视图显示中文乱码。
+不过它的优点也相当可观，免费，启动速度快，自动备份（崩溃后可以恢复），支持多国语言，视觉效果好，
+操作方便，功能齐全，而且可以导入导出标准系谱数据格式gedcom，这里是它的
+<a href="http://www.myheritage.cn/family-tree-builder" target="_blank" rel="noopener noreferrer">中文官方介绍</a>，
+传说是族谱学家级别的人士和专业软件设计专家创造出来的（事实上看起来应该也是如此），
+适用于管理大型及小型的族谱。</p>
+<p><img src="http://www.myheritage.cn/FP/Images/Screenshots/Screenshot7Small_320_258.JPG" alt="pic"></img></p>
+<hr></hr>
+<p><strong>Tags:</strong> , </p>
+<p><em>Published on 2008-11-15</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Firefox本地化及其切换]]></title>
+            <link>https://hotoo.github.io/blog/post/firefox-localization</link>
+            <guid>395</guid>
+            <content:encoded><![CDATA[<h1 id="firefox本地化及其切换">Firefox本地化及其切换<a aria-hidden="true" href="#firefox本地化及其切换">#</a></h1>
+<p>昨天用Firefox内置的下载管理器下载一个较大的文件，而且新搬来这边的网速慢到让我想起
+令人怀念的大学时期（那时候的校园网，不是一般人能够忍受的），无意中我看到下载管理器里
+当前下载的文件下显示着“第x小时，剩余x分钟”的提示（不超过一小时时，只显示“剩余x分钟”）。
+看到这个提示，我当时有两种想法：</p>
+<ul>
+<li>
+<p>Firefox下载管理器的剩余时间计算方法比较有趣，将每小时的下载分段，
+所以就有了第1小时，剩余20分钟的说法；</p>
+</li>
+<li>
+<p>翻译问题，实际应该是剩余1小时又20分钟的意思。</p>
+</li>
+</ul>
+<p>这两种理解方式都有其道理，而且在我最初看来，是各占 50% 的。</p>
+<p>为了打消疑问，我Google，Baidu试了个遍，但是没有找到一条符合的记录，
+于是又尝试问一些对Firefox有/无兴趣的朋友，以及mozine的Gtalk群友，
+但是大伙都没有注意到这个，只能给个猜测的结果。</p>
+<p>为了找到答案，就需要知道Firefox英文版是怎么说的，但是我还不想为此再装一个英文版Firefox，
+那么怎么切换本地化语言呢，又是大肆搜罗一番，找到一些近似的，这里整理如下：</p>
+<h2 id="切换方法-i">切换方法 I:<a aria-hidden="true" href="#切换方法-i">#</a></h2>
+<ul>
+<li>about:config</li>
+<li>general.useragent.locale由zh-CN改为en-US。
+（前提：Firefox/chrome/目录下有en-US.jar和en-US.manifest）</li>
+</ul>
+<h2 id="切换方法-ii">切换方法 II:<a aria-hidden="true" href="#切换方法-ii">#</a></h2>
+<ul>
+<li><a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%AF%B9%E5%BA%94%E7%9A%84%E8%AF%AD%E8%A8%80%E5%8C%85(.xpi)%E3%80%82" target="_blank" rel="noopener noreferrer">http://releases.mozilla.org/pub/mozilla.org/firefox/releases/下载安装对应的语言包(.xpi)。</a></li>
+<li>启用该语言包（安装后默认启用）并重启Firefox。</li>
+</ul>
+<p>例如我的Firefox版本3.0.3，Windows，则语言包文件地址为：
+<a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.0.3/win32/xpi/en-GB.xpi" target="_blank" rel="noopener noreferrer">http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.0.3/win32/xpi/en-GB.xpi</a>
+（粗体为Firefox对应的版本号）。</p>
+<p>注意：<a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/" target="_blank" rel="noopener noreferrer">http://releases.mozilla.org/pub/mozilla.org/firefox/releases/</a>
+下的目录并不会列出xpi文件，将正确的版本号替换粗体部分，直接拷贝到地址栏回车即可。</p>
+<p>安装并重启之后，可以看到Add-ons - 语言页签下会列出刚安装的English(GB) Language Pack语言包，想撤回中文时，禁用此语言包，重启Firefox即可。</p>
+<h2 id="iii">III:<a aria-hidden="true" href="#iii">#</a></h2>
+<p>另外还有几个用来切换本地化语言的扩展，<a href="https://addons.mozilla.org/en-US/firefox/addon/356" target="_blank" rel="noopener noreferrer">Locale Switcher</a> 和
+<a href="https://addons.mozilla.org/zh-CN/firefox/addon/1333" target="_blank" rel="noopener noreferrer">Quick Locale Switcher</a>，
+它们可以让Firefox直接在菜单栏切换语言。</p>
+<p>言归正传，话说回来，切换为英文语言后，尝试大文件下载发现原文是类似于
+<code>2 hours, 8 minutes remaining</code> 这样的提示，意思是剩余2小时8分钟。</p>
+<p>Firefox 中文版的这个翻译确实不怎么样。</p>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2008-11-14</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[电子图书管理软件幻想]]></title>
+            <link>https://hotoo.github.io/blog/post/dream-for-ebooks-manager</link>
+            <guid>396</guid>
+            <content:encoded><![CDATA[<h1 id="电子图书管理软件幻想">电子图书管理软件幻想<a aria-hidden="true" href="#电子图书管理软件幻想">#</a></h1>
+<p>一直以来，稍微好点的电子图书管理软件是特别的少，而做很不错的更是少之又少，
+要说真正让用户喜欢，或者至少还满意的，到目前为止，没有。</p>
+<p>而与之功能相似，状态却截然相反的是，图片和音乐文件的管理软件却如此兴旺发达。</p>
+<p>下面先介绍一下图片管理软件，它们大致有以下几个特点（这里以个人最偏爱的
+<a href="http://picasa.google.com/" target="_blank" rel="noopener noreferrer">Picasa 3 Beta</a> 作参照）：</p>
+<ul>
+<li>
+<p>看图。图片管理软件最好能（方便快捷的）阅读各种格式的图片。（Picasa 3的看图模块很炫很优秀，
+半透明状态悬浮在窗口上，附有一些播放，翻转，标星，打开在Picasa中编辑等快捷功能。
+不过Picasa对GIF动画支持很烂，甚至会毁掉动画的动态特性）</p>
+</li>
+<li>
+<p>管图。每一张图片都不是独立存在的，它们存在于一些相关/无关的相册中。
+对于一个图片管理软件来说，对相册的管理能力尤为重要。
+（Picasa可以动态扫描整个磁盘/指定目录的所以支持的图片，
+还可以建立独立于存放目录物理路径之外的虚拟相簿功能，感觉就像管理你的家庭相册一样）</p>
+</li>
+<li>
+<p>搜图。搜索功能对于任何一个信息系统来说都必不可少，而对于图片搜索，还有一些有待探索的领域。
+（以搜索著称的Google生产的Picasa自然有这个功能，虽然还有待提高）</p>
+</li>
+<li>
+<p>写图。这是对单张/多张图片进行微量/智能调整的高级特性。
+这个可以交给专业的图片处理软件，对图片管理软件来说非必要，但是一定要提供快速定位到系统资源、
+直接由这些专业的处理软件打开的特性。（Picasa有一些像改变色相，去除“红眼”这样的简单功能，
+另外，和Google搜索的“手气不错”一样，Picasa也有这样自作主张的功能）</p>
+</li>
+</ul>
+<p>而我所期待的图书管理软件，就像上面列出来的这些特性一致：</p>
+<ul>
+<li>看书。软件最好能支持多种图书格式，因为现在的图书格式繁多，一一支持不太现实，
+也没有必要，让管理者做好管理的事情就够了，当然还需要能够方便的定位资源，
+并能与其他专业的看书软件配合。另外最重要的，是有一些读书计划方面的规划系统
+（可以结合一些读书技巧/理论）。</li>
+<li>管书。每个人都会有自己的个人图书库，当这个库越来越多时，管理则是势必施行，
+在管理方面，图书有它和图片的不同之处，比如分类（可以参考但不拘泥于图书馆的管理方式），
+加一些现流行使用的小标签，图书的名称，ISBN，缩略图，作者等，软件最好，或者说最起码能像
+Picasa 一样支持动态扫描指定位置的所有支持/指定格式的图书。</li>
+<li>搜书。并不是每个人都能够/需要看并记住所有收集的电子图书的，
+在需要时快速定位的指定位置，或者至少找到匹配的书。</li>
+<li>写书。编辑书名，作者，缩略图，分类，标签，ISBN，给喜欢的书标星等，
+另外像编辑PDF的书签或添加评语/附注，非必须，有专业的编辑软件支持就可以了。</li>
+</ul>
+<p>目前发现最好的有 Foxit Library，它支持静态扫描和书架归类，并能够使用自己的
+<a href="http://foxitsoftware.com/" target="_blank" rel="noopener noreferrer">Fixit Reader</a> 打开PDF文件，但是在使用它管理图书时，
+操作不便到简直不可用的地步，而且速度很慢（可能是因为我的书太多，
+但是Picasa管理我更多的 图片时，一点都不显胖），并且不支持搜索（有一个索引功能）。</p>
+<p>另外 <a href="http://www.ssreader.com/" target="_blank" rel="noopener noreferrer">SSReader</a> 也有一个“本地图书馆”，可以导入本地目录。
+它会按照目录结构生成默认归类（跟系统资源管理器差不多，建议还是用资源管理器比较好）。</p>
+<p>不知道为什么现行的图书格式都不支持（像音乐文件一样）将书名，作者，缩略图，
+ISBN等信息存储在图书属性中，这方面难道没有对应的规范，还是牛仔太多了？</p>
+<p>这样的软件是一个梦吗。</p>
+<hr></hr>
+<p><strong>Tags:</strong> , </p>
+<p><em>Published on 2008-10-15</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[IM 软件互联畅想]]></title>
+            <link>https://hotoo.github.io/blog/post/dream-for-im</link>
+            <guid>397</guid>
+            <content:encoded><![CDATA[<h1 id="im-软件互联畅想">IM 软件互联畅想<a aria-hidden="true" href="#im-软件互联畅想">#</a></h1>
+<p>现在的IM软件（如QQ, MSN, Gtalk...）都有各种支持的新邮件，日志/博客更新及
+好友联系资料更新的检查功能，它们各自为政，互不相干，每个IM服务商都只支持自己提供的服务。</p>
+<p>而现在的IM领域愈来愈趋向于互联互通，相互开放。这也是众心所向，大势所趋。</p>
+<p>在这个时候，IM软件的检查用户更新的功能也应该相互开放，相互支持。</p>
+<p>就拿新邮件检查来说，其实 <a href="http://www.google.com/search?hl=en&amp;q=mail+notify&amp;btnG=Google+Search" target="_blank" rel="noopener noreferrer">mail notify</a>
+的相关软件相当多，它们有的具有针对性，只对某些邮件服务商服务
+（如 <a href="http://mail.google.com/mail/help/notifier/" target="_blank" rel="noopener noreferrer">gnotify</a> (仅支持单个帐号)，
+<a href="https://addons.mozilla.org/zh-CN/firefox/addon/1320" target="_blank" rel="noopener noreferrer">Gmail Manager</a> (Firefox插件，支持多个Gmail帐号)），
+有的具有开放性，同时支持若干个不同服务商和多个不同帐号。当然最好是能同时支持多个服务商和多个帐号了。
+由于不同邮件服务商（为不同用户）提供的服务不同，获取新邮件的方式不一而足，一般服务商只提供pop服务
+（如126，163邮箱。另外某些服务商该功能需要收费），而Google同时提供Atom格式（gnotify支持该格式）。
+以pop方式实现的检查新邮件功能总觉着不那么舒服（但至少能实现），Atom 格式比较合适（但其他服务商不支持）。
+如果IM软件能提供多邮件帐号、多服务商的新邮件检查支持，这将是相当棒的了。
+（注：Pidgin，原Gaim，支持检查登录帐号各自新邮件的功能。）</p>
+<p>再就是日志/博客（以下简称博客）更新，现在的博客都支持RSS/Atom输出，检查更新应该没有技术难度。</p>
+<p>用户资料更新的话，可能还需要出新标准才行，最好能支持第三方应用
+（比如我在某个专业提供个人联系资料服务的服务商那里公开某部分资料给某些好友，
+这些有权限的用户就可以得到相关更新）。</p>
+<p>最后关于IM本身的互联互通，希望有一天能做的真正的互联，就像我有Gmail可以发邮件到163一样，
+之间只有通信标准，没有其他阻碍。</p>
+<hr></hr>
+<p><strong>Tags:</strong> , </p>
+<p><em>Published on 2008-08-03</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[参考]]></title>
+            <link>https://hotoo.github.io/blog/post/factorial-recursion</link>
+            <guid>398</guid>
+            <content:encoded><![CDATA[<h1 id="阶乘factorial--尾递归tail-recursion">阶乘(factorial) & 尾递归(Tail Recursion)<a aria-hidden="true" href="#阶乘factorial--尾递归tail-recursion">#</a></h1>
 <ul>
 <li></li>
 </ul>
-<p>看了Twitter上有推李普曼的《<a href="http://www.my1510.cn/article.php?557d98abd63d8e1a" target="_blank" rel="noopener noreferrer">没有感到的尊严</a>》
-一文，想起自己也有类似的经历。</p>
-<p>高中时在外面读书，和一个在我看来很赖皮很讨厌的同学关系不合，一天他挑衅被我回击，
-晚上他叫了一个人过来跟我“讲道理”，寝室恰巧没电，没看清对方的面容，但是身体不比我弱。
-当他们把我逼到墙角时，我借助墙壁的力量将对方踢了出去，不知道对方是不是本身就没什么底气，
-叫了一声“不要这么嚣张”之后就再也没有回来。如果对方狠一点，我可能就要吃亏，
-但是如果当时我软一点，我在这个讨厌鬼面前就永远都抬不起头。</p>
-<p>当然我并不总是那么“英勇”，学校当地有一个死胖子同学老挑衅我，我就回敬了一句，
-并且不礼貌的骂了对方。死胖子好像抓到把柄了一样，老要我道歉，在寝室里我们还打了一架，
-当时我被打的很惨，不过没有道歉，上课的时候他总坐到我旁边捣乱影响我学习。
-终于有一节课上我再也容受不了，向他低了头。到现在我还对这事耿耿于怀，想当时如果不低头会怎么样？</p>
-<p>为什么老是想到打架呢？当对方无理取闹时，暴力确实是直接有效的解决办法呢，如果能比对方更暴力的话。</p>
+<p>今天看了dennis的《<a href="http://www.blogjava.net/killme2008/archive/2008/03/18/187071.html" target="_blank" rel="noopener noreferrer">用递归计算阶乘咋不行呢？</a>》
+受益良多，这里做下小结。</p>
+<p>传统的递归算法写起来很漂亮，代码很简洁，但是每递归一次就需要更深一层的堆栈支持，
+可能会造成内存溢出而失败，所以递归和goto语句一样声名狼藉。</p>
+<blockquote>
+<p>甚至《代码大全》的作者有这样一句话：如果为我工作的程序员用递归去计算阶乘，那么我宁愿换人。
+作者对递归的态度相当谨慎，这在静态命令式语言中显然是正确的，但是在函数式语言中，
+由于有尾递归优化的存在，递归反而是最自然的形式，况且我打心里认为递归更符合人类思维。
+(by dennis)</p>
+</blockquote>
+<p>尾递归就是从最后开始计算，每递归一次就算出相应的结果，
+也就是说，函数调用出现在调用者函数的尾部，因为是尾部，
+所以根本没有必要去保存任何局部变量，直接让被调用的函数返回时越过调用者，
+返回到调用者的调用者去。举例说明。</p>
+<p>线性递归（传统递归方式）：</p>
+<pre><code>function recursion(n){
+    return n==1?1:n*recursion(n-1);
+}
+</code></pre>
+<p>尾递归：</p>
+<pre><code>function tailRecursion(n, a){
+    a = a||1; // 尾递归之尾，即上次递归结果。
+    return n==1?a:tailRecursion(n-1, a*n);
+}
+</code></pre>
+<p>这里将基于尾递归的求数值阶乘算法贴下：</p>
+<pre><code>Math.factorial_III = function(n){
+    var a = arguments[1]||1;
+    return n&lt;=1?a:Math.factorial_III(n-1, a*n);
+};
+</code></pre>
+<p>效率上和循环迭代、<a href="http://blog.xianyun.org/2007/12/26/improved-factorial/" target="_blank" rel="noopener noreferrer">阶乘改进算法</a>
+相当甚至稍胜出（ie6,firefox2,safari3），普通递归的效率最为底下，且需要深入堆栈。</p>
+<h1 id="参考">参考<a aria-hidden="true" href="#参考">#</a></h1>
+<ul>
+<li>
+<p>《<a href="http://baike.baidu.com/view/1439396.htm" target="_blank" rel="noopener noreferrer">尾递归</a>》-百度百科</p>
+</li>
+<li>
+<p>《<a href="http://www.blogjava.net/killme2008/archive/2008/03/18/187071.html" target="_blank" rel="noopener noreferrer">用递归计算阶乘咋不行呢？</a>》-dennis</p>
+</li>
+</ul>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2008-04-08</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[正则表达式拼接和构建零长度对象]]></title>
+            <link>https://hotoo.github.io/blog/post/regexp-and-zero-width-object</link>
+            <guid>399</guid>
+            <content:encoded><![CDATA[<h1 id="正则表达式拼接和构建零长度对象">正则表达式拼接和构建零长度对象<a aria-hidden="true" href="#正则表达式拼接和构建零长度对象">#</a></h1>
+<p>之前在网上收集到一个正则表达式拼接的方法/函数，一直没有注意，直到昨天用 jsdoc
+生成 api 文档时才看到。
+心里想这样的方法实际应用中大概没什么意义，但是出于好奇就拿出来玩了一下，
+这一玩不要紧啊，这么精炼的东西差点成垃圾。</p>
+<p>可能是网络编辑器的原因，原始代码有bug，经过修正和测试，现在的代码如下：代码I</p>
+<pre><code>/**
+ * 连接两个正则表达式。
+ * 题外话：获得字符串常量&quot;&quot;的长度，比构建空数组再求其长度效率高（忽略构建过程，求长度消耗时间相同）。
+ * @param {RegExp} r 指定被连接的正则表达式对象。
+ * @param {String} p 连接后的表达式使用的选项，由&quot;i&quot;,&quot;g&quot;,&quot;m&quot;组合而成。
+ * @return {RegExp} 返回连接后的正则表达式。
+ */
+RegExp.prototype.concat = function(r, p){
+  var i=(this.source.match(/\((?!\?:)/g) || &quot;&quot;).length; // 正向预搜索。
+  return new RegExp(this.source+r.source.replace(/\\(\d)/g, function($0, $1){
+    return &quot;\\&quot; + (i+($1 | 0)); // 修正第二个表达式中的反向引用。注意这里的位运算。
+  }), p);
+};
+</code></pre>
+<p>原方法名是contact，现在为了和字符串类的一致，换为concat，至于bug/不足这里不做解读。
+这个实际应用意义不大的小程式却有值得称道的几点：</p>
+<ul>
+<li>正向预搜索匹配第一个表达式里左括号（不包括非捕获组(?:)）的个数。</li>
+<li>当第一个表达式没有匹配时返回 0 长度对象（再求其长度），
+可以构建空数组（[]）和空字符串（""），这里使用空字符串，理由下面再解释。</li>
+<li>修正反向引用时用的位运算（），这里将匹配到的数值字符串与0位或没有其他意义，
+只是将数值字符串转型为数值，相当于 <code>parseInt()</code> 函数。</li>
+</ul>
+<p>下面介绍为什么使用空字符串而不是空数组构建0长度对象。代码II</p>
+<pre><code>var I = 10000;
+
+var d = new Date();
+for (var i=0; i&lt;I; i++){
+&quot;&quot;.length;
+}
+d = new Date()-d;
+
+var d2 = new Date();
+for (var i=0; i&lt;I; i++){
+[].length;
+}
+d2 = new Date()-d2;
+
+document.write(d+&quot;:&quot;+d2);
+</code></pre>
+<p>一万次循环叠加可以发现构建空字符串比构建空数组求长度快1到3倍。</p>
+<p>再将代码改为：代码III</p>
+<pre><code>var I = 10000;
+var s=&quot;&quot;;
+var d = new Date();
+for (var i=0; i&lt;I; i++){
+s.length;
+}
+d = new Date()-d;
+
+var a=[];
+var d2 = new Date();
+for (var i=0; i&lt;I; i++){
+a.length;
+}
+d2 = new Date()-d2;
+
+document.write(d+&quot;:&quot;+d2);
+</code></pre>
+<p>可以发现，求空字符串长度与空数组长度的过程效率相当。可见，代码 II 处空数组效率
+多余的消耗主要在构建空数组对象上。</p>
 <hr></hr>
 <p><strong>Tags:</strong> , </p>
-<p><em>Published on 2009-01-02</em></p>
+<p><em>Published on 2008-03-31</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[手机卡的自白]]></title>
+            <link>https://hotoo.github.io/blog/post/the-card-in-mobile-phone</link>
+            <guid>400</guid>
+            <content:encoded><![CDATA[<h1 id="手机卡的自白">手机卡的自白<a aria-hidden="true" href="#手机卡的自白">#</a></h1>
+<p>唉！老天何其不公！身为一张移动手机卡生在这个时代何错之有？！
+我宁愿变成一辆普普通通的单车，也能驮着人无拘无束的快乐游玩。
+可残酷的现实是：我只能被固定在铁箱子里收发信息，不见天日，
+唯一作伴的只有同样被固定在我身旁的 SD 卡。</p>
+<p>现在好了，停机了，整个世界清净了。我终于可以泡杯热茶、吃块饼干，
+悠闲的等着机主注意到我了。</p>
+<p>别担心，一旦这事引发混乱，机主会手脚麻利的尽快充值。所以等一会儿你再来看，
+就会发现我又开始自得其乐的工作了。</p>
+<hr></hr>
+<p><strong>Category:</strong> 小说</p>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2007-05-29</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[陀螺]]></title>
+            <link>https://hotoo.github.io/blog/post/top</link>
+            <guid>401</guid>
+            <content:encoded><![CDATA[<h1 id="陀螺">陀螺<a aria-hidden="true" href="#陀螺">#</a></h1>
+<p>在被抽打中不羁执着，<br></br>
+在痛苦里继续发现快乐。<br></br>
+信仰唯有围绕我心，<br></br>
+才能实现不倒的自我。</p>
+<p>-- 闲耘</p>
+<hr></hr>
+<p><strong>Tags:</strong> </p>
+<p><em>Published on 2004-02-01</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[同步Web客户端的时间]]></title>
+            <link>https://hotoo.github.io/blog/post/correct-web-client-datetime</link>
+            <guid>402</guid>
+            <content:encoded><![CDATA[<h1 id="同步web客户端的时间">同步Web客户端的时间<a aria-hidden="true" href="#同步web客户端的时间">#</a></h1>
+<p>富客户端应用的普遍流行，许多操作直接在客户端完成，而一些跟时间相关的操作，
+客户端时间的正确性就显得尤为重要，一个和标准时间相差得离谱的时间，
+可能会带来滑稽甚至严重的错误。</p>
+<p>在C/S构架下，对时间有要求的应用程序一般解决方法是同步客户端和服务器端的时间，
+一些要求较高的应用甚至需要专门的时间戳技术。</p>
+<p>普通的B/S应用程序一般没有权限同步客户端的时间（也不一定有这个必要），
+这个问题也有一些解决办法。</p>
+<ol>
+<li>响应用户请求时返回服务器时间，并使用计时器（如：window.setInterval）做一个虚拟时钟。
+但是考虑到浏览器消耗和脚本计时器本身并不精准，长时间运行后时钟会出现较大的误差，予以忽略。</li>
+<li>响应用户请求时返回服务器时间，并计算服务器与客户端之间的时间差，
+每次时间操作均以该差值进行修正（可以专门做一个接口）。或者考虑只有在
+差值较大的情况下才进行修正（并提醒用户修正客户机时间）。</li>
+</ol>
+<p>另外还要考虑用户所在不同时区的情况（Date.getTimezoneOffset）。</p>
+<p>但是对于较精准的时间需求，这样仍然有一个问题，即从服务器端响应到客户端返回过程中
+的网络传输时间。这是一个随机数，根据网络情况和其他偶然因素有关，从几十毫秒到几十秒不等，
+有时达数分钟之久，最惨的是整个页面超时，当然同步也就没有必要了：）</p>
+<p><img src="http://4.bp.blogspot.com/_POl6bUDELqY/SLvPzIEGEmI/AAAAAAAAD7k/OGNAGnITYaE/s320-R/syncWebDateTime.jpg" alt="pic"></img></p>
+<p>如上图，客户端从客户机的t0时刻发送请求到服务端，然后服务端在T0时刻得到请求，
+经过连接数据、计算等操作，最终在T1时刻响应完成，客户端最后在t1时刻加载完成。</p>
+<p>此时我们最关心的是服务器返回到客户端加载完成这段时间的网络传输耗时，
+但是暂时无法精确求得，只有一个相当不凑和方法：客户端发生请求时，
+带上当时的客户机时间（t0，浏览器请求头信息里一般带有，也可以通过客户端脚本
+<code>new Date()</code>，此时则需要通过异步请求），服务器计算所耗时间也可以得到，
+响应时返回服务器计算耗时（T1-T0）以及浏览器请求的时刻（t0）以及服务器时间，
+客户端加载完成时刻（t1）计算网络传输总共耗时为：(t1-t1)-(T1-T0)，
+之后以一定比例（如1:1）计算响应的网络传输耗时。</p>
+<p>结果相当不凑和，而过程又相当麻烦，所以只作为抛砖引玉之篇。</p>
+<p><img src="http://2.bp.blogspot.com/_POl6bUDELqY/SLu9R80pfRI/AAAAAAAAD7c/ybEW9mu15Ac/s320-R/datetime.jpg" alt="pic"></img></p>
+<p>图片来自 <a href="http://image.baidu.com/i?ct=201326592&amp;cl=2&amp;lm=-1&amp;tn=baiduimage&amp;pv=&amp;word=%CA%B1%BC%E4&amp;z=0" target="_blank" rel="noopener noreferrer">Baidu图片</a> 搜索。</p>
+<hr></hr>
+<p><strong>Tags:</strong> , </p>
+<p><em>Published on 2008-09-01</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Rating for Foobar2000 columns UI]]></title>
+            <link>https://hotoo.github.io/blog/post/rating-for-foobar2000-columns-ui</link>
+            <guid>403</guid>
+            <content:encoded><![CDATA[<h1 id="rating-for-foobar2000-columns-ui">Rating for Foobar2000 columns UI<a aria-hidden="true" href="#rating-for-foobar2000-columns-ui">#</a></h1>
+<p>给 Foobar2000 的 Columns UI 设置标星功能：</p>
+<h2 id="i-显示歌曲标星级别">I. 显示歌曲标星级别。<a aria-hidden="true" href="#i-显示歌曲标星级别">#</a></h2>
+<ul>
+<li>文件 -> 参数设置。</li>
+<li>显示 -> Columns UI -> Playlist view。</li>
+<li>切换到Columns页签，新建（New）一个列。</li>
+</ul>
+<p><img src="http://4.bp.blogspot.com/_POl6bUDELqY/SJ6_G0igVlI/AAAAAAAAD20/IMyH4NToL1c/s1600-h/viewRating.jpg" alt="pic"></img></p>
+<p>如图，Display里的代码是：</p>
+<pre><code>$if(%rating%,
+$select(%rating%,
+*,
+**,
+***,
+****,
+*****),
+)
+)
+</code></pre>
+<p>其实也可以简单是输入：<code>%rating%</code>。</p>
+<h2 id="ii-设置标星级别功能">II. 设置标星级别功能。<a aria-hidden="true" href="#ii-设置标星级别功能">#</a></h2>
+<ul>
+<li>
+<p>右键播放列表某首歌曲 -> 标签 -> 管理脚本。
+<img src="http://3.bp.blogspot.com/_POl6bUDELqY/SKKI6GFCmTI/AAAAAAAAD3g/8mBCeRyB4k8/s320/0.right+menu.GIF" alt=""></img></p>
+</li>
+<li>
+<p>打开“批量标签”窗口。
+<img src="http://4.bp.blogspot.com/_POl6bUDELqY/SKKPQ-kgaBI/AAAAAAAAD3o/9a8J60zWdRM/s320/1.tags.GIF" alt=""></img></p>
+</li>
+<li>
+<p>点击“准备的任务”中的“添加”按钮，选择动作类型为“从另一个字段格式化值...”，确定。
+<img src="http://1.bp.blogspot.com/_POl6bUDELqY/SKKPbKbESKI/AAAAAAAAD3w/5FbcHoTmX68/s320/2.select+action.GIF" alt=""></img></p>
+</li>
+<li>
+<p>目标字段名：RATING 
+格式化原型：<code>$if($greater(6,$add(%RATING%,1)),$add(%RATING%,1),5)</code> 
+<img src="http://2.bp.blogspot.com/_POl6bUDELqY/SKKPrZHkhrI/AAAAAAAAD34/yPDpKB5d3gA/s320/3.0.format+add+value.GIF" alt=""></img></p>
+</li>
+<li>
+<p>保存为rating++，名称可以自定，点击“运行”按钮。
+<img src="http://3.bp.blogspot.com/_POl6bUDELqY/SKKPrqTAO5I/AAAAAAAAD4I/h9QuR4fIlow/s320/3.2.run.jpg" alt=""></img></p>
+</li>
+<li>
+<p>重复第3步。</p>
+</li>
+<li>
+<p>重复第4步，目标字段名：RATING 
+格式化原型： <code>$if($greater(%RATING%,0),$sub(%RATING%,1),0)</code> 
+保存为：rating-- 
+点击“运行”按钮。</p>
+</li>
+</ul>
+<h2 id="iii-设置标星界面操作按钮">III. 设置标星界面（操作按钮）：<a aria-hidden="true" href="#iii-设置标星界面操作按钮">#</a></h2>
+<ul>
+<li>右键工具栏，点击 Customise...
+<img src="http://2.bp.blogspot.com/_POl6bUDELqY/SKKgVMPR42I/AAAAAAAAD4Q/x3tqs58BTf4/s320/customise.JPG" alt=""></img></li>
+<li>添加(Add)一个按钮(button)，并点击Change...按钮。
+<img src="http://2.bp.blogspot.com/_POl6bUDELqY/SKKgVKCZ3zI/AAAAAAAAD4Y/8rHQn7SXnq4/s320/custonise+buttons.jpg" alt=""></img></li>
+<li>Command group中选择“Context menu items”，Item group中选择“Now Playing item”，
+Command中选择“标签/脚本/rating++”。OK保存后回到Command picker窗口，设置按钮图片什么。
+注：支持bmp和png格式的图片，但是png图片如果有透明的部分，则可能不会显示。
+<img src="http://4.bp.blogspot.com/_POl6bUDELqY/SKKgVeJuaXI/AAAAAAAAD4g/ToVomGPvQSA/s320/command+picker.jpg" alt=""></img></li>
+<li>重复第2步。Command中选择“标签/脚本/rating--”其他雷同。</li>
+<li>最后OK保存就可以了，下面是配置完成的界面，两个带星星的按钮功能分别是标星自减和自增。</li>
+</ul>
+<p><img src="http://4.bp.blogspot.com/_POl6bUDELqY/SKRIW4GiHEI/AAAAAAAAD4o/fN-UJ17Kp1Q/s320/foobar200.jpg" alt="pic"></img></p>
+<hr></hr>
+<p><strong>Tags:</strong> , , </p>
+<p><em>Published on 2008-08-14</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[PANDA-glGo，完美的围棋软件]]></title>
+            <link>https://hotoo.github.io/blog/post/panda-glgo-the-perfect-igo</link>
+            <guid>404</guid>
+            <content:encoded><![CDATA[<h1 id="panda-glgo完美的围棋软件">PANDA-glGo，完美的围棋软件<a aria-hidden="true" href="#panda-glgo完美的围棋软件">#</a></h1>
+<p>我的围棋水平虽然很差，但是这一点也不影响我对围棋的喜爱程度。
+而今天意外的发现一款让我满意度达到100%的围棋软件，它就是
+<a href="http://www.pandanet.co.jp/English/glgo/index.html" target="_blank" rel="noopener noreferrer">PANDA-glGo</a>，
+（这是它在 <a href="http://www.gnu.org/software/gnugo/gnugo.html" target="_blank" rel="noopener noreferrer">GNU</a> 和
+<a href="http://ggo.sourceforge.net/" target="_blank" rel="noopener noreferrer">SourceForge</a> 上的地址，不过 sf 上已经过期）。</p>
+<p><a href="http://www.pandanet.co.jp/English/glgo/images/glgoshot15_thumb.jpg" target="_blank" rel="noopener noreferrer">http://www.pandanet.co.jp/English/glgo/images/glgoshot15_thumb.jpg</a></p>
+<p>PANDA-glGo是一个GUN自由软件，支持Windows，Linux和Macintosh平台，不论外观，还是内涵，
+无一不是完美绝伦。PANDA-glGo支持2D和3D的风格，界面简洁大方，操作方便。
+可以设置棋盘背景图和更换棋子，支持多语种，包括中文。</p>
+<p>PANDA-glGo默认没有机器人，如果想要人机对战，需要另外下载GNU Go（解压至PANDA-glGo安装目录即可，
+也可以放在其他位置）。机器人跑起来一点都感觉不到慢，即使设置棋力为最高级别（机机对战除外），
+至于算法是否高明，机器人棋力能达到什么程度，我不（需要）知道，目前我还没赢过。
+可以设置机器人的棋力级别，棋盘大小（纵横数目）和对战让子目数。另外 PANDA-glGo还支持网络对战，
+或者观看他人对战。联机时，可以查看棋手级别等资料，正在进行的棋局。
+可以这么说，PANDA-glGo 不仅仅是一款围棋软件，更是一个围棋平台。</p>
+<p><a href="http://www.pandanet.co.jp/English/glgo/manual/index.html" target="_blank" rel="noopener noreferrer">帮助文档</a> 很完整，只是缺少中文文档。</p>
+<p>如果你也是围棋爱好者，这是不容错过的一款软件。好想找一份和这类似的中国象棋软件，
+因为我的象棋水平比围棋稍好，可以坚持久一点。</p>
+<hr></hr>
+<p><strong>Tags:</strong> , </p>
+<p><em>Published on 2008-10-24</em></p>
 ]]></content:encoded>
         </item>
     </channel>
