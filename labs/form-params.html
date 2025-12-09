@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
 <meta name="keywords" content="" />
@@ -60,9 +60,9 @@
 <div id="p"></div>
 <script type="text/javascript">/*<![CDATA[*/
 /**
- * ÐòÁÐ»¯ Form ±íµ¥µÄ²ÎÊýÖµ¡£
- * @param {HTMLElement} form ±íµ¥ÔªËØ¡£
- * @return {String} key=value&key2=value2 ÕâÑùµÄ×Ö·û´®¡£
+ * ï¿½ï¿½ï¿½Ð»ï¿½ Form ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½Öµï¿½ï¿½
+ * @param {HTMLElement} form ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø¡ï¿½
+ * @return {String} key=value&key2=value2 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 function formParams(form){
     var s = [];
@@ -88,8 +88,8 @@ function formParams(form){
         case 'file':
         case 'url':
         case 'tel':
-        // Ö®Ç°ÓÐÅÐ¶Ï select.options.length<0 Ê±ºöÂÔ¸Ä²ÎÊý£¬
-        // ÆäÊµÕâÓ¦¸Ã»¹ÊÇÒªÆ´½Ó³É select= ÕâÑùµÄ²ÎÊý´«µÝµÄ¡£
+        // Ö®Ç°ï¿½ï¿½ï¿½Ð¶ï¿½ select.options.length<0 Ê±ï¿½ï¿½ï¿½Ô¸Ä²ï¿½ï¿½ï¿½ï¿½ï¿½
+        // ï¿½ï¿½Êµï¿½ï¿½Ó¦ï¿½Ã»ï¿½ï¿½ï¿½ÒªÆ´ï¿½Ó³ï¿½ select= ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÝµÄ¡ï¿½
         case "select-one": // select>option
         default:
             add(e.name, e.value);
