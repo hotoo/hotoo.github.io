@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Rspress v1.45.8">
+    <meta name="keyword"content="闲耘, hotoo, xianyun, 个人网站, 博客, blog, rspress, pinyin, gitopen, markline, obsidian"><title data-rh="true">Vim - 闲耘小站</title><meta data-rh="true" name="description" content="闲耘的个人网站和博客"/>
+  <script>{;const saved = localStorage.getItem('rspress-theme-appearance');const preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches;const isDark = !saved || saved === 'auto' ? preferDark : saved === 'dark';document.documentElement.classList.toggle('dark', isDark);document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';}</script><link rel="icon" href="/xianyun.png"><script defer src="/static/js/styles.88f87af2.js"></script><script defer src="/static/js/lib-react.025a04a8.js"></script><script defer src="/static/js/lib-router.8d3ca0de.js"></script><script defer src="/static/js/2148.2b9f8249.js"></script><script defer src="/static/js/index.d7e92f17.js"></script><link href="/static/css/styles.02471851.css" rel="stylesheet"><script async src="https://www.googletagmanager.com/gtag/js?id=G-DNVHC57TGF"></script><script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DNVHC57TGF');</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3597331680211880" crossorigin="anonymous"></script><link rel="stylesheet" href="/styles/global.css"></head>
+
+  <body >
+    <div id="root"><link rel="preload" as="image" href="/images/xianyun.png"/><link rel="preload" as="image" href="/images/vim/Emacs-police-Vim.png"/><link rel="preload" as="image" href="https://www.vim.org/images/vimlogo.svg"/><link rel="preload" as="image" href="https://farm5.static.flickr.com/4143/4881203065_818a4a6e25.jpg"/><link rel="preload" as="image" href="/images/vim/vim_learning_curves.jpg"/><link rel="preload" as="image" href="/images/vim/Holy-War.png"/><link rel="preload" as="image" href="/images/vim/control_escape_comic.gif"/><link rel="preload" as="image" href="/images/vim/i7k94.png"/><link rel="preload" as="image" href="https://upload.wikimedia.org/wikipedia/commons/a/a0/KB_Terminal_ADM3A.svg"/><link rel="preload" as="image" href="/images/vim/vi-emacs2.jpg"/><link rel="preload" as="image" href="https://www.vim.org/images/0xbabaf000l.png"/><link rel="preload" as="image" href="https://www.geekherocomic.com/comics/2009-02-02-emacs-vs-vim.png"/><link rel="preload" as="image" href="https://www.cs.bgu.ac.il/~orlovm/code/emacs/viman.gif"/><link rel="preload" as="image" href="https://www.userfriendly.org/cartoons/archives/07sep/uf010710.gif"/><div class="navContainer_d18b1 rspress-nav px-6  sticky_ddfa7"><div class="container_e4235 flex justify-between items-center h-full"><div class="navBarTitle_c5f07"><a href="/index.html" class="link_a7cea flex items-center w-full h-full text-base font-semibold transition-opacity duration-300 hover:opacity-60"><div class="mr-1 min-w-8"><img src="/images/xianyun.png" alt="logo" id="logo" class="rspress-logo dark:hidden"/><img src="/images/xianyun.png" alt="logo" id="logo" class="rspress-logo hidden dark:block"/></div><span>闲耘</span></a></div><div class="flex flex-1 justify-end items-center"><div class="leftNav_e6722"><div class="rspress-nav-menu menu h-14"><a href="/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-0.5 px-3 py-2 flex items-center break-keep">首页</div></a><a href="/blog/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-0.5 px-3 py-2 flex items-center break-keep">博客</div></a><a href="/project/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-0.5 px-3 py-2 flex items-center break-keep">项目</div></a><a href="/poem/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-0.5 px-3 py-2 flex items-center break-keep">我的诗</div></a><a href="/wiki/vim/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154 activeItem_a28b5 text-sm font-medium mx-0.5 px-3 py-2 flex items-center break-keep">Vim</div></a><a href="/about/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-0.5 px-3 py-2 flex items-center break-keep">关于</div></a></div></div><div class="rightNav_a2fea"><div class="flex sm:flex-1 items-center sm:pl-4 sm:pr-2"><div class="rspress-nav-search-button navSearchButton_df1fb"><button><svg width="18" height="18" viewBox="0 0 32 32"><path fill="var(--rp-c-gray)" d="m29 27.586-7.552-7.552a11.018 11.018 0 1 0-1.414 1.414L27.586 29ZM4 13a9 9 0 1 1 9 9 9.01 9.01 0 0 1-9-9"></path></svg><p class="searchWord_af2c1">Search</p><div style="opacity:0"><span></span><span>K</span></div></button></div><div class="mobileNavSearchButton_d85a9"><svg width="24" height="24" viewBox="0 0 32 32"><path fill="var(--rp-c-gray)" d="m29 27.586-7.552-7.552a11.018 11.018 0 1 0-1.414 1.414L27.586 29ZM4 13a9 9 0 1 1 9 9 9.01 9.01 0 0 1-9-9"></path></svg></div></div><div class="rspress-nav-menu menu h-14"></div><div class="flex-center flex-row"><div class="mx-2"><div class="md:mr-2 rspress-nav-appearance"><div class="p-1 border border-solid border-gray-300 text-gray-400  cursor-pointer rounded-md hover:border-gray-600 hover:text-gray-600 dark:hover:border-gray-200 dark:hover:text-gray-200 transition-all duration-300 w-7 h-7"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 24 24" class="dark:hidden" width="18" height="18" fill="currentColor"><path d="M12 18c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6m0-10c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4M12 4c-.6 0-1-.4-1-1V1c0-.6.4-1 1-1s1 .4 1 1v2c0 .6-.4 1-1 1M12 24c-.6 0-1-.4-1-1v-2c0-.6.4-1 1-1s1 .4 1 1v2c0 .6-.4 1-1 1M5.6 6.6c-.3 0-.5-.1-.7-.3L3.5 4.9c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l1.4 1.4c.4.4.4 1 0 1.4-.1.2-.4.3-.7.3M19.8 20.8c-.3 0-.5-.1-.7-.3l-1.4-1.4c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l1.4 1.4c.4.4.4 1 0 1.4-.2.2-.5.3-.7.3M3 13H1c-.6 0-1-.4-1-1s.4-1 1-1h2c.6 0 1 .4 1 1s-.4 1-1 1M23 13h-2c-.6 0-1-.4-1-1s.4-1 1-1h2c.6 0 1 .4 1 1s-.4 1-1 1M4.2 20.8c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l1.4-1.4c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-1.4 1.4c-.2.2-.4.3-.7.3M18.4 6.6c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l1.4-1.4c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-1.4 1.4c-.2.2-.5.3-.7.3"></path></svg><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 24 24" class="hidden dark:block" width="18" height="18" fill="currentColor"><path d="M12.1 22h-.9c-5.5-.5-9.5-5.4-9-10.9.4-4.8 4.2-8.6 9-9 .4 0 .8.2 1 .5s.2.8-.1 1.1c-2 2.7-1.4 6.4 1.3 8.4 2.1 1.6 5 1.6 7.1 0 .3-.2.7-.3 1.1-.1.3.2.5.6.5 1-.2 2.7-1.5 5.1-3.6 6.8-1.9 1.4-4.1 2.2-6.4 2.2M9.3 4.4c-2.9 1-5 3.6-5.2 6.8-.4 4.4 2.8 8.3 7.2 8.7 2.1.2 4.2-.4 5.8-1.8 1.1-.9 1.9-2.1 2.4-3.4-2.5.9-5.3.5-7.5-1.1-2.8-2.2-3.9-5.9-2.7-9.2"></path></svg></div></div></div><div class="social-links menu-item_e90a6 flex-center relative"><div class="flex-center h-full gap-x-4 transition-colors duration-300 md:mr-2"><a href="https://x.com/hotoo" target="_blank" rel="noopener noreferrer" class="social-links"><div class="social-links-icon_a4ad0"><div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24"><path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584l-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></div></div></a><a href="https://github.com/hotoo" target="_blank" rel="noopener noreferrer" class="social-links"><div class="social-links-icon_a4ad0"><div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div></div></a><a href="/rss/rss.xml" target="_blank" rel="noopener noreferrer" class="social-links"><div class="social-links-icon_a4ad0"><div><?xml version="1.0"?><svg width="20px" height="20px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:cc="https://creativecommons.org/ns#" xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:inkscape="https://www.inkscape.org/namespaces/inkscape" xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="https://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="https://www.w3.org/2000/svg"><defs id="defs19"/><g id="g3021"/><g id="Layer_1_1_"/><g id="Layer_1_1_-7" transform="translate(-819.672,-61.929991)"/><g id="g2989"><rect height="512" id="rect2989" rx="70" ry="70" style="fill-opacity:1;stroke:none" transform="scale(-1,-1)" width="512" x="-512" y="-512"/><path d="m 81.05643,267.04958 c 43.7041,0 84.78879,17.07214 115.66407,48.12395 30.93179,31.05179 47.96156,72.41184 47.96156,116.44072 h 67.34951 c 0,-127.8857 -103.61898,-231.92124 -230.97514,-231.92124 v 67.35657 z M 81.1624,147.65054 c 155.7603,0 282.48808,127.4197 282.48808,284.04844 H 431 C 431,237.92528 274.05354,80.30102 81.1624,80.30102 v 67.34952 z m 93.13421,236.99769 c 0,25.75647 -20.89183,46.6483 -46.6483,46.6483 C 101.89184,431.29653 81,410.41176 81,384.64823 c 0,-25.7706 20.88477,-46.64831 46.64124,-46.64831 25.75649,0 46.65537,20.87771 46.65537,46.64831 z" id="path3844" style="fill:#ffffff"/></g></svg></div></div></a></div></div></div></div><div class="mobileNavMenu_e7045"><div class="navScreen_ec30c  rspress-nav-screen" id="navScreen"><div class="container_c935d"><div class="navMenu_b887b"><div class="navMenuItem_e7978 w-full"><a href="/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-1.5 px-3 py-2 flex items-center break-keep">首页</div></a></div><div class="navMenuItem_e7978 w-full"><a href="/blog/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-1.5 px-3 py-2 flex items-center break-keep">博客</div></a></div><div class="navMenuItem_e7978 w-full"><a href="/project/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-1.5 px-3 py-2 flex items-center break-keep">项目</div></a></div><div class="navMenuItem_e7978 w-full"><a href="/poem/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-1.5 px-3 py-2 flex items-center break-keep">我的诗</div></a></div><div class="navMenuItem_e7978 w-full"><a href="/wiki/vim/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154 activeItem_a28b5 text-sm font-medium mx-1.5 px-3 py-2 flex items-center break-keep">Vim</div></a></div><div class="navMenuItem_e7978 w-full"><a href="/about/index.html" class="link_a7cea "><div class="rspress-nav-menu-item singleItem_c1154  text-sm font-medium mx-1.5 px-3 py-2 flex items-center break-keep">关于</div></a></div></div><div class="flex-center flex-col gap-2"><div class="mt-2 navAppearance_bf893 flex justify-center"></div><div class="social-links menu-item_e90a6 flex-center relative"><div class="flex-center h-full gap-x-4 transition-colors duration-300 md:mr-2"><a href="https://x.com/hotoo" target="_blank" rel="noopener noreferrer" class="social-links"><div class="social-links-icon_a4ad0"><div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24"><path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584l-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></div></div></a><a href="https://github.com/hotoo" target="_blank" rel="noopener noreferrer" class="social-links"><div class="social-links-icon_a4ad0"><div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div></div></a><a href="/rss/rss.xml" target="_blank" rel="noopener noreferrer" class="social-links"><div class="social-links-icon_a4ad0"><div><?xml version="1.0"?><svg width="20px" height="20px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:cc="https://creativecommons.org/ns#" xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:inkscape="https://www.inkscape.org/namespaces/inkscape" xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="https://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="https://www.w3.org/2000/svg"><defs id="defs19"/><g id="g3021"/><g id="Layer_1_1_"/><g id="Layer_1_1_-7" transform="translate(-819.672,-61.929991)"/><g id="g2989"><rect height="512" id="rect2989" rx="70" ry="70" style="fill-opacity:1;stroke:none" transform="scale(-1,-1)" width="512" x="-512" y="-512"/><path d="m 81.05643,267.04958 c 43.7041,0 84.78879,17.07214 115.66407,48.12395 30.93179,31.05179 47.96156,72.41184 47.96156,116.44072 h 67.34951 c 0,-127.8857 -103.61898,-231.92124 -230.97514,-231.92124 v 67.35657 z M 81.1624,147.65054 c 155.7603,0 282.48808,127.4197 282.48808,284.04844 H 431 C 431,237.92528 274.05354,80.30102 81.1624,80.30102 v 67.34952 z m 93.13421,236.99769 c 0,25.75647 -20.89183,46.6483 -46.6483,46.6483 C 101.89184,431.29653 81,410.41176 81,384.64823 c 0,-25.7706 20.88477,-46.64831 46.64124,-46.64831 25.75649,0 46.65537,20.87771 46.65537,46.64831 z" id="path3844" style="fill:#ffffff"/></g></svg></div></div></a></div></div></div></div></div><button aria-label="mobile hamburger" class=" rspress-mobile-hamburger navHamburger_ac64c text-gray-500"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="currentColor"><circle cx="8" cy="16" r="2" fill="currentColor"></circle><circle cx="16" cy="16" r="2" fill="currentColor"></circle><circle cx="24" cy="16" r="2" fill="currentColor"></circle></svg></button></div></div></div></div><section><div class="docLayout_af141 pt-0"><div class="flex-1 relative min-w-0"><div class="rspress-sidebar-menu-container "><div class="rspress-sidebar-menu"><button type="button" class="flex-center ml-auto"><span class="text-sm">ON THIS PAGE</span><div class="text-md mr-2" style="transform:rotate(0deg);transition:transform 0.2s ease-out;margin-top:2px"><svg width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M22 16 12 26l-1.4-1.4 8.6-8.6-8.6-8.6L12 6z"></path></svg></div></button><div class="rspress-local-toc-container "><ul><li><a href="#简介" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">简介</span></a></li><li><a href="#精准广告投放" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">精准广告投放</span></a></li><li><a href="#教程" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">教程</span></a></li><li><a href="#选项-options" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">选项 (Options)</span></a></li><li><a href="#编码-encoding" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:12px"><span class="rspress-toc-link-text block">编码 (Encoding)</span></a></li><li><a href="#字体-fonts" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:12px"><span class="rspress-toc-link-text block">字体 (fonts)</span></a></li><li><a href="#粘贴" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:12px"><span class="rspress-toc-link-text block">粘贴</span></a></li><li><a href="#映射-mapping" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:12px"><span class="rspress-toc-link-text block">映射 (Mapping)</span></a></li><li><a href="#外观-themecolor-scheme" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:12px"><span class="rspress-toc-link-text block">外观 (Theme,Color Scheme)</span></a></li><li><a href="#syntax" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:12px"><span class="rspress-toc-link-text block">Syntax</span></a></li><li><a href="#indent--formats" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:12px"><span class="rspress-toc-link-text block">Indent &amp; Formats</span></a></li><li><a href="#插件-plugins" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">插件 (Plugins)</span></a></li><li><a href="#技巧-tips" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">技巧 (Tips)</span></a></li><li><a href="#其他技巧-tips" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">其他技巧 (Tips)</span></a></li><li><a href="#cheat-sheet" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">Cheat Sheet</span></a></li><li><a href="#集合" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">集合</span></a></li><li><a href="#vim-脚本开发" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">Vim 脚本开发</span></a></li><li><a href="#延伸阅读" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">延伸阅读</span></a></li><li><a href="#原生-vim" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">原生 Vim</span></a></li><li><a href="#vim-like" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">Vim Like</span></a></li><li><a href="#vim-games" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">Vim Games</span></a></li><li><a href="#书籍-books" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">书籍 (Books)</span></a></li><li><a href="#社区" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">社区</span></a></li><li><a href="#幽默--文化" class="link_a7cea rspress-toc-link sm:text-normal text-sm" style="margin-left:0"><span class="rspress-toc-link-text block">幽默 &amp; 文化</span></a></li></ul></div></div></div><div class="content_ff766 rspress-doc-container flex"><div class="flex-1 overflow-x-auto"><div class="rspress-doc"><!--$--><h1 id="vim" class="rspress-doc-title text-3xl mb-10 leading-10 tracking-tight title_fb7eb">Vim<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#vim">#</a></h1>
+<p class="my-4 leading-7"><img src="/images/vim/Emacs-police-Vim.png" alt=""/></p>
+<h2 id="简介" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">简介<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#简介">#</a></h2>
+<p class="my-4 leading-7">我是 <a href="https://www.vim.org" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim</a> 爱好者（但不排斥 Emacs啊），
+这里收录一些 Vim 相关的文字。</p>
+<p class="my-4 leading-7"><a href="https://www.moolenaar.net/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim 作者(Bram Moolenaar)的个人网站</a>。</p>
+<p class="my-4 leading-7"><a href="https://www.openvim.com" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">非常不错的学习 Vim 的网站</a></p>
+<p class="my-4 leading-7"><img src="https://www.vim.org/images/vimlogo.svg" alt="Vim logo"/></p>
+<p class="my-4 leading-7">Vim 是什么？如何下载、安装之类的本身很简单，而且网络上有诸多的介绍，这里不再赘述。
+至于为什么使用 Vim？我就不劝你了。</p>
+<p class="my-4 leading-7">传说 Vim 的学习曲线很陡，确实如此。
+不过越是陡峭，只要持续付出，每前进一点，就越是有成倍的提升，这是好事。</p>
+<p class="my-4 leading-7"><img src="https://farm5.static.flickr.com/4143/4881203065_818a4a6e25.jpg" alt="pic"/></p>
+<p class="my-4 leading-7"><img src="/images/vim/vim_learning_curves.jpg" alt="Vim learning curves"/>
+<a href="https://bc.tech.coop/blog/060302.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">来源</a> ^<a href="https://bc.tech.coop/blog/060302.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a>^</p>
+<p class="my-4 leading-7">这里是 <a href="https://github.com/hotoo/vimrc" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">我的个人 Vim 项目</a> ，包含有配置文件、部分插件及根据自身习惯改写的资源文件。
+项目目录结构基本保持和 vim 安装目录一致，里面有一个 Addons 目录』 ，
+主要用来放置和 Vim 有关，但不适合放在 Vim 安装目录中的资源或工具文件。</p>
+<p class="my-4 leading-7">我的大部分设置及插件都可以从 vimrc 中看出端倪，另外也可以参考我的 <a href="https://hotoo.github.io/blog/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Blog</a>。</p>
+<p class="my-4 leading-7">可以参考的 vimrc</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://github.com/vingel/vim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vingel&#x27;s vimrc</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://hg.osunix.org/leeiio/vim/src/tip/vimrc" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">leeiio&#x27;s vimrc</a>
+<a href="https://code.google.com/p/leeiio/source/browse/Vim/vimrc" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">@google.code</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://github.com/cnruhua/macvimfiles" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">cnruhua&#x27;s vimrc</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://lilydjwg.is-programmer.com/pages/19540.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">依云 - 百合仙子&#x27;s vimrc</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.bs2.to/post/EdwardLee/5342" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim7 的新功能</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://bbs.sjtu.edu.cn/bbscon,board,GNULinux,file,M.1141543344.A.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">程序员的编辑器——VIM(zz)</a> -- （有一些不错的介绍和资源链接，有时间整理到本页） ^<a href="https://124.16.151.186/docs/linux/editor/Vim-manuscript.txt" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a>^</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.csdn.net/oyd/archive/2007/02/16/1511128.aspx" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">EMACS 对 vi：永无止境的圣战</a> <a href="https://www.bloggern.com/4783.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a> <a href="https://www.linuxdiyf.com/viewarticle.php?id=150917" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">en</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.csdn.net/flynetcn/archive/2007/08/24/1757794.aspx" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">贫穷的 VIM 作者 Bram Moolenaar</a> <a href="https://www.moolenaar.net./interv_czech_en.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">en</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.vi-improved.org/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vi-IMproved</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://stevelosh.com/blog/2010/09/coming-home-to-vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Coming Home to Vim</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://vimcasts.org/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim Casts</a></p>
+</li>
+</ul>
+<h2 id="精准广告投放" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">精准广告投放<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#精准广告投放">#</a></h2>
+<p class="my-4 leading-7">希望相互交流学习， <em><a href="/blog/post/Gtalk-group-for-Vim.html" class="link_a7cea  link_a9ef4 inline-link_f855c">欢迎加入 Vim 的 GTalk 群</a></em></p>
+<p class="my-4 leading-7">另外我发起了一个 <em>“<a href="https://github.com/vimcn" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim 脚本 文档中文计划</a>”</em> ，欢迎有热忱、有兴趣的朋友参与。</p>
+<h2 id="教程" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">教程<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#教程">#</a></h2>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://soulogic.com/archives/420" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">程序式编辑程序</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://learnvimscriptthehardway.stevelosh.com/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Learn Vimscript the Hard Way</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://edt1023.sayya.org/vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">大家來學 Vim</a> ^<a href="https://www.study-area.org/tips/vim/index.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a>^</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">文档</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://xbeta.info/vim-tutorials.htm" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">VIM 的精品资料下载</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://sourceforge.net/projects/vimcdoc/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim Chinese Docs</a> ^<a href="https://vimcdoc.sourceforge.net/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vimdoc</a>^</li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">PPT</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.slideshare.net/c9s/vim-hacks" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim Hacks （林佑安）</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.slideshare.net/c9s/perlhacksonvim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Perl.Hacks.On.Vim （林佑安）</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.slideshare.net/luizsanches/vim-para-desenvolver-em-ingls" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim Editor in English</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.slideshare.net/jazzi/kim-schulz-hacking-vim-presentation" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Kim Schulz Hacking Vim</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.slideshare.net/luizsanches/vim-para-desenvolver" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim para Desenvolver</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.slideshare.net/payton345/20081118-how-to-trace-code-like-source-insight-through-vim-presentation" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">How To Trace Code Like Source Insight Through Vim</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.slideshare.net/ZendCon/vim-for-php-programmers-presentation" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">VIM for (PHP) Programmers</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.slideshare.net/chinawolfs/vim-for-php-presentation" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim For Php</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">Video</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://v.youku.com/v_show/id_XMTIwNDY5MjY4.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">7 Habits For Effective Text Editing 2.0</a> <a href="https://www.youtube.com/watch?v=eX9m3g5J-XA" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">youtube</a> <a href="https://xbeta.info/7habits-edit.htm" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">xbeta</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://got-ravings.blogspot.com/2008/09/vim-pr0n-prototype-based-objects.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim pr0n: Implementing prototype based objects</a></p>
+</li>
+</ul>
+<h2 id="选项-options" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">选项 (Options)<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#选项-options">#</a></h2>
+<h3 id="编码-encoding" class="mt-10 mb-2 leading-7 text-xl title_fb7eb">编码 (Encoding)<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#编码-encoding">#</a></h3>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://gist.github.com/473488" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">My Settings</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://blah.blogsome.com/2007/08/23/vim_cn_faq/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim 中输入法与编码设置的 FAQ - 碎碎念</a></li>
+</ul>
+<h3 id="字体-fonts" class="mt-10 mb-2 leading-7 text-xl title_fb7eb">字体 (fonts)<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#字体-fonts">#</a></h3>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://gist.github.com/473495" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">My Settings</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.csdn.net/richardsa/archive/2009/01/20/3838469.aspx" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Windows 下的 Gvim 使用微软雅黑字体</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://lcuc.org.cn/node/1315" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">可以使用任何字体的 gvim for windows</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.gracecode.com/archives/1545/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">苹果的 Courier 字体不错</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.gracecode.com/archives/2402/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Windows 下 gVim 的雅黑字体配置</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://support.microsoft.com/kb/306527/zh-cn" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">HOW TO： 使用 ClearType 增强屏幕字体</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="/blog/post/vim-fonts.html" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim 字体设置</a></p>
+</li>
+</ul>
+<p class="my-4 leading-7">Windows gvim 启动时默认激活最大化。</p>
+<div class="language-vim"><div class="rspress-code-content rspress-scrollbar"><div><pre class="code" style="background-color:inherit"><code class="language-vim" style="white-space:pre"><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:1.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">1</span><span>au GUIEnter </span><span class="token operator">*</span><span> </span><span class="token" style="color:var(--code-token-keyword)">simalt</span><span> ~</span><span class="token" style="color:var(--code-token-keyword)">x</span></span></code></pre></div><div class="code-button-group_fb445"><button title="Toggle code wrap"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrapped_fb89b"><path fill="#22a041" d="M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrap_ccd3d"><path fill="currentColor" d="M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z"></path></svg></button><button class="code-copy-button_c5089" title="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30 30" class="icon-copy_ef942"><path fill="currentColor" d="M28 10v18H10V10zm0-2H10a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2"></path><path fill="currentColor" d="M4 18H2V4a2 2 0 0 1 2-2h14v2H4Z"></path></svg><svg width="32" height="32" viewBox="0 0 30 30" class="icon-success_d5ec0"><path fill="#49cd37" d="m13 24-9-9 1.414-1.414L13 21.171 26.586 7.586 28 9z"></path></svg></button></div></div></div>
+<p class="my-4 leading-7">参考 <code>:h gui-win32-maximized</code> 其他操作系统可以参考 <a href="https://www.linuxdiyf.com/viewarticle.php?id=59709" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">在 kde 中让 gvim 自动最大化</a> 和 <a href="https://uniharmony.blog.163.com/blog/static/4617437620087310345373/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">在 Gnome 下让 GVIM 自动最大化</a></p>
+<p class="my-4 leading-7">设置宽度不明的文字（如 ”①②→ ) 为双宽度文本 <a href="https://blog.sina.com.cn/s/blog_46dac66f010006db.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">参考</a>。</p>
+<div class="language-vim"><div class="rspress-code-content rspress-scrollbar"><div><pre class="code" style="background-color:inherit"><code class="language-vim" style="white-space:pre"><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:1.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">1</span><span class="token" style="color:var(--code-token-keyword)">set</span><span> </span><span class="token" style="color:var(--code-token-symbol)">ambiwidth</span><span class="token operator">=</span><span>double</span></span></code></pre></div><div class="code-button-group_fb445"><button title="Toggle code wrap"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrapped_fb89b"><path fill="#22a041" d="M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrap_ccd3d"><path fill="currentColor" d="M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z"></path></svg></button><button class="code-copy-button_c5089" title="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30 30" class="icon-copy_ef942"><path fill="currentColor" d="M28 10v18H10V10zm0-2H10a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2"></path><path fill="currentColor" d="M4 18H2V4a2 2 0 0 1 2-2h14v2H4Z"></path></svg><svg width="32" height="32" viewBox="0 0 30 30" class="icon-success_d5ec0"><path fill="#49cd37" d="m13 24-9-9 1.414-1.414L13 21.171 26.586 7.586 28 9z"></path></svg></button></div></div></div>
+<p class="my-4 leading-7">高亮光标所在行（我选择不改变前景和背景色，只加了一条下划线）：</p>
+<div class="language-vim"><div class="rspress-code-content rspress-scrollbar"><div><pre class="code" style="background-color:inherit"><code class="language-vim" style="white-space:pre"><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">1</span><span class="token" style="color:var(--code-token-keyword)">set</span><span> </span><span class="token" style="color:var(--code-token-symbol)">cursorline</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">2</span><span></span><span class="token" style="color:var(--code-token-symbol)">hi</span><span> </span><span class="token" style="color:var(--code-token-symbol)">cursorline</span><span> guibg</span><span class="token operator">=</span><span>NONE gui</span><span class="token operator">=</span><span>underline</span></span></code></pre></div><div class="code-button-group_fb445"><button title="Toggle code wrap"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrapped_fb89b"><path fill="#22a041" d="M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrap_ccd3d"><path fill="currentColor" d="M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z"></path></svg></button><button class="code-copy-button_c5089" title="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30 30" class="icon-copy_ef942"><path fill="currentColor" d="M28 10v18H10V10zm0-2H10a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2"></path><path fill="currentColor" d="M4 18H2V4a2 2 0 0 1 2-2h14v2H4Z"></path></svg><svg width="32" height="32" viewBox="0 0 30 30" class="icon-success_d5ec0"><path fill="#49cd37" d="m13 24-9-9 1.414-1.414L13 21.171 26.586 7.586 28 9z"></path></svg></button></div></div></div>
+<p class="my-4 leading-7">注：高亮当前行在一定程度上会影响 Vim 的性能，降低缓冲区更新速度。</p>
+<p class="my-4 leading-7">diff 模式下：</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><del>同步两侧的光标位置 (Vim 7.3 已默认支持此特性；)</del></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">设置 <!-- --> 和 <!-- --> 分别跳转到上一个不同、下一个不同处，如果不是 diff 模式，
+则分别设置为 QucikFix 的上一条、下一条信息行。</p>
+<div class="language-vim"><div class="rspress-code-content rspress-scrollbar"><div><pre class="code" style="background-color:inherit"><code class="language-vim" style="white-space:pre"><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">1</span><span class="token" style="color:var(--code-token-keyword)">if</span><span> &amp;</span><span class="token" style="color:var(--code-token-symbol)">diff</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">2</span><span>    nmap </span><span class="token operator">&lt;</span><span>F7</span><span class="token operator">&gt;</span><span> </span><span class="token" style="color:var(--code-token-punctuation)">[</span><span class="token" style="color:var(--code-token-keyword)">c</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">3</span><span>    nmap </span><span class="token operator">&lt;</span><span>F8</span><span class="token operator">&gt;</span><span> </span><span class="token" style="color:var(--code-token-punctuation)">]</span><span class="token" style="color:var(--code-token-keyword)">c</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">4</span><span></span><span class="token" style="color:var(--code-token-keyword)">else</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">5</span><span>    map </span><span class="token operator">&lt;</span><span>F7</span><span class="token operator">&gt;</span><span> </span><span class="token" style="color:var(--code-token-punctuation)">:</span><span class="token" style="color:var(--code-token-keyword)">cp</span><span class="token operator">&lt;</span><span class="token" style="color:var(--code-token-keyword)">cr</span><span class="token operator">&gt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">6</span><span>    map </span><span class="token operator">&lt;</span><span>F8</span><span class="token operator">&gt;</span><span> </span><span class="token" style="color:var(--code-token-punctuation)">:</span><span class="token" style="color:var(--code-token-keyword)">cn</span><span class="token operator">&lt;</span><span class="token" style="color:var(--code-token-keyword)">cr</span><span class="token operator">&gt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">7</span><span></span><span class="token" style="color:var(--code-token-keyword)">endif</span></span></code></pre></div><div class="code-button-group_fb445"><button title="Toggle code wrap"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrapped_fb89b"><path fill="#22a041" d="M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrap_ccd3d"><path fill="currentColor" d="M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z"></path></svg></button><button class="code-copy-button_c5089" title="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30 30" class="icon-copy_ef942"><path fill="currentColor" d="M28 10v18H10V10zm0-2H10a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2"></path><path fill="currentColor" d="M4 18H2V4a2 2 0 0 1 2-2h14v2H4Z"></path></svg><svg width="32" height="32" viewBox="0 0 30 30" class="icon-success_d5ec0"><path fill="#49cd37" d="m13 24-9-9 1.414-1.414L13 21.171 26.586 7.586 28 9z"></path></svg></button></div></div></div>
+</li>
+</ul>
+<p class="my-4 leading-7">让 Vim 的默认寄存器和系统剪贴板共享，可以在 vimrc 中加入：</p>
+<div class="language-vim"><div class="rspress-code-content rspress-scrollbar"><div><pre class="code" style="background-color:inherit"><code class="language-vim" style="white-space:pre"><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:1.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">1</span><span class="token" style="color:var(--code-token-keyword)">set</span><span> </span><span class="token" style="color:var(--code-token-symbol)">clipboard</span><span class="token operator">+=</span><span>unnamed</span></span></code></pre></div><div class="code-button-group_fb445"><button title="Toggle code wrap"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrapped_fb89b"><path fill="#22a041" d="M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrap_ccd3d"><path fill="currentColor" d="M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z"></path></svg></button><button class="code-copy-button_c5089" title="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30 30" class="icon-copy_ef942"><path fill="currentColor" d="M28 10v18H10V10zm0-2H10a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2"></path><path fill="currentColor" d="M4 18H2V4a2 2 0 0 1 2-2h14v2H4Z"></path></svg><svg width="32" height="32" viewBox="0 0 30 30" class="icon-success_d5ec0"><path fill="#49cd37" d="m13 24-9-9 1.414-1.414L13 21.171 26.586 7.586 28 9z"></path></svg></button></div></div></div>
+<p class="my-4 leading-7">由于 Vim 寄存器比系统剪贴板强大太多，为了避免共享时相互干扰，我自己没有这样做。</p>
+<p class="my-4 leading-7">另外，我不推荐，但是如果你希望 Vim 启动时自动进入插入模式，可以在 vimrc 中加入：</p>
+<div class="language-vim"><div class="rspress-code-content rspress-scrollbar"><div><pre class="code" style="background-color:inherit"><code class="language-vim" style="white-space:pre"><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:1.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">1</span><span>exe </span><span class="token" style="color:var(--code-token-string)">&quot;startinsert&quot;</span></span></code></pre></div><div class="code-button-group_fb445"><button title="Toggle code wrap"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrapped_fb89b"><path fill="#22a041" d="M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrap_ccd3d"><path fill="currentColor" d="M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z"></path></svg></button><button class="code-copy-button_c5089" title="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30 30" class="icon-copy_ef942"><path fill="currentColor" d="M28 10v18H10V10zm0-2H10a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2"></path><path fill="currentColor" d="M4 18H2V4a2 2 0 0 1 2-2h14v2H4Z"></path></svg><svg width="32" height="32" viewBox="0 0 30 30" class="icon-success_d5ec0"><path fill="#49cd37" d="m13 24-9-9 1.414-1.414L13 21.171 26.586 7.586 28 9z"></path></svg></button></div></div></div>
+<h3 id="粘贴" class="mt-10 mb-2 leading-7 text-xl title_fb7eb">粘贴<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#粘贴">#</a></h3>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.cnblogs.com/jianyungsun/archive/2011/03/19/1988855.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim 复制粘贴探秘</a></li>
+</ul>
+<div class="language-vim"><div class="rspress-code-content rspress-scrollbar"><div><pre class="code" style="background-color:inherit"><code class="language-vim" style="white-space:pre"><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:1.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">1</span><span class="token" style="color:var(--code-token-punctuation)">:</span><span class="token" style="color:var(--code-token-keyword)">set</span><span> </span><span class="token" style="color:var(--code-token-symbol)">paste</span><span> # 避免粘贴时重新格式化操作。</span></span></code></pre></div><div class="code-button-group_fb445"><button title="Toggle code wrap"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrapped_fb89b"><path fill="#22a041" d="M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrap_ccd3d"><path fill="currentColor" d="M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z"></path></svg></button><button class="code-copy-button_c5089" title="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30 30" class="icon-copy_ef942"><path fill="currentColor" d="M28 10v18H10V10zm0-2H10a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2"></path><path fill="currentColor" d="M4 18H2V4a2 2 0 0 1 2-2h14v2H4Z"></path></svg><svg width="32" height="32" viewBox="0 0 30 30" class="icon-success_d5ec0"><path fill="#49cd37" d="m13 24-9-9 1.414-1.414L13 21.171 26.586 7.586 28 9z"></path></svg></button></div></div></div>
+<h3 id="映射-mapping" class="mt-10 mb-2 leading-7 text-xl title_fb7eb">映射 (Mapping)<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#映射-mapping">#</a></h3>
+<p class="my-4 leading-7">普通模式，可视模式和选择模式下使用 <code>&lt;Tab&gt;</code> 和 <code>&lt;Shift-Tab&gt;</code> 键来缩进文本。
+在可视模式和选择模式下，可以自动恢复选中的文本。</p>
+<div class="language-vim"><div class="rspress-code-content rspress-scrollbar"><div><pre class="code" style="background-color:inherit"><code class="language-vim" style="white-space:pre"><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">1</span><span class="token" style="color:var(--code-token-comment)">&quot; Normal Mode, Visual Mode, and Select Mode,</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">2</span><span></span><span class="token" style="color:var(--code-token-comment)">&quot; use &lt;Tab&gt; and &lt;Shift-Tab&gt; to indent</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">3</span><span></span><span class="token" style="color:var(--code-token-comment)">&quot; @see https://c9s.blogspot.com/2007/10/vim-tips.html</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">4</span><span>nmap </span><span class="token operator">&lt;</span><span class="token" style="color:var(--code-token-keyword)">tab</span><span class="token operator">&gt;</span><span> v</span><span class="token operator">&gt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">5</span><span>nmap </span><span class="token operator">&lt;</span><span>s</span><span class="token operator">-</span><span class="token" style="color:var(--code-token-keyword)">tab</span><span class="token operator">&gt;</span><span> v</span><span class="token operator">&lt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">6</span><span>vmap </span><span class="token operator">&lt;</span><span class="token" style="color:var(--code-token-keyword)">tab</span><span class="token operator">&gt;</span><span> </span><span class="token operator">&gt;</span><span>gv
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">7</span><span>vmap </span><span class="token operator">&lt;</span><span>s</span><span class="token operator">-</span><span class="token" style="color:var(--code-token-keyword)">tab</span><span class="token operator">&gt;</span><span> </span><span class="token operator">&lt;</span><span>gv</span></span></code></pre></div><div class="code-button-group_fb445"><button title="Toggle code wrap"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrapped_fb89b"><path fill="#22a041" d="M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrap_ccd3d"><path fill="currentColor" d="M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z"></path></svg></button><button class="code-copy-button_c5089" title="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30 30" class="icon-copy_ef942"><path fill="currentColor" d="M28 10v18H10V10zm0-2H10a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2"></path><path fill="currentColor" d="M4 18H2V4a2 2 0 0 1 2-2h14v2H4Z"></path></svg><svg width="32" height="32" viewBox="0 0 30 30" class="icon-success_d5ec0"><path fill="#49cd37" d="m13 24-9-9 1.414-1.414L13 21.171 26.586 7.586 28 9z"></path></svg></button></div></div></div>
+<p class="my-4 leading-7">注意：normal 模式下 <!-- --> 键默认用于跳转到跳转列表较新的位置，我已经取消了这个设置，
+毕竟 normal 模式下基本是使用 <code>&gt;&gt;</code>。</p>
+<p class="my-4 leading-7">选中一段文字并全文搜索这段文字</p>
+<div class="language-vim"><div class="rspress-code-content rspress-scrollbar"><div><pre class="code" style="background-color:inherit"><code class="language-vim" style="white-space:pre"><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">1</span><span>vnoremap  </span><span class="token operator">*</span><span>  </span><span class="token" style="color:var(--code-token-keyword)">y</span><span class="token operator">/</span><span class="token operator">&lt;</span><span>C</span><span class="token operator">-</span><span>R</span><span class="token operator">&gt;=</span><span class="token" style="color:var(--code-token-function)">escape</span><span class="token" style="color:var(--code-token-punctuation)">(</span><span>@</span><span class="token" style="color:var(--code-token-comment)">&quot;, </span><span class="token" style="color:var(--code-token-string)">&#x27;\\/.*$^~[]&#x27;</span><span class="token" style="color:var(--code-token-punctuation)">)</span><span class="token operator">&lt;</span><span>CR</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span>CR</span><span class="token operator">&gt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">2</span><span>vnoremap  #  </span><span class="token" style="color:var(--code-token-keyword)">y</span><span class="token operator">?</span><span class="token operator">&lt;</span><span>C</span><span class="token operator">-</span><span>R</span><span class="token operator">&gt;=</span><span class="token" style="color:var(--code-token-function)">escape</span><span class="token" style="color:var(--code-token-punctuation)">(</span><span>@</span><span class="token" style="color:var(--code-token-comment)">&quot;, </span><span class="token" style="color:var(--code-token-string)">&#x27;\\/.*$^~[]&#x27;</span><span class="token" style="color:var(--code-token-punctuation)">)</span><span class="token operator">&lt;</span><span>CR</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span>CR</span><span class="token operator">&gt;</span></span></code></pre></div><div class="code-button-group_fb445"><button title="Toggle code wrap"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrapped_fb89b"><path fill="#22a041" d="M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrap_ccd3d"><path fill="currentColor" d="M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z"></path></svg></button><button class="code-copy-button_c5089" title="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30 30" class="icon-copy_ef942"><path fill="currentColor" d="M28 10v18H10V10zm0-2H10a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2"></path><path fill="currentColor" d="M4 18H2V4a2 2 0 0 1 2-2h14v2H4Z"></path></svg><svg width="32" height="32" viewBox="0 0 30 30" class="icon-success_d5ec0"><path fill="#49cd37" d="m13 24-9-9 1.414-1.414L13 21.171 26.586 7.586 28 9z"></path></svg></button></div></div></div>
+<p class="my-4 leading-7">自动补全成对的括号、引号</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="/wiki/blog/post/vim-autocomplete-pairs.html" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim 自动补全成对的括号或引号</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://gist.github.com/449512" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">My Settings</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://vim.wikia.com/wiki/Making_Parenthesis_And_Brackets_Handling_Easier" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Making Parenthesis And Brackets Handling Easier</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://aoyme.wordpress.com/2010/05/31/%E5%9C%A8vim%E4%B8%AD%E5%B0%86%E6%8B%AC%E5%8F%B7%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%EF%BC%9A/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">自动补全括号</a></li>
+</ul>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">tern.js<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://ternjs.net/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">https://ternjs.net/</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://github.com/ternjs" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">https://github.com/ternjs</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://github.com/ternjs/tern" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">https://github.com/ternjs/tern</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://github.com/ternjs/tern_for_vim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">https://github.com/ternjs/tern_for_vim</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<p class="my-4 leading-7">普通模式下使用空格键可以参考 <a href="https://gist.github.com/549200" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">gist:549200</a>，
+这个脚本可以让你在 normal 模式下输入 <code>![pic](count)&lt;Space&gt;</code>。</p>
+<p class="my-4 leading-7">插入模式下使用 Meta 键（Windows 下是 Alt 键）+ 自定义快捷键来移动光标。
+注意：灵格斯 (Lingoes Translator) 的热键可能会有冲突，禁用或这更换灵格斯的热键即可。</p>
+<div class="language-vim"><div class="rspress-code-content rspress-scrollbar"><div><pre class="code" style="background-color:inherit"><code class="language-vim" style="white-space:pre"><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">1</span><span class="token" style="color:var(--code-token-symbol)">noremap</span><span class="token operator">!</span><span> </span><span class="token operator">&lt;</span><span>M</span><span class="token operator">-</span><span class="token" style="color:var(--code-token-keyword)">j</span><span class="token operator">&gt;</span><span> </span><span class="token operator">&lt;</span><span>Down</span><span class="token operator">&gt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">2</span><span></span><span class="token" style="color:var(--code-token-symbol)">noremap</span><span class="token operator">!</span><span> </span><span class="token operator">&lt;</span><span>M</span><span class="token operator">-</span><span class="token" style="color:var(--code-token-keyword)">k</span><span class="token operator">&gt;</span><span> </span><span class="token operator">&lt;</span><span>Up</span><span class="token operator">&gt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">3</span><span></span><span class="token" style="color:var(--code-token-symbol)">noremap</span><span class="token operator">!</span><span> </span><span class="token operator">&lt;</span><span>M</span><span class="token operator">-</span><span class="token" style="color:var(--code-token-keyword)">h</span><span class="token operator">&gt;</span><span> </span><span class="token operator">&lt;</span><span class="token" style="color:var(--code-token-keyword)">left</span><span class="token operator">&gt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">4</span><span></span><span class="token" style="color:var(--code-token-symbol)">noremap</span><span class="token operator">!</span><span> </span><span class="token operator">&lt;</span><span>M</span><span class="token operator">-</span><span class="token" style="color:var(--code-token-keyword)">l</span><span class="token operator">&gt;</span><span> </span><span class="token operator">&lt;</span><span>Right</span><span class="token operator">&gt;</span></span></code></pre></div><div class="code-button-group_fb445"><button title="Toggle code wrap"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrapped_fb89b"><path fill="#22a041" d="M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrap_ccd3d"><path fill="currentColor" d="M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z"></path></svg></button><button class="code-copy-button_c5089" title="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30 30" class="icon-copy_ef942"><path fill="currentColor" d="M28 10v18H10V10zm0-2H10a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2"></path><path fill="currentColor" d="M4 18H2V4a2 2 0 0 1 2-2h14v2H4Z"></path></svg><svg width="32" height="32" viewBox="0 0 30 30" class="icon-success_d5ec0"><path fill="#49cd37" d="m13 24-9-9 1.414-1.414L13 21.171 26.586 7.586 28 9z"></path></svg></button></div></div></div>
+<p class="my-4 leading-7">使用 Windows Explorer 打开当前文件所在文件夹，并选中目标文件，可以参考
+<a href="https://gist.github.com/482563" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">gist#482563</a>，这个脚本同时支持文件和 NERD_tree。</p>
+<p class="my-4 leading-7">快速启动命令行 (cmd)，并将默认目录设置为当前文件所在目录，可以参考
+<a href="https://gist.github.com/482560" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">gist#482560</a>，这个脚本同样支持文件和 NERD_tree。</p>
+<p class="my-4 leading-7"><del>切换 Quickfix 窗口的打开和关闭状态。</del></p>
+<div class="language-vim"><div class="rspress-code-content rspress-scrollbar"><div><pre class="code" style="background-color:inherit"><code class="language-vim" style="white-space:pre"><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">1</span><span>nmap </span><span class="token operator">&lt;</span><span>F4</span><span class="token operator">&gt;</span><span> </span><span class="token" style="color:var(--code-token-punctuation)">:</span><span class="token" style="color:var(--code-token-keyword)">cw</span><span class="token operator">&lt;</span><span>CR</span><span class="token operator">&gt;</span></span></code></pre></div><div class="code-button-group_fb445"><button title="Toggle code wrap"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrapped_fb89b"><path fill="#22a041" d="M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrap_ccd3d"><path fill="currentColor" d="M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z"></path></svg></button><button class="code-copy-button_c5089" title="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30 30" class="icon-copy_ef942"><path fill="currentColor" d="M28 10v18H10V10zm0-2H10a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2"></path><path fill="currentColor" d="M4 18H2V4a2 2 0 0 1 2-2h14v2H4Z"></path></svg><svg width="32" height="32" viewBox="0 0 30 30" class="icon-success_d5ec0"><path fill="#49cd37" d="m13 24-9-9 1.414-1.414L13 21.171 26.586 7.586 28 9z"></path></svg></button></div></div></div>
+<p class="my-4 leading-7">默认隐藏菜单栏和工具栏，可以通过 <!-- --> 切换显示和隐藏。</p>
+<div class="language-vim"><div class="rspress-code-content rspress-scrollbar"><div><pre class="code" style="background-color:inherit"><code class="language-vim" style="white-space:pre"><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">1</span><span class="token" style="color:var(--code-token-comment)">&quot; Toggle Menu and Toolbar</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">2</span><span></span><span class="token" style="color:var(--code-token-comment)">&quot; @see https://liyanrui.is-programmer.com/articles/1791/gvim-menu-and-toolbar-toggle.html</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">3</span><span></span><span class="token" style="color:var(--code-token-keyword)">set</span><span> </span><span class="token" style="color:var(--code-token-symbol)">guioptions</span><span class="token operator">-=</span><span class="token" style="color:var(--code-token-keyword)">m</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">4</span><span></span><span class="token" style="color:var(--code-token-keyword)">set</span><span> </span><span class="token" style="color:var(--code-token-symbol)">guioptions</span><span class="token operator">-=</span><span>T
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">5</span><span>map </span><span class="token operator">&lt;</span><span class="token" style="color:var(--code-token-keyword)">silent</span><span class="token operator">&gt;</span><span> </span><span class="token operator">&lt;</span><span>F2</span><span class="token operator">&gt;</span><span> </span><span class="token" style="color:var(--code-token-punctuation)">:</span><span class="token" style="color:var(--code-token-keyword)">if</span><span> &amp;</span><span class="token" style="color:var(--code-token-symbol)">guioptions</span><span> </span><span class="token operator">=~#</span><span> </span><span class="token" style="color:var(--code-token-string)">&#x27;T&#x27;</span><span> </span><span class="token operator">&lt;</span><span>Bar</span><span class="token operator">&gt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">6</span><span>        \</span><span class="token" style="color:var(--code-token-keyword)">set</span><span> </span><span class="token" style="color:var(--code-token-symbol)">guioptions</span><span class="token operator">-=</span><span>T </span><span class="token operator">&lt;</span><span>Bar</span><span class="token operator">&gt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">7</span><span>        \</span><span class="token" style="color:var(--code-token-keyword)">set</span><span> </span><span class="token" style="color:var(--code-token-symbol)">guioptions</span><span class="token operator">-=</span><span class="token" style="color:var(--code-token-keyword)">m</span><span> </span><span class="token operator">&lt;</span><span>bar</span><span class="token operator">&gt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">8</span><span>    \</span><span class="token" style="color:var(--code-token-keyword)">else</span><span> </span><span class="token operator">&lt;</span><span>Bar</span><span class="token operator">&gt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">9</span><span>        \</span><span class="token" style="color:var(--code-token-keyword)">set</span><span> </span><span class="token" style="color:var(--code-token-symbol)">guioptions</span><span class="token operator">+=</span><span>T </span><span class="token operator">&lt;</span><span>Bar</span><span class="token operator">&gt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">10</span><span>        \</span><span class="token" style="color:var(--code-token-keyword)">set</span><span> </span><span class="token" style="color:var(--code-token-symbol)">guioptions</span><span class="token operator">+=</span><span class="token" style="color:var(--code-token-keyword)">m</span><span> </span><span class="token operator">&lt;</span><span>Bar</span><span class="token operator">&gt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">11</span><span>    \</span><span class="token" style="color:var(--code-token-keyword)">endif</span><span class="token operator">&lt;</span><span>CR</span><span class="token operator">&gt;</span></span></code></pre></div><div class="code-button-group_fb445"><button title="Toggle code wrap"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrapped_fb89b"><path fill="#22a041" d="M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrap_ccd3d"><path fill="currentColor" d="M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z"></path></svg></button><button class="code-copy-button_c5089" title="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30 30" class="icon-copy_ef942"><path fill="currentColor" d="M28 10v18H10V10zm0-2H10a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2"></path><path fill="currentColor" d="M4 18H2V4a2 2 0 0 1 2-2h14v2H4Z"></path></svg><svg width="32" height="32" viewBox="0 0 30 30" class="icon-success_d5ec0"><path fill="#49cd37" d="m13 24-9-9 1.414-1.414L13 21.171 26.586 7.586 28 9z"></path></svg></button></div></div></div>
+<p class="my-4 leading-7">在保存文件时自动去除无效空白，包括行尾空白和文件最后的空行。</p>
+<div class="language-vim"><div class="rspress-code-content rspress-scrollbar"><div><pre class="code" style="background-color:inherit"><code class="language-vim" style="white-space:pre"><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:3.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">1</span><span class="token" style="color:var(--code-token-comment)">&quot; Remove trailing whitespace when writing a buffer, but not for diff files.</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:3.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">2</span><span></span><span class="token" style="color:var(--code-token-comment)">&quot; From: Vigil</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:3.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">3</span><span></span><span class="token" style="color:var(--code-token-comment)">&quot; @see https://blog.bs2.to/post/EdwardLee/17961</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:3.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">4</span><span></span><span class="token" style="color:var(--code-token-keyword)">function</span><span> </span><span class="token" style="color:var(--code-token-function)">RemoveTrailingWhitespace</span><span class="token" style="color:var(--code-token-punctuation)">(</span><span class="token" style="color:var(--code-token-punctuation)">)</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:3.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">5</span><span>    </span><span class="token" style="color:var(--code-token-keyword)">if</span><span> &amp;</span><span class="token" style="color:var(--code-token-symbol)">ft</span><span> </span><span class="token operator">!=</span><span> </span><span class="token" style="color:var(--code-token-string)">&quot;diff&quot;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:3.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">6</span><span>        </span><span class="token" style="color:var(--code-token-keyword)">let</span><span> </span><span class="token" style="color:var(--code-token-keyword)">b</span><span class="token" style="color:var(--code-token-punctuation)">:</span><span>curcol </span><span class="token operator">=</span><span> </span><span class="token" style="color:var(--code-token-function)">col</span><span class="token" style="color:var(--code-token-punctuation)">(</span><span class="token" style="color:var(--code-token-string)">&quot;.&quot;</span><span class="token" style="color:var(--code-token-punctuation)">)</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:3.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">7</span><span>        </span><span class="token" style="color:var(--code-token-keyword)">let</span><span> </span><span class="token" style="color:var(--code-token-keyword)">b</span><span class="token" style="color:var(--code-token-punctuation)">:</span><span>curline </span><span class="token operator">=</span><span> </span><span class="token" style="color:var(--code-token-function)">line</span><span class="token" style="color:var(--code-token-punctuation)">(</span><span class="token" style="color:var(--code-token-string)">&quot;.&quot;</span><span class="token" style="color:var(--code-token-punctuation)">)</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:3.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">8</span><span>        </span><span class="token" style="color:var(--code-token-keyword)">silent</span><span class="token operator">!</span><span> </span><span class="token operator">%</span><span>s</span><span class="token operator">/</span><span>\s\</span><span class="token operator">+</span><span>$</span><span class="token operator">/</span><span class="token operator">/</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:3.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">9</span><span>        </span><span class="token" style="color:var(--code-token-keyword)">silent</span><span class="token operator">!</span><span> </span><span class="token operator">%</span><span>s</span><span class="token operator">/</span><span>\</span><span class="token" style="color:var(--code-token-punctuation)">(</span><span>\s</span><span class="token operator">*</span><span>\</span><span class="token" style="color:var(--code-token-keyword)">n</span><span>\</span><span class="token" style="color:var(--code-token-punctuation)">)</span><span>\</span><span class="token operator">+</span><span>\</span><span class="token operator">%</span><span>$</span><span class="token operator">/</span><span class="token operator">/</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:3.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">10</span><span>        </span><span class="token" style="color:var(--code-token-keyword)">call</span><span> </span><span class="token" style="color:var(--code-token-function)">cursor</span><span class="token" style="color:var(--code-token-punctuation)">(</span><span class="token" style="color:var(--code-token-keyword)">b</span><span class="token" style="color:var(--code-token-punctuation)">:</span><span>curline</span><span class="token" style="color:var(--code-token-punctuation)">,</span><span> </span><span class="token" style="color:var(--code-token-keyword)">b</span><span class="token" style="color:var(--code-token-punctuation)">:</span><span>curcol</span><span class="token" style="color:var(--code-token-punctuation)">)</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:3.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">11</span><span>    </span><span class="token" style="color:var(--code-token-keyword)">endif</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:3.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">12</span><span></span><span class="token" style="color:var(--code-token-keyword)">endfunction</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:3.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">13</span><span></span><span class="token" style="color:var(--code-token-symbol)">autocmd</span><span> BufWritePre </span><span class="token operator">*</span><span> </span><span class="token" style="color:var(--code-token-keyword)">call</span><span> </span><span class="token" style="color:var(--code-token-function)">RemoveTrailingWhitespace</span><span class="token" style="color:var(--code-token-punctuation)">(</span><span class="token" style="color:var(--code-token-punctuation)">)</span></span></code></pre></div><div class="code-button-group_fb445"><button title="Toggle code wrap"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrapped_fb89b"><path fill="#22a041" d="M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrap_ccd3d"><path fill="currentColor" d="M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z"></path></svg></button><button class="code-copy-button_c5089" title="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30 30" class="icon-copy_ef942"><path fill="currentColor" d="M28 10v18H10V10zm0-2H10a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2"></path><path fill="currentColor" d="M4 18H2V4a2 2 0 0 1 2-2h14v2H4Z"></path></svg><svg width="32" height="32" viewBox="0 0 30 30" class="icon-success_d5ec0"><path fill="#49cd37" d="m13 24-9-9 1.414-1.414L13 21.171 26.586 7.586 28 9z"></path></svg></button></div></div></div>
+<h3 id="外观-themecolor-scheme" class="mt-10 mb-2 leading-7 text-xl title_fb7eb">外观 (Theme,Color Scheme)<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#外观-themecolor-scheme">#</a></h3>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://color.smyck.org/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Smyck</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://ethanschoonover.com/solarized" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">solarized</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.linuxeden.com/html/softuse/20080331/52958.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">隐藏 gvim 的工具栏和菜单</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.gracecode.com/archives/2946/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim for Windows 的全屏插件</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://code.google.com/p/vimcolorschemetest/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim Color Scheme Test</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.vi-improved.org/color_sampler_pack/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Color Sampler Pick</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.vim.org/scripts/script.php?script_id=687" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">VimTweak : The tweaking dll for GVim.exe.</a>
+半透明效果，Linux 下可以在终端使用 Vim。</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://inspiration.sweyla.com/code/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Color Theme Generator</a> - 随机生成 Vim 主题。</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://habamax.ru/myvim/index.html#manuscript" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">manuscript : Dark colorscheme</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.vim.org/scripts/script.php?script_id=2648" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Darkburn : A darker mod of Zenburn</a> - 在终端显示效果比 GUI 下要好。</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.infinitered.com/entries/show/8" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">The last Vim color scheme you&#x27;ll ever need</a> - 这是模仿针对 TextMate 的 IR_Blank 主题。</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://anirudhsanjeev.org/ir_black-vim-textmate-custom-color-scheme-monodevelop/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Ir_black vim/textmate custom color scheme in MonoDevelop</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.vim.org/scripts/script.php?script_id=2340" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">molokai : A port of the monokai scheme for TextMate</a>
+<a href="https://winterdom.com/2008/08/molokaiforvim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">screenshort</a></p>
+</li>
+</ul>
+<h3 id="syntax" class="mt-10 mb-2 leading-7 text-xl title_fb7eb">Syntax<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#syntax">#</a></h3>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">Doxygen 注释<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=987" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">DoxygenToolkit.vim : Simplify Doxygen documentation in C, C++, Python. </a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=1955" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">doxygen-support.vim : Generate Doxygen comments from user defined templates</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=5" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">DoxyGen Syntax : DoxyGen Highlighting on top of c/c++/java </a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://zwai.pixnet.net/blog/post/25974789" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">VIM 小技巧 (2)： Doxygen Syntax</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.jeffhung.net/blog/articles/jeffhung/447/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Doxygen syntax coloring in Vim</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://blog.csdn.net/clarkZHUO/archive/2006/12/31/1471573.aspx" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">doxygen+VIM 文档实用指南 for C/C-liked Programmers</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://bigzhu.javaeye.com/blog/408294" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Doxygen</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">HTML<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://rm.blog.br/2009/09/vim-syntax-highlight-para-html-5/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">VIM syntax highlight para HTML 5</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="indent--formats" class="mt-10 mb-2 leading-7 text-xl title_fb7eb">Indent &amp; Formats<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#indent--formats">#</a></h3>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://astyle.sourceforge.net/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Artistic Style(astyle)</a> <a href="https://sourceforge.net/projects/astyle/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">project</a> - for C, C++, C#, and Java Source Code.</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://pythius.sourceforge.net/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Pythius</a> <a href="https://sourceforge.net/projects/pythius/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">project</a></li>
+</ul>
+<h2 id="插件-plugins" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">插件 (Plugins)<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#插件-plugins">#</a></h2>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.catonmat.net/blog/vim-plugins-surround-vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim Plugins You Should Know About, Part I: surround.vim</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="/tagbar.vim.html" class="link_a7cea  link_a9ef4 inline-link_f855c">tagbar.vim</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="/taglist.vim.html" class="link_a7cea  link_a9ef4 inline-link_f855c">TagList</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="/Ctags.html" class="link_a7cea  link_a9ef4 inline-link_f855c">Ctags</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="/universal-ctags.html" class="link_a7cea  link_a9ef4 inline-link_f855c">universal-ctags</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2">代码补全<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="/snipMate.html" class="link_a7cea  link_a9ef4 inline-link_f855c">snipMate</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=2715" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">UltiSnips</a> - 号称提供 TextMate 的全部功能。</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=1879" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">AutoComplPop : Automatically opens popup menu for completions</a>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://bitbucket.org/ns9tks/vim-autocomplpop/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">src(Hg)</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.fantxi.com/blog/archives/671/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vim 使用 autocomplpop 插件编辑 html 文件错误的解决</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://likealunatic.jp/2009/09/29_acpvim.php" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">autocomplpop.vim で class 属性値入力時に出るエラーを回避する</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">XPTemplate<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=2611" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">@vim.org</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://code.google.com/p/xptemplate/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">@googlecode</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://hi.baidu.com/drdr" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">author&#x27;s blog</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://you.video.sina.com.cn/b/26112622-1539471463.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">screencast in C</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://you.video.sina.com.cn/b/26383083-1539471463.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">screencast in python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=52" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Calendar</a> <a href="https://github.com/mattn/calendar-vim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.weloving.net/?p=1234" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim Calendar 插件和 Google Calendar 同步 java 版</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://code.google.com/p/diaryvgc/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Synchronism Python Script between VIM Calendar diary and Google Calendar.</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">Sparkup<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://github.com/rstacruz/sparkup" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">sparkup</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://jetpackweb.com/blog/2010/03/04/write-html-faster-with-sparkup-vim-and-textmate/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Sparkup</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">Zen-Coding<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=2981" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">ZenCoding.vim : vim plugins for HTML and CSS hi-speed coding.</a>
+<a href="https://github.com/mattn/zencoding-vim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a> <a href="https://mattn.github.com/zencoding-vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">3</a>,
+<a href="https://github.com/mattn/zencoding-vim/blob/master/TUTORIAL" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">TUTORIAL</a>
+<a href="https://wifeng.cn/?p=118" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">cn</a>
+<a href="https://zen-coding.ru/textarea/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Zen Coding for textarea</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://leeiio.me/zen-coding-in-vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">在 Vim 里玩 Zen Coding</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://blog.harrspy.com/zen-coding-in-vim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">在 Vim 里玩 Zen Coding</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://mattn.github.com/zencoding-vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">ZenCoding.vim</a> - 有一个文本 movies 介绍。</li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=1697" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">surround</a>^<a href="https://github.com/tpope/vim-surround" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a>^^<a href="https://www.catonmat.net/blog/vim-plugins-surround-vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim Plugins You Should Know About, Part I: surround.vim</a>^</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="/Vimwiki.html" class="link_a7cea  link_a9ef4 inline-link_f855c">Vimwiki</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2">Org-mode : <a href="https://www.vim.org/scripts/script.php?script_id=3342" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">@vim.org</a>
+<a href="https://github.com/hsitz/VimOrganizer" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">@github</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://sjl.bitbucket.org/gundo.vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Gundo</a>
+<a href="https://github.com/sjl/gundo.vim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">@github</a>
+<a href="https://www.vim.org/scripts/script.php?script_id=3304" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">@vim.org</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2">TxtBrowser<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://code.google.com/p/txtbrowser/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">txtbrowser - a vim script to browse plain text easily(show the title tag and syntax highlight)</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://guoyoooping.blog.163.com/blog/static/1357051832009112910162389/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">TxtBrowser : 纯文本浏览器（显示文本文件的目录树和语法高亮）</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://xbeta.info/vim-txtbrowser.htm" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">TxtBrowser: 在 Vim 中高效处理纯文本</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">VOOF<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://xbeta.info/vim-voof.htm" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">VOOF: Vim 实现带折叠双栏树状文本管理</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">txtfmt<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.txtfmt.webs.com/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Txtfmt (The Vim Highlighter)</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=2208" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Txtfmt(The Vim Highlighter)</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">Python<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://blog.dispatched.ch/2009/05/24/vim-as-python-ide/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim as Python IDE</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://code.google.com/p/vimpdb/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vimpdb</a> - Integrated Python debugging within Vim.</li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">自动补全<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://code.google.com/p/pysmell/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c"> pysmell - Autocomplete helper for Python</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://github.com/c9s/perl-completion.vim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">perl completion</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">xml<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.xmlsoft.org/xmllint.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">xmllint</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://powerclark.javaeye.com/blog/578169" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">使用 xmllint + schema 校验 xml 文档</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=301" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">xmledit : A filetype plugin to help edit XML, HTML, and SGML documents</a> - 个人感觉太大，用不上这么多东西，而且第一次试用时中报没有设置 omni 之类的错误，编辑效率超低。</li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">CSS3<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=3042" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">css3 : css3 syntax for vim</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">搜索 (Search)<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=1238" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">mark.vim</a> - 较早版本，一直用着挺好。</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=2666" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Mark.vim</a> - 传说的升级版本，试用中。</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=479" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">MultipleSearch : Highlight multiple searches at the same time, each with a different color.</a> | <a href="https://www.vim.org/scripts/script.php?script_id=1183" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">MultipleSearch2.vim : Improve Multiple search</a> - 这两个 Multiple Search 项目已经搁置，另外 mark.vim 是更好的选择。</li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">注释文档 (Comments Docs)<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=1355" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">PDV - phpDocumentor for Vim : Provides really comfortable generation of phpDocumentor doc blocks for PHP4 &amp; 5.</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=1218" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">The NERD Commenter : A plugin that allows for easy commenting of code for many filetypes.</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=1528" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">comments.vim : To Comment/Un-Comment single/multiple lines of code for different source files</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">Java<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=1213" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim JDE : Vim - Just a Development Envirement (Java/C++)</a> ^<a href="https://media.cqic.com.cn/vjde-tut/index.htm" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">site</a> <a href="https://222.177.22.133/vjde-tut/template.htm" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a>^</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=1785" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">javacomplete : Omni Completion for JAVA</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">YUI<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://blog.davglass.com/files/yui/yuivim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">YUI: Vim Syntax and AutoComplete</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">jQuery<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=2416" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">jQuery : Syntax file for jQuery</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">Blog<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=1953" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vimpress : Manage wordpress blog posts from Vim</a> ^<a href="https://www.ooso.net/archives/278" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">用 vim 来写 wordpress</a>^</li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">Twitter<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://code.google.com/p/twitvim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">twitvim - Twitter Client for Vim</a> ^<a href="https://www.vim.org/scripts/script.php?script_id=2204" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a>^ ^<a href="https://vim.sourceforge.net/scripts/script.php?script_id=2204" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">3</a>^</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=2124" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Twitter : Post to Twitter from Vim</a> - 已由 twitvim 替代。</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.phpvim.net/vim/vim-script-twitter-patched.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim Script – Twitter (Patched)</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=1853" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Twitter : A simple client for Twitter (script#1853)</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">输入法 (IME)<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://maxiangjiang.googlepages.com/vimim.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">VimIM —— Vim 中文输入法</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://code.google.com/p/vimim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">VimIM —— Vim 中文输入法</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=2506" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">VimIM : Vim Input Method -- Vim 中文输入法</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=2662" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">ywvim : Another input method(IM) for VIM, supports all modes.</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">Shell<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://code.google.com/p/conque/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">conque</a> - Run interactive commands inside a Vim buffer.</li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">其他<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://code.google.com/p/vim-sztool/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vim-sztool - Some python+vim mixed script to extend the function of vim.</a> - shrek.wang 基于 Python 写的插件。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p class="my-4 leading-7"><a href="https://ark.asengard.net/blog/wp-content/uploads/2009/10/success_vim.jpg" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">https://ark.asengard.net/blog/wp-content/uploads/2009/10/success_vim.jpg</a> <a href="https://ark.asengard.net/blog/tag/tips/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">来源</a></p>
+<h2 id="技巧-tips" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">技巧 (Tips)<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#技巧-tips">#</a></h2>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">vimrc (<em>仅供参考</em>)</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://amix.dk/vim/vimrc.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vimrc.html</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://blog.csdn.net/redguardtoo/archive/2006/09/03/1172136.aspx" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">史上最强的 Vim 配置文件（修正版）</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">跳转 (Jumps)</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://blog.chinaunix.net/u/8681/showart_1226043.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim 中文本行内跳转到指定百分比的列</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">正则表达式：</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://blog.csdn.net/menghun_99520/archive/2008/06/06/2517970.aspx" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vim 正则表达式</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://tech.idv2.com/2008/07/08/vim-regexp/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vi 中的正则表达式</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://spreadsheets.google.com/pub?key=tYpX806OUUWG2uehT7XMH8A&amp;single=true&amp;gid=0&amp;output=html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vim 正则参考</a> <a href="https://regex.me/thread-118.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">1</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.softpanorama.org/Editors/Vimorama/vim_regular_expressions.shtml" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim Regular Expressions</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">文本对象 (Text Object)</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.zhuoqun.net/html/y2009/1191.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">VIM 中的文本对象（text-objects）</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">杂项</p>
+</li>
+</ul>
+<p class="my-4 leading-7">打开、保存文件时，显示文件选择对话框，更多可以 <code>:h browse</code>。</p>
+<div class="language-vim"><div class="rspress-code-content rspress-scrollbar"><div><pre class="code" style="background-color:inherit"><code class="language-vim" style="white-space:pre"><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">1</span><span class="token" style="color:var(--code-token-punctuation)">:</span><span class="token" style="color:var(--code-token-keyword)">browse</span><span> </span><span class="token" style="color:var(--code-token-keyword)">w</span><span class="token operator">&lt;</span><span class="token" style="color:var(--code-token-keyword)">cr</span><span class="token operator">&gt;</span><span>
+</span></span><span style="display:block;padding:0 1.25rem"><span class="linenumber react-syntax-highlighter-line-number" style="display:inline-block;min-width:2.25em;padding-right:1em;text-align:right;user-select:none;color:var(--code-token-comment)">2</span><span></span><span class="token" style="color:var(--code-token-punctuation)">:</span><span class="token" style="color:var(--code-token-keyword)">bro</span><span> </span><span class="token" style="color:var(--code-token-keyword)">e</span><span class="token operator">&lt;</span><span class="token" style="color:var(--code-token-keyword)">cr</span><span class="token operator">&gt;</span></span></code></pre></div><div class="code-button-group_fb445"><button title="Toggle code wrap"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrapped_fb89b"><path fill="#22a041" d="M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="icon-wrap_ccd3d"><path fill="currentColor" d="M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z"></path></svg></button><button class="code-copy-button_c5089" title="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 30 30" class="icon-copy_ef942"><path fill="currentColor" d="M28 10v18H10V10zm0-2H10a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2"></path><path fill="currentColor" d="M4 18H2V4a2 2 0 0 1 2-2h14v2H4Z"></path></svg><svg width="32" height="32" viewBox="0 0 30 30" class="icon-success_d5ec0"><path fill="#49cd37" d="m13 24-9-9 1.414-1.414L13 21.171 26.586 7.586 28 9z"></path></svg></button></div></div></div>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.ibm.com/developerworks/cn/linux/l-tip-vim1/index.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim 实用技术，第 1 部分：实用技巧</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.ibm.com/developerworks/cn/linux/l-tip-vim2/index.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim 实用技术，第 2 部分：常用插件</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.ibm.com/developerworks/cn/linux/l-tip-vim3/index.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim 实用技术，第 3 部分：定制 Vim</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.ibm.com/developerworks/cn/linux/l-vim-script-1/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">使用脚本编写 Vim 编辑器，第 1 部分：变量、值和表达式</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.ibm.com/developerworks/cn/linux/l-vim-script-2/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">使用脚本编写 Vim 编辑器，第 2 部分：用户定义函数</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.ibm.com/developerworks/cn/linux/l-vim-script-3/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">使用脚本编写 Vim 编辑器，第 3 部分：内置列表</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.ibm.com/developerworks/cn/linux/l-vim-script-4/index.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">使用脚本编写 Vim 编辑器，第 4 部分：字典</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.ibm.com/developerworks/cn/linux/l-vim-script-5/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">使用脚本编写 Vim 编辑器，第 5 部分：事件驱动的脚本编写和自动化</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.ibm.com/developerworks/cn/linux/l-tip-prompt/tip15/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">神奇的 VIM</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.ibm.com/developerworks/cn/linux/l-vimdiff/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">技巧：Vimdiff 使用</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://vimcasts.org/episodes/fugitive-vim-resolving-merge-conflicts-with-vimdiff/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Fugitive.vim - resolving merge conflicts with vimdiff</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.rayninfo.co.uk/vimtips.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Best of Vim Tips</a> <a href="https://groups.google.com/group/Vim-cn/msg/f72fba0645955101" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">中文</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.bs2.to/post/EdwardLee/17961" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">自動去除不必要的空白</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.limboy.com/2009/05/30/vim-setting/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">面向前端开发者和 TextMate 粉丝的 vim 配置 - 混沌海狂想</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://bbs.chinaunix.net/viewthread.php?tid=194152" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">进行有效编辑的七种习惯</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.csdn.net/wooin/archive/2007/10/31/1858917.aspx" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">手把手教你把 Vim 改装成一个 IDE 编程环境（图文）</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://github.com/jez/vim-as-an-ide" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">https://github.com/jez/vim-as-an-ide</a></p>
+</li>
+</ul>
+<h2 id="其他技巧-tips" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">其他技巧 (Tips)<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#其他技巧-tips">#</a></h2>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">Program<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://sinolog.it/?p=1443" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">在 Vim 中检查语法和执行代码</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">翻译取词<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://blog.chinaunix.net/u1/38994/showart.php?id=480401" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vim 中支持 stardict 取词</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://xbeta.info/gvim-powerword-ciba.htm" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">修改版 GVIM: 支持金山词霸屏幕取词</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://linuxtoy.org/archives/vim_tips.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">读者来稿：VIM 也玩取词翻译</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">PDF
+<a href="https://blog.bs2.to/post/EdwardLee/8491" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">利用 Vim 來編修 PDF 檔</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2">其他<!-- -->
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.liuhuadong.com/archives/95/index.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">在 vim 状态栏显示文件上次修改日期</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.chinaunix.net/u3/109940/showart_2205193.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">在 VIM 中添加一键编译和一键运行</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="cheat-sheet" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">Cheat Sheet<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#cheat-sheet">#</a></h2>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://bullium.com/support/vim.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim Commands Cheat Sheet</a>^<a href="https://www.ssel.montana.edu/HowTo/vi_commands.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a>^</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Graphical vi-vim Cheat Sheet and Tutorial</a> - 非常非常好的 Vim 键图。</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.vgod.tw/2009/12/08/vim-cheat-sheet-for-programmers/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">给程式设计师的 Vim 入门图解说明</a></p>
+</li>
+</ul>
+<h2 id="集合" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">集合<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#集合">#</a></h2>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://easwy.com/blog/archives/advanced-vim-skills-catalog/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vim 使用进阶 - 易水博客</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blah.blogsome.com/category/vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">碎碎念 (hashtags#vim)</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.gracecode.com/category/496/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Gracecode (hashtags#vim)</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://sinolog.it/?tag=vim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">牧马志 (hashtags#vim)</a> </p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://xbeta.info/tag/gvim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">善用佳软 (hashtags#gvim)</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.chinaunix.net/u2/78601/article_94584.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vim 那点儿事儿</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.csdn.net/easwy/category/234641.aspx" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim 编辑器 vim 编辑器的技巧、经验、资源等收集。</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="/JavaScript.html" class="link_a7cea  link_a9ef4 inline-link_f855c">JavaScript</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.maycode.com/index.php/linux/54-linuxdevelop/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">maycode.com (linuxdevelop)</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.chinaunix.net/u/11768/article_18917.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">文章列表 - vim 点滴</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://greenisland.csie.nctu.edu.tw/wp/category/comuter/vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">紅塵一隅間拾得 - vim</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://axisym3.net/jdany/tag/vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">JDany&#x27;&#x27;s World (hashtags#vim)</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.csdn.net/searun/category/316244.aspx" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">searun 的专栏 (hashtags#Hacking VIM)</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.followstars.cn/default.asp?tag=vim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">星光居士的工作室 (hashtags#vim)</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.catonmat.net/tag/vim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">good coder code, great reuse (hashtags#vim)</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.swaroopch.com/blog/category/tech/vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Swaroop CH (hashtags#vim)</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.kunli.info/tag/vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Windstorm(hashtags#vim)</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.thegeekstuff.com/tag/vi-vim-tips-and-tricks/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vi Vim Tips and Tricks</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.vimer.cn/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vimer 的程序世界</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://qixinglu.com/tag/vim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">七星居 (hashtags#vim)</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://thomer.com/vi/vi.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vi Lovers Home Page</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.chinavim.org/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim 中文网</a></p>
+</li>
+</ul>
+<h2 id="vim-脚本开发" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">Vim 脚本开发<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#vim-脚本开发">#</a></h2>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.csdn.net/xianfengdesign/archive/2008/04/21/2312315.aspx" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">编写 Vim 脚本</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blah.blogsome.com/2006/04/22/vim_tut_script/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">脚本：:Vim 进阶索引</a></p>
+</li>
+</ul>
+<h2 id="延伸阅读" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">延伸阅读<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#延伸阅读">#</a></h2>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://blog.vgod.tw/2009/12/07/text-editing/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">(HCI) 浅谈模式”mode”与文字编辑的技术与学习</a></p>
+</li>
+</ul>
+<h2 id="原生-vim" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">原生 Vim<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#原生-vim">#</a></h2>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim</a>^<a href="https://code.google.com/p/vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a>^ - 原生 Vim，包括 Vim, gVim, gVim Easy. 支持 Windows, Linux, Mac 平台。</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://code.google.com/p/vim-win3264/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Win32 and Win64 releases of Vim (Vi IMproved)</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://code.google.com/p/macvim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">macvim - Vim for the Mac</a>
+<a href="https://github.com/b4winckler/macvim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">@github</a>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.limboy.com/2009/06/07/vim-setting-more/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">继续补充 vim 配置技巧——上次的 vimrc 还不够强力</a> - 混沌海狂想</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://blog.roseman.org.uk/2010/12/15/macvim-terminal-vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">From MacVim to terminal vim</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://webexpose.org/2008/10/13/open-macvim-tabs-from-command-line/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Open MacVim tabs from command-line</a>
+<a href="https://www.starming.com/index.php?action=plugin&amp;v=wave&amp;tpl=union&amp;ac=module&amp;m=rss&amp;rid=222240&amp;rkeyid=122&amp;pg=1" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://code.google.com/p/vim-cocoa/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vim-cocoa - A new branch of gvim to use Cocoa for GUI</a> - 相当 macvim 较轻量级的 Mac 版本。</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://sourceforge.net/projects/tm-vi-plugin/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">ViMate - a vi plugin for TextMate</a>^<a href="https://starvingcyclist.com/vimate" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a>^</li>
+</ul>
+<h2 id="vim-like" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">Vim Like<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#vim-like">#</a></h2>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="/Eclipse.html" class="link_a7cea  link_a9ef4 inline-link_f855c">Eclipse</a> | <a href="/NetBeans.html" class="link_a7cea  link_a9ef4 inline-link_f855c">NetBeans</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="/XCode.html" class="link_a7cea  link_a9ef4 inline-link_f855c">XCode</a></p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://github.com/XVimProject/XVim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">XVim</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://github.com/JetBrains/ideavim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">IdeaVim</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="/Mozilla-Firefox.html" class="link_a7cea  link_a9ef4 inline-link_f855c">Mozilla-Firefox</a> | <a href="/Google-Chrome.html" class="link_a7cea  link_a9ef4 inline-link_f855c">Google-Chrome</a> | <a href="/Opera.html" class="link_a7cea  link_a9ef4 inline-link_f855c">Opera</a> | <a href="https://www.vimprobable.org/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vimprobable WWW browser</a>
+<a href="https://guyht.github.io/vimari/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vimari</a> - Safari port of vimium.
+<a href="https://github.com/guyht/vimari" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">@github</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">PDF</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://code.google.com/p/apvlv/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">apvlv (a PDF Viewer which behaves like Vim)</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Sumatra PDF</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://projects.gnome.org/evince/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Evince</a> - 传说支持 jk。</li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">即时通讯 (IM)</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://code.google.com/p/vimchat/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vimchat - Instant messageing plugin for VIM</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">Email</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=1052" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">The Mail Suite(tms): Send,Receive and Organize mail from within VIM</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vim.org/scripts/script.php?script_id=26" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vimmailr.zip : Send (MAPI) mail from vim</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.vimer.cn/2010/04/%e7%94%a8vimgvim%e5%8f%91%e9%82%ae%e4%bb%b6%e4%b8%8a%e6%b5%81%e5%93%87.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">用 Vim(gvim) 发邮件（上流哇）</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2">[<a href="https://www.vim.org/scripts/script.php?script_id=813" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">https://www.vim.org/scripts/script.php?script_id=813</a> mail.vim: Syntax file for emails.</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://people.ee.ethz.ch/~andrmuel/files/thunderbird-vim/vim-and-thunderbird.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">How to send eMail with Vim and Thunderbird</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">Office</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://www.viemu.com/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">ViEmu - Vi/vim emulation for Visual Studio, Word, Outlook and SQL Server</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://dready.org/blog/category/viword/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">ViWord</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://vigor.sourceforge.net/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vigor</a>
+<a href="https://linsec.ca/blog/wp-content/uploads/2008/03/vim.gif" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">https://linsec.ca/blog/wp-content/uploads/2008/03/vim.gif</a> <!-- -->
+漫画：如果 Vim 是微软设计的。</li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">File Manager</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://sourceforge.net/projects/jvifm/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">jVifm</a> - 国人基于 Java 开发的多栏文件管理工具。</li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://vifm.sourceforge.net/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vifm</a> - Linux 下非常不错的文件管理器，Windows 下稍丑。</li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">Player</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://qixinglu.com/archives/vim_is_ascii_player" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim 也是个播放器</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">Develop</p>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://clewn.sourceforge.net/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Clewn</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://cgdb.sourceforge.net/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">cgdb</a></li>
+<li class="[&amp;:not(:first-child)]:mt-2"><a href="https://astyle.sourceforge.net/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">astyle</a></li>
+</ul>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">The Go Programming Language</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://code.google.com/p/go/source/browse/misc/vim/go.vim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">go.vim</a>^<a href="https://www.vim.org/scripts/script.php?script_id=2854" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">vimscript#2854</a>^</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.algorithm.com.au/code/vimacs/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vimacs</a> (<a href="https://blog.waterlin.org/articles/gvim%E9%87%8C%E8%AE%BE%E7%BD%AE%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88%E3%80%81%E5%AD%97%E4%BD%93%E3%80%81%E4%BD%BF%E7%94%A8tabs%E4%BB%A5%E5%8F%8A%E6%A8%A1%E6%8B%9Femacs%E7%9A%84%E9%94%AE%E7%BB%91.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">gvim 里设置配色方案、字体、使用 tabs 以及模拟 Emacs 的键绑定</a>)</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://gpl.internetconnection.net/vi/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">jsvi</a> - 非常赞的一个在线 Vim-like 的编辑器。</p>
+</li>
+</ul>
+<h2 id="vim-games" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">Vim Games<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#vim-games">#</a></h2>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.vim.org/scripts/script.php?script_id=172" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">TeTrIs.vim : A tetris game in pure vim</a>^<a href="https://www.cs.cornell.edu/andru/xsokoban.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a>^ - Vim 中的俄罗斯方块游戏。</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.vim.org/scripts/script.php?script_id=551" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Mines : Play Mines with vim</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.vim.org/scripts/script.php?script_id=211" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">sokoban.vim : Sokoban Game for Vim!</a> - 推箱子。</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.vim.org/scripts/script.php?script_id=916" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Nibble : Nibble or Snake game for Vim.</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.vim.org/scripts/script.php?script_id=2541" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Mastermind board game : The board game</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.vim.org/scripts/script.php?script_id=900" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Tower of Hanoi : Tower of Hanoi game for Vim</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.vim.org/scripts/script.php?script_id=1189" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">matrix.vim : Matrix screensaver for VIM</a> - 模仿黑客帝国的屏保。</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.vim.org/scripts//script.php?script_id=1271" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">rubikscube.vim : a rubik&#x27;s cube game in vim script</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.nethack.org/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">NetHack</a>^<a href="https://falconseye.sourceforge.net/index.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">NetHack - Falcon&#x27;s Eye</a>^ ^<a href="https://jedi.org/blog/archives/003676.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">如果妳一生祇打算做一件事的話，玩 NetHack</a>^</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://vim-adventures.com/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">VIM Adventures</a></p>
+</li>
+</ul>
+<h2 id="书籍-books" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">书籍 (Books)<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#书籍-books">#</a></h2>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">Learning the Vi and Vim</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.oualline.com/vim-cook.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim Cookbook</a> - by Steve Oualline</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://vim.runpaint.org/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim Recipes</a></p>
+</li>
+</ul>
+<h2 id="社区" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">社区<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#社区">#</a></h2>
+<ul class="list-disc pl-5 my-4 leading-7">
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://groups.google.com/group/Vim-cn/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim-cn</a> | <a href="https://groups.google.com/group/vim-taiwan" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim-Taiwan</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.douban.com/group/vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">豆瓣 Vim 小组</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="https://www.newsmth.net/bbsdoc.php?board=VIM" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">水木社区 VIM 版</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="mailto:vimcn@chatterous.com" class="link_a7cea  link_a9ef4 inline-link_f855c" target="_blank" rel="noopener noreferrer">vimcn@chatterous.com</a> - GTalk,Email,Web,SMS,Twitter 等多种通讯方式，参考 <a href="https://dl-web.dropbox.com/u/1151037/blog/Gtalk-group-for-Vim.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">欢迎加入 Vim 的 GTalk 群</a></p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7">QQ 群：Vim 草堂 (28971390) - 撇开腾讯不说，这个群的氛围是非常不错，卧虎藏龙，而且都很热心。</p>
+</li>
+<li class="[&amp;:not(:first-child)]:mt-2">
+<p class="my-4 leading-7"><a href="/Vimer.html" class="link_a7cea  link_a9ef4 inline-link_f855c">Vimer</a></p>
+</li>
+</ul>
+<h2 id="幽默--文化" class="mt-12 mb-6 pt-8 text-2xl tracking-tight border-t-[1px] border-divider-light title_fb7eb">幽默 &amp; 文化<a class="link_a7cea header-anchor link_a9ef4 inline-link_f855c" aria-hidden="true" href="#幽默--文化">#</a></h2>
+<p class="my-4 leading-7"><img src="/images/vim/Holy-War.png" alt="Holy-War.png"/></p>
+<p class="my-4 leading-7"><img src="/images/vim/control_escape_comic.gif" alt=""/>
+<a href="https://www.jonlee.ca/quick-vim-tip-esc-alternative/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">来源</a></p>
+<p class="my-4 leading-7"><img src="/images/vim/i7k94.png" alt=""/>
+<a href="/images/vim/i7k94.png.html" class="link_a7cea  link_a9ef4 inline-link_f855c">可以印 Tee 的大图</a> <a href="/images/vim/i3yji.png.html" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a></p>
+<p class="my-4 leading-7"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/KB_Terminal_ADM3A.svg" alt="pic"/>
+<a href="https://en.wikipedia.org/wiki/File:KB_Terminal_ADM3A.svg" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">来源</a></p>
+<p class="my-4 leading-7"><img src="/images/vim/vi-emacs2.jpg" alt="pic"/> <a href="https://www.io.com/~dierdorf/emacsvi.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">來源</a></p>
+<p class="my-4 leading-7"><img src="https://www.vim.org/images/0xbabaf000l.png" alt=""/>
+<a href="https://tnerual.eriogerg.free.fr/0xBABAF000L/10_en.html" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">来源</a> ^<a href="https://www.vim.org/about.php" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">2</a>^</p>
+<p class="my-4 leading-7"><img src="https://www.geekherocomic.com/comics/2009-02-02-emacs-vs-vim.png" alt=""/>
+<a href="https://www.geekherocomic.com/comics-highres/2009-02-02-emacs-vs-vim.png" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">大图</a> <a href="https://www.geekherocomic.com/2009/02/02/emacs-vs-vim/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">来源</a></p>
+<p class="my-4 leading-7"><img src="https://www.cs.bgu.ac.il/~orlovm/code/emacs/viman.gif" alt=""/>
+<a href="https://digg.com/linux_unix/Speaking_UNIX_The_New_and_Improved_Vim_Editor_3" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">来源</a></p>
+<p class="my-4 leading-7"><img src="https://www.userfriendly.org/cartoons/archives/07sep/uf010710.gif" alt="user friendly"/></p>
+<p class="my-4 leading-7"><a href="https://en.tiraecol.net/modules/comic/cache/images/tiraecol_en-2.png" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">https://en.tiraecol.net/modules/comic/cache/images/tiraecol_en-2.png</a> via: <a href="https://en.tiraecol.net/modules/comic/comic.php?content_id=2&amp;mode=flat&amp;order=0" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">Vim vs. Emacs</a></p>
+<p class="my-4 leading-7"><a href="https://retrazos.pe/img/emacs-vim.jpg" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">https://retrazos.pe/img/emacs-vim.jpg</a> <a href="https://retrazos.pe/droppop/emacs-vim" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">来源</a></p>
+<p class="my-4 leading-7"><a href="https://imgs.xkcd.com/comics/real_programmers.png" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">https://imgs.xkcd.com/comics/real_programmers.png</a> via: <a href="https://xkcd.com/378/" target="_blank" rel="noopener noreferrer" class="link_a7cea  link_a9ef4 inline-link_f855c">REAL PROGRAMMERS</a></p>
+<p class="my-4 leading-7">请在 Vim 中输入命令： <code>:help!</code> 或使用缩写 <code>:h!</code></p>
+<p class="my-4 leading-7">请在 Vim 中输入命令： <code>:h 42</code> 探索生命的意义。</p>
+<p class="my-4 leading-7">请在 Vim 中输入命令： <code>:h howto</code> 并看文档的最后。</p>
+<div class="language-bash"><div class="rspress-code-content rspress-scrollbar"><code>世界上的程序员分三种，
+  一种使用 Emacs，
+  一种使用 Vim，
+  剩余的是其它。
+</code></div></div>
+<div class="language-bash"><div class="rspress-code-content rspress-scrollbar"><code>给人一条 Vim 命令，
+他能折腾一晚上；
+告诉他怎么自定义 Vim 命令，
+他能捣腾一辈子。
+                -- Emacs
+</code></div></div>
+<p class="my-4 leading-7">《大腕》编辑器版：</p>
+<div class="language-bash"><div class="rspress-code-content rspress-scrollbar"><code>.. 周围同事不是用 Vim 就是 Emacs , 你要是用一 UltraEdit，你都不好意思跟人家打招呼…
+  什么插件呀，语法高亮呀，拼写检查呀，能给它开的都给它开着，就是一个字儿：酷。
+你说这么牛 B 一东西，怎么着学会也得小半年吧。
+半年！入门都远着呢，能学会移动光标就不错了，你还别说耗不起，就这还只是左右移动
+</code></div></div>
+<div class="language-bash"><div class="rspress-code-content rspress-scrollbar"><code>对我来说 Vi 是禅，
+  使用 Vi 就是使用禅。
+每个命令都是心印，
+  这对用户来说是深奥的，
+  对未入门者来说是无法了解的。
+每次使用它你都能发现真理。
+                --Satish Reddy
+</code></div></div>
+<div class="language-bash"><div class="rspress-code-content rspress-scrollbar"><code>商业化产品可能是有用的，
+但最好的东西往往是免费的，
+空气，水，Vim。
+</code></div></div>
+<div class="language-bash"><div class="rspress-code-content rspress-scrollbar"><code>Q: How to generate a random string?
+A: Put a fresh student in front of vi and tell him to quit.
+</code></div></div><!--/$--></div><div class="rspress-doc-footer"><footer class="mt-8"><div class="xs:flex pb-5 px-2 justify-end items-center"></div><div class="flex flex-col"></div><div class="flex flex-col sm:flex-row sm:justify-around gap-4 pt-6"><div class="prev_c92d1 flex flex-col"></div><div class="next_c11be flex flex-col"></div></div></footer></div></div><div class="aside-container_bc5fa"><div class="flex flex-col"><div id="aside-container" class="relative text-sm font-medium"><div class="leading-7 block text-sm font-semibold pl-3">ON THIS PAGE</div><nav class="mt-1"><ul class="relative"><li><a href="#简介" title="简介" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">简介</span></a></li><li><a href="#精准广告投放" title="精准广告投放" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">精准广告投放</span></a></li><li><a href="#教程" title="教程" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">教程</span></a></li><li><a href="#选项-options" title="选项 (Options)" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">选项 (Options)</span></a></li><li><a href="#编码-encoding" title="编码 (Encoding)" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:12px;font-weight:semibold"><span class="aside-link-text block">编码 (Encoding)</span></a></li><li><a href="#字体-fonts" title="字体 (fonts)" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:12px;font-weight:semibold"><span class="aside-link-text block">字体 (fonts)</span></a></li><li><a href="#粘贴" title="粘贴" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:12px;font-weight:semibold"><span class="aside-link-text block">粘贴</span></a></li><li><a href="#映射-mapping" title="映射 (Mapping)" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:12px;font-weight:semibold"><span class="aside-link-text block">映射 (Mapping)</span></a></li><li><a href="#外观-themecolor-scheme" title="外观 (Theme,Color Scheme)" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:12px;font-weight:semibold"><span class="aside-link-text block">外观 (Theme,Color Scheme)</span></a></li><li><a href="#syntax" title="Syntax" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:12px;font-weight:semibold"><span class="aside-link-text block">Syntax</span></a></li><li><a href="#indent--formats" title="Indent &amp; Formats" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:12px;font-weight:semibold"><span class="aside-link-text block">Indent &amp; Formats</span></a></li><li><a href="#插件-plugins" title="插件 (Plugins)" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">插件 (Plugins)</span></a></li><li><a href="#技巧-tips" title="技巧 (Tips)" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">技巧 (Tips)</span></a></li><li><a href="#其他技巧-tips" title="其他技巧 (Tips)" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">其他技巧 (Tips)</span></a></li><li><a href="#cheat-sheet" title="Cheat Sheet" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">Cheat Sheet</span></a></li><li><a href="#集合" title="集合" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">集合</span></a></li><li><a href="#vim-脚本开发" title="Vim 脚本开发" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">Vim 脚本开发</span></a></li><li><a href="#延伸阅读" title="延伸阅读" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">延伸阅读</span></a></li><li><a href="#原生-vim" title="原生 Vim" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">原生 Vim</span></a></li><li><a href="#vim-like" title="Vim Like" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">Vim Like</span></a></li><li><a href="#vim-games" title="Vim Games" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">Vim Games</span></a></li><li><a href="#书籍-books" title="书籍 (Books)" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">书籍 (Books)</span></a></li><li><a href="#社区" title="社区" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">社区</span></a></li><li><a href="#幽默--文化" title="幽默 &amp; 文化" class="aside-link transition-all duration-300 hover:text-text-1 text-text-2 block" style="margin-left:0;font-weight:semibold"><span class="aside-link-text block">幽默 &amp; 文化</span></a></li></ul></nav></div></div></div></div></div></div></section></div>
+    <div id="search-container"></div>
+  </body>
+</html>
