@@ -4,7 +4,7 @@
         <title>闲耘的博客</title>
         <link>https://hotoo.co</link>
         <description>闲耘的个人网站和博客</description>
-        <lastBuildDate>Mon, 26 Jan 2026 07:02:37 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 26 Jan 2026 12:13:37 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
@@ -255,7 +255,7 @@ color: #666;
         <item>
             <title><![CDATA[可恢复的 rm 删除]]></title>
             <link>https://hotoo.co/blog/post/rm-to-trash</link>
-            <guid>41</guid>
+            <guid>42</guid>
             <pubDate>Mon, 04 Mar 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="可恢复的-rm-删除">可恢复的 rm 删除<a aria-hidden="true" href="#可恢复的-rm-删除">#</a></h1>
 <p>用过终端（Terminal）的人都知道， rm 删除的文件，不会像 Mac Finder 里删除文件、文件夹
@@ -356,7 +356,7 @@ Error copying the /Users/hotoo/tmp to trash. Trying to move /Users/hotoo/tmp wit
         <item>
             <title><![CDATA[钱塘之怪现状]]></title>
             <link>https://hotoo.co/blog/post/dogs-cars</link>
-            <guid>42</guid>
+            <guid>41</guid>
             <pubDate>Sun, 18 Nov 2018 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="钱塘之怪现状">钱塘之怪现状<a aria-hidden="true" href="#钱塘之怪现状">#</a></h1>
 <p>戊戌年癸亥月某日，钱塘某妇人因小轿车司机未让行遂踹轿车，司机恼怒成羞狠揍妇人，
@@ -543,7 +543,7 @@ git\nbranch\nalias 工具来方便管理分支别名。</p>
         <item>
             <title><![CDATA[使用 GPG 签名 Git Commits]]></title>
             <link>https://hotoo.co/blog/post/gpg-sign-for-git-comments</link>
-            <guid>46</guid>
+            <guid>47</guid>
             <pubDate>Sat, 11 Jun 2016 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="使用-gpg-签名-git-commits">使用 GPG 签名 Git Commits<a aria-hidden="true" href="#使用-gpg-签名-git-commits">#</a></h1>
 <p>前段时间 GitHub 支持在 Git Commits 中使用 GPG 签名验证，可以避免其他人使用你的
@@ -684,7 +684,7 @@ Comment: GPGTools \n https://gpgtools.org
         <item>
             <title><![CDATA[测试代码和可测试代码]]></title>
             <link>https://hotoo.co/blog/post/test-code-and-testable-code</link>
-            <guid>47</guid>
+            <guid>46</guid>
             <pubDate>Sat, 04 Jun 2016 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="测试代码和可测试代码">测试代码和可测试代码<a aria-hidden="true" href="#测试代码和可测试代码">#</a></h1>
 <p>项目中有一个要将指定时间和当前时间比较，计算相对时间的逻辑（比如显示 <code>3 分钟前</code>），
@@ -754,7 +754,7 @@ location.href = getUrl(...args);
         <item>
             <title><![CDATA[杭州购车记]]></title>
             <link>https://hotoo.co/blog/post/buying-a-car-in-hangzhou</link>
-            <guid>48</guid>
+            <guid>49</guid>
             <pubDate>Wed, 27 Jan 2016 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="杭州购车记">杭州购车记<a aria-hidden="true" href="#杭州购车记">#</a></h1>
 <p>终于在年前把车的事情搞定了，这是 2015 年做成的唯一一件大事，经历了不少坎坷，一路摸索过来，很多都是懵懂，
@@ -944,7 +944,7 @@ location.href = getUrl(...args);
         <item>
             <title><![CDATA[末尾的逗号]]></title>
             <link>https://hotoo.co/blog/post/trailing-commas</link>
-            <guid>52</guid>
+            <guid>48</guid>
             <pubDate>Mon, 10 Aug 2015 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="末尾的逗号">末尾的逗号<a aria-hidden="true" href="#末尾的逗号">#</a></h1>
 <p><img src="/images/blog/trailing%5Cncommas.png" alt="trailing commas"></img></p>
@@ -1029,7 +1029,7 @@ xml，html 等。</p>
         <item>
             <title><![CDATA[gitopen, Smart partner of git, hg and svn.]]></title>
             <link>https://hotoo.co/blog/post/gitopen</link>
-            <guid>49</guid>
+            <guid>50</guid>
             <pubDate>Fri, 24 Jul 2015 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="gitopen-smart-partner-of-git-hg-and-svn">gitopen, Smart partner of git, hg and svn.<a aria-hidden="true" href="#gitopen-smart-partner-of-git-hg-and-svn">#</a></h1>
 <p>使用 Git 的你，想必会更喜欢在终端（命令行）中使用 Git。在终端中，可以将 Git
@@ -1072,7 +1072,7 @@ xml，html 等。</p>
         <item>
             <title><![CDATA[git+, a hack of git, smart for you.]]></title>
             <link>https://hotoo.co/blog/post/gitplus</link>
-            <guid>50</guid>
+            <guid>51</guid>
             <pubDate>Wed, 27 May 2015 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="git-a-hack-of-git-smart-for-you">git+, a hack of git, smart for you.<a aria-hidden="true" href="#git-a-hack-of-git-smart-for-you">#</a></h1>
 <p>为了信息安全，公司搭建了 gitlab.company.com 管理代码，同时限制了必须使用工作邮箱
@@ -1103,7 +1103,7 @@ pre\ncommit:
         <item>
             <title><![CDATA[集团开源星人奖和 IKBC POKER II 机械键盘]]></title>
             <link>https://hotoo.co/blog/post/ikbc-poker-ii</link>
-            <guid>51</guid>
+            <guid>52</guid>
             <pubDate>Wed, 27 May 2015 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="集团开源星人奖和-ikbc-poker-ii-机械键盘">集团开源星人奖和 IKBC POKER II 机械键盘<a aria-hidden="true" href="#集团开源星人奖和-ikbc-poker-ii-机械键盘">#</a></h1>
 <p>很幸运获得了集团开源星人奖：最活跃个人奖，奖品是 IKBC POKER II 机械键盘，同时
@@ -1112,9 +1112,71 @@ pre\ncommit:
 ]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[或者说『耗时包含了 Blocking 部分的时间』]]></title>
+            <link>https://hotoo.co/blog/post/serious-confusion-with-resource-timing</link>
+            <guid>53</guid>
+            <pubDate>Tue, 30 Dec 2014 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="译严重混乱的-resource-timing">译：严重混乱的 Resource Timing<a aria-hidden="true" href="#译严重混乱的-resource-timing">#</a></h1>
+<h1 id="或者说耗时包含了-blocking-部分的时间">或者说『耗时包含了 Blocking 部分的时间』<a aria-hidden="true" href="#或者说耗时包含了-blocking-部分的时间">#</a></h1>
+<p>用 <a href="https://www.w3.org/TR/resource%5Cntiming/" target="_blank" rel="noopener noreferrer">Resource Timing</a> 来同统计资源下载性能
+是非常赞的方式，但不幸的是，几乎所有和我聊过的人都是使用 <a href="https://www.w3.org/TR/resource%5Cntiming/#duration%5Cnattribute" target="_blank" rel="noopener noreferrer"><code>duration</code> 属性</a>，
+而且他们都没有意识到 <code>duration</code> 包含了 blocking 时间。结果 <code>duration</code> 时间
+比实际的下载时间要长很多，超出了开发者意料之外的结果。这个问题在跨域资源中
+尤为糟糕，<code>duration</code> 是唯一可用的。在这篇博文中我将解释这个问题，并提出解决方案。</p>
+<h2 id="resource-timing-回顾">Resource Timing 回顾<a aria-hidden="true" href="#resource-timing-回顾">#</a></h2>
+<p><a href="https://www.w3.org/TR/resource%5Cntiming/" target="_blank" rel="noopener noreferrer">Resource Timing 规范</a> 定义了收集网页中
+所有资源耗时统计的 API。现在可用于 Chrome, Chrome for Android, IE 10\n11, 和 Opera。
+可以通过 <code>getEntries()</code>, <code>getEntriesByType()</code> 和 <code>getEntriesByName()</code> 得到一个
+<code>PerformanceEntry</code> 列表，一个 <code>PerformanceEntry</code> 对象包含以下属性：</p>
+<p>\n <code>name</code> – URL 地址
+\n <code>entryType</code> – 通常是 “resource”
+\n <code>startTime</code> – 开始处理这个资源的时间（相对开始导航到页面时的毫秒数）
+\n <code>duration</code> – 处理这个资源的总耗时（毫秒）</p>
+<p>上面的属性在所有的资源中都可用，包括同域和跨域的。而同域的资源拥有另外一些可以
+访问的附加属性，这些属性定义在 <code>PerformanceResourceTiming</code> 接口中。这些属性名称
+很简洁清晰，完全可以见名思意，并且以时间顺序排序：</p>
+<p>\n redirectStart
+\n redirectEnd
+\n fetchStart
+\n domainLookupStart
+\n domainLookupEnd
+\n connectStart
+\n connectEnd
+\n secureConnectionStart
+\n requestStart
+\n responseStart
+\n responseEnd</p>
+<p>这里有个权威的 <a href="https://www.w3.org/TR/resource%5Cntiming/#processing%5Cnmodel" target="_blank" rel="noopener noreferrer">处理模型(processing model)</a> 图
+显示了这些属性所在的各个不同阶段。备注：<code>duration</code> 相当于 <code>responseEnd \n startTime</code>。</p>
+<p><img src="https://www.w3.org/TR/resource%5Cntiming/resource%5Cntiming%5Cnoverview.png" alt="processing model graphic"></img></p>
+<p>如何使用 Resource Timing 的详细信息，可以参考我的文章 <a href="https://www.stevesouders.com/blog/2014/08/21/resource%5Cntiming%5Cnpractical%5Cntips/" target="_blank" rel="noopener noreferrer">Resource Timing Practical Tips</a> 『<a href="./resource%5Cntiming%5Cnpractical%5Cntips">译者的中文翻译</a>』</p>
+<h2 id="duration-中出乎意外的-blocking-膨胀"><code>duration</code> 中出乎意外的 blocking 膨胀<a aria-hidden="true" href="#duration-中出乎意外的-blocking-膨胀">#</a></h2>
+<p>出于隐私的考虑，同源资源的 PerformanceResourceTiming 属性是受限的。（备注：
+任何资源可以通过 <code>Timing\nAllow\nOrigin</code> 响应头达到“同源”效果。）现在大约有一半
+的资源是跨域的，因此 <code>duration</code> 是度量加载时间的唯一方式。而且即使是同源资源，
+<code>duration</code> 也是唯一以增量方式提供的属性，大概是因为它度量了最重要的阶段。
+这样一来，所有我见过的 Resource Timing 实现都以 <code>duration</code> 做为主要的性能指标。</p>
+<p>不幸的是，<code>duration</code> 比下载时间要大，它包含了阻塞时间（blocking time）—— 浏览器
+意识到需要下载一个资源，到这个资源实际被下载直接的时间延迟。阻塞会在几种情况时
+发生，最典型的资源数量比 TCP 连接数要多的情况。大多数浏览器为每个主机开放了 6
+个 TCP 连接，IE10（8个连接）和 IE11（12个连接）例外。</p>
+<p>这个 <a href="https://stevesouders.com/tests/rt%5Cnblocking.php" target="_blank" rel="noopener noreferrer">Resource Timing 阻塞测试页面</a>
+有 16 个图片，因此无论哪个浏览器都会阻塞一部分图片。每个图片被编程为在服务器
+有 1 秒的延迟，这 16 个图片，每个图片都显示了 <code>startTime</code> 和 <code>duration</code>。
+另外还有这个测试页面在 WebPagetest 中通过 <a href="https://www.webpagetest.org/result/141125%5Cn4T%5Cn11FT/" target="_blank" rel="noopener noreferrer">Chrome</a>,
+<a href="https://www.webpagetest.org/result/141125%5CnBN%5Cn11FY/" target="_blank" rel="noopener noreferrer">IE10</a> 和
+<a href="https://www.webpagetest.org/result/141125%5Cn5K%5Cn11CB/" target="_blank" rel="noopener noreferrer">IE11</a> 加载的测试结果，
+可以通过查看截屏来分析时序结果。注，为什么所有的图片的 <code>startTime</code> 大致都相同？
+英文这个时间是浏览器解析 IMG 标签并意识到需要下载改资源的时间，由于先下载的图片
+阻塞的原因，但在页面出现后，图片的 <code>duration</code> 值大约步进 1 秒左右。</p>
+<h2 id="译者补充">译者补充<a aria-hidden="true" href="#译者补充">#</a></h2>
+<p>\n <a href="https://www.stevesouders.com/blog/2014/11/25/serious%5Cnconfusion%5Cnwith%5Cnresource%5Cntiming/" target="_blank" rel="noopener noreferrer">SERIOUS CONFUSION with Resource Timing</a> \n 原文出处。</p>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[译：Resource Timing (资源计时) 使用技巧]]></title>
             <link>https://hotoo.co/blog/post/resource-timing-practical-tips</link>
-            <guid>53</guid>
+            <guid>54</guid>
             <pubDate>Tue, 30 Dec 2014 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="译resource-timing-资源计时-使用技巧">译：Resource Timing (资源计时) 使用技巧<a aria-hidden="true" href="#译resource-timing-资源计时-使用技巧">#</a></h1>
 <p><a href="https://www.w3.org/2010/webperf/" target="_blank" rel="noopener noreferrer">W3C Web 性能工作组</a> 在 2012 年给我们带来了
@@ -1314,71 +1376,9 @@ Boomerang 是 Philip Tellis 维护的一个非常流行的开源 RUM 包。他�
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[或者说『耗时包含了 Blocking 部分的时间』]]></title>
-            <link>https://hotoo.co/blog/post/serious-confusion-with-resource-timing</link>
-            <guid>55</guid>
-            <pubDate>Tue, 30 Dec 2014 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h1 id="译严重混乱的-resource-timing">译：严重混乱的 Resource Timing<a aria-hidden="true" href="#译严重混乱的-resource-timing">#</a></h1>
-<h1 id="或者说耗时包含了-blocking-部分的时间">或者说『耗时包含了 Blocking 部分的时间』<a aria-hidden="true" href="#或者说耗时包含了-blocking-部分的时间">#</a></h1>
-<p>用 <a href="https://www.w3.org/TR/resource%5Cntiming/" target="_blank" rel="noopener noreferrer">Resource Timing</a> 来同统计资源下载性能
-是非常赞的方式，但不幸的是，几乎所有和我聊过的人都是使用 <a href="https://www.w3.org/TR/resource%5Cntiming/#duration%5Cnattribute" target="_blank" rel="noopener noreferrer"><code>duration</code> 属性</a>，
-而且他们都没有意识到 <code>duration</code> 包含了 blocking 时间。结果 <code>duration</code> 时间
-比实际的下载时间要长很多，超出了开发者意料之外的结果。这个问题在跨域资源中
-尤为糟糕，<code>duration</code> 是唯一可用的。在这篇博文中我将解释这个问题，并提出解决方案。</p>
-<h2 id="resource-timing-回顾">Resource Timing 回顾<a aria-hidden="true" href="#resource-timing-回顾">#</a></h2>
-<p><a href="https://www.w3.org/TR/resource%5Cntiming/" target="_blank" rel="noopener noreferrer">Resource Timing 规范</a> 定义了收集网页中
-所有资源耗时统计的 API。现在可用于 Chrome, Chrome for Android, IE 10\n11, 和 Opera。
-可以通过 <code>getEntries()</code>, <code>getEntriesByType()</code> 和 <code>getEntriesByName()</code> 得到一个
-<code>PerformanceEntry</code> 列表，一个 <code>PerformanceEntry</code> 对象包含以下属性：</p>
-<p>\n <code>name</code> – URL 地址
-\n <code>entryType</code> – 通常是 “resource”
-\n <code>startTime</code> – 开始处理这个资源的时间（相对开始导航到页面时的毫秒数）
-\n <code>duration</code> – 处理这个资源的总耗时（毫秒）</p>
-<p>上面的属性在所有的资源中都可用，包括同域和跨域的。而同域的资源拥有另外一些可以
-访问的附加属性，这些属性定义在 <code>PerformanceResourceTiming</code> 接口中。这些属性名称
-很简洁清晰，完全可以见名思意，并且以时间顺序排序：</p>
-<p>\n redirectStart
-\n redirectEnd
-\n fetchStart
-\n domainLookupStart
-\n domainLookupEnd
-\n connectStart
-\n connectEnd
-\n secureConnectionStart
-\n requestStart
-\n responseStart
-\n responseEnd</p>
-<p>这里有个权威的 <a href="https://www.w3.org/TR/resource%5Cntiming/#processing%5Cnmodel" target="_blank" rel="noopener noreferrer">处理模型(processing model)</a> 图
-显示了这些属性所在的各个不同阶段。备注：<code>duration</code> 相当于 <code>responseEnd \n startTime</code>。</p>
-<p><img src="https://www.w3.org/TR/resource%5Cntiming/resource%5Cntiming%5Cnoverview.png" alt="processing model graphic"></img></p>
-<p>如何使用 Resource Timing 的详细信息，可以参考我的文章 <a href="https://www.stevesouders.com/blog/2014/08/21/resource%5Cntiming%5Cnpractical%5Cntips/" target="_blank" rel="noopener noreferrer">Resource Timing Practical Tips</a> 『<a href="./resource%5Cntiming%5Cnpractical%5Cntips">译者的中文翻译</a>』</p>
-<h2 id="duration-中出乎意外的-blocking-膨胀"><code>duration</code> 中出乎意外的 blocking 膨胀<a aria-hidden="true" href="#duration-中出乎意外的-blocking-膨胀">#</a></h2>
-<p>出于隐私的考虑，同源资源的 PerformanceResourceTiming 属性是受限的。（备注：
-任何资源可以通过 <code>Timing\nAllow\nOrigin</code> 响应头达到“同源”效果。）现在大约有一半
-的资源是跨域的，因此 <code>duration</code> 是度量加载时间的唯一方式。而且即使是同源资源，
-<code>duration</code> 也是唯一以增量方式提供的属性，大概是因为它度量了最重要的阶段。
-这样一来，所有我见过的 Resource Timing 实现都以 <code>duration</code> 做为主要的性能指标。</p>
-<p>不幸的是，<code>duration</code> 比下载时间要大，它包含了阻塞时间（blocking time）—— 浏览器
-意识到需要下载一个资源，到这个资源实际被下载直接的时间延迟。阻塞会在几种情况时
-发生，最典型的资源数量比 TCP 连接数要多的情况。大多数浏览器为每个主机开放了 6
-个 TCP 连接，IE10（8个连接）和 IE11（12个连接）例外。</p>
-<p>这个 <a href="https://stevesouders.com/tests/rt%5Cnblocking.php" target="_blank" rel="noopener noreferrer">Resource Timing 阻塞测试页面</a>
-有 16 个图片，因此无论哪个浏览器都会阻塞一部分图片。每个图片被编程为在服务器
-有 1 秒的延迟，这 16 个图片，每个图片都显示了 <code>startTime</code> 和 <code>duration</code>。
-另外还有这个测试页面在 WebPagetest 中通过 <a href="https://www.webpagetest.org/result/141125%5Cn4T%5Cn11FT/" target="_blank" rel="noopener noreferrer">Chrome</a>,
-<a href="https://www.webpagetest.org/result/141125%5CnBN%5Cn11FY/" target="_blank" rel="noopener noreferrer">IE10</a> 和
-<a href="https://www.webpagetest.org/result/141125%5Cn5K%5Cn11CB/" target="_blank" rel="noopener noreferrer">IE11</a> 加载的测试结果，
-可以通过查看截屏来分析时序结果。注，为什么所有的图片的 <code>startTime</code> 大致都相同？
-英文这个时间是浏览器解析 IMG 标签并意识到需要下载改资源的时间，由于先下载的图片
-阻塞的原因，但在页面出现后，图片的 <code>duration</code> 值大约步进 1 秒左右。</p>
-<h2 id="译者补充">译者补充<a aria-hidden="true" href="#译者补充">#</a></h2>
-<p>\n <a href="https://www.stevesouders.com/blog/2014/11/25/serious%5Cnconfusion%5Cnwith%5Cnresource%5Cntiming/" target="_blank" rel="noopener noreferrer">SERIOUS CONFUSION with Resource Timing</a> \n 原文出处。</p>
-]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[GitHub, GitLab, or BitBucket?]]></title>
             <link>https://hotoo.co/blog/post/github-gitlab-or-bitbucket</link>
-            <guid>54</guid>
+            <guid>56</guid>
             <pubDate>Sun, 03 Aug 2014 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="github-gitlab-or-bitbucket">GitHub, GitLab, or BitBucket?<a aria-hidden="true" href="#github-gitlab-or-bitbucket">#</a></h1>
 <blockquote>
@@ -1432,7 +1432,7 @@ Boomerang 是 Philip Tellis 维护的一个非常流行的开源 RUM 包。他�
         <item>
             <title><![CDATA[定位到服务器集群的特定节点]]></title>
             <link>https://hotoo.co/blog/post/find-nodes-from-server-cluster</link>
-            <guid>56</guid>
+            <guid>55</guid>
             <pubDate>Thu, 17 Apr 2014 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="定位到服务器集群的特定节点">定位到服务器集群的特定节点<a aria-hidden="true" href="#定位到服务器集群的特定节点">#</a></h1>
 <blockquote>
@@ -1672,7 +1672,7 @@ var highest = &quot;1aa1&quot;.replace(/^(?:([a\nz])|([A\nZ])|([0\n9])|(.)){6,}|
         <item>
             <title><![CDATA[中国农历]]></title>
             <link>https://hotoo.co/blog/post/lunar-calendar</link>
-            <guid>61</guid>
+            <guid>62</guid>
             <pubDate>Wed, 13 Nov 2013 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="中国农历">中国农历<a aria-hidden="true" href="#中国农历">#</a></h1>
 <p>Google 日历内置了中国农历的支持，但是各种桌面客户端如 Mac iCal, iPhone 默认日历
@@ -1741,7 +1741,7 @@ Google Calendar 中可以隐藏这个日历，只是在各个客户端中显示�
         <item>
             <title><![CDATA[不缓存 CDN 静态资源方案]]></title>
             <link>https://hotoo.co/blog/post/no-cache-in-cdn</link>
-            <guid>62</guid>
+            <guid>61</guid>
             <pubDate>Sat, 21 Sep 2013 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="不缓存-cdn-静态资源方案">不缓存 CDN 静态资源方案<a aria-hidden="true" href="#不缓存-cdn-静态资源方案">#</a></h1>
 <p>支付宝目前使用淘宝提供的 CDN 服务，这个服务中的 CDN 节点在自身找不到对应资源时
@@ -1798,7 +1798,7 @@ CDN 缓存大量无意义资源的问题。</p>
         <item>
             <title><![CDATA[每周异常：第 9期，搜狗浏览器中神一样的 try/catch 特性]]></title>
             <link>https://hotoo.co/blog/post/weekly-topic-about-exceptions-9</link>
-            <guid>63</guid>
+            <guid>64</guid>
             <pubDate>Fri, 13 Sep 2013 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="每周异常第-9期搜狗浏览器中神一样的-trycatch-特性">每周异常：第 9期，搜狗浏览器中神一样的 try/catch 特性<a aria-hidden="true" href="#每周异常第-9期搜狗浏览器中神一样的-trycatch-特性">#</a></h1>
 <h2 id="背景">背景<a aria-hidden="true" href="#背景">#</a></h2>
@@ -1890,7 +1890,7 @@ try/catch 异常处理流程进行，所以对业务本身没有影响。
         <item>
             <title><![CDATA[每周异常：第 8期，异常象限]]></title>
             <link>https://hotoo.co/blog/post/weekly-topic-about-exceptions-8</link>
-            <guid>64</guid>
+            <guid>63</guid>
             <pubDate>Thu, 05 Sep 2013 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="每周异常第-8期异常象限">每周异常：第 8期，异常象限<a aria-hidden="true" href="#每周异常第-8期异常象限">#</a></h1>
 <p>上周的 <a href="weekly%5Cntopic%5Cnabout%5Cnexceptions%5Cn7.md">每周异常：第 7期，保持简单，保持拙朴</a>
@@ -1931,7 +1931,7 @@ try/catch 异常处理流程进行，所以对业务本身没有影响。
         <item>
             <title><![CDATA[每周异常：第 7期，保持简单，保持拙朴]]></title>
             <link>https://hotoo.co/blog/post/weekly-topic-about-exceptions-7</link>
-            <guid>65</guid>
+            <guid>66</guid>
             <pubDate>Wed, 28 Aug 2013 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="每周异常第-7期保持简单保持拙朴">每周异常：第 7期，保持简单，保持拙朴<a aria-hidden="true" href="#每周异常第-7期保持简单保持拙朴">#</a></h1>
 <h2 id="副标题如何简单有效的发现最重要的有效异常">副标题：如何简单有效的发现最重要的有效异常<a aria-hidden="true" href="#副标题如何简单有效的发现最重要的有效异常">#</a></h2>
@@ -1995,7 +1995,7 @@ try/catch 异常处理流程进行，所以对业务本身没有影响。
         <item>
             <title><![CDATA[每周异常：第 6期，JavaScript 异常监控脚本引发的 JavaScript 异常]]></title>
             <link>https://hotoo.co/blog/post/weekly-topic-about-exceptions-6</link>
-            <guid>66</guid>
+            <guid>65</guid>
             <pubDate>Thu, 22 Aug 2013 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="每周异常第-6期javascript-异常监控脚本引发的-javascript-异常">每周异常：第 6期，JavaScript 异常监控脚本引发的 JavaScript 异常<a aria-hidden="true" href="#每周异常第-6期javascript-异常监控脚本引发的-javascript-异常">#</a></h1>
 <h2 id="背景">背景<a aria-hidden="true" href="#背景">#</a></h2>
@@ -2134,7 +2134,7 @@ at function(fn)         ......\n
         <item>
             <title><![CDATA[每周异常：第 5期，由静态资源异常引发的质疑]]></title>
             <link>https://hotoo.co/blog/post/weekly-topic-about-exceptions-5</link>
-            <guid>67</guid>
+            <guid>68</guid>
             <pubDate>Fri, 16 Aug 2013 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="每周异常第-5期由静态资源异常引发的质疑">每周异常：第 5期，由静态资源异常引发的质疑<a aria-hidden="true" href="#每周异常第-5期由静态资源异常引发的质疑">#</a></h1>
 <p>今天要说的是一个『静态资源异常监控』的话题。虽然静态资源异常可以非常有效的跟
@@ -2183,7 +2183,7 @@ JavaScript 异常结合起来做有力的分析，但是今天这个话题跟 Ja
         <item>
             <title><![CDATA[每周异常：第 4期，如何避免客户端攻击造成的大量异常报警]]></title>
             <link>https://hotoo.co/blog/post/weekly-topic-about-exceptions-4</link>
-            <guid>68</guid>
+            <guid>67</guid>
             <pubDate>Wed, 07 Aug 2013 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="每周异常第-4期如何避免客户端攻击造成的大量异常报警">每周异常：第 4期，如何避免客户端攻击造成的大量异常报警<a aria-hidden="true" href="#每周异常第-4期如何避免客户端攻击造成的大量异常报警">#</a></h1>
 <p>在 JavaScript 异常监控过程中，发现有很多由于客户端连续攻击造成的大量异常，导致
@@ -2316,13 +2316,13 @@ Cookie，因此全天的综合数据中异常 PV  和异常 UV 有了一些明�
         </item>
         <item>
             <link>https://hotoo.co/blog/post/weekly-topic-about-exceptions-2</link>
-            <guid>72</guid>
+            <guid>71</guid>
             <pubDate>Mon, 22 Jul 2013 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[每周异常：第 1 期]]></title>
             <link>https://hotoo.co/blog/post/weekly-topic-about-exceptions-1</link>
-            <guid>71</guid>
+            <guid>72</guid>
             <pubDate>Mon, 15 Jul 2013 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="每周异常第-1-期">每周异常：第 1 期<a aria-hidden="true" href="#每周异常第-1-期">#</a></h1>
 <p>2013\n07\n15 14:00~14:03，来自<a href="https://www.ip.cn/?q=180.184.99.37" target="_blank" rel="noopener noreferrer">北京市时代互联(180.184.99.37)</a>
@@ -2514,7 +2514,7 @@ VIM \n Vi IMproved 7.4 (2013 Aug 10)
         <item>
             <title><![CDATA[JavaScript Strict Mode]]></title>
             <link>https://hotoo.co/blog/post/use-strict-mode</link>
-            <guid>209</guid>
+            <guid>75</guid>
             <pubDate>Sun, 19 May 2013 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="javascript-strict-mode">JavaScript Strict Mode<a aria-hidden="true" href="#javascript-strict-mode">#</a></h1>
 <p>ECMAScript 5 定义了严格模式。开发者在代码中写上 <code>&quot;use strict&quot;</code> 标识，浏览器就会
@@ -2554,7 +2554,7 @@ VIM \n Vi IMproved 7.4 (2013 Aug 10)
         <item>
             <title><![CDATA[就近原则：JavaScript 块级作用域的变量定义]]></title>
             <link>https://hotoo.co/blog/post/block-scope-variable-defined</link>
-            <guid>75</guid>
+            <guid>76</guid>
             <pubDate>Thu, 25 Apr 2013 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="就近原则javascript-块级作用域的变量定义">就近原则：JavaScript 块级作用域的变量定义<a aria-hidden="true" href="#就近原则javascript-块级作用域的变量定义">#</a></h1>
 <blockquote>
@@ -2721,7 +2721,7 @@ true scope of the variables.</p>
         <item>
             <title><![CDATA[Github 的 404 页面是个好路由]]></title>
             <link>https://hotoo.co/blog/post/github-404-is-a-good-route</link>
-            <guid>76</guid>
+            <guid>77</guid>
             <pubDate>Sun, 24 Mar 2013 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="github-的-404-页面是个好路由">Github 的 404 页面是个好路由<a aria-hidden="true" href="#github-的-404-页面是个好路由">#</a></h1>
 <p>上周五周会上 @玉伯 做了个微分享：由于新浪微博的 BUG，不会将 https 的 URL 自动
@@ -2751,7 +2751,7 @@ true scope of the variables.</p>
         <item>
             <title><![CDATA[个人资金管理软件]]></title>
             <link>https://hotoo.co/blog/post/personal-financial-manage-soft</link>
-            <guid>77</guid>
+            <guid>140</guid>
             <pubDate>Sun, 17 Feb 2013 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="个人资金管理软件">个人资金管理软件<a aria-hidden="true" href="#个人资金管理软件">#</a></h1>
 <p>过年花掉不少钱，而其中有一部分是喜酒之类的礼金，按照礼尚往来的习俗，这些礼金
@@ -3345,7 +3345,7 @@ new Date(undefined);// IE:NaN; Others:Invalid Date.
         <item>
             <title><![CDATA[计算高度的时机]]></title>
             <link>https://hotoo.co/blog/post/iframe-highly-adaptive</link>
-            <guid>91</guid>
+            <guid>92</guid>
             <pubDate>Wed, 24 Aug 2011 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="深入-iframe-自适应高度">深入 Iframe 自适应高度<a aria-hidden="true" href="#深入-iframe-自适应高度">#</a></h1>
 <p>DOCTYPE(CSS1Compat): HTML5, HTML4.01 Strict, HTML4.01 Transitional,
@@ -3427,7 +3427,7 @@ function getParentFrame(){
         <item>
             <title><![CDATA[获取元素所绑定的事件列表]]></title>
             <link>https://hotoo.co/blog/post/eventlistenerlist</link>
-            <guid>92</guid>
+            <guid>91</guid>
             <pubDate>Fri, 19 Aug 2011 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="获取元素所绑定的事件列表">获取元素所绑定的事件列表<a aria-hidden="true" href="#获取元素所绑定的事件列表">#</a></h1>
 <p>技术上有什么办法获得指定 HTMLElement 上有绑定那些 #JavaScript 函数事件，及其处理函数么？</p>
@@ -3448,7 +3448,7 @@ function getParentFrame(){
         <item>
             <title><![CDATA[宏伟的 Vimlike.js 计划]]></title>
             <link>https://hotoo.co/blog/post/vimlike-project</link>
-            <guid>93</guid>
+            <guid>94</guid>
             <pubDate>Tue, 16 Aug 2011 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="宏伟的-vimlikejs-计划">宏伟的 Vimlike.js 计划<a aria-hidden="true" href="#宏伟的-vimlikejs-计划">#</a></h1>
 <p>一直在想：网站本身提供的快捷键支持（如 Gmail, GReader, Gplus, Twitter），
@@ -3469,7 +3469,7 @@ function getParentFrame(){
         <item>
             <title><![CDATA[Abort HTTP 请求]]></title>
             <link>https://hotoo.co/blog/post/abort-http-request</link>
-            <guid>94</guid>
+            <guid>93</guid>
             <pubDate>Fri, 22 Jul 2011 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="abort-http-请求">Abort HTTP 请求<a aria-hidden="true" href="#abort-http-请求">#</a></h1>
 <p>\n</p>
@@ -3856,7 +3856,7 @@ IT 给我一台谁谁用过的小白，然后我就出来了。</p>
         <item>
             <title><![CDATA[丢弃图片的 HTTP 请求]]></title>
             <link>https://hotoo.co/blog/post/abort-image-request</link>
-            <guid>104</guid>
+            <guid>105</guid>
             <pubDate>Thu, 23 Jun 2011 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="丢弃图片的-http-请求">丢弃图片的 HTTP 请求<a aria-hidden="true" href="#丢弃图片的-http-请求">#</a></h1>
 <p>\n</p>
@@ -3960,7 +3960,7 @@ appendChild 到 DOM 中会去请求指定资源，可以到底向日志服务器
         <item>
             <title><![CDATA[如何取 URL 中第一个单独的问号(?) 位置]]></title>
             <link>https://hotoo.co/blog/post/how-to-get-the-first-single-question-mark</link>
-            <guid>105</guid>
+            <guid>104</guid>
             <pubDate>Wed, 22 Jun 2011 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="如何取-url-中第一个单独的问号-位置">如何取 URL 中第一个单独的问号(?) 位置<a aria-hidden="true" href="#如何取-url-中第一个单独的问号-位置">#</a></h1>
 <p>新版 Arale 通过 nginx 服务支持使用双问号的访问方式：</p>
@@ -4660,7 +4660,7 @@ IE 浏览器能得到 4 个参数（比 onerror 多一个），但有效的还�
         <item>
             <title><![CDATA[联动的设计]]></title>
             <link>https://hotoo.co/blog/post/linkage</link>
-            <guid>119</guid>
+            <guid>120</guid>
             <pubDate>Tue, 23 Nov 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="联动的设计">联动的设计<a aria-hidden="true" href="#联动的设计">#</a></h1>
 <p>联动控件一般用于下拉列表，例如省市县的联动。</p>
@@ -4686,7 +4686,7 @@ IE 浏览器能得到 4 个参数（比 onerror 多一个），但有效的还�
         <item>
             <title><![CDATA[同步客户端时间(续)]]></title>
             <link>https://hotoo.co/blog/post/sync-client-time</link>
-            <guid>120</guid>
+            <guid>119</guid>
             <pubDate>Mon, 15 Nov 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="同步客户端时间续">同步客户端时间(续)<a aria-hidden="true" href="#同步客户端时间续">#</a></h1>
 <p>08 年我就有了这样的 <a href="correct%5Cnweb%5Cnclient%5Cndatetime.html">想法</a>，却到今天才开始实践。</p>
@@ -5047,7 +5047,7 @@ End Sub</p>
         <item>
             <title><![CDATA[【已结束】 ~~关于团购庆祝 Vim 7.3 正式发布的 Tee~~]]></title>
             <link>https://hotoo.co/blog/post/vim73-tee</link>
-            <guid>129</guid>
+            <guid>130</guid>
             <pubDate>Sat, 14 Aug 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="已结束-关于团购庆祝-vim-73-正式发布的-tee">【已结束】 <del>关于团购庆祝 Vim 7.3 正式发布的 Tee</del><a aria-hidden="true" href="#已结束-关于团购庆祝-vim-73-正式发布的-tee">#</a></h1>
 <p>我在 Twitter 上随意说了句相关的 <a href="https://twitter.com/hotoo/status/21126325142" target="_blank" rel="noopener noreferrer">意向</a>，
@@ -5130,7 +5130,7 @@ Tee 可以直接发到每个人手中，考虑到运费，我提议同城的统�
         <item>
             <title><![CDATA[SQL LIKE 查询的一个问题]]></title>
             <link>https://hotoo.co/blog/post/about-sql-like</link>
-            <guid>182</guid>
+            <guid>129</guid>
             <pubDate>Fri, 13 Aug 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="sql-like-查询的一个问题">SQL LIKE 查询的一个问题<a aria-hidden="true" href="#sql-like-查询的一个问题">#</a></h1>
 <p>在做用户管理的时候，用户表(users) 有一个字段(dept)用来存储用户所在部门的信息，
@@ -5170,7 +5170,7 @@ OR dept LIKE &quot;XX宝\nCEO\n%&quot;;
         <item>
             <title><![CDATA[用 gvim 比较 git diff]]></title>
             <link>https://hotoo.co/blog/post/gitdiff-with-vim</link>
-            <guid>130</guid>
+            <guid>131</guid>
             <pubDate>Sun, 01 Aug 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="用-gvim-比较-git-diff">用 gvim 比较 git diff<a aria-hidden="true" href="#用-gvim-比较-git-diff">#</a></h1>
 <h2 id="for-windows">for Windows<a aria-hidden="true" href="#for-windows">#</a></h2>
@@ -5197,7 +5197,7 @@ diff =</p>
         <item>
             <title><![CDATA[整合状态按钮和导向按钮]]></title>
             <link>https://hotoo.co/blog/post/integrate-guide-button-and-status-button</link>
-            <guid>183</guid>
+            <guid>132</guid>
             <pubDate>Sat, 31 Jul 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="整合状态按钮和导向按钮">整合状态按钮和导向按钮<a aria-hidden="true" href="#整合状态按钮和导向按钮">#</a></h1>
 <p><a href="https://hotoo.github.com/labs/integrate%5Cnguide%5Cnbutton%5Cnand%5Cnstatus%5Cnbutton.html" target="_blank" rel="noopener noreferrer">Demo</a></p>
@@ -5208,7 +5208,7 @@ diff =</p>
         <item>
             <title><![CDATA[使用 calendar.vim]]></title>
             <link>https://hotoo.co/blog/post/use-vim-calendar</link>
-            <guid>208</guid>
+            <guid>133</guid>
             <pubDate>Fri, 23 Jul 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="使用-calendarvim">使用 calendar.vim<a aria-hidden="true" href="#使用-calendarvim">#</a></h1>
 <p>最初看到明城 <a href="https://www.gracecode.com/archives/674/" target="_blank" rel="noopener noreferrer">推荐使用 Vim Calendar 插件</a>，
@@ -5232,13 +5232,13 @@ Wiki 项目中无需 diary，diary 无需包含在每个 Wiki 项目里。</p>
         </item>
         <item>
             <link>https://hotoo.co/blog/post/open-files-in-vim-tabs</link>
-            <guid>131</guid>
+            <guid>135</guid>
             <pubDate>Fri, 25 Jun 2010 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Vim 自动补全成对的括号和引号]]></title>
             <link>https://hotoo.co/blog/post/vim-autocomplete-pairs</link>
-            <guid>132</guid>
+            <guid>134</guid>
             <pubDate>Sun, 20 Jun 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="vim-自动补全成对的括号和引号">Vim 自动补全成对的括号和引号<a aria-hidden="true" href="#vim-自动补全成对的括号和引号">#</a></h1>
 <p>炫日分享了一个 <a href="https://aoyme.wordpress.com/2010/05/31/%E5%9C%A8vim%E4%B8%AD%E5%B0%86%E6%8B%AC%E5%8F%B7%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%EF%BC%9A/" target="_blank" rel="noopener noreferrer">自动补全成对的括号</a>
@@ -5291,7 +5291,7 @@ endf
         <item>
             <title><![CDATA[在 Google Maps 的街景视图里看实况足球]]></title>
             <link>https://hotoo.co/blog/post/3d-game-in-google-maps</link>
-            <guid>133</guid>
+            <guid>137</guid>
             <pubDate>Wed, 16 Jun 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="在-google-maps-的街景视图里看实况足球">在 Google Maps 的街景视图里看实况足球<a aria-hidden="true" href="#在-google-maps-的街景视图里看实况足球">#</a></h1>
 <p>我承认我标题党了，这只是我的一个 idea 而已，并没有实际实现。</p>
@@ -5320,7 +5320,7 @@ endf
         <item>
             <title><![CDATA[用 Google Code 管理与发布 Wiki]]></title>
             <link>https://hotoo.co/blog/post/vimwiki-google-code</link>
-            <guid>134</guid>
+            <guid>136</guid>
             <pubDate>Thu, 20 May 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="用-google-code-管理与发布-wiki">用 Google Code 管理与发布 Wiki<a aria-hidden="true" href="#用-google-code-管理与发布-wiki">#</a></h1>
 <p>由于 <a href="Dropbox%5Cndied%5Cnin%5CnChina.html">Dropbox 的墙掉</a>，https 协议访问 dl 或 dl\nweb 子域
@@ -5358,7 +5358,7 @@ Wiki 语法的一个子集，所以基本可以天衣无缝的配合使用。</p
         <item>
             <title><![CDATA[让 Vim 支持 LOG 文件]]></title>
             <link>https://hotoo.co/blog/post/log-syntax-4-vim</link>
-            <guid>135</guid>
+            <guid>138</guid>
             <pubDate>Thu, 13 May 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="让-vim-支持-log-文件">让 Vim 支持 LOG 文件<a aria-hidden="true" href="#让-vim-支持-log-文件">#</a></h1>
 <p>日志(.LOG)文件的基本上无章可循，各成风格。所以一般都是在纯文本模式下查看。
@@ -5378,7 +5378,7 @@ Wiki 语法的一个子集，所以基本可以天衣无缝的配合使用。</p
         <item>
             <title><![CDATA[Dropbox 的墙掉]]></title>
             <link>https://hotoo.co/blog/post/dropbox-died-in-china</link>
-            <guid>136</guid>
+            <guid>181</guid>
             <pubDate>Mon, 10 May 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="dropbox-的墙掉">Dropbox 的墙掉<a aria-hidden="true" href="#dropbox-的墙掉">#</a></h1>
 <p>其他的都不想说，只希望 Dropbox 的开放性能更强大，比如 API 或者分布式
@@ -5393,7 +5393,7 @@ Wiki 语法的一个子集，所以基本可以天衣无缝的配合使用。</p
         <item>
             <title><![CDATA[天目山拓展活动]]></title>
             <link>https://hotoo.co/blog/post/outreach-activities-2010-04</link>
-            <guid>137</guid>
+            <guid>182</guid>
             <pubDate>Sat, 17 Apr 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="天目山拓展活动">天目山拓展活动<a aria-hidden="true" href="#天目山拓展活动">#</a></h1>
 <p>公司组织了一次天目山野外拓展活动，收益良多，这里稍事记录。</p>
@@ -5433,7 +5433,7 @@ Wiki 语法的一个子集，所以基本可以天衣无缝的配合使用。</p
         <item>
             <title><![CDATA[Vim 学习路线]]></title>
             <link>https://hotoo.co/blog/post/vim-tutor</link>
-            <guid>138</guid>
+            <guid>210</guid>
             <pubDate>Sun, 11 Apr 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="vim-学习路线">Vim 学习路线<a aria-hidden="true" href="#vim-学习路线">#</a></h1>
 <p>因为是完全自学，身边没有这方面的导师，所以在真正入门之前，我是完全不理解 Vim
@@ -5467,7 +5467,7 @@ Vim。</p>
         <item>
             <title><![CDATA[欢迎加入 Vim 的 Gtalk 群]]></title>
             <link>https://hotoo.co/blog/post/gtalk-group-for-vim</link>
-            <guid>139</guid>
+            <guid>141</guid>
             <pubDate>Fri, 09 Apr 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="欢迎加入-vim-的-gtalk-群">欢迎加入 Vim 的 Gtalk 群<a aria-hidden="true" href="#欢迎加入-vim-的-gtalk-群">#</a></h1>
 <blockquote>
@@ -5600,7 +5600,7 @@ Vim。</p>
         <item>
             <title><![CDATA[有中国特色的社会主义笑话]]></title>
             <link>https://hotoo.co/blog/post/china-joke</link>
-            <guid>140</guid>
+            <guid>139</guid>
             <pubDate>Thu, 08 Apr 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="有中国特色的社会主义笑话">有中国特色的社会主义笑话<a aria-hidden="true" href="#有中国特色的社会主义笑话">#</a></h1>
 <p>笑料：</p>
@@ -5619,7 +5619,7 @@ Vim。</p>
         <item>
             <title><![CDATA[表单设计]]></title>
             <link>https://hotoo.co/blog/post/form-design</link>
-            <guid>141</guid>
+            <guid>142</guid>
             <pubDate>Thu, 08 Apr 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="表单设计">表单设计<a aria-hidden="true" href="#表单设计">#</a></h1>
 <p>\n</p>
@@ -5631,7 +5631,7 @@ Vim。</p>
         <item>
             <title><![CDATA[轉換編碼筆記]]></title>
             <link>https://hotoo.co/blog/post/convert-encoding-note</link>
-            <guid>142</guid>
+            <guid>143</guid>
             <pubDate>Wed, 07 Apr 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="轉換編碼筆記">轉換編碼筆記<a aria-hidden="true" href="#轉換編碼筆記">#</a></h1>
 <p>今天發現一個顯示為亂碼的 html 頁面，發現是當前頁面和 reference 頁面編碼
@@ -5653,13 +5653,13 @@ Vim。</p>
         </item>
         <item>
             <link>https://hotoo.co/blog/post/use-vimwiki-for-blog</link>
-            <guid>143</guid>
+            <guid>144</guid>
             <pubDate>Mon, 29 Mar 2010 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[周数(Week Number, WeekNum)计算]]></title>
             <link>https://hotoo.co/blog/post/weeknumber</link>
-            <guid>144</guid>
+            <guid>145</guid>
             <pubDate>Tue, 16 Mar 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="周数week-number-weeknum计算">周数(Week Number, WeekNum)计算<a aria-hidden="true" href="#周数week-number-weeknum计算">#</a></h1>
 <p>jQuery UI v1.8rc 版的日历控件已经非常完善，比之 v1.7.1 已经支持显示周数(WeekNum)，
@@ -5696,7 +5696,7 @@ calculateWeek:function(date){
         <item>
             <title><![CDATA[Vim 中文帮助文档]]></title>
             <link>https://hotoo.co/blog/post/vim-chinese-doc</link>
-            <guid>145</guid>
+            <guid>147</guid>
             <pubDate>Mon, 15 Mar 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="vim-中文帮助文档">Vim 中文帮助文档<a aria-hidden="true" href="#vim-中文帮助文档">#</a></h1>
 <p>前两天不知道为什么，帮助文档又跑会英文了（隐约是用 Vimball 安装了 Vimwiki
@@ -5759,7 +5759,7 @@ calculateWeek:function(date){
         <item>
             <title><![CDATA[禁用CNNIC的所谓安全证书]]></title>
             <link>https://hotoo.co/blog/post/forbid-cnnic</link>
-            <guid>147</guid>
+            <guid>148</guid>
             <pubDate>Tue, 02 Feb 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="禁用cnnic的所谓安全证书">禁用CNNIC的所谓安全证书<a aria-hidden="true" href="#禁用cnnic的所谓安全证书">#</a></h1>
 <p>我个人是不信任 CNNIC 的，这里只是记录一下自己的学习过程，对 CNNIC 仍抱有幻想的同学可以无视。</p>
@@ -5779,7 +5779,7 @@ calculateWeek:function(date){
         <item>
             <title><![CDATA[“正则表达式”分享资料]]></title>
             <link>https://hotoo.co/blog/post/regex-share</link>
-            <guid>148</guid>
+            <guid>149</guid>
             <pubDate>Sun, 31 Jan 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="正则表达式分享资料">“正则表达式”分享资料<a aria-hidden="true" href="#正则表达式分享资料">#</a></h1>
 <p>这周三做了一次内部“正则表达式”分享活动，本来是针对小组成员的分享，
@@ -5794,7 +5794,7 @@ calculateWeek:function(date){
         </item>
         <item>
             <link>https://hotoo.co/blog/post/editplus-and-everything</link>
-            <guid>149</guid>
+            <guid>151</guid>
             <pubDate>Wed, 27 Jan 2010 00:00:00 GMT</pubDate>
         </item>
         <item>
@@ -5831,7 +5831,7 @@ calculateWeek:function(date){
         <item>
             <title><![CDATA[arguments to Array 之效率]]></title>
             <link>https://hotoo.co/blog/post/performance-of-arguments-to-array</link>
-            <guid>151</guid>
+            <guid>153</guid>
             <pubDate>Thu, 07 Jan 2010 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="arguments-to-array-之效率">arguments to Array 之效率<a aria-hidden="true" href="#arguments-to-array-之效率">#</a></h1>
 <p>怿飞昨天发有一篇《<a href="https://www.planabc.net/2010/01/06/arguments%5Cnto%5Cnarray/" target="_blank" rel="noopener noreferrer">如何将函数的实际参数转换成数组</a>》
@@ -5882,18 +5882,18 @@ Safari 4, Opera 10）下一一测试。也欢迎各位参与测试并将结果�
         </item>
         <item>
             <link>https://hotoo.co/blog/post/safari-4-select-bug</link>
-            <guid>153</guid>
+            <guid>154</guid>
             <pubDate>Tue, 05 Jan 2010 00:00:00 GMT</pubDate>
         </item>
         <item>
             <link>https://hotoo.co/blog/post/cpp-check-type</link>
-            <guid>154</guid>
+            <guid>155</guid>
             <pubDate>Thu, 31 Dec 2009 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[反向搜索的设计]]></title>
             <link>https://hotoo.co/blog/post/reverse-search</link>
-            <guid>155</guid>
+            <guid>157</guid>
             <pubDate>Thu, 31 Dec 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="反向搜索的设计">反向搜索的设计<a aria-hidden="true" href="#反向搜索的设计">#</a></h1>
 <p>文本搜索是一项非常常用的功能，在文本编辑器中更是一个不可或缺的功能。</p>
@@ -5929,9 +5929,28 @@ Safari 4, Opera 10）下一一测试。也欢迎各位参与测试并将结果�
             <pubDate>Fri, 04 Dec 2009 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[让 Vim 支持 cue]]></title>
+            <link>https://hotoo.co/blog/post/vim-cue</link>
+            <guid>158</guid>
+            <pubDate>Fri, 06 Nov 2009 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<h1 id="让-vim-支持-cue">让 Vim 支持 cue<a aria-hidden="true" href="#让-vim-支持-cue">#</a></h1>
+<h2 id="自动识别文件类型">自动识别文件类型<a aria-hidden="true" href="#自动识别文件类型">#</a></h2>
+<p>在 \nVIM/vim72/filetype.vim 中加入以下代码：</p>
+<pre><code>au BufRead,BufNewFile \n.cue setfiletype cue
+</code></pre>
+<h2 id="语法高亮">语法高亮<a aria-hidden="true" href="#语法高亮">#</a></h2>
+<p>下载 <a href="https://hotoo.googlecode.com/svn/trunk/vim/vimfiles/syntax/cue.vim" target="_blank" rel="noopener noreferrer">cue.vim</a>
+放至 <code>\nVIM/vimfiles/syntax/</code> 目录下。</p>
+<h2 id="自动补全">自动补全<a aria-hidden="true" href="#自动补全">#</a></h2>
+<p>如果已安装 <a href="https://www.vim.org/scripts/script.php?script%5Cnid=2540" target="_blank" rel="noopener noreferrer">snipMate</a>。
+下载 <a href="https://hotoo.googlecode.com/svn/trunk/vim/vimfiles/snippets/cue.snippets" target="_blank" rel="noopener noreferrer">cue.snippets</a>
+放至 <code>\nVIM/vimfiles/snippets/</code> 目录下即可。</p>
+]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[让 Vim 支持 CSS3]]></title>
             <link>https://hotoo.co/blog/post/vim-css3</link>
-            <guid>157</guid>
+            <guid>159</guid>
             <pubDate>Fri, 06 Nov 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="让-vim-支持-css3">让 Vim 支持 CSS3<a aria-hidden="true" href="#让-vim-支持-css3">#</a></h1>
 <p>和 <a href="https://www.w3.org/TR/html5/" target="_blank" rel="noopener noreferrer">HTML5</a> 一样，<a href="https://www.w3.org/TR/css3%5Cnroadmap/" target="_blank" rel="noopener noreferrer">CSS3</a>
@@ -5956,28 +5975,9 @@ Safari 4, Opera 10）下一一测试。也欢迎各位参与测试并将结果�
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[让 Vim 支持 cue]]></title>
-            <link>https://hotoo.co/blog/post/vim-cue</link>
-            <guid>158</guid>
-            <pubDate>Fri, 06 Nov 2009 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h1 id="让-vim-支持-cue">让 Vim 支持 cue<a aria-hidden="true" href="#让-vim-支持-cue">#</a></h1>
-<h2 id="自动识别文件类型">自动识别文件类型<a aria-hidden="true" href="#自动识别文件类型">#</a></h2>
-<p>在 \nVIM/vim72/filetype.vim 中加入以下代码：</p>
-<pre><code>au BufRead,BufNewFile \n.cue setfiletype cue
-</code></pre>
-<h2 id="语法高亮">语法高亮<a aria-hidden="true" href="#语法高亮">#</a></h2>
-<p>下载 <a href="https://hotoo.googlecode.com/svn/trunk/vim/vimfiles/syntax/cue.vim" target="_blank" rel="noopener noreferrer">cue.vim</a>
-放至 <code>\nVIM/vimfiles/syntax/</code> 目录下。</p>
-<h2 id="自动补全">自动补全<a aria-hidden="true" href="#自动补全">#</a></h2>
-<p>如果已安装 <a href="https://www.vim.org/scripts/script.php?script%5Cnid=2540" target="_blank" rel="noopener noreferrer">snipMate</a>。
-下载 <a href="https://hotoo.googlecode.com/svn/trunk/vim/vimfiles/snippets/cue.snippets" target="_blank" rel="noopener noreferrer">cue.snippets</a>
-放至 <code>\nVIM/vimfiles/snippets/</code> 目录下即可。</p>
-]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[让Vim支持html5]]></title>
             <link>https://hotoo.co/blog/post/vim-html5</link>
-            <guid>159</guid>
+            <guid>160</guid>
             <pubDate>Sun, 01 Nov 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="让vim支持html5">让Vim支持html5<a aria-hidden="true" href="#让vim支持html5">#</a></h1>
 <p><a href="https://www.w3.org/TR/html5/" target="_blank" rel="noopener noreferrer">html5</a> 呼之已出，众多的现代浏览器也已支持其大半新特性。</p>
@@ -6007,18 +6007,18 @@ HTML5 标记和属性。</p>
         </item>
         <item>
             <link>https://hotoo.co/blog/post/validator-for-vim</link>
-            <guid>160</guid>
+            <guid>161</guid>
             <pubDate>Sun, 25 Oct 2009 00:00:00 GMT</pubDate>
         </item>
         <item>
             <link>https://hotoo.co/blog/post/fuck-gfw-with-tor</link>
-            <guid>161</guid>
+            <guid>162</guid>
             <pubDate>Sat, 24 Oct 2009 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Firefox Profile 及多实例运行]]></title>
             <link>https://hotoo.co/blog/post/firefox-profile-and-multi-instance</link>
-            <guid>162</guid>
+            <guid>163</guid>
             <pubDate>Thu, 22 Oct 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="firefox-profile-及多实例运行">Firefox Profile 及多实例运行<a aria-hidden="true" href="#firefox-profile-及多实例运行">#</a></h1>
 <p>\n</p>
@@ -6066,7 +6066,7 @@ autocmd FileType dosbatch nmap &lt;F5&gt; :exe &#39;!&quot;&#39;.expand(&quot;%&
         <item>
             <title><![CDATA[Vim映射Home键到首个非空字符]]></title>
             <link>https://hotoo.co/blog/post/map-home-key-for-vim</link>
-            <guid>163</guid>
+            <guid>164</guid>
             <pubDate>Thu, 22 Oct 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="vim映射home键到首个非空字符">Vim映射Home键到首个非空字符<a aria-hidden="true" href="#vim映射home键到首个非空字符">#</a></h1>
 <p>许多编辑器有相关选项，可以直接设置让 <code>&lt;Home&gt;</code> 键在首个非空字符和行首之间跳转。</p>
@@ -6128,7 +6128,7 @@ vmap &lt;silent&gt; &lt;End&gt; :call EndBind(0)&lt;cr&gt;
         <item>
             <title><![CDATA[asx snippets for vim]]></title>
             <link>https://hotoo.co/blog/post/asx-snippets-for-vim</link>
-            <guid>164</guid>
+            <guid>165</guid>
             <pubDate>Tue, 20 Oct 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="asx-snippets-for-vim">asx snippets for vim<a aria-hidden="true" href="#asx-snippets-for-vim">#</a></h1>
 <p>前段时间写了个 asx (Windows Media Player 的播放列表格式) 的
@@ -6143,7 +6143,7 @@ vmap &lt;silent&gt; &lt;End&gt; :call EndBind(0)&lt;cr&gt;
         <item>
             <title><![CDATA[配置 Vim 作为 C++ 开发环境初步]]></title>
             <link>https://hotoo.co/blog/post/vim-for-cpp-dev</link>
-            <guid>165</guid>
+            <guid>166</guid>
             <pubDate>Mon, 19 Oct 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="配置-vim-作为-c-开发环境初步">配置 Vim 作为 C++ 开发环境初步<a aria-hidden="true" href="#配置-vim-作为-c-开发环境初步">#</a></h1>
 <p>一般来说，如果你使用 Vim 开发完整的项目，使用 Makefile 并直接 <code>:make</code> 就可以了。</p>
@@ -6178,7 +6178,7 @@ map &lt;F7&gt; :cp&lt;CR&gt;
         <item>
             <title><![CDATA[Vim 字体设置]]></title>
             <link>https://hotoo.co/blog/post/vim-fonts</link>
-            <guid>166</guid>
+            <guid>167</guid>
             <pubDate>Mon, 14 Sep 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="vim-字体设置">Vim 字体设置<a aria-hidden="true" href="#vim-字体设置">#</a></h1>
 <p>明城有 “<a href="https://www.gracecode.com/archives/1545/" target="_blank" rel="noopener noreferrer">苹果的 Courier 字体不错</a>”
@@ -6240,7 +6240,7 @@ map &lt;F7&gt; :cp&lt;CR&gt;
         <item>
             <title><![CDATA[让 gvim 访问网络资源]]></title>
             <link>https://hotoo.co/blog/post/let-vim-to-access-remove-resources</link>
-            <guid>167</guid>
+            <guid>168</guid>
             <pubDate>Sat, 12 Sep 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="让-gvim-访问网络资源">让 gvim 访问网络资源<a aria-hidden="true" href="#让-gvim-访问网络资源">#</a></h1>
 <p>当我还是 Vim 超级菜鸟的时候，我就知道 Vim 可以和 Editplus、UltraEdit 一样，
@@ -6288,7 +6288,7 @@ Hit any key to close this window...
         <item>
             <title><![CDATA[谦逊]]></title>
             <link>https://hotoo.co/blog/post/humility</link>
-            <guid>168</guid>
+            <guid>169</guid>
             <pubDate>Tue, 08 Sep 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="谦逊">谦逊<a aria-hidden="true" href="#谦逊">#</a></h1>
 <p>谦逊，刚回家路上想起这个词。</p>
@@ -6357,7 +6357,7 @@ Hit any key to close this window...
         <item>
             <title><![CDATA[老家的粳米茶]]></title>
             <link>https://hotoo.co/blog/post/jingmi-tea</link>
-            <guid>169</guid>
+            <guid>170</guid>
             <pubDate>Sat, 05 Sep 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="老家的粳米茶">老家的粳米茶<a aria-hidden="true" href="#老家的粳米茶">#</a></h1>
 <p>\n</p>
@@ -6388,7 +6388,7 @@ Hit any key to close this window...
         <item>
             <title><![CDATA[使用 Vim 查看 HTML 源码]]></title>
             <link>https://hotoo.co/blog/post/use-vim-view-html-src</link>
-            <guid>170</guid>
+            <guid>172</guid>
             <pubDate>Sat, 05 Sep 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="使用-vim-查看-html-源码">使用 Vim 查看 HTML 源码<a aria-hidden="true" href="#使用-vim-查看-html-源码">#</a></h1>
 <p>收集到一些修改浏览器 html编辑器，用vim从浏览器查看源代码的方法，其中有一些是较佳的解决方法，
@@ -6484,7 +6484,7 @@ jQuery, Apple, Game,涉猎广泛.
         <item>
             <title><![CDATA[疯狂的性能]]></title>
             <link>https://hotoo.co/blog/post/crazy-performance</link>
-            <guid>172</guid>
+            <guid>173</guid>
             <pubDate>Sun, 23 Aug 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="疯狂的性能">疯狂的性能<a aria-hidden="true" href="#疯狂的性能">#</a></h1>
 <blockquote>
@@ -6511,7 +6511,7 @@ jQuery, Apple, Game,涉猎广泛.
         <item>
             <title><![CDATA[菜单项图标]]></title>
             <link>https://hotoo.co/blog/post/menu-item-icons</link>
-            <guid>173</guid>
+            <guid>174</guid>
             <pubDate>Sun, 16 Aug 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="菜单项图标">菜单项图标<a aria-hidden="true" href="#菜单项图标">#</a></h1>
 <p>新装的Windows 7总有一些因为暂时不习惯或无知而遇到的问题，例如网络链接就经常出问题，
@@ -6531,7 +6531,7 @@ jQuery, Apple, Game,涉猎广泛.
         <item>
             <title><![CDATA[CSS字体中文、英文、Unicode名对照表]]></title>
             <link>https://hotoo.co/blog/post/css-names-with-cn-en-unicode</link>
-            <guid>174</guid>
+            <guid>175</guid>
             <pubDate>Fri, 14 Aug 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="css字体中文英文unicode名对照表">CSS字体中文、英文、Unicode名对照表<a aria-hidden="true" href="#css字体中文英文unicode名对照表">#</a></h1>
 <p>\n</p>
@@ -6552,7 +6552,7 @@ jQuery, Apple, Game,涉猎广泛.
         <item>
             <title><![CDATA[重复的书签]]></title>
             <link>https://hotoo.co/blog/post/duplicate-bookmarks</link>
-            <guid>175</guid>
+            <guid>176</guid>
             <pubDate>Fri, 14 Aug 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="重复的书签">重复的书签<a aria-hidden="true" href="#重复的书签">#</a></h1>
 <p>项目需求要做一个收藏夹，供用户收藏项目中的功能点。开发人员先给了个初步的设计文稿，
@@ -6601,7 +6601,7 @@ jQuery, Apple, Game,涉猎广泛.
         <item>
             <title><![CDATA[未来的前端设计]]></title>
             <link>https://hotoo.co/blog/post/web-design-for-feature</link>
-            <guid>176</guid>
+            <guid>177</guid>
             <pubDate>Wed, 12 Aug 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="未来的前端设计">未来的前端设计<a aria-hidden="true" href="#未来的前端设计">#</a></h1>
 <p>今天基本完成了用户首页，用户可以拖放管理自定义布局
@@ -6635,7 +6635,7 @@ jQuery, Apple, Game,涉猎广泛.
         <item>
             <title><![CDATA[论广告窗口的弹出]]></title>
             <link>https://hotoo.co/blog/post/talk-about-popup-window</link>
-            <guid>177</guid>
+            <guid>178</guid>
             <pubDate>Fri, 07 Aug 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="论广告窗口的弹出">论广告窗口的弹出<a aria-hidden="true" href="#论广告窗口的弹出">#</a></h1>
 <p>弹窗广告，这（和页面漂浮广告）是上个世纪用的最频繁的广告方式，这种广告之所以“流行”，
@@ -6685,7 +6685,7 @@ Macji: 我会写信给 chinalist 给出禁用弹窗的解决方案</p>
         <item>
             <title><![CDATA[搜索的体验]]></title>
             <link>https://hotoo.co/blog/post/search-expreience</link>
-            <guid>178</guid>
+            <guid>179</guid>
             <pubDate>Wed, 29 Jul 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="搜索的体验">搜索的体验<a aria-hidden="true" href="#搜索的体验">#</a></h1>
 <p>准备升级博客模板，用js提供高级特性，比如和vim类似的键盘命令模式，和内联搜索模式。
@@ -6705,7 +6705,7 @@ Macji: 我会写信给 chinalist 给出禁用弹窗的解决方案</p>
         <item>
             <title><![CDATA[右键菜单的细节]]></title>
             <link>https://hotoo.co/blog/post/particulars-of-right-click-menu</link>
-            <guid>179</guid>
+            <guid>180</guid>
             <pubDate>Mon, 27 Jul 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="右键菜单的细节">右键菜单的细节<a aria-hidden="true" href="#右键菜单的细节">#</a></h1>
 <p>在 Web 客户端编程中，绑定 JavaScript 的 contextmenu 事件来驱动触发自定义右键菜单，
@@ -6738,7 +6738,7 @@ Macji: 我会写信给 chinalist 给出禁用弹窗的解决方案</p>
         <item>
             <title><![CDATA[引导用户升级/切换浏览器]]></title>
             <link>https://hotoo.co/blog/post/upgrad-your-browser</link>
-            <guid>180</guid>
+            <guid>186</guid>
             <pubDate>Sun, 26 Jul 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="引导用户升级切换浏览器">引导用户升级/切换浏览器<a aria-hidden="true" href="#引导用户升级切换浏览器">#</a></h1>
 <p>\n</p>
@@ -6780,7 +6780,7 @@ Macji: 我会写信给 chinalist 给出禁用弹窗的解决方案</p>
         <item>
             <title><![CDATA[編輯器之神]]></title>
             <link>https://hotoo.co/blog/post/the-god-of-editor</link>
-            <guid>181</guid>
+            <guid>211</guid>
             <pubDate>Fri, 24 Jul 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="編輯器之神">編輯器之神<a aria-hidden="true" href="#編輯器之神">#</a></h1>
 <p>最初的时候我一直使用 <a href="https://www.editplus.com/" target="_blank" rel="noopener noreferrer">Editplus</a>，这是一款轻量级，
@@ -6861,7 +6861,7 @@ Eclipse 和 Vim 的扩展性较强。
         <item>
             <title><![CDATA[未知选项的表单设计]]></title>
             <link>https://hotoo.co/blog/post/form-design-for-unknow-options</link>
-            <guid>211</guid>
+            <guid>184</guid>
             <pubDate>Sat, 09 May 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="未知选项的表单设计">未知选项的表单设计<a aria-hidden="true" href="#未知选项的表单设计">#</a></h1>
 <p>发现许多的注册表单设计中，性别部分的设计大都这样：使用单选按钮（radio）
@@ -6886,7 +6886,7 @@ yummy有一篇文章《<a href="https://www.yummyux.com/?p=366" target="_blank" 
         <item>
             <title><![CDATA[状态模式]]></title>
             <link>https://hotoo.co/blog/post/status-pattern</link>
-            <guid>210</guid>
+            <guid>183</guid>
             <pubDate>Fri, 08 May 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="状态模式">状态模式<a aria-hidden="true" href="#状态模式">#</a></h1>
 <p>现有的IM软件都有状态设置功能，常见的默认状态有：在线，忙碌，离开，隐身，离线，
@@ -6921,7 +6921,7 @@ Smartphone上有各种“情景模式”，如普通，静音，会议，室外�
         <item>
             <title><![CDATA[标签模式]]></title>
             <link>https://hotoo.co/blog/post/tags-pattern</link>
-            <guid>184</guid>
+            <guid>185</guid>
             <pubDate>Sat, 02 May 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="标签模式">标签模式<a aria-hidden="true" href="#标签模式">#</a></h1>
 <p>目前的标签有以下几种模式(形式)：</p>
@@ -6963,7 +6963,7 @@ Smartphone上有各种“情景模式”，如普通，静音，会议，室外�
         <item>
             <title><![CDATA[关于面包屑导航]]></title>
             <link>https://hotoo.co/blog/post/crumb-navigation</link>
-            <guid>185</guid>
+            <guid>187</guid>
             <pubDate>Sun, 19 Apr 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="关于面包屑导航">关于面包屑导航<a aria-hidden="true" href="#关于面包屑导航">#</a></h1>
 <p>一直都很喜欢 <a href="https://blog.rexsong.com/" target="_blank" rel="noopener noreferrer">千鸟志</a> 的标题面包屑导航方式，
@@ -6983,7 +6983,7 @@ Smartphone上有各种“情景模式”，如普通，静音，会议，室外�
         <item>
             <title><![CDATA[改进的菜单按钮]]></title>
             <link>https://hotoo.co/blog/post/menu-button-improved</link>
-            <guid>186</guid>
+            <guid>188</guid>
             <pubDate>Fri, 17 Apr 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="改进的菜单按钮">改进的菜单按钮<a aria-hidden="true" href="#改进的菜单按钮">#</a></h1>
 <p>一直想写关于菜单按钮的设计，但是太懒惰的原因，老是拖着不做。当然今天也没勤快到哪里去，
@@ -7003,7 +7003,7 @@ Smartphone上有各种“情景模式”，如普通，静音，会议，室外�
         <item>
             <title><![CDATA[如何削铅笔]]></title>
             <link>https://hotoo.co/blog/post/how-to-peel-pencil</link>
-            <guid>187</guid>
+            <guid>189</guid>
             <pubDate>Tue, 14 Apr 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="如何削铅笔">如何削铅笔<a aria-hidden="true" href="#如何削铅笔">#</a></h1>
 <p>看了 <a href="https://www.junchenwu.com/" target="_blank" rel="noopener noreferrer">JunChen</a> 翻译的
@@ -7034,7 +7034,7 @@ p.s. 2. 文具店的阿姨也在讲求用户体验呢，正准备装修外面的
         <item>
             <title><![CDATA[电梯按钮设计]]></title>
             <link>https://hotoo.co/blog/post/lift-button-design</link>
-            <guid>188</guid>
+            <guid>190</guid>
             <pubDate>Wed, 08 Apr 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="电梯按钮设计">电梯按钮设计<a aria-hidden="true" href="#电梯按钮设计">#</a></h1>
 <p>\n 外面选择“上”或“下”的按钮换成“开门”，这样外面也可以中断自动关闭的电梯门，
@@ -7052,7 +7052,7 @@ p.s. 2. 文具店的阿姨也在讲求用户体验呢，正准备装修外面的
         <item>
             <title><![CDATA[笔试后双方最好能当面讨论题解]]></title>
             <link>https://hotoo.co/blog/post/after-written-examination</link>
-            <guid>189</guid>
+            <guid>191</guid>
             <pubDate>Thu, 26 Mar 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="笔试后双方最好能当面讨论题解">笔试后双方最好能当面讨论题解<a aria-hidden="true" href="#笔试后双方最好能当面讨论题解">#</a></h1>
 <p>最近有好几次进阿里集团的笔试经验，有一个小体会：笔试后招聘方和应聘方最好能一起交流讨论题解
@@ -7120,7 +7120,7 @@ p.s. 2. 文具店的阿姨也在讲求用户体验呢，正准备装修外面的
         <item>
             <title><![CDATA[由邮件排序想到的]]></title>
             <link>https://hotoo.co/blog/post/idea-from-email-srot</link>
-            <guid>190</guid>
+            <guid>192</guid>
             <pubDate>Sun, 15 Mar 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="由邮件排序想到的">由邮件排序想到的<a aria-hidden="true" href="#由邮件排序想到的">#</a></h1>
 <p>目前的电子邮件系统，均是使用倒序列出邮件列表，最新的邮件总是在第一封。
@@ -7158,7 +7158,7 @@ p.s. 2. 文具店的阿姨也在讲求用户体验呢，正准备装修外面的
         <item>
             <title><![CDATA[让对方介绍一下工作的情况，对方对现在的工作有什么看法。]]></title>
             <link>https://hotoo.co/blog/post/after-nterview</link>
-            <guid>191</guid>
+            <guid>193</guid>
             <pubDate>Tue, 10 Mar 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="淘宝应聘后记">淘宝应聘后记<a aria-hidden="true" href="#淘宝应聘后记">#</a></h1>
 <p>前段时间在北京做项目，期间看到一篇关于
@@ -7213,7 +7213,7 @@ Sent from: Hangzhou 33 China.</p>
         <item>
             <title><![CDATA[JavaScript 无块级作用域]]></title>
             <link>https://hotoo.co/blog/post/javascript-vars-scope</link>
-            <guid>192</guid>
+            <guid>194</guid>
             <pubDate>Tue, 06 Jan 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="javascript-无块级作用域">JavaScript 无块级作用域<a aria-hidden="true" href="#javascript-无块级作用域">#</a></h1>
 <p>最近在做一系列JavaScript压缩工具，语法压缩，语义压缩，字符串压缩均有涉及（p.s.有趣的是，
@@ -7445,7 +7445,7 @@ try{alert(v0b);}catch(e){document.write((e.message||e)+&quot;&lt;br /&gt;&quot;)
         <item>
             <title><![CDATA[尊严]]></title>
             <link>https://hotoo.co/blog/post/dignity</link>
-            <guid>193</guid>
+            <guid>195</guid>
             <pubDate>Fri, 02 Jan 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="尊严">尊严<a aria-hidden="true" href="#尊严">#</a></h1>
 <p>\n</p>
@@ -7466,7 +7466,7 @@ try{alert(v0b);}catch(e){document.write((e.message||e)+&quot;&lt;br /&gt;&quot;)
         <item>
             <title><![CDATA[开放篮球场地.地标工程]]></title>
             <link>https://hotoo.co/blog/post/open-basketball-field</link>
-            <guid>194</guid>
+            <guid>196</guid>
             <pubDate>Fri, 02 Jan 2009 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="开放篮球场地地标工程">开放篮球场地.地标工程<a aria-hidden="true" href="#开放篮球场地地标工程">#</a></h1>
 <p>作为业余篮球爱好者，作为他乡游子，每到一个陌生的地方，都想尽快找到一个能施展球技、
@@ -7506,7 +7506,7 @@ try{alert(v0b);}catch(e){document.write((e.message||e)+&quot;&lt;br /&gt;&quot;)
         <item>
             <title><![CDATA[Javascript String 方法效率大比拼]]></title>
             <link>https://hotoo.co/blog/post/javascript-string</link>
-            <guid>195</guid>
+            <guid>197</guid>
             <pubDate>Mon, 29 Dec 2008 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="javascript-string-方法效率大比拼">Javascript String 方法效率大比拼<a aria-hidden="true" href="#javascript-string-方法效率大比拼">#</a></h1>
 <p>最初是通过 <a href="https://blog.csdn.net/meizz" target="_blank" rel="noopener noreferrer">梅子</a>（<a href="https://www.meizz.com/" target="_blank" rel="noopener noreferrer">梅花雪</a>）
@@ -7677,7 +7677,7 @@ replace方法（II）快，而使用正则表达式match方法（IV）又比repl
         <item>
             <title><![CDATA[汉化Family Tree Builder]]></title>
             <link>https://hotoo.co/blog/post/chinese-localization-family-tree</link>
-            <guid>196</guid>
+            <guid>198</guid>
             <pubDate>Fri, 21 Nov 2008 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="汉化family-tree-builder">汉化Family Tree Builder<a aria-hidden="true" href="#汉化family-tree-builder">#</a></h1>
 <p>前文有言 <a href="family%5Cntree%5Cnbuilder%5Cnprofessional%5Cngenealgy%5Cnsoftware.md">理想的族谱软件Family Tree Builder</a> 说虽有中文站，
@@ -7704,7 +7704,7 @@ replace方法（II）快，而使用正则表达式match方法（IV）又比repl
         <item>
             <title><![CDATA[Family Tree Builder:理想的族谱/家谱软件]]></title>
             <link>https://hotoo.co/blog/post/family-tree-builder-professional-genealgy-software</link>
-            <guid>197</guid>
+            <guid>199</guid>
             <pubDate>Sat, 15 Nov 2008 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="family-tree-builder理想的族谱家谱软件">Family Tree Builder:理想的族谱/家谱软件<a aria-hidden="true" href="#family-tree-builder理想的族谱家谱软件">#</a></h1>
 <p>去年春节回家，老爸让我把家谱（族谱）放到电脑上，但当时家里不能上网，
@@ -7747,7 +7747,7 @@ replace方法（II）快，而使用正则表达式match方法（IV）又比repl
         <item>
             <title><![CDATA[Firefox本地化及其切换]]></title>
             <link>https://hotoo.co/blog/post/firefox-localization</link>
-            <guid>198</guid>
+            <guid>200</guid>
             <pubDate>Fri, 14 Nov 2008 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="firefox本地化及其切换">Firefox本地化及其切换<a aria-hidden="true" href="#firefox本地化及其切换">#</a></h1>
 <p>昨天用Firefox内置的下载管理器下载一个较大的文件，而且新搬来这边的网速慢到让我想起
@@ -7788,7 +7788,7 @@ replace方法（II）快，而使用正则表达式match方法（IV）又比repl
         <item>
             <title><![CDATA[PANDA-glGo，完美的围棋软件]]></title>
             <link>https://hotoo.co/blog/post/panda-glgo-the-perfect-igo</link>
-            <guid>199</guid>
+            <guid>201</guid>
             <pubDate>Fri, 24 Oct 2008 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="panda-glgo完美的围棋软件">PANDA-glGo，完美的围棋软件<a aria-hidden="true" href="#panda-glgo完美的围棋软件">#</a></h1>
 <p>我的围棋水平虽然很差，但是这一点也不影响我对围棋的喜爱程度。
@@ -7814,7 +7814,7 @@ replace方法（II）快，而使用正则表达式match方法（IV）又比repl
         <item>
             <title><![CDATA[电子图书管理软件幻想]]></title>
             <link>https://hotoo.co/blog/post/dream-for-ebooks-manager</link>
-            <guid>200</guid>
+            <guid>202</guid>
             <pubDate>Wed, 15 Oct 2008 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="电子图书管理软件幻想">电子图书管理软件幻想<a aria-hidden="true" href="#电子图书管理软件幻想">#</a></h1>
 <p>一直以来，稍微好点的电子图书管理软件是特别的少，而做很不错的更是少之又少，
@@ -7862,7 +7862,7 @@ ISBN等信息存储在图书属性中，这方面难道没有对应的规范，�
         <item>
             <title><![CDATA[同步Web客户端的时间]]></title>
             <link>https://hotoo.co/blog/post/correct-web-client-datetime</link>
-            <guid>201</guid>
+            <guid>203</guid>
             <pubDate>Mon, 01 Sep 2008 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="同步web客户端的时间">同步Web客户端的时间<a aria-hidden="true" href="#同步web客户端的时间">#</a></h1>
 <p>富客户端应用的普遍流行，许多操作直接在客户端完成，而一些跟时间相关的操作，
@@ -7901,7 +7901,7 @@ ISBN等信息存储在图书属性中，这方面难道没有对应的规范，�
         <item>
             <title><![CDATA[Rating for Foobar2000 columns UI]]></title>
             <link>https://hotoo.co/blog/post/rating-for-foobar2000-columns-ui</link>
-            <guid>202</guid>
+            <guid>204</guid>
             <pubDate>Thu, 14 Aug 2008 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="rating-for-foobar2000-columns-ui">Rating for Foobar2000 columns UI<a aria-hidden="true" href="#rating-for-foobar2000-columns-ui">#</a></h1>
 <p>给 Foobar2000 的 Columns UI 设置标星功能：</p>
@@ -7956,7 +7956,7 @@ Command中选择“标签/脚本/rating++”。OK保存后回到Command picker�
         <item>
             <title><![CDATA[IM 软件互联畅想]]></title>
             <link>https://hotoo.co/blog/post/dream-for-im</link>
-            <guid>203</guid>
+            <guid>205</guid>
             <pubDate>Sun, 03 Aug 2008 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="im-软件互联畅想">IM 软件互联畅想<a aria-hidden="true" href="#im-软件互联畅想">#</a></h1>
 <p>现在的IM软件（如QQ, MSN, Gtalk...）都有各种支持的新邮件，日志/博客更新及
@@ -7984,7 +7984,7 @@ Command中选择“标签/脚本/rating++”。OK保存后回到Command picker�
         <item>
             <title><![CDATA[参考]]></title>
             <link>https://hotoo.co/blog/post/factorial-recursion</link>
-            <guid>204</guid>
+            <guid>206</guid>
             <pubDate>Tue, 08 Apr 2008 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="阶乘factorial--尾递归tail-recursion">阶乘(factorial) & 尾递归(Tail Recursion)<a aria-hidden="true" href="#阶乘factorial--尾递归tail-recursion">#</a></h1>
 <p>\n</p>
@@ -8029,7 +8029,7 @@ Command中选择“标签/脚本/rating++”。OK保存后回到Command picker�
         <item>
             <title><![CDATA[正则表达式拼接和构建零长度对象]]></title>
             <link>https://hotoo.co/blog/post/regexp-and-zero-width-object</link>
-            <guid>205</guid>
+            <guid>207</guid>
             <pubDate>Mon, 31 Mar 2008 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="正则表达式拼接和构建零长度对象">正则表达式拼接和构建零长度对象<a aria-hidden="true" href="#正则表达式拼接和构建零长度对象">#</a></h1>
 <p>之前在网上收集到一个正则表达式拼接的方法/函数，一直没有注意，直到昨天用 jsdoc
@@ -8101,7 +8101,7 @@ document.write(d+&quot;:&quot;+d2);
         <item>
             <title><![CDATA[手机卡的自白]]></title>
             <link>https://hotoo.co/blog/post/the-card-in-mobile-phone</link>
-            <guid>206</guid>
+            <guid>208</guid>
             <pubDate>Tue, 29 May 2007 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="手机卡的自白">手机卡的自白<a aria-hidden="true" href="#手机卡的自白">#</a></h1>
 <p>唉！老天何其不公！身为一张移动手机卡生在这个时代何错之有？！
@@ -8118,7 +8118,7 @@ document.write(d+&quot;:&quot;+d2);
         <item>
             <title><![CDATA[陀螺]]></title>
             <link>https://hotoo.co/blog/post/top</link>
-            <guid>207</guid>
+            <guid>209</guid>
             <pubDate>Sun, 01 Feb 2004 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h1 id="陀螺">陀螺<a aria-hidden="true" href="#陀螺">#</a></h1>
 <p>在被抽打中不羁执着，<br></br>
